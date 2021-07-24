@@ -3,9 +3,10 @@ package nsresolver
 
 import (
 	"errors"
+	"strings"
+
 	"github.com/z7zmey/php-parser/pkg/ast"
 	"github.com/z7zmey/php-parser/pkg/visitor"
-	"strings"
 )
 
 // NamespaceResolver visitor

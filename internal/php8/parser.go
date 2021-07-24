@@ -14,7 +14,7 @@ type Parser struct {
 	currentToken   *token.Token
 	rootNode       ast.Vertex
 	errHandlerFunc func(*errors.Error)
-	builder        *position.Builder
+	builder        *Builder
 }
 
 // NewParser creates and returns new Parser
@@ -22,7 +22,7 @@ func NewParser(lexer *Lexer, config conf.Config) *Parser {
 	return &Parser{
 		Lexer:          lexer,
 		errHandlerFunc: config.ErrorHandlerFunc,
-		builder:        position.NewBuilder(),
+		builder:        NewBuilder(position.NewBuilder()),
 	}
 }
 

@@ -1581,3 +1581,18 @@ func TestParseAndPrintComplexString4PHP8(t *testing.T) {
 		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
 	}
 }
+
+func TestParseAndPrintNullsafePHP8(t *testing.T) {
+	src := `<?php
+$a?->method();
+$a?->prop;
+"$a?->prop_inside_string";
+(f())?->prop_for_expr;
+	`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}

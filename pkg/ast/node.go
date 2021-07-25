@@ -1515,6 +1515,28 @@ func (n *ExprMethodCall) GetPosition() *position.Position {
 	return n.Position
 }
 
+// ExprNullsafeMethodCall node is $a?->methodName()
+type ExprNullsafeMethodCall struct {
+	Position             *position.Position
+	Var                  Vertex
+	ObjectOperatorTkn    *token.Token
+	OpenCurlyBracketTkn  *token.Token
+	Method               Vertex
+	CloseCurlyBracketTkn *token.Token
+	OpenParenthesisTkn   *token.Token
+	Args                 []Vertex
+	SeparatorTkns        []*token.Token
+	CloseParenthesisTkn  *token.Token
+}
+
+func (n *ExprNullsafeMethodCall) Accept(v Visitor) {
+	v.ExprNullsafeMethodCall(n)
+}
+
+func (n *ExprNullsafeMethodCall) GetPosition() *position.Position {
+	return n.Position
+}
+
 // ExprNew node
 type ExprNew struct {
 	Position            *position.Position
@@ -1624,6 +1646,24 @@ func (n *ExprPropertyFetch) Accept(v Visitor) {
 }
 
 func (n *ExprPropertyFetch) GetPosition() *position.Position {
+	return n.Position
+}
+
+// ExprNullsafePropertyFetch node
+type ExprNullsafePropertyFetch struct {
+	Position             *position.Position
+	Var                  Vertex
+	ObjectOperatorTkn    *token.Token
+	OpenCurlyBracketTkn  *token.Token
+	Prop                 Vertex
+	CloseCurlyBracketTkn *token.Token
+}
+
+func (n *ExprNullsafePropertyFetch) Accept(v Visitor) {
+	v.ExprNullsafePropertyFetch(n)
+}
+
+func (n *ExprNullsafePropertyFetch) GetPosition() *position.Position {
 	return n.Position
 }
 

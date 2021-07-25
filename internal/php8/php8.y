@@ -154,6 +154,7 @@ import (
 %token <token> T_IS_NOT_EQUAL
 %token <token> T_IS_SMALLER_OR_EQUAL
 %token <token> T_IS_GREATER_OR_EQUAL
+%token <token> T_NULLSAFE_OBJECT_OPERATOR
 %token <token> '"'
 %token <token> '`'
 %token <token> '{'
@@ -3808,24 +3809,11 @@ callable_variable:
             }
     |   dereferencable T_OBJECT_OPERATOR property_name argument_list
             {
-                methodCall := &ast.ExprMethodCall{
-                    Position: yylex.(*Parser).builder.Pos.NewNodesPosition($1, $4),
-                    Var:                 $1,
-                    ObjectOperatorTkn:   $2,
-                    Method:              $3,
-                    OpenParenthesisTkn:  $4.(*ArgumentList).OpenParenthesisTkn,
-                    Args:                $4.(*ArgumentList).Arguments,
-                    SeparatorTkns:       $4.(*ArgumentList).SeparatorTkns,
-                    CloseParenthesisTkn: $4.(*ArgumentList).CloseParenthesisTkn,
-                }
-
-                if brackets, ok := $3.(*ParserBrackets); ok {
-                    methodCall.OpenCurlyBracketTkn  = brackets.OpenBracketTkn
-                    methodCall.Method               = brackets.Child
-                    methodCall.CloseCurlyBracketTkn = brackets.CloseBracketTkn
-                }
-
-                $$ = methodCall
+            	$$ = yylex.(*Parser).builder.NewMethodCall($1, $2, $3, $4)
+            }
+    |   dereferencable T_NULLSAFE_OBJECT_OPERATOR property_name argument_list
+            {
+            	$$ = yylex.(*Parser).builder.NewNullsafeMethodCall($1, $2, $3, $4)
             }
     |   function_call
             {
@@ -3844,20 +3832,11 @@ variable:
             }
     |   dereferencable T_OBJECT_OPERATOR property_name
             {
-                propertyFetch := &ast.ExprPropertyFetch{
-                    Position: yylex.(*Parser).builder.Pos.NewNodesPosition($1, $3),
-                    Var:               $1,
-                    ObjectOperatorTkn: $2,
-                    Prop:              $3,
-                }
-
-                if brackets, ok := $3.(*ParserBrackets); ok {
-                    propertyFetch.OpenCurlyBracketTkn  = brackets.OpenBracketTkn
-                    propertyFetch.Prop                 = brackets.Child
-                    propertyFetch.CloseCurlyBracketTkn = brackets.CloseBracketTkn
-                }
-
-                $$ = propertyFetch
+                $$ = yylex.(*Parser).builder.NewPropertyFetch($1, $2, $3)
+            }
+    |   dereferencable T_NULLSAFE_OBJECT_OPERATOR property_name
+            {
+                $$ = yylex.(*Parser).builder.NewNullsafePropertyFetch($1, $2, $3)
             }
 ;
 
@@ -3941,21 +3920,12 @@ new_variable:
             }
     |   new_variable T_OBJECT_OPERATOR property_name
             {
-                propertyFetch := &ast.ExprPropertyFetch{
-                    Position: yylex.(*Parser).builder.Pos.NewNodesPosition($1, $3),
-                    Var:               $1,
-                    ObjectOperatorTkn: $2,
-                    Prop:              $3,
-                }
-
-                if brackets, ok := $3.(*ParserBrackets); ok {
-                    propertyFetch.OpenCurlyBracketTkn  = brackets.OpenBracketTkn
-                    propertyFetch.Prop                 = brackets.Child
-                    propertyFetch.CloseCurlyBracketTkn = brackets.CloseBracketTkn
-                }
-
-                $$ = propertyFetch
+                $$ = yylex.(*Parser).builder.NewPropertyFetch($1, $2, $3)
             }
+    |   new_variable T_NULLSAFE_OBJECT_OPERATOR property_name
+           {
+               $$ = yylex.(*Parser).builder.NewNullsafePropertyFetch($1, $2, $3)
+           }
     |   class_name T_PAAMAYIM_NEKUDOTAYIM simple_variable
             {
                 $$ = &ast.ExprStaticPropertyFetch{
@@ -4204,23 +4174,11 @@ encaps_var:
             }
     |   T_VARIABLE T_OBJECT_OPERATOR T_STRING
             {
-                $$ = &ast.ExprPropertyFetch{
-                    Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $3),
-                    Var: &ast.ExprVariable{
-                        Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                        Name: &ast.Identifier{
-                            Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                            IdentifierTkn: $1,
-                            Value:         $1.Value,
-                        },
-                    },
-                    ObjectOperatorTkn: $2,
-                    Prop: &ast.Identifier{
-                        Position: yylex.(*Parser).builder.Pos.NewTokenPosition($3),
-                        IdentifierTkn: $3,
-                        Value:         $3.Value,
-                    },
-                }
+                $$ = yylex.(*Parser).builder.NewPropertyFetchFromTokens($1, $2, $3)
+            }
+    |   T_VARIABLE T_NULLSAFE_OBJECT_OPERATOR T_STRING
+            {
+                $$ = yylex.(*Parser).builder.NewNullsafePropertyFetchFromTokens($1, $2, $3)
             }
     |   T_DOLLAR_OPEN_CURLY_BRACES expr '}'
             {

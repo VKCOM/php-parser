@@ -7,12 +7,13 @@ import (
 	"github.com/z7zmey/php-parser/pkg/token"
 )
 
-func TestMethodCallTokens(t *testing.T) {
+func TestNullsafeMethodCallTokens(t *testing.T) {
 	suite := tester.NewLexerTokenStringTestSuite(t)
-	suite.Code = "<?php $a->foo();"
+	suite.UsePHP8()
+	suite.Code = "<?php $a?->foo();"
 	suite.Expected = []string{
 		"$a",
-		"->",
+		"?->",
 		"foo",
 		"(",
 		")",
@@ -21,10 +22,39 @@ func TestMethodCallTokens(t *testing.T) {
 	suite.Run()
 }
 
-func TestMethodCallTokensFreeFloating(t *testing.T) {
+func TestNullsafePropertyFetchTokens(t *testing.T) {
+	suite := tester.NewLexerTokenStringTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = "<?php $a?->prop;"
+	suite.Expected = []string{
+		"$a",
+		"?->",
+		"prop",
+		";",
+	}
+	suite.Run()
+}
+
+func TestNullsafePropertyFetchInStringTokens(t *testing.T) {
+	suite := tester.NewLexerTokenStringTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = "<?php \"$a?->prop\";"
+	suite.Expected = []string{
+		"\"",
+		"$a",
+		"?->",
+		"prop",
+		"\"",
+		";",
+	}
+	suite.Run()
+}
+
+func TestNullsafeMethodCallTokensFreeFloating(t *testing.T) {
 	suite := tester.NewLexerTokenFreeFloatingTestSuite(t)
+	suite.UsePHP8()
 	suite.Code = `<?php
-	$a -> bar ( '' ) ;`
+	$a ?-> bar ( '' ) ;`
 
 	suite.Expected = [][]*token.Token{
 		{

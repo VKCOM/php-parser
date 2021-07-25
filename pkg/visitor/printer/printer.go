@@ -2,9 +2,10 @@ package printer
 
 import (
 	"bytes"
+	"io"
+
 	"github.com/z7zmey/php-parser/pkg/ast"
 	"github.com/z7zmey/php-parser/pkg/token"
-	"io"
 )
 
 type printerState int
@@ -770,6 +771,17 @@ func (p *printer) ExprMethodCall(n *ast.ExprMethodCall) {
 	p.printToken(n.CloseParenthesisTkn, []byte(")"))
 }
 
+func (p *printer) ExprNullsafeMethodCall(n *ast.ExprNullsafeMethodCall) {
+	p.printNode(n.Var)
+	p.printToken(n.ObjectOperatorTkn, []byte("?->"))
+	p.printToken(n.OpenCurlyBracketTkn, nil)
+	p.printNode(n.Method)
+	p.printToken(n.CloseCurlyBracketTkn, nil)
+	p.printToken(n.OpenParenthesisTkn, []byte("("))
+	p.printSeparatedList(n.Args, n.SeparatorTkns, []byte(","))
+	p.printToken(n.CloseParenthesisTkn, []byte(")"))
+}
+
 func (p *printer) ExprNew(n *ast.ExprNew) {
 	p.printToken(n.NewTkn, []byte("new"))
 	p.printNode(n.Class)
@@ -806,6 +818,14 @@ func (p *printer) ExprPrint(n *ast.ExprPrint) {
 func (p *printer) ExprPropertyFetch(n *ast.ExprPropertyFetch) {
 	p.printNode(n.Var)
 	p.printToken(n.ObjectOperatorTkn, []byte("->"))
+	p.printToken(n.OpenCurlyBracketTkn, nil)
+	p.printNode(n.Prop)
+	p.printToken(n.CloseCurlyBracketTkn, nil)
+}
+
+func (p *printer) ExprNullsafePropertyFetch(n *ast.ExprNullsafePropertyFetch) {
+	p.printNode(n.Var)
+	p.printToken(n.ObjectOperatorTkn, []byte("?->"))
 	p.printToken(n.OpenCurlyBracketTkn, nil)
 	p.printNode(n.Prop)
 	p.printToken(n.CloseCurlyBracketTkn, nil)

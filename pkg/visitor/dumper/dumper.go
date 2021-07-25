@@ -1,11 +1,12 @@
 package dumper
 
 import (
-	"github.com/z7zmey/php-parser/pkg/position"
-	"github.com/z7zmey/php-parser/pkg/token"
 	"io"
 	"strconv"
 	"strings"
+
+	"github.com/z7zmey/php-parser/pkg/position"
+	"github.com/z7zmey/php-parser/pkg/token"
 
 	"github.com/z7zmey/php-parser/pkg/ast"
 )
@@ -1307,6 +1308,25 @@ func (v *Dumper) ExprMethodCall(n *ast.ExprMethodCall) {
 	v.print(v.indent, "},\n")
 }
 
+func (v *Dumper) ExprNullsafeMethodCall(n *ast.ExprNullsafeMethodCall) {
+	v.print(0, "&ast.ExprNullsafeMethodCall{\n")
+	v.indent++
+
+	v.dumpPosition(n.Position)
+	v.dumpVertex("Var", n.Var)
+	v.dumpToken("ObjectOperatorTkn", n.ObjectOperatorTkn)
+	v.dumpToken("OpenCurlyBracketTkn", n.OpenCurlyBracketTkn)
+	v.dumpVertex("Method", n.Method)
+	v.dumpToken("CloseCurlyBracketTkn", n.CloseCurlyBracketTkn)
+	v.dumpToken("OpenParenthesisTkn", n.OpenParenthesisTkn)
+	v.dumpVertexList("Args", n.Args)
+	v.dumpTokenList("SeparatorTkns", n.SeparatorTkns)
+	v.dumpToken("CloseParenthesisTkn", n.CloseParenthesisTkn)
+
+	v.indent--
+	v.print(v.indent, "},\n")
+}
+
 func (v *Dumper) ExprNew(n *ast.ExprNew) {
 	v.print(0, "&ast.ExprNew{\n")
 	v.indent++
@@ -1385,6 +1405,21 @@ func (v *Dumper) ExprPrint(n *ast.ExprPrint) {
 
 func (v *Dumper) ExprPropertyFetch(n *ast.ExprPropertyFetch) {
 	v.print(0, "&ast.ExprPropertyFetch{\n")
+	v.indent++
+
+	v.dumpPosition(n.Position)
+	v.dumpVertex("Var", n.Var)
+	v.dumpToken("ObjectOperatorTkn", n.ObjectOperatorTkn)
+	v.dumpToken("OpenCurlyBracketTkn", n.OpenCurlyBracketTkn)
+	v.dumpVertex("Prop", n.Prop)
+	v.dumpToken("CloseCurlyBracketTkn", n.CloseCurlyBracketTkn)
+
+	v.indent--
+	v.print(v.indent, "},\n")
+}
+
+func (v *Dumper) ExprNullsafePropertyFetch(n *ast.ExprNullsafePropertyFetch) {
+	v.print(0, "&ast.ExprNullsafePropertyFetch{\n")
 	v.indent++
 
 	v.dumpPosition(n.Position)

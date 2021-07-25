@@ -347,4 +347,10 @@ $foo->{$bar[0]};
 
 __halt_compiler();
 
+(new Foo)?->bar;
+(new Foo)?->bar();
+$foo?->$bar;
+$foo?->{$bar[0]};
+"{$foo?->{$bar[0]}}";
+
 parsing process must be terminated

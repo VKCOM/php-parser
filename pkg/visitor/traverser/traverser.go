@@ -628,6 +628,16 @@ func (t *Traverser) ExprMethodCall(n *ast.ExprMethodCall) {
 	}
 }
 
+func (t *Traverser) ExprNullsafeMethodCall(n *ast.ExprNullsafeMethodCall) {
+	n.Accept(t.v)
+
+	t.Traverse(n.Var)
+	t.Traverse(n.Method)
+	for _, nn := range n.Args {
+		nn.Accept(t)
+	}
+}
+
 func (t *Traverser) ExprNew(n *ast.ExprNew) {
 	n.Accept(t.v)
 
@@ -668,6 +678,13 @@ func (t *Traverser) ExprPrint(n *ast.ExprPrint) {
 }
 
 func (t *Traverser) ExprPropertyFetch(n *ast.ExprPropertyFetch) {
+	n.Accept(t.v)
+
+	t.Traverse(n.Var)
+	t.Traverse(n.Prop)
+}
+
+func (t *Traverser) ExprNullsafePropertyFetch(n *ast.ExprNullsafePropertyFetch) {
 	n.Accept(t.v)
 
 	t.Traverse(n.Var)

@@ -2,6 +2,7 @@ package formatter
 
 import (
 	"bytes"
+
 	"github.com/z7zmey/php-parser/pkg/ast"
 	"github.com/z7zmey/php-parser/pkg/token"
 )
@@ -1287,6 +1288,30 @@ func (f *formatter) ExprMethodCall(n *ast.ExprMethodCall) {
 	n.CloseParenthesisTkn = f.newToken(')', []byte(")"))
 }
 
+func (f *formatter) ExprNullsafeMethodCall(n *ast.ExprNullsafeMethodCall) {
+	n.Var.Accept(f)
+	n.ObjectOperatorTkn = f.newToken(token.T_NULLSAFE_OBJECT_OPERATOR, []byte("?->"))
+
+	n.OpenCurlyBracketTkn = nil
+	n.CloseCurlyBracketTkn = nil
+	switch n.Method.(type) {
+	case *ast.Identifier:
+	case *ast.ExprVariable:
+	default:
+		n.OpenCurlyBracketTkn = f.newToken('{', []byte("{"))
+		n.CloseCurlyBracketTkn = f.newToken('}', []byte("}"))
+	}
+
+	n.Method.Accept(f)
+
+	n.OpenParenthesisTkn = f.newToken('(', []byte("("))
+	n.SeparatorTkns = nil
+	if len(n.Args) > 0 {
+		n.SeparatorTkns = f.formatList(n.Args, ',')
+	}
+	n.CloseParenthesisTkn = f.newToken(')', []byte(")"))
+}
+
 func (f *formatter) ExprNew(n *ast.ExprNew) {
 	n.NewTkn = f.newToken(token.T_NEW, []byte("new"))
 	f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
@@ -1333,6 +1358,23 @@ func (f *formatter) ExprPrint(n *ast.ExprPrint) {
 func (f *formatter) ExprPropertyFetch(n *ast.ExprPropertyFetch) {
 	n.Var.Accept(f)
 	n.ObjectOperatorTkn = f.newToken(token.T_OBJECT_OPERATOR, []byte("->"))
+
+	n.OpenCurlyBracketTkn = nil
+	n.CloseCurlyBracketTkn = nil
+	switch n.Prop.(type) {
+	case *ast.Identifier:
+	case *ast.ExprVariable:
+	default:
+		n.OpenCurlyBracketTkn = f.newToken('{', []byte("{"))
+		n.CloseCurlyBracketTkn = f.newToken('}', []byte("}"))
+	}
+
+	n.Prop.Accept(f)
+}
+
+func (f *formatter) ExprNullsafePropertyFetch(n *ast.ExprNullsafePropertyFetch) {
+	n.Var.Accept(f)
+	n.ObjectOperatorTkn = f.newToken(token.T_NULLSAFE_OBJECT_OPERATOR, []byte("?->"))
 
 	n.OpenCurlyBracketTkn = nil
 	n.CloseCurlyBracketTkn = nil

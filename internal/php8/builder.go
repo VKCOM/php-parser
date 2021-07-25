@@ -36,3 +36,147 @@ func (b *Builder) AppendToSeparatedList(list ast.Vertex, tkn *token.Token, node 
 
 	return sepList
 }
+
+func (b *Builder) NewMethodCall(
+	Expr ast.Vertex,
+	ObjectOperatorTkn *token.Token,
+	PropertyName ast.Vertex,
+	ArgList ast.Vertex,
+) *ast.ExprMethodCall {
+	argumentList := ArgList.(*ArgumentList)
+	methodCall := &ast.ExprMethodCall{
+		Position:            b.Pos.NewNodesPosition(Expr, ArgList),
+		Var:                 Expr,
+		ObjectOperatorTkn:   ObjectOperatorTkn,
+		Method:              PropertyName,
+		OpenParenthesisTkn:  argumentList.OpenParenthesisTkn,
+		Args:                argumentList.Arguments,
+		SeparatorTkns:       argumentList.SeparatorTkns,
+		CloseParenthesisTkn: argumentList.CloseParenthesisTkn,
+	}
+
+	if brackets, ok := PropertyName.(*ParserBrackets); ok {
+		methodCall.OpenCurlyBracketTkn = brackets.OpenBracketTkn
+		methodCall.Method = brackets.Child
+		methodCall.CloseCurlyBracketTkn = brackets.CloseBracketTkn
+	}
+
+	return methodCall
+}
+
+func (b *Builder) NewNullsafeMethodCall(
+	Expr ast.Vertex,
+	ObjectOperatorTkn *token.Token,
+	PropertyName ast.Vertex,
+	ArgList ast.Vertex,
+) *ast.ExprNullsafeMethodCall {
+	argumentList := ArgList.(*ArgumentList)
+	methodCall := &ast.ExprNullsafeMethodCall{
+		Position:            b.Pos.NewNodesPosition(Expr, ArgList),
+		Var:                 Expr,
+		ObjectOperatorTkn:   ObjectOperatorTkn,
+		Method:              PropertyName,
+		OpenParenthesisTkn:  argumentList.OpenParenthesisTkn,
+		Args:                argumentList.Arguments,
+		SeparatorTkns:       argumentList.SeparatorTkns,
+		CloseParenthesisTkn: argumentList.CloseParenthesisTkn,
+	}
+
+	if brackets, ok := PropertyName.(*ParserBrackets); ok {
+		methodCall.OpenCurlyBracketTkn = brackets.OpenBracketTkn
+		methodCall.Method = brackets.Child
+		methodCall.CloseCurlyBracketTkn = brackets.CloseBracketTkn
+	}
+
+	return methodCall
+}
+
+func (b *Builder) NewPropertyFetch(
+	Expr ast.Vertex,
+	ObjectOperatorTkn *token.Token,
+	PropertyName ast.Vertex,
+) *ast.ExprPropertyFetch {
+	propertyFetch := &ast.ExprPropertyFetch{
+		Position:          b.Pos.NewNodesPosition(Expr, PropertyName),
+		Var:               Expr,
+		ObjectOperatorTkn: ObjectOperatorTkn,
+		Prop:              PropertyName,
+	}
+
+	if brackets, ok := PropertyName.(*ParserBrackets); ok {
+		propertyFetch.OpenCurlyBracketTkn = brackets.OpenBracketTkn
+		propertyFetch.Prop = brackets.Child
+		propertyFetch.CloseCurlyBracketTkn = brackets.CloseBracketTkn
+	}
+
+	return propertyFetch
+}
+
+func (b *Builder) NewPropertyFetchFromTokens(
+	VariableTkn *token.Token,
+	ObjectOperatorTkn *token.Token,
+	StringTkn *token.Token,
+) *ast.ExprPropertyFetch {
+	return &ast.ExprPropertyFetch{
+		Position: b.Pos.NewTokensPosition(VariableTkn, StringTkn),
+		Var: &ast.ExprVariable{
+			Position: b.Pos.NewTokenPosition(VariableTkn),
+			Name: &ast.Identifier{
+				Position:      b.Pos.NewTokenPosition(VariableTkn),
+				IdentifierTkn: VariableTkn,
+				Value:         VariableTkn.Value,
+			},
+		},
+		ObjectOperatorTkn: ObjectOperatorTkn,
+		Prop: &ast.Identifier{
+			Position:      b.Pos.NewTokenPosition(StringTkn),
+			IdentifierTkn: StringTkn,
+			Value:         StringTkn.Value,
+		},
+	}
+}
+
+func (b *Builder) NewNullsafePropertyFetch(
+	Expr ast.Vertex,
+	ObjectOperatorTkn *token.Token,
+	PropertyName ast.Vertex,
+) *ast.ExprNullsafePropertyFetch {
+	propertyFetch := &ast.ExprNullsafePropertyFetch{
+		Position:          b.Pos.NewNodesPosition(Expr, PropertyName),
+		Var:               Expr,
+		ObjectOperatorTkn: ObjectOperatorTkn,
+		Prop:              PropertyName,
+	}
+
+	if brackets, ok := PropertyName.(*ParserBrackets); ok {
+		propertyFetch.OpenCurlyBracketTkn = brackets.OpenBracketTkn
+		propertyFetch.Prop = brackets.Child
+		propertyFetch.CloseCurlyBracketTkn = brackets.CloseBracketTkn
+	}
+
+	return propertyFetch
+}
+
+func (b *Builder) NewNullsafePropertyFetchFromTokens(
+	VariableTkn *token.Token,
+	ObjectOperatorTkn *token.Token,
+	StringTkn *token.Token,
+) *ast.ExprNullsafePropertyFetch {
+	return &ast.ExprNullsafePropertyFetch{
+		Position: b.Pos.NewTokensPosition(VariableTkn, StringTkn),
+		Var: &ast.ExprVariable{
+			Position: b.Pos.NewTokenPosition(VariableTkn),
+			Name: &ast.Identifier{
+				Position:      b.Pos.NewTokenPosition(VariableTkn),
+				IdentifierTkn: VariableTkn,
+				Value:         VariableTkn.Value,
+			},
+		},
+		ObjectOperatorTkn: ObjectOperatorTkn,
+		Prop: &ast.Identifier{
+			Position:      b.Pos.NewTokenPosition(StringTkn),
+			IdentifierTkn: StringTkn,
+			Value:         StringTkn.Value,
+		},
+	}
+}

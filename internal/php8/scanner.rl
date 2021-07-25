@@ -345,6 +345,7 @@ func (lex *Lexer) Lex() *token.Token {
             varname      => { lex.setTokenPosition(tkn); tok = token.T_STRING;   fbreak; };
 
             "->"         => { lex.setTokenPosition(tkn); tok = token.T_OBJECT_OPERATOR; fnext property; fbreak; };
+            "?->"        => { lex.setTokenPosition(tkn); tok = token.T_NULLSAFE_OBJECT_OPERATOR; fnext property; fbreak; };
 
             constant_string => {
                 lex.setTokenPosition(tkn);
@@ -378,6 +379,7 @@ func (lex *Lexer) Lex() *token.Token {
         property := |*
             whitespace_line* => {lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)};
             "->"             => {lex.setTokenPosition(tkn); tok = token.T_OBJECT_OPERATOR; fbreak;};
+            "?->"            => {lex.setTokenPosition(tkn); tok = token.T_NULLSAFE_OBJECT_OPERATOR; fbreak;};
             varname          => {lex.setTokenPosition(tkn); tok = token.T_STRING; fnext php; fbreak;};
             any              => {lex.ungetCnt(1); fgoto php;};
         *|;
@@ -390,7 +392,7 @@ func (lex *Lexer) Lex() *token.Token {
                 fbreak;
             };
         *|;
-        
+
         heredoc := |*
             "{$" => {lex.ungetCnt(1); lex.setTokenPosition(tkn); tok = token.T_CURLY_OPEN; lex.call(ftargs, fentry(php)); goto _out;};
             "${" => {lex.setTokenPosition(tkn); tok = token.T_DOLLAR_OPEN_CURLY_BRACES; lex.call(ftargs, fentry(string_var_name)); goto _out;};
@@ -405,7 +407,7 @@ func (lex *Lexer) Lex() *token.Token {
                 fbreak;
             };
         *|;
-        
+
         backqote := |*
             "{$"              => {lex.ungetCnt(1); lex.setTokenPosition(tkn); tok = token.T_CURLY_OPEN; lex.call(ftargs, fentry(php)); goto _out;};
             "${"              => {lex.setTokenPosition(tkn); tok = token.T_DOLLAR_OPEN_CURLY_BRACES; lex.call(ftargs, fentry(string_var_name)); goto _out;};
@@ -417,7 +419,7 @@ func (lex *Lexer) Lex() *token.Token {
                 fbreak;
             };
         *|;
-        
+
         template_string := |*
             "{$"               => {lex.ungetCnt(1); lex.setTokenPosition(tkn); tok = token.T_CURLY_OPEN; lex.call(ftargs, fentry(php)); goto _out;};
             "${"               => {lex.setTokenPosition(tkn); tok = token.T_DOLLAR_OPEN_CURLY_BRACES; lex.call(ftargs, fentry(string_var_name)); goto _out;};
@@ -444,15 +446,16 @@ func (lex *Lexer) Lex() *token.Token {
                 fbreak;
             };
         *|;
-        
+
         string_var := |*
-            '$' varname        => {lex.setTokenPosition(tkn); tok = token.T_VARIABLE; fbreak;};
-            '->' varname_first => {lex.ungetCnt(1); lex.setTokenPosition(tkn); tok = token.T_OBJECT_OPERATOR; fbreak;};
-            varname            => {lex.setTokenPosition(tkn); tok = token.T_STRING; fbreak;};
-            '['                => {lex.setTokenPosition(tkn); tok = token.ID(int('[')); lex.call(ftargs, fentry(string_var_index)); goto _out;};
-            any                => {lex.ungetCnt(1); fret;};
+            '$' varname         => {lex.setTokenPosition(tkn); tok = token.T_VARIABLE; fbreak;};
+            '->' varname_first  => {lex.ungetCnt(1); lex.setTokenPosition(tkn); tok = token.T_OBJECT_OPERATOR; fbreak;};
+            '?->' varname_first => {lex.ungetCnt(1); lex.setTokenPosition(tkn); tok = token.T_NULLSAFE_OBJECT_OPERATOR; fbreak;};
+            varname             => {lex.setTokenPosition(tkn); tok = token.T_STRING; fbreak;};
+            '['                 => {lex.setTokenPosition(tkn); tok = token.ID(int('[')); lex.call(ftargs, fentry(string_var_index)); goto _out;};
+            any                 => {lex.ungetCnt(1); fret;};
         *|;
-        
+
         string_var_index := |*
             lnum | hnum | bnum       => {lex.setTokenPosition(tkn); tok = token.T_NUM_STRING; fbreak;};
             '$' varname              => {lex.setTokenPosition(tkn); tok = token.T_VARIABLE; fbreak;};

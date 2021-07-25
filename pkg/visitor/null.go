@@ -322,6 +322,10 @@ func (v *Null) ExprMethodCall(_ *ast.ExprMethodCall) {
 	// do nothing
 }
 
+func (v *Null) ExprNullsafeMethodCall(_ *ast.ExprNullsafeMethodCall) {
+	// do nothing
+}
+
 func (v *Null) ExprNew(_ *ast.ExprNew) {
 	// do nothing
 }
@@ -347,6 +351,10 @@ func (v *Null) ExprPrint(_ *ast.ExprPrint) {
 }
 
 func (v *Null) ExprPropertyFetch(_ *ast.ExprPropertyFetch) {
+	// do nothing
+}
+
+func (v *Null) ExprNullsafePropertyFetch(_ *ast.ExprNullsafePropertyFetch) {
 	// do nothing
 }
 

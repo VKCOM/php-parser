@@ -4,13 +4,12 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/z7zmey/php-parser/internal/php7"
-	"github.com/z7zmey/php-parser/internal/scanner"
+	"github.com/z7zmey/php-parser/internal/php8"
 	"github.com/z7zmey/php-parser/pkg/conf"
 	"github.com/z7zmey/php-parser/pkg/version"
 )
 
-func BenchmarkPhp7(b *testing.B) {
+func BenchmarkPhp8(b *testing.B) {
 	src, err := ioutil.ReadFile("test.php")
 
 	if err != nil {
@@ -20,12 +19,12 @@ func BenchmarkPhp7(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		config := conf.Config{
 			Version: &version.Version{
-				Major: 7,
-				Minor: 4,
+				Major: 8,
+				Minor: 8,
 			},
 		}
-		lexer := scanner.NewLexer(src, config)
-		php7parser := php7.NewParser(lexer, config)
-		php7parser.Parse()
+		lexer := php8.NewLexer(src, config)
+		php8parser := php8.NewParser(lexer, config)
+		php8parser.Parse()
 	}
 }

@@ -310,7 +310,8 @@ func (lex *Lexer) Lex() *token.Token {
 
             '(' whitespace* 'array'i whitespace* ')'                     => {lex.setTokenPosition(tkn); tok = token.T_ARRAY_CAST; fbreak;};
             '(' whitespace* ('bool'i|'boolean'i) whitespace* ')'         => {lex.setTokenPosition(tkn); tok = token.T_BOOL_CAST; fbreak;};
-            '(' whitespace* ('real'i|'double'i|'float'i) whitespace* ')' => {lex.setTokenPosition(tkn); tok = token.T_DOUBLE_CAST; fbreak;};
+            '(' whitespace* ('real'i) whitespace* ')'                    => {lex.error(fmt.Sprintf("The (real) cast has been removed, use (float) instead")); fbreak;};
+            '(' whitespace* ('double'i|'float'i) whitespace* ')'         => {lex.setTokenPosition(tkn); tok = token.T_DOUBLE_CAST; fbreak;};
             '(' whitespace* ('int'i|'integer'i) whitespace* ')'          => {lex.setTokenPosition(tkn); tok = token.T_INT_CAST; fbreak;};
             '(' whitespace* 'object'i whitespace* ')'                    => {lex.setTokenPosition(tkn); tok = token.T_OBJECT_CAST; fbreak;};
             '(' whitespace* ('string'i|'binary'i) whitespace* ')'        => {lex.setTokenPosition(tkn); tok = token.T_STRING_CAST; fbreak;};

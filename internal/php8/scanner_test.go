@@ -176,7 +176,6 @@ func TestTokens(t *testing.T) {
 		( array )
 		( bool )
 		( boolean )
-		( real )
 		( double )
 		( float )
 		( int )
@@ -345,7 +344,6 @@ func TestTokens(t *testing.T) {
 		token.T_ARRAY_CAST.String(),
 		token.T_BOOL_CAST.String(),
 		token.T_BOOL_CAST.String(),
-		token.T_DOUBLE_CAST.String(),
 		token.T_DOUBLE_CAST.String(),
 		token.T_DOUBLE_CAST.String(),
 		token.T_INT_CAST.String(),

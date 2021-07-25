@@ -5,6 +5,7 @@ import (
 
 	"github.com/z7zmey/php-parser/internal/tester"
 	"github.com/z7zmey/php-parser/pkg/ast"
+	"github.com/z7zmey/php-parser/pkg/errors"
 	"github.com/z7zmey/php-parser/pkg/position"
 	"github.com/z7zmey/php-parser/pkg/token"
 )
@@ -608,6 +609,26 @@ func TestNullsafePropertyFetchForDereferencable(t *testing.T) {
 			},
 		},
 		EndTkn: &token.Token{},
+	}
+
+	suite.Run()
+}
+
+func TestRealCastParserError(t *testing.T) {
+	suite := tester.NewParserErrorTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php 
+(real)$a;   // Error
+(float)$a;  // Ok
+(double)$a; // Ok
+(int)$a;    // Ok
+`
+
+	suite.Expected = []*errors.Error{
+		{
+			Msg: "The (real) cast has been removed, use (float) instead",
+			Pos: position.NewPosition(2, 2, 7, 13),
+		},
 	}
 
 	suite.Run()

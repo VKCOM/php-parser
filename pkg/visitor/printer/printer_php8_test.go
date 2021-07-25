@@ -359,7 +359,7 @@ func TestParseAndPrintCastPHP8(t *testing.T) {
 	(  array     ) $a ;
 	(  bool      ) $a ;
 	(  boolean   ) $a ;
-	(  real      ) $a ;
+	// (  real      ) $a ; real cast was removed in PHP 8
 	(  double    ) $a ;
 	(  float     ) $a ;
 	(  int       ) $a ;

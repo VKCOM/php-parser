@@ -159,6 +159,8 @@ func (p *printer) Identifier(n *ast.Identifier) {
 }
 
 func (p *printer) Argument(n *ast.Argument) {
+	p.printNode(n.Name)
+	p.printToken(n.ColonTkn, nil)
 	p.printToken(n.VariadicTkn, nil)
 	p.printToken(n.AmpersandTkn, nil)
 	p.printNode(n.Expr)

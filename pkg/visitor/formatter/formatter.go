@@ -186,6 +186,14 @@ func (f *formatter) Identifier(n *ast.Identifier) {
 }
 
 func (f *formatter) Argument(n *ast.Argument) {
+	if n.Name != nil {
+		n.Name.Accept(f)
+	}
+
+	if n.ColonTkn != nil {
+		n.ColonTkn = f.newToken(':', []byte(":"))
+	}
+
 	if n.VariadicTkn != nil {
 		n.VariadicTkn = f.newToken(token.T_ELLIPSIS, []byte("..."))
 	}

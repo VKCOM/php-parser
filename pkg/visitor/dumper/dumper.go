@@ -222,6 +222,8 @@ func (v *Dumper) Argument(n *ast.Argument) {
 
 	v.dumpPosition(n.Position)
 	v.dumpToken("AmpersandTkn", n.AmpersandTkn)
+	v.dumpVertex("Name", n.Name)
+	v.dumpToken("ColonTkn", n.ColonTkn)
 	v.dumpToken("VariadicTkn", n.VariadicTkn)
 	v.dumpVertex("Expr", n.Expr)
 

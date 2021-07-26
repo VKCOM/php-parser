@@ -52,7 +52,7 @@ abstract class Bar extends Baz
 	rootNode.Accept(p)
 
 	// Output:
-	//<?php
+	// <?php
 	//
 	// namespace Foo\Quuz;
 	//
@@ -1588,6 +1588,32 @@ $a?->method();
 $a?->prop;
 "$a?->prop_inside_string";
 (f())?->prop_for_expr;
+	`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}
+
+func TestParseAndPrintNamedMethods(t *testing.T) {
+	src := `<?php
+foo($a, name: $b, ...$b);
+foo(name: $b);
+foo(name: $b, c: 10);
+$foo(a: $a);
+$foo(a: $a, $c, ...$b);
+$foo->bar(some: $a);
+$foo->bar(some: $a, $b, ...$c);
+foo::bar(b: $b);
+foo::bar($a, b: $b, ...$c);
+$foo::bar(c: $a);
+$foo::bar($b, c: $a, ...$b);
+new foo(a: $a);
+new foo(a: $a, $c, ...$b);
+new class (name: $a) {};
+new class (name: $a, $b, ...$c) {};
 	`
 
 	actual := printPHP8(parsePHP8(src))

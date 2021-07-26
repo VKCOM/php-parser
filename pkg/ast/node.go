@@ -72,6 +72,8 @@ func (n *Identifier) GetPosition() *position.Position {
 // Argument node
 type Argument struct {
 	Position     *position.Position
+	Name         Vertex
+	ColonTkn     *token.Token
 	VariadicTkn  *token.Token
 	AmpersandTkn *token.Token
 	Expr         Vertex

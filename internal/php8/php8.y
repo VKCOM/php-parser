@@ -222,7 +222,7 @@ import (
 
 %type <token> reserved_non_modifiers
 %type <token> semi_reserved
-%type <token> identifier
+%type <token> identifier identifier_ex
 %type <token> possible_comma
 %type <token> case_separator
 
@@ -311,6 +311,17 @@ semi_reserved:
 ;
 
 identifier:
+        T_STRING
+            {
+                $$ = $1
+            }
+    |   semi_reserved
+            {
+                $$ = $1
+            }
+;
+
+identifier_ex:
         T_STRING
             {
                 $$ = $1
@@ -1890,18 +1901,15 @@ non_empty_argument_list:
 argument:
         expr
             {
-                $$ = &ast.Argument{
-                    Position: yylex.(*Parser).builder.Pos.NewNodePosition($1),
-                    Expr:        $1,
-                }
+                $$ = yylex.(*Parser).builder.NewArgument($1)
             }
     |   T_ELLIPSIS expr
             {
-                $$ = &ast.Argument{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenNodePosition($1, $2),
-                    VariadicTkn: $1,
-                    Expr:        $2,
-                }
+                $$ = yylex.(*Parser).builder.NewVariadicArgument($1, $2)
+            }
+    |   identifier_ex ':' expr
+            {
+                $$ = yylex.(*Parser).builder.NewNamedArgument($1, $2, $3)
             }
 ;
 

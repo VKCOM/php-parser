@@ -180,3 +180,40 @@ func (b *Builder) NewNullsafePropertyFetchFromTokens(
 		},
 	}
 }
+
+func (b *Builder) NewArgument(
+	Expr ast.Vertex,
+) *ast.Argument {
+	return &ast.Argument{
+		Position: b.Pos.NewNodePosition(Expr),
+		Expr:     Expr,
+	}
+}
+
+func (b *Builder) NewVariadicArgument(
+	VariadicTkn *token.Token,
+	Expr ast.Vertex,
+) *ast.Argument {
+	return &ast.Argument{
+		Position:    b.Pos.NewTokenNodePosition(VariadicTkn, Expr),
+		VariadicTkn: VariadicTkn,
+		Expr:        Expr,
+	}
+}
+
+func (b *Builder) NewNamedArgument(
+	Name *token.Token,
+	ColonTkn *token.Token,
+	Expr ast.Vertex,
+) *ast.Argument {
+	return &ast.Argument{
+		Position: b.Pos.NewTokenNodePosition(Name, Expr),
+		Name: &ast.Identifier{
+			Position:      Name.Position,
+			IdentifierTkn: Name,
+			Value:         Name.Value,
+		},
+		ColonTkn: ColonTkn,
+		Expr:     Expr,
+	}
+}

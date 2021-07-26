@@ -49,6 +49,7 @@ func (t *Traverser) Identifier(n *ast.Identifier) {
 func (t *Traverser) Argument(n *ast.Argument) {
 	n.Accept(t.v)
 
+	t.Traverse(n.Name)
 	t.Traverse(n.Expr)
 }
 

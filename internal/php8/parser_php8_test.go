@@ -1959,3 +1959,38 @@ new class (name: $a, $b, ...$c) {};
 		}
 	}
 }
+
+func TestCurlyBracesAccessParserError(t *testing.T) {
+	suite := tester.NewParserErrorTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php 
+$a[10]; // Ok
+$a{10}; // Error
+
+${a}; // Ok
+Foo::{a}(); // Ok
+
+new $a[10]; // Ok
+new $a{10}; // Error
+
+"hello"[1]; // Ok
+"hello"{1}; // Error
+`
+
+	suite.Expected = []*errors.Error{
+		{
+			Msg: "Array and string offset access syntax with curly braces is no longer supported",
+			Pos: position.NewPosition(3, 3, 26, 27),
+		},
+		{
+			Msg: "Array and string offset access syntax with curly braces is no longer supported",
+			Pos: position.NewPosition(9, 9, 97, 98),
+		},
+		{
+			Msg: "Array and string offset access syntax with curly braces is no longer supported",
+			Pos: position.NewPosition(12, 12, 137, 138),
+		},
+	}
+
+	suite.Run()
+}

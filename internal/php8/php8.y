@@ -3807,6 +3807,8 @@ callable_variable:
             }
     |   dereferencable '{' expr '}'
             {
+                yylex.(*Parser).Error("Array and string offset access syntax with curly braces is no longer supported")
+
                 $$ = &ast.ExprArrayDimFetch{
                     Position: yylex.(*Parser).builder.Pos.NewNodeTokenPosition($1, $4),
                     Var:             $1,
@@ -3918,6 +3920,8 @@ new_variable:
             }
     |   new_variable '{' expr '}'
             {
+                yylex.(*Parser).Error("Array and string offset access syntax with curly braces is no longer supported")
+
                 $$ = &ast.ExprArrayDimFetch{
                     Position: yylex.(*Parser).builder.Pos.NewNodeTokenPosition($1, $4),
                     Var:             $1,

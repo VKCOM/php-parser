@@ -42,6 +42,10 @@ func (v *Null) Argument(_ *ast.Argument) {
 	// do nothing
 }
 
+func (v *Null) MatchArm(_ *ast.MatchArm) {
+	// do nothing
+}
+
 func (v *Null) StmtBreak(_ *ast.StmtBreak) {
 	// do nothing
 }
@@ -595,6 +599,10 @@ func (v *Null) ExprCastString(_ *ast.ExprCastString) {
 }
 
 func (v *Null) ExprCastUnset(_ *ast.ExprCastUnset) {
+	// do nothing
+}
+
+func (v *Null) ExprMatch(_ *ast.ExprMatch) {
 	// do nothing
 }
 

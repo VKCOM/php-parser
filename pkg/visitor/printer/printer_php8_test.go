@@ -10,6 +10,7 @@ import (
 	"github.com/z7zmey/php-parser/pkg/conf"
 	"github.com/z7zmey/php-parser/pkg/version"
 	"github.com/z7zmey/php-parser/pkg/visitor/printer"
+	"gotest.tools/assert"
 )
 
 func ExamplePrinterPHP8() {
@@ -1621,4 +1622,72 @@ new class (name: $a, $b, ...$c) {};
 	if src != actual {
 		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
 	}
+}
+
+func TestParseAndPrintMatchPHP8(t *testing.T) {
+	src := `<?php
+echo match($a) {};
+
+echo match($a) {
+	default => 100,
+};
+echo match($a) {
+	default => 100
+};
+echo match($a) {
+	default, => 100
+};
+echo match($a) {
+	default, => 100,
+};
+
+echo match($a) {
+	10 => 100
+};
+echo match($a) {
+	10 => 100,
+};
+echo match($a) {
+	10, => 100
+};
+echo match($a) {
+	10, => 100,
+};
+
+echo match($a) {
+	10, 20 => 100
+};
+echo match($a) {
+	10, 20 => 100,
+};
+echo match($a) {
+	10, 20, => 100
+};
+echo match($a) {
+	10, 20, => 100,
+};
+
+echo match($a) {
+	10, 20 => 100,
+	30, 40 => 101
+};
+echo match($a) {
+	10, 20 => 100,
+	30, 40 => 101,
+};
+echo match($a) {
+	10, 20, => 100,
+	30, 40, => 101
+};
+
+echo match($a) {
+	10, 20 => 100,
+	30, 40 => 101,
+	default => 102,
+};
+	`
+
+	actual := printPHP8(parsePHP8(src))
+
+	assert.Equal(t, src, actual)
 }

@@ -155,6 +155,7 @@ import (
 %token <token> T_IS_SMALLER_OR_EQUAL
 %token <token> T_IS_GREATER_OR_EQUAL
 %token <token> T_NULLSAFE_OBJECT_OPERATOR
+%token <token> T_MATCH
 %token <token> '"'
 %token <token> '`'
 %token <token> '{'
@@ -262,6 +263,8 @@ import (
 %type <node> implements_list
 %type <node> interface_extends_list
 %type <node> lexical_vars
+%type <node> expr_list_allow_comma non_empty_expr_list
+%type <node> match match_arm match_arm_list non_empty_match_arm_list
 
 %type <node> member_modifier
 %type <node> use_type
@@ -299,7 +302,7 @@ reserved_non_modifiers:
     | T_THROW {$$=$1} | T_USE {$$=$1} | T_INSTEADOF {$$=$1} | T_GLOBAL {$$=$1} | T_VAR {$$=$1} | T_UNSET {$$=$1} | T_ISSET {$$=$1} | T_EMPTY {$$=$1} | T_CONTINUE {$$=$1} | T_GOTO {$$=$1}
     | T_FUNCTION {$$=$1} | T_CONST {$$=$1} | T_RETURN {$$=$1} | T_PRINT {$$=$1} | T_YIELD {$$=$1} | T_LIST {$$=$1} | T_SWITCH {$$=$1} | T_ENDSWITCH {$$=$1} | T_CASE {$$=$1} | T_DEFAULT {$$=$1} | T_BREAK {$$=$1}
     | T_ARRAY {$$=$1} | T_CALLABLE {$$=$1} | T_EXTENDS {$$=$1} | T_IMPLEMENTS {$$=$1} | T_NAMESPACE {$$=$1} | T_TRAIT {$$=$1} | T_INTERFACE {$$=$1} | T_CLASS {$$=$1}
-    | T_CLASS_C {$$=$1} | T_TRAIT_C {$$=$1} | T_FUNC_C {$$=$1} | T_METHOD_C {$$=$1} | T_LINE {$$=$1} | T_FILE {$$=$1} | T_DIR {$$=$1} | T_NS_C {$$=$1} | T_FN {$$=$1}
+    | T_CLASS_C {$$=$1} | T_TRAIT_C {$$=$1} | T_FUNC_C {$$=$1} | T_METHOD_C {$$=$1} | T_LINE {$$=$1} | T_FILE {$$=$1} | T_DIR {$$=$1} | T_NS_C {$$=$1} | T_FN {$$=$1} | T_MATCH {$$=$1}
 ;
 
 semi_reserved:
@@ -2568,6 +2571,68 @@ new_expr:
             }
 ;
 
+expr_list_allow_comma:
+	non_empty_expr_list possible_comma
+            {
+                $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil)
+            }
+;
+
+non_empty_expr_list:
+	non_empty_expr_list ',' expr
+            {
+		$$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3)
+            }
+    |
+        expr
+            {
+		$$ = yylex.(*Parser).builder.NewSeparatedList($1)
+            }
+;
+
+match:
+	T_MATCH '(' expr ')' '{' match_arm_list '}'
+            {
+                $$ = yylex.(*Parser).builder.NewMatch($1, $2, $3, $4, $5, $6, $7)
+            }
+;
+
+match_arm_list:
+	/* empty */
+	    {
+	        $$ = nil;
+	    }
+    |
+	non_empty_match_arm_list possible_comma
+	    {
+		$$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil)
+	    }
+;
+
+non_empty_match_arm_list:
+	match_arm
+	    {
+	    	$$ = yylex.(*Parser).builder.NewSeparatedList($1)
+	    }
+    |
+	non_empty_match_arm_list ',' match_arm
+	    {
+	    	$$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3)
+	    }
+;
+
+match_arm:
+	expr_list_allow_comma T_DOUBLE_ARROW expr
+	    {
+	        $$ = yylex.(*Parser).builder.NewMatchArm(nil, nil, $1, $2, $3);
+	    }
+    |
+	T_DEFAULT possible_comma T_DOUBLE_ARROW expr
+	    {
+	        $$ = yylex.(*Parser).builder.NewMatchArm($1, $2, nil, $3, $4);
+	    }
+;
+
 expr_without_variable:
         T_LIST '(' array_pair_list ')' '=' expr
             {
@@ -3061,6 +3126,10 @@ expr_without_variable:
                 }
             }
     |   new_expr
+            {
+                $$ = $1
+            }
+    |   match
             {
                 $$ = $1
             }

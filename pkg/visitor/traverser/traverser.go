@@ -53,6 +53,15 @@ func (t *Traverser) Argument(n *ast.Argument) {
 	t.Traverse(n.Expr)
 }
 
+func (t *Traverser) MatchArm(n *ast.MatchArm) {
+	n.Accept(t.v)
+
+	for _, nn := range n.Exprs {
+		nn.Accept(t)
+	}
+	t.Traverse(n.ReturnExpr)
+}
+
 func (t *Traverser) StmtBreak(n *ast.StmtBreak) {
 	n.Accept(t.v)
 
@@ -1102,6 +1111,15 @@ func (t *Traverser) ExprCastUnset(n *ast.ExprCastUnset) {
 	n.Accept(t.v)
 
 	t.Traverse(n.Expr)
+}
+
+func (t *Traverser) ExprMatch(n *ast.ExprMatch) {
+	n.Accept(t.v)
+
+	t.Traverse(n.Expr)
+	for _, nn := range n.Arms {
+		nn.Accept(t)
+	}
 }
 
 func (t *Traverser) ScalarDnumber(n *ast.ScalarDnumber) {

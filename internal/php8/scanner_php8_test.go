@@ -107,3 +107,54 @@ func TestNullsafeMethodCallTokensFreeFloating(t *testing.T) {
 
 	suite.Run()
 }
+
+func TestMatchStringTokens(t *testing.T) {
+	suite := tester.NewLexerTokenStringTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = "<?php match($a) {}"
+	suite.Expected = []string{
+		"match",
+		"(",
+		"$a",
+		")",
+		"{",
+		"}",
+	}
+	suite.Run()
+}
+
+func TestMatchWithConditionStringTokens(t *testing.T) {
+	suite := tester.NewLexerTokenStringTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = "<?php match($a) { 10 => 100 }"
+	suite.Expected = []string{
+		"match",
+		"(",
+		"$a",
+		")",
+		"{",
+		"10",
+		"=>",
+		"100",
+		"}",
+	}
+	suite.Run()
+}
+
+func TestMatchWithDefaultStringTokens(t *testing.T) {
+	suite := tester.NewLexerTokenStringTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = "<?php match($a) { default => 10 }"
+	suite.Expected = []string{
+		"match",
+		"(",
+		"$a",
+		")",
+		"{",
+		"default",
+		"=>",
+		"10",
+		"}",
+	}
+	suite.Run()
+}

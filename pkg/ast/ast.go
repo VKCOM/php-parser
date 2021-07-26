@@ -13,6 +13,7 @@ type Visitor interface {
 	Parameter(n *Parameter)
 	Identifier(n *Identifier)
 	Argument(n *Argument)
+	MatchArm(n *MatchArm)
 
 	StmtBreak(n *StmtBreak)
 	StmtCase(n *StmtCase)
@@ -86,6 +87,7 @@ type Visitor interface {
 	ExprList(n *ExprList)
 	ExprMethodCall(n *ExprMethodCall)
 	ExprNullsafeMethodCall(n *ExprNullsafeMethodCall)
+	ExprMatch(n *ExprMatch)
 	ExprNew(n *ExprNew)
 	ExprPostDec(n *ExprPostDec)
 	ExprPostInc(n *ExprPostInc)

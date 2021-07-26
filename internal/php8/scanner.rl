@@ -67,7 +67,7 @@ func (lex *Lexer) Lex() *token.Token {
         varname       = varname_first (varname_second)*;
         heredoc_label = varname >heredoc_lbl_start %heredoc_lbl_end;
         operators     = ';'|':'|','|'.'|'['|']'|'('|')'|'|'|'/'|'^'|'&'|'+'|'-'|'*'|'='|'%'|'!'|'~'|'$'|'<'|'>'|'?'|'@';
-        
+
         prepush { lex.growCallStack(); }
 
         constant_string =
@@ -169,8 +169,8 @@ func (lex *Lexer) Lex() *token.Token {
 
                 if err == nil {
                     lex.setTokenPosition(tkn); tok = token.T_LNUMBER; fbreak;
-                } 
-                
+                }
+
                 lex.setTokenPosition(tkn); tok = token.T_DNUMBER; fbreak;
             };
             lnum => {
@@ -184,8 +184,8 @@ func (lex *Lexer) Lex() *token.Token {
 
                 if err == nil {
                     lex.setTokenPosition(tkn); tok = token.T_LNUMBER; fbreak;
-                } 
-                
+                }
+
                 lex.setTokenPosition(tkn); tok = token.T_DNUMBER; fbreak;
             };
             hnum => {
@@ -194,8 +194,8 @@ func (lex *Lexer) Lex() *token.Token {
 
                 if err == nil {
                     lex.setTokenPosition(tkn); tok = token.T_LNUMBER; fbreak;
-                } 
-                
+                }
+
                 lex.setTokenPosition(tkn); tok = token.T_DNUMBER; fbreak;
             };
 
@@ -249,6 +249,7 @@ func (lex *Lexer) Lex() *token.Token {
             'return'i                         => {lex.setTokenPosition(tkn); tok = token.T_RETURN; fbreak;};
             'static'i                         => {lex.setTokenPosition(tkn); tok = token.T_STATIC; fbreak;};
             'switch'i                         => {lex.setTokenPosition(tkn); tok = token.T_SWITCH; fbreak;};
+            'match'i                          => {lex.setTokenPosition(tkn); tok = token.T_MATCH; fbreak;};
             'throw'i                          => {lex.setTokenPosition(tkn); tok = token.T_THROW; fbreak;};
             'trait'i                          => {lex.setTokenPosition(tkn); tok = token.T_TRAIT; fbreak;};
             'try'i                            => {lex.setTokenPosition(tkn); tok = token.T_TRY; fbreak;};

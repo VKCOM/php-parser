@@ -166,6 +166,14 @@ func (p *printer) Argument(n *ast.Argument) {
 	p.printNode(n.Expr)
 }
 
+func (p *printer) MatchArm(n *ast.MatchArm) {
+	p.printToken(n.DefaultTkn, nil)
+	p.printToken(n.DefaultCommaTkn, nil)
+	p.printSeparatedList(n.Exprs, n.SeparatorTkns, []byte(","))
+	p.printToken(n.DoubleArrowTkn, []byte("=>"))
+	p.printNode(n.ReturnExpr)
+}
+
 func (p *printer) StmtBreak(n *ast.StmtBreak) {
 	p.printToken(n.BreakTkn, []byte("break"))
 	p.printNode(n.Expr)
@@ -1189,6 +1197,16 @@ func (p *printer) ExprCastString(n *ast.ExprCastString) {
 func (p *printer) ExprCastUnset(n *ast.ExprCastUnset) {
 	p.printToken(n.CastTkn, []byte("(unset)"))
 	p.printNode(n.Expr)
+}
+
+func (p *printer) ExprMatch(n *ast.ExprMatch) {
+	p.printToken(n.MatchTkn, []byte("match"))
+	p.printToken(n.OpenParenthesisTkn, []byte("("))
+	p.printNode(n.Expr)
+	p.printToken(n.CloseParenthesisTkn, []byte(")"))
+	p.printToken(n.OpenCurlyBracketTkn, []byte("{"))
+	p.printSeparatedList(n.Arms, n.SeparatorTkns, []byte(","))
+	p.printToken(n.CloseCurlyBracketTkn, []byte("}"))
 }
 
 func (p *printer) ScalarDnumber(n *ast.ScalarDnumber) {

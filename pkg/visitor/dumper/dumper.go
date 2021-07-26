@@ -231,6 +231,22 @@ func (v *Dumper) Argument(n *ast.Argument) {
 	v.print(v.indent, "},\n")
 }
 
+func (v *Dumper) MatchArm(n *ast.MatchArm) {
+	v.print(0, "&ast.MatchArm{\n")
+	v.indent++
+
+	v.dumpPosition(n.Position)
+	v.dumpToken("DefaultTkn", n.DefaultTkn)
+	v.dumpToken("DefaultCommaTkn", n.DefaultCommaTkn)
+	v.dumpVertexList("Exprs", n.Exprs)
+	v.dumpTokenList("SeparatorTkns", n.SeparatorTkns)
+	v.dumpToken("DoubleArrowTkn", n.DoubleArrowTkn)
+	v.dumpVertex("ReturnExpr", n.ReturnExpr)
+
+	v.indent--
+	v.print(v.indent, "},\n")
+}
+
 func (v *Dumper) StmtBreak(n *ast.StmtBreak) {
 	v.print(0, "&ast.StmtBreak{\n")
 	v.indent++
@@ -2209,6 +2225,24 @@ func (v *Dumper) ExprCastUnset(n *ast.ExprCastUnset) {
 	v.dumpPosition(n.Position)
 	v.dumpToken("CastTkn", n.CastTkn)
 	v.dumpVertex("Expr", n.Expr)
+
+	v.indent--
+	v.print(v.indent, "},\n")
+}
+
+func (v *Dumper) ExprMatch(n *ast.ExprMatch) {
+	v.print(0, "&ast.ExprMatch{\n")
+	v.indent++
+
+	v.dumpPosition(n.Position)
+	v.dumpToken("MatchTkn", n.MatchTkn)
+	v.dumpToken("OpenParenthesisTkn", n.OpenParenthesisTkn)
+	v.dumpVertex("Expr", n.Expr)
+	v.dumpToken("CloseParenthesisTkn", n.CloseParenthesisTkn)
+	v.dumpToken("OpenCurlyBracketTkn", n.OpenCurlyBracketTkn)
+	v.dumpVertexList("Arms", n.Arms)
+	v.dumpTokenList("SeparatorTkns", n.SeparatorTkns)
+	v.dumpToken("CloseCurlyBracketTkn", n.CloseCurlyBracketTkn)
 
 	v.indent--
 	v.print(v.indent, "},\n")

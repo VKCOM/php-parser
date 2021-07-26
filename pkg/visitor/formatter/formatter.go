@@ -205,6 +205,20 @@ func (f *formatter) Argument(n *ast.Argument) {
 	n.Expr.Accept(f)
 }
 
+func (f *formatter) MatchArm(n *ast.MatchArm) {
+	if n.DefaultTkn != nil {
+		n.DefaultTkn = f.newToken(token.T_DEFAULT, []byte("default"))
+	}
+	if n.DefaultCommaTkn != nil {
+		n.DefaultCommaTkn = f.newToken(',', []byte(","))
+	}
+	n.SeparatorTkns = nil
+	if len(n.Exprs) > 0 {
+		n.SeparatorTkns = f.formatList(n.Exprs, ',')
+	}
+	n.DoubleArrowTkn = f.newToken(token.T_DOUBLE_ARROW, []byte("=>"))
+}
+
 func (f *formatter) StmtBreak(n *ast.StmtBreak) {
 	n.BreakTkn = f.newToken(token.T_BREAK, []byte("break"))
 
@@ -1964,6 +1978,18 @@ func (f *formatter) ExprCastString(n *ast.ExprCastString) {
 func (f *formatter) ExprCastUnset(n *ast.ExprCastUnset) {
 	n.CastTkn = f.newToken(token.T_UNSET_CAST, []byte("(unset)"))
 	n.Expr.Accept(f)
+}
+
+func (f *formatter) ExprMatch(n *ast.ExprMatch) {
+	n.MatchTkn = f.newToken(token.T_MATCH, []byte("match"))
+	n.OpenParenthesisTkn = f.newToken('(', []byte("("))
+	n.CloseParenthesisTkn = f.newToken(')', []byte(")"))
+	n.OpenCurlyBracketTkn = f.newToken('}', []byte("}"))
+	n.SeparatorTkns = nil
+	if len(n.Arms) > 0 {
+		n.SeparatorTkns = f.formatList(n.Arms, ',')
+	}
+	n.CloseCurlyBracketTkn = f.newToken('{', []byte("{"))
 }
 
 func (f *formatter) ScalarDnumber(n *ast.ScalarDnumber) {

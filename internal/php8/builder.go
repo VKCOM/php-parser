@@ -217,3 +217,61 @@ func (b *Builder) NewNamedArgument(
 		Expr:     Expr,
 	}
 }
+
+func (b *Builder) NewMatch(
+	MatchTkn *token.Token,
+	OpenParenthesisTkn *token.Token,
+	Expr ast.Vertex,
+	CloseParenthesisTkn *token.Token,
+	OpenCurlyBracketTkn *token.Token,
+	Cases ast.Vertex,
+	CloseCurlyBracketTkn *token.Token,
+) *ast.ExprMatch {
+	var arms []ast.Vertex
+	var sepTkns []*token.Token
+	if Cases != nil {
+		cases := Cases.(*ParserSeparatedList)
+		arms = cases.Items
+		sepTkns = cases.SeparatorTkns
+	}
+
+	return &ast.ExprMatch{
+		Position:             b.Pos.NewTokensPosition(MatchTkn, CloseCurlyBracketTkn),
+		MatchTkn:             MatchTkn,
+		OpenParenthesisTkn:   OpenParenthesisTkn,
+		Expr:                 Expr,
+		CloseParenthesisTkn:  CloseParenthesisTkn,
+		OpenCurlyBracketTkn:  OpenCurlyBracketTkn,
+		Arms:                 arms,
+		SeparatorTkns:        sepTkns,
+		CloseCurlyBracketTkn: CloseCurlyBracketTkn,
+	}
+}
+
+func (b *Builder) NewMatchArm(
+	DefaultTkn *token.Token,
+	DefaultCommaTkn *token.Token,
+	Exprs ast.Vertex,
+	DoubleArrowTkn *token.Token,
+	ReturnExpr ast.Vertex,
+) *ast.MatchArm {
+	// Default branch.
+	if Exprs == nil {
+		return &ast.MatchArm{
+			Position:        b.Pos.NewTokenNodePosition(DefaultTkn, ReturnExpr),
+			DefaultTkn:      DefaultTkn,
+			DefaultCommaTkn: DefaultCommaTkn,
+			DoubleArrowTkn:  DoubleArrowTkn,
+			ReturnExpr:      ReturnExpr,
+		}
+	}
+	list := Exprs.(*ParserSeparatedList)
+	return &ast.MatchArm{
+		Position:       b.Pos.NewNodeListNodePosition(list.Items, ReturnExpr),
+		DefaultTkn:     nil,
+		Exprs:          list.Items,
+		SeparatorTkns:  list.SeparatorTkns,
+		DoubleArrowTkn: DoubleArrowTkn,
+		ReturnExpr:     ReturnExpr,
+	}
+}

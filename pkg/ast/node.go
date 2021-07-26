@@ -2628,6 +2628,46 @@ func (n *ExprBinarySpaceship) GetPosition() *position.Position {
 	return n.Position
 }
 
+// ExprMatch node is match(expr) { list<MatchArm> }
+type ExprMatch struct {
+	Position             *position.Position
+	MatchTkn             *token.Token
+	OpenParenthesisTkn   *token.Token
+	Expr                 Vertex
+	CloseParenthesisTkn  *token.Token
+	OpenCurlyBracketTkn  *token.Token
+	Arms                 []Vertex
+	SeparatorTkns        []*token.Token
+	CloseCurlyBracketTkn *token.Token
+}
+
+func (n *ExprMatch) Accept(v Visitor) {
+	v.ExprMatch(n)
+}
+
+func (n *ExprMatch) GetPosition() *position.Position {
+	return n.Position
+}
+
+// MatchArm node is [expr, expr1, ...]|default => return_expr
+type MatchArm struct {
+	Position        *position.Position
+	DefaultTkn      *token.Token
+	DefaultCommaTkn *token.Token
+	Exprs           []Vertex
+	SeparatorTkns   []*token.Token
+	DoubleArrowTkn  *token.Token
+	ReturnExpr      Vertex
+}
+
+func (n *MatchArm) Accept(v Visitor) {
+	v.MatchArm(n)
+}
+
+func (n *MatchArm) GetPosition() *position.Position {
+	return n.Position
+}
+
 type Name struct {
 	Position      *position.Position
 	Parts         []Vertex

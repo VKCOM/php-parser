@@ -1994,3 +1994,1010 @@ new $a{10}; // Error
 
 	suite.Run()
 }
+
+func TestMatchExpr(t *testing.T) {
+	suite := tester.NewParserTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php
+match (10) {
+  10 => 100
+};
+`
+
+	suite.Expected = &ast.Root{
+		Position: &position.Position{
+			StartLine: 2,
+			EndLine:   4,
+			StartPos:  6,
+			EndPos:    33,
+		},
+		Stmts: []ast.Vertex{
+			&ast.StmtExpression{
+				Position: &position.Position{
+					StartLine: 2,
+					EndLine:   4,
+					StartPos:  6,
+					EndPos:    33,
+				},
+				Expr: &ast.ExprMatch{
+					Position: &position.Position{
+						StartLine: 2,
+						EndLine:   4,
+						StartPos:  6,
+						EndPos:    32,
+					},
+					MatchTkn: &token.Token{
+						ID:    token.T_MATCH,
+						Value: []byte("match"),
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  6,
+							EndPos:    11,
+						},
+						FreeFloating: []*token.Token{
+							{
+								ID:    token.T_OPEN_TAG,
+								Value: []byte("<?php"),
+								Position: &position.Position{
+									StartLine: 1,
+									EndLine:   1,
+									StartPos:  0,
+									EndPos:    5,
+								},
+							},
+							{
+								ID:    token.T_WHITESPACE,
+								Value: []byte("\n"),
+								Position: &position.Position{
+									StartLine: 1,
+									EndLine:   1,
+									StartPos:  5,
+									EndPos:    6,
+								},
+							},
+						},
+					},
+					OpenParenthesisTkn: &token.Token{
+						ID:    token.ID(40),
+						Value: []byte("("),
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  12,
+							EndPos:    13,
+						},
+						FreeFloating: []*token.Token{
+							{
+								ID:    token.T_WHITESPACE,
+								Value: []byte(" "),
+								Position: &position.Position{
+									StartLine: 2,
+									EndLine:   2,
+									StartPos:  11,
+									EndPos:    12,
+								},
+							},
+						},
+					},
+					Expr: &ast.ScalarLnumber{
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  13,
+							EndPos:    15,
+						},
+						NumberTkn: &token.Token{
+							ID:    token.T_LNUMBER,
+							Value: []byte("10"),
+							Position: &position.Position{
+								StartLine: 2,
+								EndLine:   2,
+								StartPos:  13,
+								EndPos:    15,
+							},
+						},
+						Value: []byte("10"),
+					},
+					CloseParenthesisTkn: &token.Token{
+						ID:    token.ID(41),
+						Value: []byte(")"),
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  15,
+							EndPos:    16,
+						},
+					},
+					OpenCurlyBracketTkn: &token.Token{
+						ID:    token.ID(123),
+						Value: []byte("{"),
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  17,
+							EndPos:    18,
+						},
+						FreeFloating: []*token.Token{
+							{
+								ID:    token.T_WHITESPACE,
+								Value: []byte(" "),
+								Position: &position.Position{
+									StartLine: 2,
+									EndLine:   2,
+									StartPos:  16,
+									EndPos:    17,
+								},
+							},
+						},
+					},
+					Arms: []ast.Vertex{
+						&ast.MatchArm{
+							Position: &position.Position{
+								StartLine: 3,
+								EndLine:   3,
+								StartPos:  21,
+								EndPos:    30,
+							},
+							Exprs: []ast.Vertex{
+								&ast.ScalarLnumber{
+									Position: &position.Position{
+										StartLine: 3,
+										EndLine:   3,
+										StartPos:  21,
+										EndPos:    23,
+									},
+									NumberTkn: &token.Token{
+										ID:    token.T_LNUMBER,
+										Value: []byte("10"),
+										Position: &position.Position{
+											StartLine: 3,
+											EndLine:   3,
+											StartPos:  21,
+											EndPos:    23,
+										},
+										FreeFloating: []*token.Token{
+											{
+												ID:    token.T_WHITESPACE,
+												Value: []byte("\n  "),
+												Position: &position.Position{
+													StartLine: 2,
+													EndLine:   3,
+													StartPos:  18,
+													EndPos:    21,
+												},
+											},
+										},
+									},
+									Value: []byte("10"),
+								},
+							},
+							DoubleArrowTkn: &token.Token{
+								ID:    token.T_DOUBLE_ARROW,
+								Value: []byte("=>"),
+								Position: &position.Position{
+									StartLine: 3,
+									EndLine:   3,
+									StartPos:  24,
+									EndPos:    26,
+								},
+								FreeFloating: []*token.Token{
+									{
+										ID:    token.T_WHITESPACE,
+										Value: []byte(" "),
+										Position: &position.Position{
+											StartLine: 3,
+											EndLine:   3,
+											StartPos:  23,
+											EndPos:    24,
+										},
+									},
+								},
+							},
+							ReturnExpr: &ast.ScalarLnumber{
+								Position: &position.Position{
+									StartLine: 3,
+									EndLine:   3,
+									StartPos:  27,
+									EndPos:    30,
+								},
+								NumberTkn: &token.Token{
+									ID:    token.T_LNUMBER,
+									Value: []byte("100"),
+									Position: &position.Position{
+										StartLine: 3,
+										EndLine:   3,
+										StartPos:  27,
+										EndPos:    30,
+									},
+									FreeFloating: []*token.Token{
+										{
+											ID:    token.T_WHITESPACE,
+											Value: []byte(" "),
+											Position: &position.Position{
+												StartLine: 3,
+												EndLine:   3,
+												StartPos:  26,
+												EndPos:    27,
+											},
+										},
+									},
+								},
+								Value: []byte("100"),
+							},
+						},
+					},
+					CloseCurlyBracketTkn: &token.Token{
+						ID:    token.ID(125),
+						Value: []byte("}"),
+						Position: &position.Position{
+							StartLine: 4,
+							EndLine:   4,
+							StartPos:  31,
+							EndPos:    32,
+						},
+						FreeFloating: []*token.Token{
+							{
+								ID:    token.T_WHITESPACE,
+								Value: []byte("\n"),
+								Position: &position.Position{
+									StartLine: 3,
+									EndLine:   3,
+									StartPos:  30,
+									EndPos:    31,
+								},
+							},
+						},
+					},
+				},
+				SemiColonTkn: &token.Token{
+					ID:    token.ID(59),
+					Value: []byte(";"),
+					Position: &position.Position{
+						StartLine: 4,
+						EndLine:   4,
+						StartPos:  32,
+						EndPos:    33,
+					},
+				},
+			},
+		},
+		EndTkn: &token.Token{
+			FreeFloating: []*token.Token{
+				{
+					ID:    token.T_WHITESPACE,
+					Value: []byte("\n"),
+					Position: &position.Position{
+						StartLine: 4,
+						EndLine:   4,
+						StartPos:  33,
+						EndPos:    34,
+					},
+				},
+			},
+		},
+	}
+
+	suite.Run()
+}
+
+func TestMatchExprWithList(t *testing.T) {
+	suite := tester.NewParserTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php
+match (10) {
+  10, 11 => 100
+};
+`
+
+	suite.Expected = &ast.Root{
+		Position: &position.Position{
+			StartLine: 2,
+			EndLine:   4,
+			StartPos:  6,
+			EndPos:    37,
+		},
+		Stmts: []ast.Vertex{
+			&ast.StmtExpression{
+				Position: &position.Position{
+					StartLine: 2,
+					EndLine:   4,
+					StartPos:  6,
+					EndPos:    37,
+				},
+				Expr: &ast.ExprMatch{
+					Position: &position.Position{
+						StartLine: 2,
+						EndLine:   4,
+						StartPos:  6,
+						EndPos:    36,
+					},
+					MatchTkn: &token.Token{
+						ID:    token.T_MATCH,
+						Value: []byte("match"),
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  6,
+							EndPos:    11,
+						},
+						FreeFloating: []*token.Token{
+							{
+								ID:    token.T_OPEN_TAG,
+								Value: []byte("<?php"),
+								Position: &position.Position{
+									StartLine: 1,
+									EndLine:   1,
+									StartPos:  0,
+									EndPos:    5,
+								},
+							},
+							{
+								ID:    token.T_WHITESPACE,
+								Value: []byte("\n"),
+								Position: &position.Position{
+									StartLine: 1,
+									EndLine:   1,
+									StartPos:  5,
+									EndPos:    6,
+								},
+							},
+						},
+					},
+					OpenParenthesisTkn: &token.Token{
+						ID:    token.ID(40),
+						Value: []byte("("),
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  12,
+							EndPos:    13,
+						},
+						FreeFloating: []*token.Token{
+							{
+								ID:    token.T_WHITESPACE,
+								Value: []byte(" "),
+								Position: &position.Position{
+									StartLine: 2,
+									EndLine:   2,
+									StartPos:  11,
+									EndPos:    12,
+								},
+							},
+						},
+					},
+					Expr: &ast.ScalarLnumber{
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  13,
+							EndPos:    15,
+						},
+						NumberTkn: &token.Token{
+							ID:    token.T_LNUMBER,
+							Value: []byte("10"),
+							Position: &position.Position{
+								StartLine: 2,
+								EndLine:   2,
+								StartPos:  13,
+								EndPos:    15,
+							},
+						},
+						Value: []byte("10"),
+					},
+					CloseParenthesisTkn: &token.Token{
+						ID:    token.ID(41),
+						Value: []byte(")"),
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  15,
+							EndPos:    16,
+						},
+					},
+					OpenCurlyBracketTkn: &token.Token{
+						ID:    token.ID(123),
+						Value: []byte("{"),
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  17,
+							EndPos:    18,
+						},
+						FreeFloating: []*token.Token{
+							{
+								ID:    token.T_WHITESPACE,
+								Value: []byte(" "),
+								Position: &position.Position{
+									StartLine: 2,
+									EndLine:   2,
+									StartPos:  16,
+									EndPos:    17,
+								},
+							},
+						},
+					},
+					Arms: []ast.Vertex{
+						&ast.MatchArm{
+							Position: &position.Position{
+								StartLine: 3,
+								EndLine:   3,
+								StartPos:  21,
+								EndPos:    34,
+							},
+							Exprs: []ast.Vertex{
+								&ast.ScalarLnumber{
+									Position: &position.Position{
+										StartLine: 3,
+										EndLine:   3,
+										StartPos:  21,
+										EndPos:    23,
+									},
+									NumberTkn: &token.Token{
+										ID:    token.T_LNUMBER,
+										Value: []byte("10"),
+										Position: &position.Position{
+											StartLine: 3,
+											EndLine:   3,
+											StartPos:  21,
+											EndPos:    23,
+										},
+										FreeFloating: []*token.Token{
+											{
+												ID:    token.T_WHITESPACE,
+												Value: []byte("\n  "),
+												Position: &position.Position{
+													StartLine: 2,
+													EndLine:   3,
+													StartPos:  18,
+													EndPos:    21,
+												},
+											},
+										},
+									},
+									Value: []byte("10"),
+								},
+								&ast.ScalarLnumber{
+									Position: &position.Position{
+										StartLine: 3,
+										EndLine:   3,
+										StartPos:  25,
+										EndPos:    27,
+									},
+									NumberTkn: &token.Token{
+										ID:    token.T_LNUMBER,
+										Value: []byte("11"),
+										Position: &position.Position{
+											StartLine: 3,
+											EndLine:   3,
+											StartPos:  25,
+											EndPos:    27,
+										},
+										FreeFloating: []*token.Token{
+											{
+												ID:    token.T_WHITESPACE,
+												Value: []byte(" "),
+												Position: &position.Position{
+													StartLine: 3,
+													EndLine:   3,
+													StartPos:  24,
+													EndPos:    25,
+												},
+											},
+										},
+									},
+									Value: []byte("11"),
+								},
+							},
+							SeparatorTkns: []*token.Token{
+								{
+									ID:    token.ID(44),
+									Value: []byte(","),
+									Position: &position.Position{
+										StartLine: 3,
+										EndLine:   3,
+										StartPos:  23,
+										EndPos:    24,
+									},
+								},
+							},
+							DoubleArrowTkn: &token.Token{
+								ID:    token.T_DOUBLE_ARROW,
+								Value: []byte("=>"),
+								Position: &position.Position{
+									StartLine: 3,
+									EndLine:   3,
+									StartPos:  28,
+									EndPos:    30,
+								},
+								FreeFloating: []*token.Token{
+									{
+										ID:    token.T_WHITESPACE,
+										Value: []byte(" "),
+										Position: &position.Position{
+											StartLine: 3,
+											EndLine:   3,
+											StartPos:  27,
+											EndPos:    28,
+										},
+									},
+								},
+							},
+							ReturnExpr: &ast.ScalarLnumber{
+								Position: &position.Position{
+									StartLine: 3,
+									EndLine:   3,
+									StartPos:  31,
+									EndPos:    34,
+								},
+								NumberTkn: &token.Token{
+									ID:    token.T_LNUMBER,
+									Value: []byte("100"),
+									Position: &position.Position{
+										StartLine: 3,
+										EndLine:   3,
+										StartPos:  31,
+										EndPos:    34,
+									},
+									FreeFloating: []*token.Token{
+										{
+											ID:    token.T_WHITESPACE,
+											Value: []byte(" "),
+											Position: &position.Position{
+												StartLine: 3,
+												EndLine:   3,
+												StartPos:  30,
+												EndPos:    31,
+											},
+										},
+									},
+								},
+								Value: []byte("100"),
+							},
+						},
+					},
+					CloseCurlyBracketTkn: &token.Token{
+						ID:    token.ID(125),
+						Value: []byte("}"),
+						Position: &position.Position{
+							StartLine: 4,
+							EndLine:   4,
+							StartPos:  35,
+							EndPos:    36,
+						},
+						FreeFloating: []*token.Token{
+							{
+								ID:    token.T_WHITESPACE,
+								Value: []byte("\n"),
+								Position: &position.Position{
+									StartLine: 3,
+									EndLine:   3,
+									StartPos:  34,
+									EndPos:    35,
+								},
+							},
+						},
+					},
+				},
+				SemiColonTkn: &token.Token{
+					ID:    token.ID(59),
+					Value: []byte(";"),
+					Position: &position.Position{
+						StartLine: 4,
+						EndLine:   4,
+						StartPos:  36,
+						EndPos:    37,
+					},
+				},
+			},
+		},
+		EndTkn: &token.Token{
+			FreeFloating: []*token.Token{
+				{
+					ID:    token.T_WHITESPACE,
+					Value: []byte("\n"),
+					Position: &position.Position{
+						StartLine: 4,
+						EndLine:   4,
+						StartPos:  37,
+						EndPos:    38,
+					},
+				},
+			},
+		},
+	}
+
+	suite.Run()
+}
+
+func TestMatchExprWithDefault(t *testing.T) {
+	suite := tester.NewParserTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php
+match (10) {
+  10 => 100,
+  default => 101,
+};
+`
+
+	suite.Expected = &ast.Root{
+		Position: &position.Position{
+			StartLine: 2,
+			EndLine:   5,
+			StartPos:  6,
+			EndPos:    52,
+		},
+		Stmts: []ast.Vertex{
+			&ast.StmtExpression{
+				Position: &position.Position{
+					StartLine: 2,
+					EndLine:   5,
+					StartPos:  6,
+					EndPos:    52,
+				},
+				Expr: &ast.ExprMatch{
+					Position: &position.Position{
+						StartLine: 2,
+						EndLine:   5,
+						StartPos:  6,
+						EndPos:    51,
+					},
+					MatchTkn: &token.Token{
+						ID:    token.T_MATCH,
+						Value: []byte("match"),
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  6,
+							EndPos:    11,
+						},
+						FreeFloating: []*token.Token{
+							{
+								ID:    token.T_OPEN_TAG,
+								Value: []byte("<?php"),
+								Position: &position.Position{
+									StartLine: 1,
+									EndLine:   1,
+									StartPos:  0,
+									EndPos:    5,
+								},
+							},
+							{
+								ID:    token.T_WHITESPACE,
+								Value: []byte("\n"),
+								Position: &position.Position{
+									StartLine: 1,
+									EndLine:   1,
+									StartPos:  5,
+									EndPos:    6,
+								},
+							},
+						},
+					},
+					OpenParenthesisTkn: &token.Token{
+						ID:    token.ID(40),
+						Value: []byte("("),
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  12,
+							EndPos:    13,
+						},
+						FreeFloating: []*token.Token{
+							{
+								ID:    token.T_WHITESPACE,
+								Value: []byte(" "),
+								Position: &position.Position{
+									StartLine: 2,
+									EndLine:   2,
+									StartPos:  11,
+									EndPos:    12,
+								},
+							},
+						},
+					},
+					Expr: &ast.ScalarLnumber{
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  13,
+							EndPos:    15,
+						},
+						NumberTkn: &token.Token{
+							ID:    token.T_LNUMBER,
+							Value: []byte("10"),
+							Position: &position.Position{
+								StartLine: 2,
+								EndLine:   2,
+								StartPos:  13,
+								EndPos:    15,
+							},
+						},
+						Value: []byte("10"),
+					},
+					CloseParenthesisTkn: &token.Token{
+						ID:    token.ID(41),
+						Value: []byte(")"),
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  15,
+							EndPos:    16,
+						},
+					},
+					OpenCurlyBracketTkn: &token.Token{
+						ID:    token.ID(123),
+						Value: []byte("{"),
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  17,
+							EndPos:    18,
+						},
+						FreeFloating: []*token.Token{
+							{
+								ID:    token.T_WHITESPACE,
+								Value: []byte(" "),
+								Position: &position.Position{
+									StartLine: 2,
+									EndLine:   2,
+									StartPos:  16,
+									EndPos:    17,
+								},
+							},
+						},
+					},
+					Arms: []ast.Vertex{
+						&ast.MatchArm{
+							Position: &position.Position{
+								StartLine: 3,
+								EndLine:   3,
+								StartPos:  21,
+								EndPos:    30,
+							},
+							Exprs: []ast.Vertex{
+								&ast.ScalarLnumber{
+									Position: &position.Position{
+										StartLine: 3,
+										EndLine:   3,
+										StartPos:  21,
+										EndPos:    23,
+									},
+									NumberTkn: &token.Token{
+										ID:    token.T_LNUMBER,
+										Value: []byte("10"),
+										Position: &position.Position{
+											StartLine: 3,
+											EndLine:   3,
+											StartPos:  21,
+											EndPos:    23,
+										},
+										FreeFloating: []*token.Token{
+											{
+												ID:    token.T_WHITESPACE,
+												Value: []byte("\n  "),
+												Position: &position.Position{
+													StartLine: 2,
+													EndLine:   3,
+													StartPos:  18,
+													EndPos:    21,
+												},
+											},
+										},
+									},
+									Value: []byte("10"),
+								},
+							},
+							DoubleArrowTkn: &token.Token{
+								ID:    token.T_DOUBLE_ARROW,
+								Value: []byte("=>"),
+								Position: &position.Position{
+									StartLine: 3,
+									EndLine:   3,
+									StartPos:  24,
+									EndPos:    26,
+								},
+								FreeFloating: []*token.Token{
+									{
+										ID:    token.T_WHITESPACE,
+										Value: []byte(" "),
+										Position: &position.Position{
+											StartLine: 3,
+											EndLine:   3,
+											StartPos:  23,
+											EndPos:    24,
+										},
+									},
+								},
+							},
+							ReturnExpr: &ast.ScalarLnumber{
+								Position: &position.Position{
+									StartLine: 3,
+									EndLine:   3,
+									StartPos:  27,
+									EndPos:    30,
+								},
+								NumberTkn: &token.Token{
+									ID:    token.T_LNUMBER,
+									Value: []byte("100"),
+									Position: &position.Position{
+										StartLine: 3,
+										EndLine:   3,
+										StartPos:  27,
+										EndPos:    30,
+									},
+									FreeFloating: []*token.Token{
+										{
+											ID:    token.T_WHITESPACE,
+											Value: []byte(" "),
+											Position: &position.Position{
+												StartLine: 3,
+												EndLine:   3,
+												StartPos:  26,
+												EndPos:    27,
+											},
+										},
+									},
+								},
+								Value: []byte("100"),
+							},
+						},
+						&ast.MatchArm{
+							Position: &position.Position{
+								StartLine: 4,
+								EndLine:   4,
+								StartPos:  34,
+								EndPos:    48,
+							},
+							DefaultTkn: &token.Token{
+								ID:    token.T_DEFAULT,
+								Value: []byte("default"),
+								Position: &position.Position{
+									StartLine: 4,
+									EndLine:   4,
+									StartPos:  34,
+									EndPos:    41,
+								},
+								FreeFloating: []*token.Token{
+									{
+										ID:    token.T_WHITESPACE,
+										Value: []byte("\n  "),
+										Position: &position.Position{
+											StartLine: 3,
+											EndLine:   4,
+											StartPos:  31,
+											EndPos:    34,
+										},
+									},
+								},
+							},
+							DoubleArrowTkn: &token.Token{
+								ID:    token.T_DOUBLE_ARROW,
+								Value: []byte("=>"),
+								Position: &position.Position{
+									StartLine: 4,
+									EndLine:   4,
+									StartPos:  42,
+									EndPos:    44,
+								},
+								FreeFloating: []*token.Token{
+									{
+										ID:    token.T_WHITESPACE,
+										Value: []byte(" "),
+										Position: &position.Position{
+											StartLine: 4,
+											EndLine:   4,
+											StartPos:  41,
+											EndPos:    42,
+										},
+									},
+								},
+							},
+							ReturnExpr: &ast.ScalarLnumber{
+								Position: &position.Position{
+									StartLine: 4,
+									EndLine:   4,
+									StartPos:  45,
+									EndPos:    48,
+								},
+								NumberTkn: &token.Token{
+									ID:    token.T_LNUMBER,
+									Value: []byte("101"),
+									Position: &position.Position{
+										StartLine: 4,
+										EndLine:   4,
+										StartPos:  45,
+										EndPos:    48,
+									},
+									FreeFloating: []*token.Token{
+										{
+											ID:    token.T_WHITESPACE,
+											Value: []byte(" "),
+											Position: &position.Position{
+												StartLine: 4,
+												EndLine:   4,
+												StartPos:  44,
+												EndPos:    45,
+											},
+										},
+									},
+								},
+								Value: []byte("101"),
+							},
+						},
+					},
+					SeparatorTkns: []*token.Token{
+						{
+							ID:    token.ID(44),
+							Value: []byte(","),
+							Position: &position.Position{
+								StartLine: 3,
+								EndLine:   3,
+								StartPos:  30,
+								EndPos:    31,
+							},
+						},
+						{
+							ID:    token.ID(44),
+							Value: []byte(","),
+							Position: &position.Position{
+								StartLine: 4,
+								EndLine:   4,
+								StartPos:  48,
+								EndPos:    49,
+							},
+						},
+					},
+					CloseCurlyBracketTkn: &token.Token{
+						ID:    token.ID(125),
+						Value: []byte("}"),
+						Position: &position.Position{
+							StartLine: 5,
+							EndLine:   5,
+							StartPos:  50,
+							EndPos:    51,
+						},
+						FreeFloating: []*token.Token{
+							{
+								ID:    token.T_WHITESPACE,
+								Value: []byte("\n"),
+								Position: &position.Position{
+									StartLine: 4,
+									EndLine:   4,
+									StartPos:  49,
+									EndPos:    50,
+								},
+							},
+						},
+					},
+				},
+				SemiColonTkn: &token.Token{
+					ID:    token.ID(59),
+					Value: []byte(";"),
+					Position: &position.Position{
+						StartLine: 5,
+						EndLine:   5,
+						StartPos:  51,
+						EndPos:    52,
+					},
+				},
+			},
+		},
+		EndTkn: &token.Token{
+			FreeFloating: []*token.Token{
+				{
+					ID:    token.T_WHITESPACE,
+					Value: []byte("\n"),
+					Position: &position.Position{
+						StartLine: 5,
+						EndLine:   5,
+						StartPos:  52,
+						EndPos:    53,
+					},
+				},
+			},
+		},
+	}
+
+	suite.Run()
+}

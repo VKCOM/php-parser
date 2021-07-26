@@ -315,7 +315,7 @@ func (lex *Lexer) Lex() *token.Token {
             '(' whitespace* ('int'i|'integer'i) whitespace* ')'          => {lex.setTokenPosition(tkn); tok = token.T_INT_CAST; fbreak;};
             '(' whitespace* 'object'i whitespace* ')'                    => {lex.setTokenPosition(tkn); tok = token.T_OBJECT_CAST; fbreak;};
             '(' whitespace* ('string'i|'binary'i) whitespace* ')'        => {lex.setTokenPosition(tkn); tok = token.T_STRING_CAST; fbreak;};
-            '(' whitespace* 'unset'i whitespace* ')'                     => {lex.setTokenPosition(tkn); tok = token.T_UNSET_CAST; fbreak;};
+            '(' whitespace* 'unset'i whitespace* ')'                     => {lex.error(fmt.Sprintf("The (unset) cast is no longer supported")); fbreak;};
 
             ('#' | '//') any_line* when is_not_comment_end => {
                 lex.ungetStr("?>")

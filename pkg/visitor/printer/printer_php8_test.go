@@ -367,7 +367,7 @@ func TestParseAndPrintCastPHP8(t *testing.T) {
 	(  object    ) $a ;
 	(  string    ) $a ;
 	(  binary    ) $a ;
-	(  unset     ) $a ;
+	// (  unset     ) $a ; unset cast was removed in PHP 8
 	`
 
 	actual := printPHP8(parsePHP8(src))

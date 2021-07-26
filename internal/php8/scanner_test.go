@@ -183,7 +183,6 @@ func TestTokens(t *testing.T) {
 		( object )
 		( string )
 		( binary )
-		( unset )
 
 	`
 
@@ -351,7 +350,6 @@ func TestTokens(t *testing.T) {
 		token.T_OBJECT_CAST.String(),
 		token.T_STRING_CAST.String(),
 		token.T_STRING_CAST.String(),
-		token.T_UNSET_CAST.String(),
 	}
 
 	config := conf.Config{

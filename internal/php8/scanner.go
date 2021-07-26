@@ -3613,8 +3613,7 @@ func (lex *Lexer) Lex() *token.Token {
 		// line internal/php8/scanner.rl:318
 		lex.te = (lex.p) + 1
 		{
-			lex.setTokenPosition(tkn)
-			tok = token.T_UNSET_CAST
+			lex.error(fmt.Sprintf("The (unset) cast is no longer supported"))
 			{
 				(lex.p)++
 				lex.cs = 128

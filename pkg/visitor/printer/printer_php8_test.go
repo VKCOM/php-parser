@@ -1804,3 +1804,94 @@ try {} catch (Exception|Exception2|Exception3 $a) {} catch (Exception4 $a) {}
 
 	assert.Equal(t, src, actual)
 }
+
+func TestParseAndPrintParametersWithTrailingCommaPHP8(t *testing.T) {
+	src := `<?php
+function f(
+  $a,
+  $b,
+) {}
+
+function f(
+  $a,
+) {}
+
+
+class Foo {
+  public function f(
+    $a,
+    $b,
+  ) {}
+
+  public function f(
+    $a,
+  ) {}
+}
+
+function f() {
+  $_ = function(
+    $a,
+    $b,
+  ) {};
+
+  $_ = function(
+    $a,
+  ) {};
+
+  $_ = fn(
+    $a,
+    $b,
+  ) => 10;
+
+  $_ = fn(
+    $a,
+  ) => 10;
+}
+
+// Without comma.
+function f(
+  $a,
+  $b
+) {}
+
+function f(
+  $a
+) {}
+
+
+class Foo {
+  public function f(
+    $a,
+    $b
+  ) {}
+
+  public function f(
+    $a
+  ) {}
+}
+
+function f() {
+  $_ = function(
+    $a,
+    $b
+  ) {};
+
+  $_ = function(
+    $a
+  ) {};
+
+  $_ = fn(
+    $a,
+    $b
+  ) => 10;
+
+  $_ = fn(
+    $a
+  ) => 10;
+}
+	`
+
+	actual := printPHP8(parsePHP8(src))
+
+	assert.Equal(t, src, actual)
+}

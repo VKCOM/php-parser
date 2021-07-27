@@ -1678,30 +1678,13 @@ alt_if_stmt:
 ;
 
 parameter_list:
-        non_empty_parameter_list
-            {
-                $$ = $1
-            }
-    |   /* empty */
-            {
-                $$ = &ParserSeparatedList{}
-            }
+        non_empty_parameter_list possible_comma { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil) }
+    |   /* empty */                             { $$ = yylex.(*Parser).builder.NewEmptySeparatedList() }
 ;
 
 non_empty_parameter_list:
-        parameter
-            {
-                $$ = &ParserSeparatedList{
-                    Items: []ast.Vertex{$1},
-                }
-            }
-    |   non_empty_parameter_list ',' parameter
-            {
-                $1.(*ParserSeparatedList).SeparatorTkns = append($1.(*ParserSeparatedList).SeparatorTkns, $2)
-                $1.(*ParserSeparatedList).Items = append($1.(*ParserSeparatedList).Items, $3)
-
-                $$ = $1
-            }
+        parameter                               { $$ = yylex.(*Parser).builder.NewSeparatedList($1) }
+    |   non_empty_parameter_list ',' parameter  { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
 ;
 
 parameter:

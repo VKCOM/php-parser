@@ -3,6 +3,7 @@ package php8
 import (
 	"github.com/z7zmey/php-parser/internal/position"
 	"github.com/z7zmey/php-parser/pkg/ast"
+	position2 "github.com/z7zmey/php-parser/pkg/position"
 	"github.com/z7zmey/php-parser/pkg/token"
 )
 
@@ -16,6 +17,12 @@ type Builder struct {
 // NewBuilder creates a new Builder.
 func NewBuilder(pos *position.Builder) *Builder {
 	return &Builder{Pos: pos}
+}
+
+// NewEmptySeparatedList creates a new empty list.
+// Used for places where a delimited list is used.
+func (b *Builder) NewEmptySeparatedList() *ParserSeparatedList {
+	return &ParserSeparatedList{}
 }
 
 // NewSeparatedList creates a new single-element list.
@@ -331,5 +338,83 @@ func (b *Builder) NewReturnType(
 	return &ReturnType{
 		ColonTkn: ColonTkn,
 		Type:     Type,
+	}
+}
+
+func (b *Builder) NewTry(
+	TryTkn *token.Token,
+	OpenCurlyBracketTkn *token.Token,
+	Stmts []ast.Vertex,
+	CloseCurlyBracketTkn *token.Token,
+	Catches ast.Vertex,
+	Finally ast.Vertex,
+) *ast.StmtTry {
+	var catches []ast.Vertex
+	if Catches != nil {
+		catchList := Catches.(*ParserSeparatedList)
+		catches = catchList.Items
+	}
+
+	var pos *position2.Position
+
+	if Finally != nil {
+		pos = b.Pos.NewTokenNodePosition(TryTkn, Finally)
+	} else {
+		pos = b.Pos.NewTokenNodeListPosition(TryTkn, catches)
+	}
+
+	return &ast.StmtTry{
+		Position:             pos,
+		TryTkn:               TryTkn,
+		OpenCurlyBracketTkn:  OpenCurlyBracketTkn,
+		Stmts:                Stmts,
+		CloseCurlyBracketTkn: CloseCurlyBracketTkn,
+		Catches:              catches,
+		Finally:              Finally,
+	}
+}
+
+func (b *Builder) NewCatch(
+	CatchTkn *token.Token,
+	OpenParenthesisTkn *token.Token,
+	CatchNameList ast.Vertex,
+	Variable *token.Token,
+	CloseParenthesisTkn *token.Token,
+	OpenCurlyBracketTkn *token.Token,
+	Stmts []ast.Vertex,
+	CloseCurlyBracketTkn *token.Token,
+) *ast.StmtCatch {
+	var types []ast.Vertex
+	var sepTkns []*token.Token
+	if CatchNameList != nil {
+		catchList := CatchNameList.(*ParserSeparatedList)
+		types = catchList.Items
+		sepTkns = catchList.SeparatorTkns
+	}
+
+	var variable ast.Vertex
+
+	if Variable != nil {
+		variable = &ast.ExprVariable{
+			Position: b.Pos.NewTokenPosition(Variable),
+			Name: &ast.Identifier{
+				Position:      b.Pos.NewTokenPosition(Variable),
+				IdentifierTkn: Variable,
+				Value:         Variable.Value,
+			},
+		}
+	}
+
+	return &ast.StmtCatch{
+		Position:             b.Pos.NewTokensPosition(CatchTkn, CloseCurlyBracketTkn),
+		CatchTkn:             CatchTkn,
+		OpenParenthesisTkn:   OpenParenthesisTkn,
+		Types:                types,
+		SeparatorTkns:        sepTkns,
+		Var:                  variable,
+		CloseParenthesisTkn:  CloseParenthesisTkn,
+		OpenCurlyBracketTkn:  OpenCurlyBracketTkn,
+		Stmts:                Stmts,
+		CloseCurlyBracketTkn: CloseCurlyBracketTkn,
 	}
 }

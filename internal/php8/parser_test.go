@@ -28002,7 +28002,6 @@ func TestStmtTry_Try(t *testing.T) {
 						EndPos:    11,
 					},
 				},
-				Catches: []ast.Vertex{},
 			},
 		},
 		EndTkn: &token.Token{

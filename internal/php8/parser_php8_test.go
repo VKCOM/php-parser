@@ -3338,3 +3338,239 @@ func TestUnionTypes(t *testing.T) {
 
 	suite.Run()
 }
+
+func TestCatchExprWithoutVariable(t *testing.T) {
+	suite := tester.NewParserTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php
+try {} catch (Exception) {}
+`
+
+	suite.Expected = &ast.Root{
+		Position: &position.Position{
+			StartLine: 2,
+			EndLine:   2,
+			StartPos:  6,
+			EndPos:    33,
+		},
+		Stmts: []ast.Vertex{
+			&ast.StmtTry{
+				Position: &position.Position{
+					StartLine: 2,
+					EndLine:   2,
+					StartPos:  6,
+					EndPos:    33,
+				},
+				TryTkn: &token.Token{
+					ID:    token.T_TRY,
+					Value: []byte("try"),
+					Position: &position.Position{
+						StartLine: 2,
+						EndLine:   2,
+						StartPos:  6,
+						EndPos:    9,
+					},
+					FreeFloating: []*token.Token{
+						{
+							ID:    token.T_OPEN_TAG,
+							Value: []byte("<?php"),
+							Position: &position.Position{
+								StartLine: 1,
+								EndLine:   1,
+								StartPos:  0,
+								EndPos:    5,
+							},
+						},
+						{
+							ID:    token.T_WHITESPACE,
+							Value: []byte("\n"),
+							Position: &position.Position{
+								StartLine: 1,
+								EndLine:   1,
+								StartPos:  5,
+								EndPos:    6,
+							},
+						},
+					},
+				},
+				OpenCurlyBracketTkn: &token.Token{
+					ID:    token.ID(123),
+					Value: []byte("{"),
+					Position: &position.Position{
+						StartLine: 2,
+						EndLine:   2,
+						StartPos:  10,
+						EndPos:    11,
+					},
+					FreeFloating: []*token.Token{
+						{
+							ID:    token.T_WHITESPACE,
+							Value: []byte(" "),
+							Position: &position.Position{
+								StartLine: 2,
+								EndLine:   2,
+								StartPos:  9,
+								EndPos:    10,
+							},
+						},
+					},
+				},
+				Stmts: []ast.Vertex{},
+				CloseCurlyBracketTkn: &token.Token{
+					ID:    token.ID(125),
+					Value: []byte("}"),
+					Position: &position.Position{
+						StartLine: 2,
+						EndLine:   2,
+						StartPos:  11,
+						EndPos:    12,
+					},
+				},
+				Catches: []ast.Vertex{
+					&ast.StmtCatch{
+						Position: &position.Position{
+							StartLine: 2,
+							EndLine:   2,
+							StartPos:  13,
+							EndPos:    33,
+						},
+						CatchTkn: &token.Token{
+							ID:    token.T_CATCH,
+							Value: []byte("catch"),
+							Position: &position.Position{
+								StartLine: 2,
+								EndLine:   2,
+								StartPos:  13,
+								EndPos:    18,
+							},
+							FreeFloating: []*token.Token{
+								{
+									ID:    token.T_WHITESPACE,
+									Value: []byte(" "),
+									Position: &position.Position{
+										StartLine: 2,
+										EndLine:   2,
+										StartPos:  12,
+										EndPos:    13,
+									},
+								},
+							},
+						},
+						OpenParenthesisTkn: &token.Token{
+							ID:    token.ID(40),
+							Value: []byte("("),
+							Position: &position.Position{
+								StartLine: 2,
+								EndLine:   2,
+								StartPos:  19,
+								EndPos:    20,
+							},
+							FreeFloating: []*token.Token{
+								{
+									ID:    token.T_WHITESPACE,
+									Value: []byte(" "),
+									Position: &position.Position{
+										StartLine: 2,
+										EndLine:   2,
+										StartPos:  18,
+										EndPos:    19,
+									},
+								},
+							},
+						},
+						Types: []ast.Vertex{
+							&ast.Name{
+								Position: &position.Position{
+									StartLine: 2,
+									EndLine:   2,
+									StartPos:  20,
+									EndPos:    29,
+								},
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										Position: &position.Position{
+											StartLine: 2,
+											EndLine:   2,
+											StartPos:  20,
+											EndPos:    29,
+										},
+										StringTkn: &token.Token{
+											ID:    token.T_STRING,
+											Value: []byte("Exception"),
+											Position: &position.Position{
+												StartLine: 2,
+												EndLine:   2,
+												StartPos:  20,
+												EndPos:    29,
+											},
+										},
+										Value: []byte("Exception"),
+									},
+								},
+							},
+						},
+						CloseParenthesisTkn: &token.Token{
+							ID:    token.ID(41),
+							Value: []byte(")"),
+							Position: &position.Position{
+								StartLine: 2,
+								EndLine:   2,
+								StartPos:  29,
+								EndPos:    30,
+							},
+						},
+						OpenCurlyBracketTkn: &token.Token{
+							ID:    token.ID(123),
+							Value: []byte("{"),
+							Position: &position.Position{
+								StartLine: 2,
+								EndLine:   2,
+								StartPos:  31,
+								EndPos:    32,
+							},
+							FreeFloating: []*token.Token{
+								{
+									ID:    token.T_WHITESPACE,
+									Value: []byte(" "),
+									Position: &position.Position{
+										StartLine: 2,
+										EndLine:   2,
+										StartPos:  30,
+										EndPos:    31,
+									},
+								},
+							},
+						},
+						Stmts: []ast.Vertex{},
+						CloseCurlyBracketTkn: &token.Token{
+							ID:    token.ID(125),
+							Value: []byte("}"),
+							Position: &position.Position{
+								StartLine: 2,
+								EndLine:   2,
+								StartPos:  32,
+								EndPos:    33,
+							},
+						},
+					},
+				},
+			},
+		},
+		EndTkn: &token.Token{
+			FreeFloating: []*token.Token{
+				{
+					ID:    token.T_WHITESPACE,
+					Value: []byte("\n"),
+					Position: &position.Position{
+						StartLine: 2,
+						EndLine:   2,
+						StartPos:  33,
+						EndPos:    34,
+					},
+				},
+			},
+		},
+	}
+
+	suite.Run()
+}

@@ -224,6 +224,7 @@ import (
 %type <token> reserved_non_modifiers
 %type <token> semi_reserved
 %type <token> identifier identifier_ex
+%type <token> plain_variable optional_plain_variable
 %type <token> possible_comma
 %type <token> case_separator
 
@@ -243,7 +244,7 @@ import (
 %type <node> exit_expr scalar lexical_var function_call member_name property_name
 %type <node> variable_class_name dereferencable_scalar constant dereferencable
 %type <node> callable_expr callable_variable static_member new_variable
-%type <node> encaps_var encaps_var_offset echo_expr_list catch_name_list name_list
+%type <node> encaps_var encaps_var_offset echo_expr_list name_union name_list
 %type <node> if_stmt const_list non_empty_argument_list property_list
 %type <node> alt_if_stmt lexical_var_list isset_variables class_const_list
 %type <node> if_stmt_without_else unprefixed_use_declarations inline_use_declarations use_declarations
@@ -269,13 +270,14 @@ import (
 %type <node> lexical_vars
 %type <node> expr_list_allow_comma non_empty_expr_list
 %type <node> match match_arm match_arm_list non_empty_match_arm_list
+%type <node> catch_list catch
 
 %type <node> member_modifier
 %type <node> use_type
 %type <node> foreach_variable
 
 
-%type <list> encaps_list backticks_expr catch_list
+%type <list> encaps_list backticks_expr
 %type <list> case_list trait_adaptation_list
 %type <list> top_statement_list
 %type <list> inner_statement_list class_statement_list
@@ -318,25 +320,22 @@ semi_reserved:
 ;
 
 identifier:
-        T_STRING
-            {
-                $$ = $1
-            }
-    |   semi_reserved
-            {
-                $$ = $1
-            }
+        T_STRING        { $$ = $1 }
+    |   semi_reserved   { $$ = $1 }
 ;
 
 identifier_ex:
-        T_STRING
-            {
-                $$ = $1
-            }
-    |   semi_reserved
-            {
-                $$ = $1
-            }
+        T_STRING        { $$ = $1 }
+    |   semi_reserved   { $$ = $1 }
+;
+
+optional_plain_variable:
+        /* empty */     { $$ = nil }
+    |   plain_variable  { $$ = $1 }
+;
+
+plain_variable:
+      T_VARIABLE        { $$ = $1 }
 ;
 
 top_statement_list:
@@ -1039,20 +1038,7 @@ statement:
             }
     |   T_TRY '{' inner_statement_list '}' catch_list finally_statement
             {
-                pos := yylex.(*Parser).builder.Pos.NewTokenNodeListPosition($1, $5)
-                if $6 != nil {
-                    pos = yylex.(*Parser).builder.Pos.NewTokenNodePosition($1, $6)
-                }
-
-                $$ = &ast.StmtTry{
-                    Position: pos,
-                    TryTkn:               $1,
-                    OpenCurlyBracketTkn:  $2,
-                    Stmts:                $3,
-                    CloseCurlyBracketTkn: $4,
-                    Catches:              $5,
-                    Finally:              $6,
-                }
+                $$ = yylex.(*Parser).builder.NewTry($1, $2, $3, $4, $5, $6)
             }
     |   T_THROW expr ';'
             {
@@ -1090,46 +1076,18 @@ statement:
             }
 
 catch_list:
-        /* empty */
-            {
-                $$ = []ast.Vertex{}
-            }
-    |   catch_list T_CATCH '(' catch_name_list T_VARIABLE ')' '{' inner_statement_list '}'
-            {
-                catch := $4.(*ast.StmtCatch)
-                catch.CatchTkn = $2
-                catch.OpenParenthesisTkn = $3
-                catch.Var = &ast.ExprVariable{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($5),
-                    Name: &ast.Identifier{
-                        Position: yylex.(*Parser).builder.Pos.NewTokenPosition($5),
-                        IdentifierTkn: $5,
-                        Value:         $5.Value,
-                    },
-                }
-                catch.CloseParenthesisTkn = $6
-                catch.OpenCurlyBracketTkn = $7
-                catch.Stmts = $8
-                catch.CloseCurlyBracketTkn = $9
-                catch.Position = yylex.(*Parser).builder.Pos.NewTokensPosition($2, $9)
-
-                $$ = append($1, catch)
-            }
+        /* empty */         { $$ = yylex.(*Parser).builder.NewEmptySeparatedList() }
+    |   catch_list catch    { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, nil, $2) }
 ;
-catch_name_list:
-        name
-            {
-                $$ = &ast.StmtCatch{
-                    Types: []ast.Vertex{$1},
-                }
-            }
-    |   catch_name_list '|' name
-            {
-                $1.(*ast.StmtCatch).SeparatorTkns = append($1.(*ast.StmtCatch).SeparatorTkns, $2)
-                $1.(*ast.StmtCatch).Types = append($1.(*ast.StmtCatch).Types, $3)
 
-                $$ = $1
-            }
+catch:
+        T_CATCH '(' name_union optional_plain_variable ')' '{' inner_statement_list '}'
+                            { $$ = yylex.(*Parser).builder.NewCatch($1, $2, $3, $4, $5, $6, $7, $8) }
+;
+
+name_union:
+        name                { $$ = yylex.(*Parser).builder.NewSeparatedList($1) }
+    |   name_union '|' name { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
 ;
 
 finally_statement:
@@ -1747,7 +1705,7 @@ non_empty_parameter_list:
 ;
 
 parameter:
-        optional_type_without_static is_reference is_variadic T_VARIABLE
+        optional_type_without_static is_reference is_variadic plain_variable
             {
                 pos := yylex.(*Parser).builder.Pos.NewTokenPosition($4)
                 if $1 != nil {
@@ -1773,7 +1731,7 @@ parameter:
                     },
                 }
             }
-    |   optional_type_without_static is_reference is_variadic T_VARIABLE '=' expr
+    |   optional_type_without_static is_reference is_variadic plain_variable '=' expr
             {
                 pos := yylex.(*Parser).builder.Pos.NewTokenNodePosition($4, $6)
                 if $1 != nil {
@@ -1942,7 +1900,7 @@ static_var_list:
 ;
 
 static_var:
-        T_VARIABLE
+        plain_variable
             {
 
                 $$ = &ast.StmtStaticVar{
@@ -1957,7 +1915,7 @@ static_var:
                     },
                 }
             }
-    |   T_VARIABLE '=' expr
+    |   plain_variable '=' expr
             {
                 $$ = &ast.StmtStaticVar{
                     Position: yylex.(*Parser).builder.Pos.NewTokenNodePosition($1, $3),
@@ -2361,7 +2319,7 @@ property_list:
 ;
 
 property:
-        T_VARIABLE backup_doc_comment
+        plain_variable backup_doc_comment
             {
                 $$ = &ast.StmtProperty{
                     Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
@@ -2376,7 +2334,7 @@ property:
                     Expr: nil,
                 }
             }
-    |   T_VARIABLE '=' expr backup_doc_comment
+    |   plain_variable '=' expr backup_doc_comment
             {
                 $$ = &ast.StmtProperty{
                     Position: yylex.(*Parser).builder.Pos.NewTokenNodePosition($1, $3),
@@ -3394,7 +3352,7 @@ lexical_var_list:
 ;
 
 lexical_var:
-    T_VARIABLE
+    plain_variable
             {
                 $$ = &ast.ExprClosureUse{
                     Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
@@ -3408,7 +3366,7 @@ lexical_var:
                     },
                 }
             }
-    |   '&' T_VARIABLE
+    |   '&' plain_variable
             {
                 $$ = &ast.ExprClosureUse{
                     Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $2),
@@ -3906,7 +3864,7 @@ variable:
 ;
 
 simple_variable:
-        T_VARIABLE
+        plain_variable
             {
                 $$ = &ast.ExprVariable{
                     Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
@@ -4211,7 +4169,7 @@ encaps_list:
 ;
 
 encaps_var:
-        T_VARIABLE
+        plain_variable
             {
                 $$ = &ast.ExprVariable{
                     Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
@@ -4222,7 +4180,7 @@ encaps_var:
                     },
                 }
             }
-    |   T_VARIABLE '[' encaps_var_offset ']'
+    |   plain_variable '[' encaps_var_offset ']'
             {
                 $$ = &ast.ExprArrayDimFetch{
                     Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $4),
@@ -4239,11 +4197,11 @@ encaps_var:
                     CloseBracketTkn: $4,
                 }
             }
-    |   T_VARIABLE T_OBJECT_OPERATOR T_STRING
+    |   plain_variable T_OBJECT_OPERATOR T_STRING
             {
                 $$ = yylex.(*Parser).builder.NewPropertyFetchFromTokens($1, $2, $3)
             }
-    |   T_VARIABLE T_NULLSAFE_OBJECT_OPERATOR T_STRING
+    |   plain_variable T_NULLSAFE_OBJECT_OPERATOR T_STRING
             {
                 $$ = yylex.(*Parser).builder.NewNullsafePropertyFetchFromTokens($1, $2, $3)
             }
@@ -4346,7 +4304,7 @@ encaps_var_offset:
                     }
                 }
             }
-    |   T_VARIABLE
+    |   plain_variable
             {
                 $$ = &ast.ExprVariable{
                     Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),

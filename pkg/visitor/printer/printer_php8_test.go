@@ -1779,3 +1779,28 @@ class Foo {
 
 	assert.Equal(t, src, actual)
 }
+
+func TestParseAndPrintTryCatchWithoutVariablePHP8(t *testing.T) {
+	src := `<?php
+try {} catch (Exception) {}
+try {} catch (Exception|Exception2) {}
+try {} catch (Exception|Exception2|Exception3) {}
+
+try {} catch (Exception) {} catch (Exception2) {}
+try {} catch (Exception|Exception2) {} catch (Exception3|Exception4) {}
+try {} catch (Exception|Exception2|Exception3) {} catch (Exception4) {}
+
+// With variable.
+try {} catch (Exception $a) {}
+try {} catch (Exception|Exception2 $a) {}
+try {} catch (Exception|Exception2|Exception3 $ax) {}
+
+try {} catch (Exception $a) {} catch (Exception2 $a) {}
+try {} catch (Exception|Exception2 $a) {} catch (Exception3|Exception4 $a) {}
+try {} catch (Exception|Exception2|Exception3 $a) {} catch (Exception4 $a) {}
+	`
+
+	actual := printPHP8(parsePHP8(src))
+
+	assert.Equal(t, src, actual)
+}

@@ -3755,3 +3755,99 @@ func TestArrowFunctionPrecedenceWithAnd(t *testing.T) {
 
 	suite.Run()
 }
+
+func TestConcatPrecedenceWithPlus(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php "str" . $a + $b;`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtExpression{
+			Expr: &ast.ExprBinaryConcat{
+				Left: &ast.ScalarString{
+					Val: []byte("\"str\""),
+				},
+				Right: &ast.ExprBinaryPlus{
+					Left: &ast.ExprVariable{
+						Name: &ast.Identifier{
+							Val: []byte("$a"),
+						},
+					},
+					Right: &ast.ExprVariable{
+						Name: &ast.Identifier{
+							Val: []byte("$b"),
+						},
+					},
+				},
+			},
+		},
+	},
+},`
+
+	suite.Run()
+}
+
+func TestConcatPrecedenceWithMinus(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php "str" . $a - $b;`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtExpression{
+			Expr: &ast.ExprBinaryConcat{
+				Left: &ast.ScalarString{
+					Val: []byte("\"str\""),
+				},
+				Right: &ast.ExprBinaryMinus{
+					Left: &ast.ExprVariable{
+						Name: &ast.Identifier{
+							Val: []byte("$a"),
+						},
+					},
+					Right: &ast.ExprVariable{
+						Name: &ast.Identifier{
+							Val: []byte("$b"),
+						},
+					},
+				},
+			},
+		},
+	},
+},`
+
+	suite.Run()
+}
+
+func TestConcatPrecedenceWithShiftLeft(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php "str" . $a << $b;`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtExpression{
+			Expr: &ast.ExprBinaryConcat{
+				Left: &ast.ScalarString{
+					Val: []byte("\"str\""),
+				},
+				Right: &ast.ExprBinaryShiftLeft{
+					Left: &ast.ExprVariable{
+						Name: &ast.Identifier{
+							Val: []byte("$a"),
+						},
+					},
+					Right: &ast.ExprVariable{
+						Name: &ast.Identifier{
+							Val: []byte("$b"),
+						},
+					},
+				},
+			},
+		},
+	},
+},`
+
+	suite.Run()
+}

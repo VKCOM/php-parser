@@ -219,6 +219,12 @@ func (f *formatter) MatchArm(n *ast.MatchArm) {
 	n.DoubleArrowTkn = f.newToken(token.T_DOUBLE_ARROW, []byte("=>"))
 }
 
+func (f *formatter) Union(n *ast.Union) {
+	if len(n.Types) > 0 {
+		n.SeparatorTkns = f.formatList(n.Types, '|')
+	}
+}
+
 func (f *formatter) StmtBreak(n *ast.StmtBreak) {
 	n.BreakTkn = f.newToken(token.T_BREAK, []byte("break"))
 

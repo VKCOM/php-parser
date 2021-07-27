@@ -14,6 +14,7 @@ type Visitor interface {
 	Identifier(n *Identifier)
 	Argument(n *Argument)
 	MatchArm(n *MatchArm)
+	Union(n *Union)
 
 	StmtBreak(n *StmtBreak)
 	StmtCase(n *StmtCase)

@@ -46,6 +46,10 @@ func (v *Null) MatchArm(_ *ast.MatchArm) {
 	// do nothing
 }
 
+func (v *Null) Union(_ *ast.Union) {
+	// do nothing
+}
+
 func (v *Null) StmtBreak(_ *ast.StmtBreak) {
 	// do nothing
 }

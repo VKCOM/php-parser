@@ -174,6 +174,10 @@ func (p *printer) MatchArm(n *ast.MatchArm) {
 	p.printNode(n.ReturnExpr)
 }
 
+func (p *printer) Union(n *ast.Union) {
+	p.printSeparatedList(n.Types, n.SeparatorTkns, []byte("|"))
+}
+
 func (p *printer) StmtBreak(n *ast.StmtBreak) {
 	p.printToken(n.BreakTkn, []byte("break"))
 	p.printNode(n.Expr)

@@ -20,7 +20,7 @@ func (n *Root) GetPosition() *position.Position {
 	return n.Position
 }
 
-// Nullable node
+// Nullable node is ?Expr
 type Nullable struct {
 	Position    *position.Position
 	QuestionTkn *token.Token
@@ -32,6 +32,21 @@ func (n *Nullable) Accept(v Visitor) {
 }
 
 func (n *Nullable) GetPosition() *position.Position {
+	return n.Position
+}
+
+// Union node is Expr|Expr1|...
+type Union struct {
+	Position      *position.Position
+	Types         []Vertex
+	SeparatorTkns []*token.Token
+}
+
+func (n *Union) Accept(v Visitor) {
+	v.Union(n)
+}
+
+func (n *Union) GetPosition() *position.Position {
 	return n.Position
 }
 

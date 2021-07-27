@@ -1691,3 +1691,91 @@ echo match($a) {
 
 	assert.Equal(t, src, actual)
 }
+
+func TestParseAndPrintUnionTypesPHP8(t *testing.T) {
+	src := `<?php
+function f(int|string $a) {}
+function f(int|string|float $a) {}
+function f(int|string|float|bool $a) {}
+
+function f(int|\Foo $a) {}
+function f(\Foo|int $a) {}
+function f(\Foo|\Boo $a) {}
+function f(\Namespaced\Foo|\Boo $a) {}
+// function f(static|\Boo $a) {} // static cannot be used here.
+
+function f(): int|string {}
+function f(): int|\Boo {}
+function f(): \Foo|\Boo {}
+function f(): \Namespaced\Foo|\Boo {}
+
+function f(): \Foo|static {}
+function f(): \Foo|void {}
+
+function f() {
+	$_ = function(int|string $a) {};
+	$_ = function(int|string|float $a) {};
+	$_ = function(int|string|float|bool $a) {};
+	$_ = function(int|\Foo $a) {};
+	$_ = function(\Foo|int $a) {};
+	$_ = function(\Foo|\Boo $a) {};
+	// $_ = function(\Foo|static $a) {}; // static cannot be used here.
+	$_ = function(\Namespaced\Foo|\Boo $a) {};
+
+	$_ = function(): int|string {};
+	$_ = function(): int|\Boo {};
+	$_ = function(): \Foo|\Boo {};
+	$_ = function(): \Namespaced\Foo|\Boo {};
+
+	$_ = function(): \Foo|static {}; // static can be used here.
+	$_ = function(): \Foo|void {};
+
+	$_ = fn(int|string $a) => $a;
+	$_ = fn(int|string|float $a) => $a;
+	$_ = fn(int|string|float|bool $a) => $a;
+	$_ = fn(int|\Foo $a) => $a;
+	$_ = fn(\Foo|int $a) => $a;
+	$_ = fn(\Foo|\Boo $a) => $a;
+	// $_ = fn(\Foo|static $a) => $a; // static cannot be used here.
+	$_ = fn(\Namespaced\Foo|\Boo $a) => $a;
+
+	$_ = fn(): int|string => null;
+	$_ = fn(): int|\Boo => null;
+	$_ = fn(): \Foo|\Boo => null;
+	$_ = fn(): \Namespaced\Foo|\Boo => null;
+	$_ = fn(): \Foo|static => null;
+	$_ = fn(): \Foo|void => null;
+}
+
+class Foo {
+	public int|string $a;
+	public int|string|float $a;
+	public int|\Foo $a;
+	public \Foo|\Boo $a;
+	public \Namespaced\Foo|\Boo $a;
+	public \Namespaced\Foo|\Boo|int $a;
+	// public static $a; // static cannot be used here.
+
+	public function f(int|\Foo $a) {}
+	public function f(\Foo|int $a) {}
+	public function f(\Foo|\Boo $a) {}
+	public function f(\Namespaced\Foo|\Boo $a) {}
+	// public function f(static|\Boo $a) {} // static cannot be used here.
+
+	public function f(int|\Foo $a = null) {}
+	public function f(\Foo|int $a = null) {}
+	public function f(\Foo|\Boo $a = null) {}
+	public function f(\Namespaced\Foo|\Boo $a = null) {}
+
+	public function f(): int|string {}
+	public function f(): int|\Boo {}
+	public function f(): \Foo|\Boo {}
+	public function f(): \Namespaced\Foo|\Boo {}
+	public function f(): int|static {} // static can be used here.
+}
+	`
+
+	actual := printPHP8(parsePHP8(src))
+
+	assert.Equal(t, src, actual)
+}

@@ -235,7 +235,7 @@ import (
 %type <node> const_decl inner_statement for_exprs non_empty_for_exprs
 %type <node> expr optional_expr parameter_list non_empty_parameter_list
 %type <node> declare_statement finally_statement unset_variable variable
-%type <node> parameter optional_type argument expr_without_variable global_var_list global_var
+%type <node> parameter argument expr_without_variable global_var_list global_var
 %type <node> static_var_list static_var class_statement trait_adaptation trait_precedence trait_alias
 %type <node> absolute_trait_method_reference trait_method_reference property echo_expr
 %type <node> new_expr anonymous_class class_name class_name_reference simple_variable
@@ -250,7 +250,11 @@ import (
 %type <node> class_const_decl namespace_name
 %type <node> alt_if_stmt_without_else
 %type <node> array_pair possible_array_pair
-%type <node> isset_variable type return_type type_expr
+%type <node> isset_variable
+
+%type <node> type_expr type union_type optional_return_type
+%type <node> type_expr_without_static type_without_static union_type_without_static optional_type_without_static
+
 %type <node> class_modifier
 %type <node> argument_list ctor_arguments
 %type <node> trait_adaptations
@@ -1169,7 +1173,7 @@ unset_variable:
 ;
 
 function_declaration_statement:
-        T_FUNCTION returns_ref T_STRING backup_doc_comment '(' parameter_list ')' return_type '{' inner_statement_list '}'
+        T_FUNCTION returns_ref T_STRING backup_doc_comment '(' parameter_list ')' optional_return_type '{' inner_statement_list '}'
             {
                 $$ = &ast.StmtFunction{
                     Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $11),
@@ -1743,7 +1747,7 @@ non_empty_parameter_list:
 ;
 
 parameter:
-        optional_type is_reference is_variadic T_VARIABLE
+        optional_type_without_static is_reference is_variadic T_VARIABLE
             {
                 pos := yylex.(*Parser).builder.Pos.NewTokenPosition($4)
                 if $1 != nil {
@@ -1769,7 +1773,7 @@ parameter:
                     },
                 }
             }
-    |   optional_type is_reference is_variadic T_VARIABLE '=' expr
+    |   optional_type_without_static is_reference is_variadic T_VARIABLE '=' expr
             {
                 pos := yylex.(*Parser).builder.Pos.NewTokenNodePosition($4, $6)
                 if $1 != nil {
@@ -1799,67 +1803,49 @@ parameter:
             }
 ;
 
-optional_type:
-        /* empty */
-            {
-                $$ = nil
-            }
-    |   type_expr
-            {
-                $$ = $1
-            }
-;
-
 type_expr:
-        type
-            {
-                $$ = $1
-            }
-    |   '?' type
-            {
-                $$ = &ast.Nullable{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenNodePosition($1, $2),
-                    QuestionTkn: $1,
-                    Expr:        $2,
-                }
-            }
+        type                { $$ = $1 }
+    |   '?' type            { $$ = yylex.(*Parser).builder.NewNullableType($1, $2) }
+    |   union_type          { $$ = yylex.(*Parser).builder.NewUnionType($1) }
 ;
 
 type:
-        T_ARRAY
-            {
-                $$ = &ast.Identifier{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    IdentifierTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   T_CALLABLE
-            {
-                $$ = &ast.Identifier{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    IdentifierTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   name
-            {
-                $$ = $1
-            }
+        type_without_static { $$ = $1 }
+    |   T_STATIC            { $$ = yylex.(*Parser).builder.NewNameType($1) }
 ;
 
-return_type:
-        /* empty */
-            {
-                $$ = &ReturnType{}
-            }
-    |   ':' type_expr
-            {
-                $$ = &ReturnType{
-                    ColonTkn: $1,
-                    Type:     $2,
-                }
-            }
+type_without_static:
+        T_ARRAY             { $$ = yylex.(*Parser).builder.NewNameType($1) }
+    |   T_CALLABLE          { $$ = yylex.(*Parser).builder.NewNameType($1) }
+    |   name                { $$ = $1 }
+;
+
+union_type:
+        type '|' type       { $$ = yylex.(*Parser).builder.NewSeparatedListWithTwoElements($1, $2, $3) }
+    |   union_type '|' type { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
+;
+
+union_type_without_static:
+        type_without_static '|' type_without_static
+            { $$ = yylex.(*Parser).builder.NewSeparatedListWithTwoElements($1, $2, $3) }
+    |   union_type_without_static '|' type_without_static
+            { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
+;
+
+type_expr_without_static:
+        type_without_static       { $$ = $1 }
+    |   '?' type_without_static   { $$ = yylex.(*Parser).builder.NewNullableType($1, $2) }
+    |   union_type_without_static { $$ = yylex.(*Parser).builder.NewUnionType($1) }
+;
+
+optional_type_without_static:
+        /* empty */               { $$ = nil }
+    |   type_expr_without_static  { $$ = $1 }
+;
+
+optional_return_type:
+        /* empty */               { $$ = &ReturnType{} }
+    |   ':' type_expr             { $$ = yylex.(*Parser).builder.NewReturnType($1, $2) }
 ;
 
 argument_list:
@@ -2001,7 +1987,7 @@ class_statement_list:
 ;
 
 class_statement:
-        variable_modifiers optional_type property_list ';'
+        variable_modifiers optional_type_without_static property_list ';'
             {
                 $$ = &ast.StmtPropertyList{
                     Position: yylex.(*Parser).builder.Pos.NewNodeListTokenPosition($1, $4),
@@ -2043,7 +2029,7 @@ class_statement:
 
                 $$ = traitUse
             }
-    |   method_modifiers T_FUNCTION returns_ref identifier backup_doc_comment '(' parameter_list ')' return_type method_body
+    |   method_modifiers T_FUNCTION returns_ref identifier backup_doc_comment '(' parameter_list ')' optional_return_type method_body
             {
                 pos := yylex.(*Parser).builder.Pos.NewTokenNodePosition($2, $10)
                 if $1 != nil {
@@ -3322,7 +3308,7 @@ expr_without_variable:
 ;
 
 inline_function:
-        T_FUNCTION returns_ref backup_doc_comment '(' parameter_list ')' lexical_vars return_type '{' inner_statement_list '}'
+        T_FUNCTION returns_ref backup_doc_comment '(' parameter_list ')' lexical_vars optional_return_type '{' inner_statement_list '}'
             {
                 closure := $7.(*ast.ExprClosure)
 
@@ -3341,7 +3327,7 @@ inline_function:
 
                 $$ = closure
             }
-    |   T_FN returns_ref '(' parameter_list ')' return_type backup_doc_comment T_DOUBLE_ARROW expr
+    |   T_FN returns_ref '(' parameter_list ')' optional_return_type backup_doc_comment T_DOUBLE_ARROW expr
             {
                 $$ = &ast.ExprArrowFunction{
                     Position: yylex.(*Parser).builder.Pos.NewTokenNodePosition($1, $9),

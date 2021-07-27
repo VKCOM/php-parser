@@ -3001,3 +3001,340 @@ match (10) {
 
 	suite.Run()
 }
+
+func TestStaticTypeParserError(t *testing.T) {
+	suite := tester.NewParserErrorTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php 
+function f(static|\Boo $a) {}
+function f(static $a) {}
+function f(): static|\Boo {} // ok
+function f(): static {} // ok
+
+class Foo {
+	public static|int $a;
+	public static $a;
+}
+`
+
+	suite.Expected = []*errors.Error{
+		{
+			Msg: "syntax error",
+			Pos: position.NewPosition(2, 2, 18, 24),
+		},
+		{
+			Msg: "syntax error",
+			Pos: position.NewPosition(3, 3, 48, 54),
+		},
+		{
+			Msg: "syntax error",
+			Pos: position.NewPosition(8, 8, 154, 155),
+		},
+		{
+			Msg: "syntax error",
+			Pos: position.NewPosition(10, 10, 182, 183),
+		},
+	}
+
+	suite.Run()
+}
+
+func TestUnionTypeParserError(t *testing.T) {
+	suite := tester.NewParserErrorTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php 
+function f(?int|string $a) {}
+function f(?(int|string) $a) {}
+function f(int|string|null $a) {} // ok
+`
+
+	suite.Expected = []*errors.Error{
+		{
+			Msg: "syntax error",
+			Pos: position.NewPosition(2, 2, 22, 23),
+		},
+		{
+			Msg: "syntax error",
+			Pos: position.NewPosition(3, 3, 49, 50),
+		},
+		{
+			Msg: "syntax error",
+			Pos: position.NewPosition(3, 3, 62, 64),
+		},
+	}
+
+	suite.Run()
+}
+
+func TestUnionTypes(t *testing.T) {
+	suite := tester.NewParserTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php function f(int|string $a) {}`
+
+	suite.Expected = &ast.Root{
+		Position: &position.Position{
+			StartLine: 1,
+			EndLine:   1,
+			StartPos:  6,
+			EndPos:    34,
+		},
+		Stmts: []ast.Vertex{
+			&ast.StmtFunction{
+				Position: &position.Position{
+					StartLine: 1,
+					EndLine:   1,
+					StartPos:  6,
+					EndPos:    34,
+				},
+				FunctionTkn: &token.Token{
+					ID:    token.T_FUNCTION,
+					Value: []byte("function"),
+					Position: &position.Position{
+						StartLine: 1,
+						EndLine:   1,
+						StartPos:  6,
+						EndPos:    14,
+					},
+					FreeFloating: []*token.Token{
+						{
+							ID:    token.T_OPEN_TAG,
+							Value: []byte("<?php"),
+							Position: &position.Position{
+								StartLine: 1,
+								EndLine:   1,
+								StartPos:  0,
+								EndPos:    5,
+							},
+						},
+						{
+							ID:    token.T_WHITESPACE,
+							Value: []byte(" "),
+							Position: &position.Position{
+								StartLine: 1,
+								EndLine:   1,
+								StartPos:  5,
+								EndPos:    6,
+							},
+						},
+					},
+				},
+				Name: &ast.Identifier{
+					Position: &position.Position{
+						StartLine: 1,
+						EndLine:   1,
+						StartPos:  15,
+						EndPos:    16,
+					},
+					IdentifierTkn: &token.Token{
+						ID:    token.T_STRING,
+						Value: []byte("f"),
+						Position: &position.Position{
+							StartLine: 1,
+							EndLine:   1,
+							StartPos:  15,
+							EndPos:    16,
+						},
+						FreeFloating: []*token.Token{
+							{
+								ID:    token.T_WHITESPACE,
+								Value: []byte(" "),
+								Position: &position.Position{
+									StartLine: 1,
+									EndLine:   1,
+									StartPos:  14,
+									EndPos:    15,
+								},
+							},
+						},
+					},
+					Value: []byte("f"),
+				},
+				OpenParenthesisTkn: &token.Token{
+					ID:    token.ID(40),
+					Value: []byte("("),
+					Position: &position.Position{
+						StartLine: 1,
+						EndLine:   1,
+						StartPos:  16,
+						EndPos:    17,
+					},
+				},
+				Params: []ast.Vertex{
+					&ast.Parameter{
+						Position: &position.Position{
+							StartLine: 1,
+							EndLine:   1,
+							StartPos:  17,
+							EndPos:    30,
+						},
+						Type: &ast.Union{
+							Position: &position.Position{
+								StartLine: 1,
+								EndLine:   1,
+								StartPos:  17,
+								EndPos:    27,
+							},
+							Types: []ast.Vertex{
+								&ast.Name{
+									Position: &position.Position{
+										StartLine: 1,
+										EndLine:   1,
+										StartPos:  17,
+										EndPos:    20,
+									},
+									Parts: []ast.Vertex{
+										&ast.NamePart{
+											Position: &position.Position{
+												StartLine: 1,
+												EndLine:   1,
+												StartPos:  17,
+												EndPos:    20,
+											},
+											StringTkn: &token.Token{
+												ID:    token.T_STRING,
+												Value: []byte("int"),
+												Position: &position.Position{
+													StartLine: 1,
+													EndLine:   1,
+													StartPos:  17,
+													EndPos:    20,
+												},
+											},
+											Value: []byte("int"),
+										},
+									},
+								},
+								&ast.Name{
+									Position: &position.Position{
+										StartLine: 1,
+										EndLine:   1,
+										StartPos:  21,
+										EndPos:    27,
+									},
+									Parts: []ast.Vertex{
+										&ast.NamePart{
+											Position: &position.Position{
+												StartLine: 1,
+												EndLine:   1,
+												StartPos:  21,
+												EndPos:    27,
+											},
+											StringTkn: &token.Token{
+												ID:    token.T_STRING,
+												Value: []byte("string"),
+												Position: &position.Position{
+													StartLine: 1,
+													EndLine:   1,
+													StartPos:  21,
+													EndPos:    27,
+												},
+											},
+											Value: []byte("string"),
+										},
+									},
+								},
+							},
+							SeparatorTkns: []*token.Token{
+								{
+									ID:    token.ID(124),
+									Value: []byte("|"),
+									Position: &position.Position{
+										StartLine: 1,
+										EndLine:   1,
+										StartPos:  20,
+										EndPos:    21,
+									},
+								},
+							},
+						},
+						Var: &ast.ExprVariable{
+							Position: &position.Position{
+								StartLine: 1,
+								EndLine:   1,
+								StartPos:  28,
+								EndPos:    30,
+							},
+							Name: &ast.Identifier{
+								Position: &position.Position{
+									StartLine: 1,
+									EndLine:   1,
+									StartPos:  28,
+									EndPos:    30,
+								},
+								IdentifierTkn: &token.Token{
+									ID:    token.T_VARIABLE,
+									Value: []byte("$a"),
+									Position: &position.Position{
+										StartLine: 1,
+										EndLine:   1,
+										StartPos:  28,
+										EndPos:    30,
+									},
+									FreeFloating: []*token.Token{
+										{
+											ID:    token.T_WHITESPACE,
+											Value: []byte(" "),
+											Position: &position.Position{
+												StartLine: 1,
+												EndLine:   1,
+												StartPos:  27,
+												EndPos:    28,
+											},
+										},
+									},
+								},
+								Value: []byte("$a"),
+							},
+						},
+					},
+				},
+				CloseParenthesisTkn: &token.Token{
+					ID:    token.ID(41),
+					Value: []byte(")"),
+					Position: &position.Position{
+						StartLine: 1,
+						EndLine:   1,
+						StartPos:  30,
+						EndPos:    31,
+					},
+				},
+				OpenCurlyBracketTkn: &token.Token{
+					ID:    token.ID(123),
+					Value: []byte("{"),
+					Position: &position.Position{
+						StartLine: 1,
+						EndLine:   1,
+						StartPos:  32,
+						EndPos:    33,
+					},
+					FreeFloating: []*token.Token{
+						{
+							ID:    token.T_WHITESPACE,
+							Value: []byte(" "),
+							Position: &position.Position{
+								StartLine: 1,
+								EndLine:   1,
+								StartPos:  31,
+								EndPos:    32,
+							},
+						},
+					},
+				},
+				Stmts: []ast.Vertex{},
+				CloseCurlyBracketTkn: &token.Token{
+					ID:    token.ID(125),
+					Value: []byte("}"),
+					Position: &position.Position{
+						StartLine: 1,
+						EndLine:   1,
+						StartPos:  33,
+						EndPos:    34,
+					},
+				},
+			},
+		},
+		EndTkn: &token.Token{},
+	}
+
+	suite.Run()
+}

@@ -62,6 +62,14 @@ func (t *Traverser) MatchArm(n *ast.MatchArm) {
 	t.Traverse(n.ReturnExpr)
 }
 
+func (t *Traverser) Union(n *ast.Union) {
+	n.Accept(t.v)
+
+	for _, nn := range n.Types {
+		nn.Accept(t)
+	}
+}
+
 func (t *Traverser) StmtBreak(n *ast.StmtBreak) {
 	n.Accept(t.v)
 

@@ -247,6 +247,18 @@ func (v *Dumper) MatchArm(n *ast.MatchArm) {
 	v.print(v.indent, "},\n")
 }
 
+func (v *Dumper) Union(n *ast.Union) {
+	v.print(0, "&ast.Union{\n")
+	v.indent++
+
+	v.dumpPosition(n.Position)
+	v.dumpVertexList("Types", n.Types)
+	v.dumpTokenList("SeparatorTkns", n.SeparatorTkns)
+
+	v.indent--
+	v.print(v.indent, "},\n")
+}
+
 func (v *Dumper) StmtBreak(n *ast.StmtBreak) {
 	v.print(0, "&ast.StmtBreak{\n")
 	v.indent++

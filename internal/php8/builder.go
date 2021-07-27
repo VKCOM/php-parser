@@ -24,6 +24,15 @@ func (b *Builder) NewSeparatedList(node ast.Vertex) *ParserSeparatedList {
 	return &ParserSeparatedList{Items: []ast.Vertex{node}}
 }
 
+// NewSeparatedListWithTwoElements creates a new two-element list.
+// Used for places where a delimited list is used.
+func (b *Builder) NewSeparatedListWithTwoElements(node1 ast.Vertex, tkn *token.Token, node2 ast.Vertex) *ParserSeparatedList {
+	return &ParserSeparatedList{
+		Items:         []ast.Vertex{node1, node2},
+		SeparatorTkns: []*token.Token{tkn},
+	}
+}
+
 // AppendToSeparatedList inserts a new node and/or token into the list.
 func (b *Builder) AppendToSeparatedList(list ast.Vertex, tkn *token.Token, node ast.Vertex) *ParserSeparatedList {
 	sepList := list.(*ParserSeparatedList)
@@ -273,5 +282,54 @@ func (b *Builder) NewMatchArm(
 		SeparatorTkns:  list.SeparatorTkns,
 		DoubleArrowTkn: DoubleArrowTkn,
 		ReturnExpr:     ReturnExpr,
+	}
+}
+
+func (b *Builder) NewNameType(
+	IdentifierTkn *token.Token,
+) *ast.Identifier {
+	return &ast.Identifier{
+		Position:      b.Pos.NewTokenPosition(IdentifierTkn),
+		IdentifierTkn: IdentifierTkn,
+		Value:         IdentifierTkn.Value,
+	}
+}
+
+func (b *Builder) NewNullableType(
+	QuestionTkn *token.Token,
+	Expr ast.Vertex,
+) *ast.Nullable {
+	return &ast.Nullable{
+		Position:    b.Pos.NewTokenNodePosition(QuestionTkn, Expr),
+		QuestionTkn: QuestionTkn,
+		Expr:        Expr,
+	}
+}
+
+func (b *Builder) NewUnionType(
+	Types ast.Vertex,
+) *ast.Union {
+	var types []ast.Vertex
+	var sepTkns []*token.Token
+	if Types != nil {
+		cases := Types.(*ParserSeparatedList)
+		types = cases.Items
+		sepTkns = cases.SeparatorTkns
+	}
+
+	return &ast.Union{
+		Position:      b.Pos.NewNodeListPosition(types),
+		Types:         types,
+		SeparatorTkns: sepTkns,
+	}
+}
+
+func (b *Builder) NewReturnType(
+	ColonTkn *token.Token,
+	Type ast.Vertex,
+) *ReturnType {
+	return &ReturnType{
+		ColonTkn: ColonTkn,
+		Type:     Type,
 	}
 }

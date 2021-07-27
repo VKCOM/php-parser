@@ -221,7 +221,7 @@ import (
 %left T_ENDIF
 %right T_STATIC T_ABSTRACT T_FINAL T_PRIVATE T_PROTECTED T_PUBLIC
 
-%type <token> is_reference is_variadic returns_ref
+%type <token> optional_arg_ref optional_ellipsis returns_ref
 
 %type <token> reserved_non_modifiers
 %type <token> semi_reserved
@@ -273,6 +273,7 @@ import (
 %type <node> expr_list_allow_comma non_empty_expr_list
 %type <node> match match_arm match_arm_list non_empty_match_arm_list
 %type <node> catch_list catch
+%type <node> optional_visibility_modifier
 
 %type <node> member_modifier
 %type <node> use_type
@@ -1144,7 +1145,7 @@ function_declaration_statement:
             }
 ;
 
-is_reference:
+optional_arg_ref:
         /* empty */
             {
                 $$ = nil
@@ -1155,7 +1156,7 @@ is_reference:
             }
 ;
 
-is_variadic:
+optional_ellipsis:
         /* empty */
             {
                 $$ = nil
@@ -1676,61 +1677,20 @@ non_empty_parameter_list:
     |   non_empty_parameter_list ',' parameter  { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
 ;
 
+optional_visibility_modifier:
+      /* empty */               { $$ = nil; }
+    | T_PUBLIC                  { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    | T_PROTECTED               { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    | T_PRIVATE                 { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+;
+
 parameter:
-        optional_type_without_static is_reference is_variadic plain_variable
-            {
-                pos := yylex.(*Parser).builder.Pos.NewTokenPosition($4)
-                if $1 != nil {
-                    pos = yylex.(*Parser).builder.Pos.NewNodeTokenPosition($1, $4)
-                } else if $2 != nil {
-                    pos = yylex.(*Parser).builder.Pos.NewTokensPosition($2, $4)
-                } else if $3 != nil {
-                    pos = yylex.(*Parser).builder.Pos.NewTokensPosition($3, $4)
-                }
-
-                $$ = &ast.Parameter{
-                    Position: pos,
-                    Type:         $1,
-                    AmpersandTkn: $2,
-                    VariadicTkn:  $3,
-                    Var: &ast.ExprVariable{
-                        Position: yylex.(*Parser).builder.Pos.NewTokenPosition($4),
-                        Name: &ast.Identifier{
-                            Position: yylex.(*Parser).builder.Pos.NewTokenPosition($4),
-                            IdentifierTkn: $4,
-                            Value:         $4.Value,
-                        },
-                    },
-                }
-            }
-    |   optional_type_without_static is_reference is_variadic plain_variable '=' expr
-            {
-                pos := yylex.(*Parser).builder.Pos.NewTokenNodePosition($4, $6)
-                if $1 != nil {
-                    pos = yylex.(*Parser).builder.Pos.NewNodesPosition($1, $6)
-                } else if $2 != nil {
-                    pos = yylex.(*Parser).builder.Pos.NewTokenNodePosition($2, $6)
-                } else if $3 != nil {
-                    pos = yylex.(*Parser).builder.Pos.NewTokenNodePosition($3, $6)
-                }
-
-                $$ = &ast.Parameter{
-                    Position: pos,
-                    Type:         $1,
-                    AmpersandTkn: $2,
-                    VariadicTkn:  $3,
-                    Var: &ast.ExprVariable{
-                        Position: yylex.(*Parser).builder.Pos.NewTokenPosition($4),
-                        Name: &ast.Identifier{
-                            Position: yylex.(*Parser).builder.Pos.NewTokenPosition($4),
-                            IdentifierTkn: $4,
-                            Value:         $4.Value,
-                        },
-                    },
-                    EqualTkn:     $5,
-                    DefaultValue: $6,
-                }
-            }
+        optional_visibility_modifier optional_type_without_static
+        optional_arg_ref optional_ellipsis plain_variable
+            { $$ = yylex.(*Parser).builder.NewParameter($1, $2, $3, $4, $5, nil, nil, false) }
+    |   optional_visibility_modifier optional_type_without_static
+        optional_arg_ref optional_ellipsis plain_variable '=' expr
+            { $$ = yylex.(*Parser).builder.NewParameter($1, $2, $3, $4, $5, $6, $7, true) }
 ;
 
 type_expr:
@@ -2224,54 +2184,12 @@ non_empty_member_modifiers:
 ;
 
 member_modifier:
-        T_PUBLIC
-            {
-                $$ = &ast.Identifier{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    IdentifierTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   T_PROTECTED
-            {
-                $$ = &ast.Identifier{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    IdentifierTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   T_PRIVATE
-            {
-                $$ = &ast.Identifier{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    IdentifierTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   T_STATIC
-            {
-                $$ = &ast.Identifier{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    IdentifierTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   T_ABSTRACT
-            {
-                $$ = &ast.Identifier{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    IdentifierTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   T_FINAL
-            {
-                $$ = &ast.Identifier{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    IdentifierTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
+        T_PUBLIC    { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   T_PROTECTED { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   T_PRIVATE   { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   T_STATIC    { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   T_ABSTRACT  { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   T_FINAL     { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
 ;
 
 property_list:

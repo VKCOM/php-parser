@@ -75,6 +75,16 @@ func (b *Builder) NewExpressionStmt(
 	}
 }
 
+func (b *Builder) NewIdentifier(
+	IdentifierTkn *token.Token,
+) *ast.Identifier {
+	return &ast.Identifier{
+		Position:      b.Pos.NewTokenPosition(IdentifierTkn),
+		IdentifierTkn: IdentifierTkn,
+		Value:         IdentifierTkn.Value,
+	}
+}
+
 func (b *Builder) NewMethodCall(
 	Expr ast.Vertex,
 	ObjectOperatorTkn *token.Token,
@@ -460,5 +470,62 @@ func (b *Builder) NewThrowExpr(
 		Position: b.Pos.NewTokenNodePosition(ThrowTkn, Expr),
 		ThrowTkn: ThrowTkn,
 		Expr:     Expr,
+	}
+}
+
+func (b *Builder) NewParameter(
+	Visibility ast.Vertex,
+	Type ast.Vertex,
+	AmpersandTkn *token.Token,
+	VariadicTkn *token.Token,
+	VarTkn *token.Token,
+	EqualTkn *token.Token,
+	DefaultValue ast.Vertex,
+	WithDefault bool,
+) *ast.Parameter {
+	var pos *position2.Position
+
+	if WithDefault {
+		if Visibility != nil {
+			pos = b.Pos.NewNodesPosition(Visibility, DefaultValue)
+		} else if Type != nil {
+			pos = b.Pos.NewNodesPosition(Type, DefaultValue)
+		} else if AmpersandTkn != nil {
+			pos = b.Pos.NewTokenNodePosition(AmpersandTkn, DefaultValue)
+		} else if VariadicTkn != nil {
+			pos = b.Pos.NewTokenNodePosition(VariadicTkn, DefaultValue)
+		} else {
+			pos = b.Pos.NewTokenNodePosition(VarTkn, DefaultValue)
+		}
+	} else {
+		if Visibility != nil {
+			pos = b.Pos.NewNodeTokenPosition(Visibility, VarTkn)
+		} else if Type != nil {
+			pos = b.Pos.NewNodeTokenPosition(Type, VarTkn)
+		} else if AmpersandTkn != nil {
+			pos = b.Pos.NewTokensPosition(AmpersandTkn, VarTkn)
+		} else if VariadicTkn != nil {
+			pos = b.Pos.NewTokensPosition(VariadicTkn, VarTkn)
+		} else {
+			pos = b.Pos.NewTokenPosition(VarTkn)
+		}
+	}
+
+	return &ast.Parameter{
+		Position:     pos,
+		Visibility:   Visibility,
+		Type:         Type,
+		AmpersandTkn: AmpersandTkn,
+		VariadicTkn:  VariadicTkn,
+		Var: &ast.ExprVariable{
+			Position: b.Pos.NewTokenPosition(VarTkn),
+			Name: &ast.Identifier{
+				Position:      b.Pos.NewTokenPosition(VarTkn),
+				IdentifierTkn: VarTkn,
+				Value:         VarTkn.Value,
+			},
+		},
+		EqualTkn:     EqualTkn,
+		DefaultValue: DefaultValue,
 	}
 }

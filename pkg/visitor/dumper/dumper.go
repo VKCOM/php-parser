@@ -193,6 +193,7 @@ func (v *Dumper) Parameter(n *ast.Parameter) {
 	v.indent++
 
 	v.dumpPosition(n.Position)
+	v.dumpVertex("Visibility", n.Visibility)
 	v.dumpVertex("Type", n.Type)
 	v.dumpToken("AmpersandTkn", n.AmpersandTkn)
 	v.dumpToken("VariadicTkn", n.VariadicTkn)

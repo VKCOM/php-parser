@@ -1920,3 +1920,64 @@ throw new InvalidArgumentException();
 
 	assert.Equal(t, src, actual)
 }
+
+func TestParseAndPrintPropertyInConstructorPHP8(t *testing.T) {
+	src := `<?php
+class Point {
+    public function __construct(
+        protected float $x = 0.0,
+        protected float $y = 0.0,
+        public float $z = 0.0,
+    ) {}
+}
+
+class Point2 {
+    public function __construct(
+        private float $x,
+        protected float $y,
+        public float $z,
+    ) {}
+}
+
+class Point3 {
+    public function __construct(
+        protected $x,
+        private $y,
+        public $z,
+    ) {}
+}
+
+class Point4 {
+    public function __construct(
+        public &$x,
+        private &$y,
+        protected &$z,
+    ) {}
+}
+
+
+class Point4 {
+    public function __construct(
+        public float &$x = 0.0,
+        protected float &$y = 0.0,
+        private float &$z = 0.0,
+    ) {}
+}
+
+class Point5 {
+	public function __construct(
+		public $x,
+		public float $y,
+		protected float &$z,
+		private float $a = 0.0,
+		protected float &$b = 0.0,
+	) {}
+}
+`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}

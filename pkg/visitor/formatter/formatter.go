@@ -154,6 +154,11 @@ func (f *formatter) Nullable(n *ast.Nullable) {
 }
 
 func (f *formatter) Parameter(n *ast.Parameter) {
+	if n.Visibility != nil {
+		n.Visibility.Accept(f)
+		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+	}
+
 	if n.Type != nil {
 		n.Type.Accept(f)
 		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))

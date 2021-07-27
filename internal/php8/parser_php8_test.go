@@ -3851,3 +3851,556 @@ func TestConcatPrecedenceWithShiftLeft(t *testing.T) {
 
 	suite.Run()
 }
+
+func TestPropertiesInConstructor(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php
+class Point {
+  public function __construct(
+    public float $x = 0.0,
+    public float $y = 0.0,
+    public float $z = 0.0,
+  ) {}
+}
+`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtClass{
+			Name: &ast.Identifier{
+				Val: []byte("Point"),
+			},
+			Stmts: []ast.Vertex{
+				&ast.StmtClassMethod{
+					Modifiers: []ast.Vertex{
+						&ast.Identifier{
+							Val: []byte("public"),
+						},
+					},
+					Name: &ast.Identifier{
+						Val: []byte("__construct"),
+					},
+					Params: []ast.Vertex{
+						&ast.Parameter{
+							Visibility: &ast.Identifier{
+								Val: []byte("public"),
+							},
+							Type: &ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										Val: []byte("float"),
+									},
+								},
+							},
+							Var: &ast.ExprVariable{
+								Name: &ast.Identifier{
+									Val: []byte("$x"),
+								},
+							},
+							DefaultValue: &ast.ScalarDnumber{
+								Val: []byte("0.0"),
+							},
+						},
+						&ast.Parameter{
+							Visibility: &ast.Identifier{
+								Val: []byte("public"),
+							},
+							Type: &ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										Val: []byte("float"),
+									},
+								},
+							},
+							Var: &ast.ExprVariable{
+								Name: &ast.Identifier{
+									Val: []byte("$y"),
+								},
+							},
+							DefaultValue: &ast.ScalarDnumber{
+								Val: []byte("0.0"),
+							},
+						},
+						&ast.Parameter{
+							Visibility: &ast.Identifier{
+								Val: []byte("public"),
+							},
+							Type: &ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										Val: []byte("float"),
+									},
+								},
+							},
+							Var: &ast.ExprVariable{
+								Name: &ast.Identifier{
+									Val: []byte("$z"),
+								},
+							},
+							DefaultValue: &ast.ScalarDnumber{
+								Val: []byte("0.0"),
+							},
+						},
+					},
+					Stmt: &ast.StmtStmtList{
+						Stmts: []ast.Vertex{},
+					},
+				},
+			},
+		},
+	},
+},`
+
+	suite.Run()
+}
+
+func TestMixedPropertiesInConstructor(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.WithTokens()
+	suite.Code = `<?php
+class Point {
+  public function __construct(
+    public $x,
+    public float $y,
+    public float &$z,
+    public float $a = 0.0,
+    public float &$b = 0.0,
+  ) {}
+}
+`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtClass{
+			ClassTkn: &token.Token{
+				ID: token.T_CLASS,
+				Val: []byte("class"),
+				FreeFloating: []*token.Token{
+					{
+						ID: token.T_OPEN_TAG,
+						Val: []byte("<?php"),
+					},
+					{
+						ID: token.T_WHITESPACE,
+						Val: []byte("\n"),
+					},
+				},
+			},
+			Name: &ast.Identifier{
+				IdentifierTkn: &token.Token{
+					ID: token.T_STRING,
+					Val: []byte("Point"),
+					FreeFloating: []*token.Token{
+						{
+							ID: token.T_WHITESPACE,
+							Val: []byte(" "),
+						},
+					},
+				},
+				Val: []byte("Point"),
+			},
+			OpenCurlyBracketTkn: &token.Token{
+				ID: token.ID(123),
+				Val: []byte("{"),
+				FreeFloating: []*token.Token{
+					{
+						ID: token.T_WHITESPACE,
+						Val: []byte(" "),
+					},
+				},
+			},
+			Stmts: []ast.Vertex{
+				&ast.StmtClassMethod{
+					Modifiers: []ast.Vertex{
+						&ast.Identifier{
+							IdentifierTkn: &token.Token{
+								ID: token.T_PUBLIC,
+								Val: []byte("public"),
+								FreeFloating: []*token.Token{
+									{
+										ID: token.T_WHITESPACE,
+										Val: []byte("\n  "),
+									},
+								},
+							},
+							Val: []byte("public"),
+						},
+					},
+					FunctionTkn: &token.Token{
+						ID: token.T_FUNCTION,
+						Val: []byte("function"),
+						FreeFloating: []*token.Token{
+							{
+								ID: token.T_WHITESPACE,
+								Val: []byte(" "),
+							},
+						},
+					},
+					Name: &ast.Identifier{
+						IdentifierTkn: &token.Token{
+							ID: token.T_STRING,
+							Val: []byte("__construct"),
+							FreeFloating: []*token.Token{
+								{
+									ID: token.T_WHITESPACE,
+									Val: []byte(" "),
+								},
+							},
+						},
+						Val: []byte("__construct"),
+					},
+					OpenParenthesisTkn: &token.Token{
+						ID: token.ID(40),
+						Val: []byte("("),
+					},
+					Params: []ast.Vertex{
+						&ast.Parameter{
+							Visibility: &ast.Identifier{
+								IdentifierTkn: &token.Token{
+									ID: token.T_PUBLIC,
+									Val: []byte("public"),
+									FreeFloating: []*token.Token{
+										{
+											ID: token.T_WHITESPACE,
+											Val: []byte("\n    "),
+										},
+									},
+								},
+								Val: []byte("public"),
+							},
+							Var: &ast.ExprVariable{
+								Name: &ast.Identifier{
+									IdentifierTkn: &token.Token{
+										ID: token.T_VARIABLE,
+										Val: []byte("$x"),
+										FreeFloating: []*token.Token{
+											{
+												ID: token.T_WHITESPACE,
+												Val: []byte(" "),
+											},
+										},
+									},
+									Val: []byte("$x"),
+								},
+							},
+						},
+						&ast.Parameter{
+							Visibility: &ast.Identifier{
+								IdentifierTkn: &token.Token{
+									ID: token.T_PUBLIC,
+									Val: []byte("public"),
+									FreeFloating: []*token.Token{
+										{
+											ID: token.T_WHITESPACE,
+											Val: []byte("\n    "),
+										},
+									},
+								},
+								Val: []byte("public"),
+							},
+							Type: &ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										StringTkn: &token.Token{
+											ID: token.T_STRING,
+											Val: []byte("float"),
+											FreeFloating: []*token.Token{
+												{
+													ID: token.T_WHITESPACE,
+													Val: []byte(" "),
+												},
+											},
+										},
+										Val: []byte("float"),
+									},
+								},
+							},
+							Var: &ast.ExprVariable{
+								Name: &ast.Identifier{
+									IdentifierTkn: &token.Token{
+										ID: token.T_VARIABLE,
+										Val: []byte("$y"),
+										FreeFloating: []*token.Token{
+											{
+												ID: token.T_WHITESPACE,
+												Val: []byte(" "),
+											},
+										},
+									},
+									Val: []byte("$y"),
+								},
+							},
+						},
+						&ast.Parameter{
+							Visibility: &ast.Identifier{
+								IdentifierTkn: &token.Token{
+									ID: token.T_PUBLIC,
+									Val: []byte("public"),
+									FreeFloating: []*token.Token{
+										{
+											ID: token.T_WHITESPACE,
+											Val: []byte("\n    "),
+										},
+									},
+								},
+								Val: []byte("public"),
+							},
+							Type: &ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										StringTkn: &token.Token{
+											ID: token.T_STRING,
+											Val: []byte("float"),
+											FreeFloating: []*token.Token{
+												{
+													ID: token.T_WHITESPACE,
+													Val: []byte(" "),
+												},
+											},
+										},
+										Val: []byte("float"),
+									},
+								},
+							},
+							AmpersandTkn: &token.Token{
+								ID: token.ID(38),
+								Val: []byte("&"),
+								FreeFloating: []*token.Token{
+									{
+										ID: token.T_WHITESPACE,
+										Val: []byte(" "),
+									},
+								},
+							},
+							Var: &ast.ExprVariable{
+								Name: &ast.Identifier{
+									IdentifierTkn: &token.Token{
+										ID: token.T_VARIABLE,
+										Val: []byte("$z"),
+									},
+									Val: []byte("$z"),
+								},
+							},
+						},
+						&ast.Parameter{
+							Visibility: &ast.Identifier{
+								IdentifierTkn: &token.Token{
+									ID: token.T_PUBLIC,
+									Val: []byte("public"),
+									FreeFloating: []*token.Token{
+										{
+											ID: token.T_WHITESPACE,
+											Val: []byte("\n    "),
+										},
+									},
+								},
+								Val: []byte("public"),
+							},
+							Type: &ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										StringTkn: &token.Token{
+											ID: token.T_STRING,
+											Val: []byte("float"),
+											FreeFloating: []*token.Token{
+												{
+													ID: token.T_WHITESPACE,
+													Val: []byte(" "),
+												},
+											},
+										},
+										Val: []byte("float"),
+									},
+								},
+							},
+							Var: &ast.ExprVariable{
+								Name: &ast.Identifier{
+									IdentifierTkn: &token.Token{
+										ID: token.T_VARIABLE,
+										Val: []byte("$a"),
+										FreeFloating: []*token.Token{
+											{
+												ID: token.T_WHITESPACE,
+												Val: []byte(" "),
+											},
+										},
+									},
+									Val: []byte("$a"),
+								},
+							},
+							EqualTkn: &token.Token{
+								ID: token.ID(61),
+								Val: []byte("="),
+								FreeFloating: []*token.Token{
+									{
+										ID: token.T_WHITESPACE,
+										Val: []byte(" "),
+									},
+								},
+							},
+							DefaultValue: &ast.ScalarDnumber{
+								NumberTkn: &token.Token{
+									ID: token.T_DNUMBER,
+									Val: []byte("0.0"),
+									FreeFloating: []*token.Token{
+										{
+											ID: token.T_WHITESPACE,
+											Val: []byte(" "),
+										},
+									},
+								},
+								Val: []byte("0.0"),
+							},
+						},
+						&ast.Parameter{
+							Visibility: &ast.Identifier{
+								IdentifierTkn: &token.Token{
+									ID: token.T_PUBLIC,
+									Val: []byte("public"),
+									FreeFloating: []*token.Token{
+										{
+											ID: token.T_WHITESPACE,
+											Val: []byte("\n    "),
+										},
+									},
+								},
+								Val: []byte("public"),
+							},
+							Type: &ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										StringTkn: &token.Token{
+											ID: token.T_STRING,
+											Val: []byte("float"),
+											FreeFloating: []*token.Token{
+												{
+													ID: token.T_WHITESPACE,
+													Val: []byte(" "),
+												},
+											},
+										},
+										Val: []byte("float"),
+									},
+								},
+							},
+							AmpersandTkn: &token.Token{
+								ID: token.ID(38),
+								Val: []byte("&"),
+								FreeFloating: []*token.Token{
+									{
+										ID: token.T_WHITESPACE,
+										Val: []byte(" "),
+									},
+								},
+							},
+							Var: &ast.ExprVariable{
+								Name: &ast.Identifier{
+									IdentifierTkn: &token.Token{
+										ID: token.T_VARIABLE,
+										Val: []byte("$b"),
+									},
+									Val: []byte("$b"),
+								},
+							},
+							EqualTkn: &token.Token{
+								ID: token.ID(61),
+								Val: []byte("="),
+								FreeFloating: []*token.Token{
+									{
+										ID: token.T_WHITESPACE,
+										Val: []byte(" "),
+									},
+								},
+							},
+							DefaultValue: &ast.ScalarDnumber{
+								NumberTkn: &token.Token{
+									ID: token.T_DNUMBER,
+									Val: []byte("0.0"),
+									FreeFloating: []*token.Token{
+										{
+											ID: token.T_WHITESPACE,
+											Val: []byte(" "),
+										},
+									},
+								},
+								Val: []byte("0.0"),
+							},
+						},
+					},
+					SeparatorTkns: []*token.Token{
+						{
+							ID: token.ID(44),
+							Val: []byte(","),
+						},
+						{
+							ID: token.ID(44),
+							Val: []byte(","),
+						},
+						{
+							ID: token.ID(44),
+							Val: []byte(","),
+						},
+						{
+							ID: token.ID(44),
+							Val: []byte(","),
+						},
+						{
+							ID: token.ID(44),
+							Val: []byte(","),
+						},
+					},
+					CloseParenthesisTkn: &token.Token{
+						ID: token.ID(41),
+						Val: []byte(")"),
+						FreeFloating: []*token.Token{
+							{
+								ID: token.T_WHITESPACE,
+								Val: []byte("\n  "),
+							},
+						},
+					},
+					Stmt: &ast.StmtStmtList{
+						OpenCurlyBracketTkn: &token.Token{
+							ID: token.ID(123),
+							Val: []byte("{"),
+							FreeFloating: []*token.Token{
+								{
+									ID: token.T_WHITESPACE,
+									Val: []byte(" "),
+								},
+							},
+						},
+						Stmts: []ast.Vertex{},
+						CloseCurlyBracketTkn: &token.Token{
+							ID: token.ID(125),
+							Val: []byte("}"),
+						},
+					},
+				},
+			},
+			CloseCurlyBracketTkn: &token.Token{
+				ID: token.ID(125),
+				Val: []byte("}"),
+				FreeFloating: []*token.Token{
+					{
+						ID: token.T_WHITESPACE,
+						Val: []byte("\n"),
+					},
+				},
+			},
+		},
+	},
+	EndTkn: &token.Token{
+		FreeFloating: []*token.Token{
+			{
+				ID: token.T_WHITESPACE,
+				Val: []byte("\n"),
+			},
+		},
+	},
+},`
+
+	suite.Run()
+}

@@ -3019,19 +3019,19 @@ class Foo {
 
 	suite.Expected = []*errors.Error{
 		{
-			Msg: "syntax error",
+			Msg: "syntax error: unexpected T_STATIC, expecting T_VARIABLE",
 			Pos: position.NewPosition(2, 2, 18, 24),
 		},
 		{
-			Msg: "syntax error",
+			Msg: "syntax error: unexpected T_STATIC, expecting T_VARIABLE",
 			Pos: position.NewPosition(3, 3, 48, 54),
 		},
 		{
-			Msg: "syntax error",
+			Msg: "syntax error: unexpected '|', expecting T_VARIABLE",
 			Pos: position.NewPosition(8, 8, 154, 155),
 		},
 		{
-			Msg: "syntax error",
+			Msg: "syntax error: unexpected '}'",
 			Pos: position.NewPosition(10, 10, 182, 183),
 		},
 	}
@@ -3050,15 +3050,15 @@ function f(int|string|null $a) {} // ok
 
 	suite.Expected = []*errors.Error{
 		{
-			Msg: "syntax error",
+			Msg: "syntax error: unexpected '|', expecting T_VARIABLE",
 			Pos: position.NewPosition(2, 2, 22, 23),
 		},
 		{
-			Msg: "syntax error",
+			Msg: "syntax error: unexpected '('",
 			Pos: position.NewPosition(3, 3, 49, 50),
 		},
 		{
-			Msg: "syntax error",
+			Msg: "syntax error: unexpected T_VARIABLE",
 			Pos: position.NewPosition(3, 3, 62, 64),
 		},
 	}

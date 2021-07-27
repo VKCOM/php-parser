@@ -185,6 +185,7 @@ import (
 %token <token> '>'
 %token <token> '.'
 
+%right T_THROW
 %left T_INCLUDE T_INCLUDE_ONCE T_EVAL T_REQUIRE T_REQUIRE_ONCE
 %left ','
 %left T_LOGICAL_OR
@@ -194,7 +195,6 @@ import (
 %right T_YIELD
 %right T_DOUBLE_ARROW
 %right T_YIELD_FROM
-%right T_THROW
 %left '=' T_PLUS_EQUAL T_MINUS_EQUAL T_MUL_EQUAL T_DIV_EQUAL T_CONCAT_EQUAL T_MOD_EQUAL T_AND_EQUAL T_OR_EQUAL T_XOR_EQUAL T_SL_EQUAL T_SR_EQUAL T_POW_EQUAL T_COALESCE_EQUAL
 %left '?' ':'
 %right T_COALESCE
@@ -3260,7 +3260,7 @@ inline_function:
 
                 $$ = closure
             }
-    |   T_FN returns_ref '(' parameter_list ')' optional_return_type backup_doc_comment T_DOUBLE_ARROW expr
+    |   T_FN returns_ref '(' parameter_list ')' optional_return_type backup_doc_comment T_DOUBLE_ARROW expr %prec T_THROW
             {
                 $$ = &ast.ExprArrowFunction{
                     Position: yylex.(*Parser).builder.Pos.NewTokenNodePosition($1, $9),

@@ -3665,3 +3665,93 @@ func TestThrowExprPrecedence(t *testing.T) {
 
 	suite.Run()
 }
+
+func TestArrowFunctionPrecedenceWithOr(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php fn($a, $b) => $a and $b;`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtExpression{
+			Expr: &ast.ExprArrowFunction{
+				Params: []ast.Vertex{
+					&ast.Parameter{
+						Var: &ast.ExprVariable{
+							Name: &ast.Identifier{
+								Val: []byte("$a"),
+							},
+						},
+					},
+					&ast.Parameter{
+						Var: &ast.ExprVariable{
+							Name: &ast.Identifier{
+								Val: []byte("$b"),
+							},
+						},
+					},
+				},
+				Expr: &ast.ExprBinaryLogicalAnd{
+					Left: &ast.ExprVariable{
+						Name: &ast.Identifier{
+							Val: []byte("$a"),
+						},
+					},
+					Right: &ast.ExprVariable{
+						Name: &ast.Identifier{
+							Val: []byte("$b"),
+						},
+					},
+				},
+			},
+		},
+	},
+},`
+
+	suite.Run()
+}
+
+func TestArrowFunctionPrecedenceWithAnd(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php fn($a, $b) => $a && $b;`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtExpression{
+			Expr: &ast.ExprArrowFunction{
+				Params: []ast.Vertex{
+					&ast.Parameter{
+						Var: &ast.ExprVariable{
+							Name: &ast.Identifier{
+								Val: []byte("$a"),
+							},
+						},
+					},
+					&ast.Parameter{
+						Var: &ast.ExprVariable{
+							Name: &ast.Identifier{
+								Val: []byte("$b"),
+							},
+						},
+					},
+				},
+				Expr: &ast.ExprBinaryBooleanAnd{
+					Left: &ast.ExprVariable{
+						Name: &ast.Identifier{
+							Val: []byte("$a"),
+						},
+					},
+					Right: &ast.ExprVariable{
+						Name: &ast.Identifier{
+							Val: []byte("$b"),
+						},
+					},
+				},
+			},
+		},
+	},
+},`
+
+	suite.Run()
+}

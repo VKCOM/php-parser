@@ -1998,6 +1998,15 @@ func (f *formatter) ExprMatch(n *ast.ExprMatch) {
 	n.CloseCurlyBracketTkn = f.newToken('{', []byte("{"))
 }
 
+func (f *formatter) ExprThrow(n *ast.ExprThrow) {
+	n.ThrowTkn = f.newToken(token.T_THROW, []byte("throw"))
+	f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+
+	n.Expr.Accept(f)
+
+	n.SemiColonTkn = f.newSemicolonTkn()
+}
+
 func (f *formatter) ScalarDnumber(n *ast.ScalarDnumber) {
 	if n.NumberTkn == nil {
 		n.NumberTkn = f.newToken(token.T_STRING, n.Value)

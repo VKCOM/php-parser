@@ -1213,6 +1213,11 @@ func (p *printer) ExprMatch(n *ast.ExprMatch) {
 	p.printToken(n.CloseCurlyBracketTkn, []byte("}"))
 }
 
+func (p *printer) ExprThrow(n *ast.ExprThrow) {
+	p.printToken(n.ThrowTkn, []byte("throw"))
+	p.printNode(n.Expr)
+}
+
 func (p *printer) ScalarDnumber(n *ast.ScalarDnumber) {
 	p.printToken(n.NumberTkn, n.Value)
 }

@@ -2260,6 +2260,19 @@ func (v *Dumper) ExprMatch(n *ast.ExprMatch) {
 	v.print(v.indent, "},\n")
 }
 
+func (v *Dumper) ExprThrow(n *ast.ExprThrow) {
+	v.print(0, "&ast.ExprThrow{\n")
+	v.indent++
+
+	v.dumpPosition(n.Position)
+	v.dumpToken("ThrowTkn", n.ThrowTkn)
+	v.dumpVertex("Expr", n.Expr)
+	v.dumpToken("SemiColonTkn", n.SemiColonTkn)
+
+	v.indent--
+	v.print(v.indent, "},\n")
+}
+
 func (v *Dumper) ScalarDnumber(n *ast.ScalarDnumber) {
 	v.print(0, "&ast.ScalarDnumber{\n")
 	v.indent++

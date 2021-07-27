@@ -610,6 +610,10 @@ func (v *Null) ExprMatch(_ *ast.ExprMatch) {
 	// do nothing
 }
 
+func (v *Null) ExprThrow(_ *ast.ExprThrow) {
+	// do nothing
+}
+
 func (v *Null) ScalarDnumber(_ *ast.ScalarDnumber) {
 	// do nothing
 }

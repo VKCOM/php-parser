@@ -2664,6 +2664,22 @@ func (n *ExprMatch) GetPosition() *position.Position {
 	return n.Position
 }
 
+// ExprThrow node is 'throw Expr'
+type ExprThrow struct {
+	Position     *position.Position
+	ThrowTkn     *token.Token
+	Expr         Vertex
+	SemiColonTkn *token.Token
+}
+
+func (n *ExprThrow) Accept(v Visitor) {
+	v.ExprThrow(n)
+}
+
+func (n *ExprThrow) GetPosition() *position.Position {
+	return n.Position
+}
+
 // MatchArm node is [expr, expr1, ...]|default => return_expr
 type MatchArm struct {
 	Position        *position.Position

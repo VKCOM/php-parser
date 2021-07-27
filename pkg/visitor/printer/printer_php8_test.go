@@ -1895,3 +1895,28 @@ function f() {
 
 	assert.Equal(t, src, actual)
 }
+
+func TestParseAndPrintThrowExprAndStmtPHP8(t *testing.T) {
+	src := `<?php
+$a ??= throw new InvalidArgumentException();
+$a && throw new InvalidArgumentException();
+$a || throw new InvalidArgumentException();
+
+$a = $b ?: throw new InvalidArgumentException();
+
+$a = !empty($b)
+    ? reset($b)
+    : throw new InvalidArgumentException();
+
+throw $this->createNotFoundException();
+
+throw $exception = new Exception();
+
+// As stmt.
+throw new InvalidArgumentException();
+	`
+
+	actual := printPHP8(parsePHP8(src))
+
+	assert.Equal(t, src, actual)
+}

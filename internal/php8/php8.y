@@ -194,6 +194,7 @@ import (
 %right T_YIELD
 %right T_DOUBLE_ARROW
 %right T_YIELD_FROM
+%right T_THROW
 %left '=' T_PLUS_EQUAL T_MINUS_EQUAL T_MUL_EQUAL T_DIV_EQUAL T_CONCAT_EQUAL T_MOD_EQUAL T_AND_EQUAL T_OR_EQUAL T_XOR_EQUAL T_SL_EQUAL T_SR_EQUAL T_POW_EQUAL T_COALESCE_EQUAL
 %left '?' ':'
 %right T_COALESCE
@@ -959,11 +960,7 @@ statement:
             }
     |   expr ';'
             {
-                $$ = &ast.StmtExpression{
-                    Position: yylex.(*Parser).builder.Pos.NewNodeTokenPosition($1, $2),
-                    Expr:         $1,
-                    SemiColonTkn: $2,
-                }
+                $$ = yylex.(*Parser).builder.NewExpressionStmt($1, $2)
             }
     |   T_UNSET '(' unset_variables possible_comma ')' ';'
             {
@@ -1039,15 +1036,6 @@ statement:
     |   T_TRY '{' inner_statement_list '}' catch_list finally_statement
             {
                 $$ = yylex.(*Parser).builder.NewTry($1, $2, $3, $4, $5, $6)
-            }
-    |   T_THROW expr ';'
-            {
-                $$ = &ast.StmtThrow{
-                    Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $3),
-                    ThrowTkn:     $1,
-                    Expr:         $2,
-                    SemiColonTkn: $3,
-                }
             }
     |   T_GOTO T_STRING ';'
             {
@@ -3228,6 +3216,10 @@ expr_without_variable:
                     YieldFromTkn: $1,
                     Expr:         $2,
                 }
+            }
+    |   T_THROW expr
+            {
+                $$ = yylex.(*Parser).builder.NewThrowExpr($1, $2)
             }
     |   inline_function
             {

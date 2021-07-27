@@ -1130,6 +1130,12 @@ func (t *Traverser) ExprMatch(n *ast.ExprMatch) {
 	}
 }
 
+func (t *Traverser) ExprThrow(n *ast.ExprThrow) {
+	n.Accept(t.v)
+
+	t.Traverse(n.Expr)
+}
+
 func (t *Traverser) ScalarDnumber(n *ast.ScalarDnumber) {
 	n.Accept(t.v)
 }

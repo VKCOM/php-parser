@@ -53,6 +53,28 @@ func (b *Builder) AppendToSeparatedList(list ast.Vertex, tkn *token.Token, node 
 	return sepList
 }
 
+func (b *Builder) NewExpressionStmt(
+	Expr ast.Vertex,
+	SemiColonTkn *token.Token,
+) ast.Vertex {
+	if throwExpr, ok := Expr.(*ast.ExprThrow); ok {
+		// For backwards-compatibility reasons, convert throw in statement position into
+		// StmtThrow rather than StmtExpression(ExprThrow).
+		return &ast.StmtThrow{
+			Position:     throwExpr.Position,
+			ThrowTkn:     throwExpr.ThrowTkn,
+			Expr:         throwExpr.Expr,
+			SemiColonTkn: throwExpr.SemiColonTkn,
+		}
+	}
+
+	return &ast.StmtExpression{
+		Position:     b.Pos.NewNodeTokenPosition(Expr, SemiColonTkn),
+		Expr:         Expr,
+		SemiColonTkn: SemiColonTkn,
+	}
+}
+
 func (b *Builder) NewMethodCall(
 	Expr ast.Vertex,
 	ObjectOperatorTkn *token.Token,
@@ -416,5 +438,27 @@ func (b *Builder) NewCatch(
 		OpenCurlyBracketTkn:  OpenCurlyBracketTkn,
 		Stmts:                Stmts,
 		CloseCurlyBracketTkn: CloseCurlyBracketTkn,
+	}
+}
+
+func (b *Builder) NewThrowStmt(
+	ThrowTkn *token.Token,
+	Expr ast.Vertex,
+) *ast.StmtThrow {
+	return &ast.StmtThrow{
+		Position: b.Pos.NewTokenNodePosition(ThrowTkn, Expr),
+		ThrowTkn: ThrowTkn,
+		Expr:     Expr,
+	}
+}
+
+func (b *Builder) NewThrowExpr(
+	ThrowTkn *token.Token,
+	Expr ast.Vertex,
+) *ast.ExprThrow {
+	return &ast.ExprThrow{
+		Position: b.Pos.NewTokenNodePosition(ThrowTkn, Expr),
+		ThrowTkn: ThrowTkn,
+		Expr:     Expr,
 	}
 }

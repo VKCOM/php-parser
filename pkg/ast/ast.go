@@ -103,6 +103,7 @@ type Visitor interface {
 	ExprStaticCall(n *ExprStaticCall)
 	ExprStaticPropertyFetch(n *ExprStaticPropertyFetch)
 	ExprTernary(n *ExprTernary)
+	ExprThrow(n *ExprThrow)
 	ExprUnaryMinus(n *ExprUnaryMinus)
 	ExprUnaryPlus(n *ExprUnaryPlus)
 	ExprVariable(n *ExprVariable)

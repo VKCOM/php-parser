@@ -3574,3 +3574,94 @@ try {} catch (Exception) {}
 
 	suite.Run()
 }
+
+func TestThrowExprAsStmt(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php throw new InvalidArgumentException();`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtThrow{
+			Expr: &ast.ExprNew{
+				Class: &ast.Name{
+					Parts: []ast.Vertex{
+						&ast.NamePart{
+							Val: []byte("InvalidArgumentException"),
+						},
+					},
+				},
+			},
+		},
+	},
+},`
+
+	suite.Run()
+}
+
+func TestThrowExpr(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php $a ??= throw new InvalidArgumentException();`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtExpression{
+			Expr: &ast.ExprAssignCoalesce{
+				Var: &ast.ExprVariable{
+					Name: &ast.Identifier{
+						Val: []byte("$a"),
+					},
+				},
+				Expr: &ast.ExprThrow{
+					Expr: &ast.ExprNew{
+						Class: &ast.Name{
+							Parts: []ast.Vertex{
+								&ast.NamePart{
+									Val: []byte("InvalidArgumentException"),
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+},`
+
+	suite.Run()
+}
+
+func TestThrowExprPrecedence(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php $a ??= throw $this->createNotFoundException();`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtExpression{
+			Expr: &ast.ExprAssignCoalesce{
+				Var: &ast.ExprVariable{
+					Name: &ast.Identifier{
+						Val: []byte("$a"),
+					},
+				},
+				Expr: &ast.ExprThrow{
+					Expr: &ast.ExprMethodCall{
+						Var: &ast.ExprVariable{
+							Name: &ast.Identifier{
+								Val: []byte("$this"),
+							},
+						},
+						Method: &ast.Identifier{
+							Val: []byte("createNotFoundException"),
+						},
+					},
+				},
+			},
+		},
+	},
+},`
+
+	suite.Run()
+}

@@ -61,10 +61,10 @@ func (b *Builder) NewExpressionStmt(
 		// For backwards-compatibility reasons, convert throw in statement position into
 		// StmtThrow rather than StmtExpression(ExprThrow).
 		return &ast.StmtThrow{
-			Position:     throwExpr.Position,
+			Position:     b.Pos.NewTokensPosition(throwExpr.ThrowTkn, SemiColonTkn),
 			ThrowTkn:     throwExpr.ThrowTkn,
 			Expr:         throwExpr.Expr,
-			SemiColonTkn: throwExpr.SemiColonTkn,
+			SemiColonTkn: SemiColonTkn,
 		}
 	}
 

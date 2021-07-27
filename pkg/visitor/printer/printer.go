@@ -146,6 +146,7 @@ func (p *printer) Nullable(n *ast.Nullable) {
 }
 
 func (p *printer) Parameter(n *ast.Parameter) {
+	p.printNode(n.Visibility)
 	p.printNode(n.Type)
 	p.printToken(n.AmpersandTkn, nil)
 	p.printToken(n.VariadicTkn, nil)

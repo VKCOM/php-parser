@@ -53,6 +53,7 @@ func (n *Union) GetPosition() *position.Position {
 // Parameter node
 type Parameter struct {
 	Position     *position.Position
+	Visibility   Vertex
 	Type         Vertex
 	AmpersandTkn *token.Token
 	VariadicTkn  *token.Token

@@ -277,6 +277,7 @@ func (lex *Lexer) Lex() *token.Token {
             'or'i                             => {lex.setTokenPosition(tkn); tok = token.T_LOGICAL_OR; fbreak;};
             'xor'i                            => {lex.setTokenPosition(tkn); tok = token.T_LOGICAL_XOR; fbreak;};
             '\\'                              => {lex.setTokenPosition(tkn); tok = token.T_NS_SEPARATOR; fbreak;};
+            '#['                              => {lex.setTokenPosition(tkn); tok = token.T_ATTRIBUTE; fbreak;};
             '...'                             => {lex.setTokenPosition(tkn); tok = token.T_ELLIPSIS; fbreak;};
             '::'                              => {lex.setTokenPosition(tkn); tok = token.T_PAAMAYIM_NEKUDOTAYIM; fbreak;};
             '&&'                              => {lex.setTokenPosition(tkn); tok = token.T_BOOLEAN_AND; fbreak;};
@@ -318,8 +319,11 @@ func (lex *Lexer) Lex() *token.Token {
             '(' whitespace* ('string'i|'binary'i) whitespace* ')'        => {lex.setTokenPosition(tkn); tok = token.T_STRING_CAST; fbreak;};
             '(' whitespace* 'unset'i whitespace* ')'                     => {lex.error(fmt.Sprintf("The (unset) cast is no longer supported")); fbreak;};
 
-            ('#' | '//') any_line* when is_not_comment_end => {
+            (('#' ^'[') | '//') any_line* when is_not_comment_end => {
                 lex.ungetStr("?>")
+                lex.addFreeFloatingToken(tkn, token.T_COMMENT, lex.ts, lex.te)
+            };
+            '#' => {
                 lex.addFreeFloatingToken(tkn, token.T_COMMENT, lex.ts, lex.te)
             };
             '/*' any_line* :>> '*/' {

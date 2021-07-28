@@ -4404,3 +4404,109 @@ class Point {
 
 	suite.Run()
 }
+
+func TestAttributes(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php
+#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+#[SecondGroupFirstAttribute(SomeClass::class), SecondGroupSecondAttribute]
+class Foo {}
+`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtClass{
+			AttrGroups: []ast.Vertex{
+				&ast.AttributeGroup{
+					Attrs: []ast.Vertex{
+						&ast.Attribute{
+							Name: &ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										Val: []byte("FirstAttribute"),
+									},
+								},
+							},
+							Args: []ast.Vertex{
+								&ast.Argument{
+									Expr: &ast.ScalarLnumber{
+										Val: []byte("100"),
+									},
+								},
+								&ast.Argument{
+									Expr: &ast.ExprClassConstFetch{
+										Class: &ast.Name{
+											Parts: []ast.Vertex{
+												&ast.NamePart{
+													Val: []byte("SomeClass"),
+												},
+											},
+										},
+										Const: &ast.Identifier{
+											Val: []byte("class"),
+										},
+									},
+								},
+							},
+						},
+						&ast.Attribute{
+							Name: &ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										Val: []byte("SecondAttribute"),
+									},
+								},
+							},
+						},
+					},
+				},
+				&ast.AttributeGroup{
+					Attrs: []ast.Vertex{
+						&ast.Attribute{
+							Name: &ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										Val: []byte("SecondGroupFirstAttribute"),
+									},
+								},
+							},
+							Args: []ast.Vertex{
+								&ast.Argument{
+									Expr: &ast.ExprClassConstFetch{
+										Class: &ast.Name{
+											Parts: []ast.Vertex{
+												&ast.NamePart{
+													Val: []byte("SomeClass"),
+												},
+											},
+										},
+										Const: &ast.Identifier{
+											Val: []byte("class"),
+										},
+									},
+								},
+							},
+						},
+						&ast.Attribute{
+							Name: &ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										Val: []byte("SecondGroupSecondAttribute"),
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			Name: &ast.Identifier{
+				Val: []byte("Foo"),
+			},
+			Stmts: []ast.Vertex{},
+		},
+	},
+},`
+
+	suite.Run()
+}

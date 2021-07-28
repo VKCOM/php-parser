@@ -1981,3 +1981,532 @@ class Point5 {
 		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
 	}
 }
+
+func TestParseAndPrintClass2PHP8(t *testing.T) {
+	src := `<?php
+class Foo {}
+abstract class Foo {}
+final class Foo {}
+abstract final class Foo {}
+
+abstract final class Foo extends Boo {}
+abstract class Foo extends Boo implements Goo {}
+final class Foo extends Boo implements Goo, Doo {}
+class Foo implements Goo {}
+class Foo implements Goo, Doo {}
+
+class Foo {
+	public function f() {}
+}
+
+abstract final class Foo extends Boo implements Goo, Doo  {
+	public function f() {}
+}
+`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}
+
+func TestParseAndPrintTrait2PHP8(t *testing.T) {
+	src := `<?php
+trait Foo {}
+
+trait Foo {
+	public function f() {}
+}
+`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}
+
+func TestParseAndPrintInterface2PHP8(t *testing.T) {
+	src := `<?php
+interface Foo {}
+interface Foo extends Boo {}
+interface Foo extends Boo, Goo {}
+
+interface Foo {
+	public function f() {}
+}
+`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}
+
+func TestParseAndPrintClassWithAttributesPHP8(t *testing.T) {
+	src := `<?php
+#[SimpleAttribute]
+class Foo {}
+
+#[AttributeWithArgs(100, SomeClass::class)]
+class Foo extends Boo {}
+
+#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+class Foo implements Goo {}
+
+#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+abstract class Foo implements Goo, Doo {}
+
+#[
+	FirstLineAttribute(100, SomeClass::class), 
+	SecondLineAttribute()
+]
+class Foo {}
+
+#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+#[SecondGroupFirstAttribute(SomeClass::class), SecondGroupSecondAttribute]
+class Foo extends Boo implements Goo {}
+
+#[\WithSlash]
+class Foo {}
+
+#[\F\Q\N]
+class Foo {}
+
+#[\WithSlash]
+final class Foo extends Boo implements Goo, Doo {}
+`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}
+
+func TestParseAndPrintTraitWithAttributesPHP8(t *testing.T) {
+	src := `<?php
+#[SimpleAttribute]
+trait Foo {}
+
+#[AttributeWithArgs(100, SomeClass::class)]
+trait Foo {}
+
+#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+trait Foo {}
+
+#[
+	FirstLineAttribute(100, SomeClass::class), 
+	SecondLineAttribute()
+]
+trait Foo {}
+
+#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+#[SecondGroupFirstAttribute(SomeClass::class), SecondGroupSecondAttribute]
+trait Foo {}
+
+#[\WithSlash]
+trait Foo {}
+
+#[\F\Q\N]
+trait Foo {}
+`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}
+
+func TestParseAndPrintInterfaceWithAttributesPHP8(t *testing.T) {
+	src := `<?php
+#[SimpleAttribute]
+interface Foo {}
+
+#[AttributeWithArgs(100, SomeClass::class)]
+interface Foo extends Boo {}
+
+#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+interface Foo {}
+
+#[
+	FirstLineAttribute(100, SomeClass::class), 
+	SecondLineAttribute()
+]
+interface Foo {}
+
+#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+#[SecondGroupFirstAttribute(SomeClass::class), SecondGroupSecondAttribute]
+interface Foo extends Boo, Goo {}
+
+#[\WithSlash]
+interface Foo {}
+
+#[\F\Q\N]
+interface Foo {}
+`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}
+
+func TestParseAndPrintParamsWithAttributesPHP8(t *testing.T) {
+	src := `<?php
+class Foo {
+	public function __construct(#[SimpleAttribute] public string|int $a) {}
+	public function __construct(
+		#[SimpleAttribute] public string|int $a,
+		#[AttributeWithArgs(100, SomeClass::class)] public string|int $b,
+		#[
+			FirstLineAttribute(100, SomeClass::class), 
+			SecondLineAttribute()
+		]
+		$c,
+		#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+		#[SecondGroupFirstAttribute(SomeClass::class), SecondGroupSecondAttribute]
+		private \Foo|string $d = 100,
+
+		#[
+			FirstAttribute(100, SomeClass::class), 
+			SecondAttribute(),
+		]
+		#[
+			SecondGroupFirstAttribute(SomeClass::class), 
+			SecondGroupSecondAttribute
+		]
+		$e = 100,
+
+		#[\F\Q\N] string|int $f = 100,
+	) {}
+}
+
+function f(#[SimpleAttribute] $a) {}
+
+function f(
+	#[SimpleAttribute] string|int $a,
+	#[AttributeWithArgs(100, SomeClass::class)] string|int $b,
+	#[
+		FirstLineAttribute(100, SomeClass::class), 
+		SecondLineAttribute()
+	]
+	$c,
+	#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+	#[SecondGroupFirstAttribute(SomeClass::class), SecondGroupSecondAttribute]
+	\Foo|string $d = 100,
+
+	#[
+		FirstAttribute(100, SomeClass::class), 
+		SecondAttribute(),
+	]
+	#[
+		SecondGroupFirstAttribute(SomeClass::class), 
+		SecondGroupSecondAttribute
+	]
+	$e = 100,
+
+	#[\F\Q\N] string|int $f = 100,
+) {}
+`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}
+
+func TestParseAndPrintFunctionWithAttributesPHP8(t *testing.T) {
+	src := `<?php
+#[SimpleAttribute]
+function &f(): void {}
+
+#[AttributeWithArgs(100, SomeClass::class)]
+function f() {}
+
+#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+function &f(): void {}
+
+#[
+	FirstLineAttribute(100, SomeClass::class), 
+	SecondLineAttribute()
+]
+function f() {}
+
+#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+#[SecondGroupFirstAttribute(SomeClass::class), SecondGroupSecondAttribute]
+function &f(): int|string {}
+
+#[\WithSlash]
+function f() {}
+
+#[\F\Q\N]
+function &f(): \Foo|string {}
+`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}
+
+func TestParseAndPrintClosureWithAttributesPHP8(t *testing.T) {
+	src := `<?php
+function f() {
+	$_ =
+		#[SimpleAttribute]
+		function &(): void {};
+
+	$_ = 
+		#[AttributeWithArgs(100, SomeClass::class)]
+		function () {};
+
+	$_ = 
+		#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+		function &(): void {};
+
+	$_ = 
+		#[
+			FirstLineAttribute(100, SomeClass::class), 
+			SecondLineAttribute()
+		]
+		function () {};
+
+	$_ = 
+		#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+		#[SecondGroupFirstAttribute(SomeClass::class), SecondGroupSecondAttribute]
+		function &(): int|string {};
+
+	$_ = 
+		#[\WithSlash]
+		function () {};
+
+	$_ = 
+		#[\F\Q\N]
+		function &(): \Foo|string {};
+}
+`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}
+
+func TestParseAndPrintArrowFunctionWithAttributesPHP8(t *testing.T) {
+	src := `<?php
+function f() {
+	$_ =
+		#[SimpleAttribute]
+		fn &(): void => 1;
+
+	$_ = 
+		#[AttributeWithArgs(100, SomeClass::class)]
+		fn () => 1;
+
+	$_ = 
+		#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+		fn &(): void => 1;
+
+	$_ = 
+		#[
+			FirstLineAttribute(100, SomeClass::class), 
+			SecondLineAttribute()
+		]
+		fn () => 1;
+
+	$_ = 
+		#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+		#[SecondGroupFirstAttribute(SomeClass::class), SecondGroupSecondAttribute]
+		fn &(): int|string => 1;
+
+	$_ = 
+		#[\WithSlash]
+		fn () => 1;
+
+	$_ = 
+		#[\F\Q\N]
+		fn &(): \Foo|string => 1;
+}
+`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}
+
+func TestParseAndPrintAnonClassWithAttributesPHP8(t *testing.T) {
+	src := `<?php
+$_ = new
+	#[SimpleAttribute]
+	class {};
+
+$_ = new
+	#[AttributeWithArgs(100, SomeClass::class)]
+	class extends Boo {};
+
+$_ = new
+	#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+	class implements Goo {};
+
+$_ = new
+	#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+	class implements Goo, Doo {};
+
+$_ = new
+	#[
+		FirstLineAttribute(100, SomeClass::class), 
+		SecondLineAttribute()
+	]
+	class {};
+
+$_ = new
+	#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+	#[SecondGroupFirstAttribute(SomeClass::class), SecondGroupSecondAttribute]
+	class extends Boo implements Goo {};
+
+$_ = new
+	#[\WithSlash]
+	class {};
+
+$_ = new
+	#[\F\Q\N]
+	class {};
+
+$_ = new
+	#[\WithSlash]
+	class extends Boo implements Goo, Doo {};
+`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}
+
+func TestParseAndPrintClassPropertyWithAttributesPHP8(t *testing.T) {
+	src := `<?php
+class Foo {
+	#[SimpleAttribute]
+	public $a;
+	
+	#[AttributeWithArgs(100, SomeClass::class)]
+	protected $a = null;
+	
+	#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+	var $a = null, $b;
+	
+	#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+	private ?Foo $a = null;
+	
+	#[
+		FirstLineAttribute(100, SomeClass::class), 
+		SecondLineAttribute()
+	]
+	public int|string $a = 10, $b, $c, $d;
+	
+	#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+	#[SecondGroupFirstAttribute(SomeClass::class), SecondGroupSecondAttribute]
+	var $a = 100;
+	
+	#[\WithSlash]
+	public $a = null;
+	
+	#[\F\Q\N]
+	protected $a = null;
+}
+`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}
+
+func TestParseAndPrintClassConstWithAttributesPHP8(t *testing.T) {
+	src := `<?php
+class Foo {
+	#[SimpleAttribute]
+	public const A = 100;
+	
+	#[AttributeWithArgs(100, SomeClass::class)]
+	private const A = 10, B = 10, C = 10;
+	
+	#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+	protected const A = "a";
+	
+	#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+	public const A = 100;
+	
+	#[
+		FirstLineAttribute(100, SomeClass::class), 
+		SecondLineAttribute()
+	]
+	public const A = 100;
+	
+	#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+	#[SecondGroupFirstAttribute(SomeClass::class), SecondGroupSecondAttribute]
+	public const A = 100;
+	
+	#[\WithSlash]
+	protected const A = 100;
+	
+	#[\F\Q\N]
+	public const A = 100;
+}
+`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}
+
+func TestParseAndPrintClassMethodWithAttributesPHP8(t *testing.T) {
+	src := `<?php
+class Foo {
+	#[SimpleAttribute]
+	function &f(): void {}
+	
+	#[AttributeWithArgs(100, SomeClass::class)]
+	public function f() {}
+	
+	#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+	protected function &f(): void {}
+	
+	#[
+		FirstLineAttribute(100, SomeClass::class), 
+		SecondLineAttribute()
+	]
+	public function f() {}
+	
+	#[FirstAttribute(100, SomeClass::class), SecondAttribute()]
+	#[SecondGroupFirstAttribute(SomeClass::class), SecondGroupSecondAttribute]
+	protected function &f(): int|string {}
+	
+	#[\WithSlash]
+	public function f() {}
+	
+	#[\F\Q\N]
+	protected function &f(): \Foo|string {}
+}
+`
+
+	actual := printPHP8(parsePHP8(src))
+
+	if src != actual {
+		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
+	}
+}

@@ -146,6 +146,7 @@ const (
 	T_IS_GREATER_OR_EQUAL
 	T_NULLSAFE_OBJECT_OPERATOR
 	T_MATCH
+	T_ATTRIBUTE
 )
 
 type Token struct {

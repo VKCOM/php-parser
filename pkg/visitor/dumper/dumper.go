@@ -193,6 +193,7 @@ func (v *Dumper) Parameter(n *ast.Parameter) {
 	v.indent++
 
 	v.dumpPosition(n.Position)
+	v.dumpVertexList("AttrGroups", n.AttrGroups)
 	v.dumpVertex("Visibility", n.Visibility)
 	v.dumpVertex("Type", n.Type)
 	v.dumpToken("AmpersandTkn", n.AmpersandTkn)
@@ -260,6 +261,35 @@ func (v *Dumper) Union(n *ast.Union) {
 	v.print(v.indent, "},\n")
 }
 
+func (v *Dumper) Attribute(n *ast.Attribute) {
+	v.print(0, "&ast.Attribute{\n")
+	v.indent++
+
+	v.dumpPosition(n.Position)
+	v.dumpVertex("Name", n.Name)
+	v.dumpToken("OpenParenthesisTkn", n.OpenParenthesisTkn)
+	v.dumpVertexList("Args", n.Args)
+	v.dumpTokenList("SeparatorTkns", n.SeparatorTkns)
+	v.dumpToken("CloseParenthesisTkn", n.CloseParenthesisTkn)
+
+	v.indent--
+	v.print(v.indent, "},\n")
+}
+
+func (v *Dumper) AttributeGroup(n *ast.AttributeGroup) {
+	v.print(0, "&ast.AttributeGroup{\n")
+	v.indent++
+
+	v.dumpPosition(n.Position)
+	v.dumpToken("OpenAttributeTkn", n.OpenAttributeTkn)
+	v.dumpVertexList("Attrs", n.Attrs)
+	v.dumpTokenList("SeparatorTkns", n.SeparatorTkns)
+	v.dumpToken("CloseAttributeTkn", n.CloseAttributeTkn)
+
+	v.indent--
+	v.print(v.indent, "},\n")
+}
+
 func (v *Dumper) StmtBreak(n *ast.StmtBreak) {
 	v.print(0, "&ast.StmtBreak{\n")
 	v.indent++
@@ -311,6 +341,7 @@ func (v *Dumper) StmtClass(n *ast.StmtClass) {
 	v.indent++
 
 	v.dumpPosition(n.Position)
+	v.dumpVertexList("AttrGroups", n.AttrGroups)
 	v.dumpVertexList("Modifiers", n.Modifiers)
 	v.dumpToken("ClassTkn", n.ClassTkn)
 	v.dumpVertex("Name", n.Name)
@@ -336,6 +367,7 @@ func (v *Dumper) StmtClassConstList(n *ast.StmtClassConstList) {
 	v.indent++
 
 	v.dumpPosition(n.Position)
+	v.dumpVertexList("AttrGroups", n.AttrGroups)
 	v.dumpVertexList("Modifiers", n.Modifiers)
 	v.dumpToken("ConstTkn", n.ConstTkn)
 	v.dumpVertexList("Consts", n.Consts)
@@ -351,6 +383,7 @@ func (v *Dumper) StmtClassMethod(n *ast.StmtClassMethod) {
 	v.indent++
 
 	v.dumpPosition(n.Position)
+	v.dumpVertexList("AttrGroups", n.AttrGroups)
 	v.dumpVertexList("Modifiers", n.Modifiers)
 	v.dumpToken("FunctionTkn", n.FunctionTkn)
 	v.dumpToken("AmpersandTkn", n.AmpersandTkn)
@@ -579,6 +612,7 @@ func (v *Dumper) StmtFunction(n *ast.StmtFunction) {
 	v.indent++
 
 	v.dumpPosition(n.Position)
+	v.dumpVertexList("AttrGroups", n.AttrGroups)
 	v.dumpToken("FunctionTkn", n.FunctionTkn)
 	v.dumpToken("AmpersandTkn", n.AmpersandTkn)
 	v.dumpVertex("Name", n.Name)
@@ -674,6 +708,7 @@ func (v *Dumper) StmtInterface(n *ast.StmtInterface) {
 	v.indent++
 
 	v.dumpPosition(n.Position)
+	v.dumpVertexList("AttrGroups", n.AttrGroups)
 	v.dumpToken("InterfaceTkn", n.InterfaceTkn)
 	v.dumpVertex("Name", n.Name)
 	v.dumpToken("ExtendsTkn", n.ExtendsTkn)
@@ -744,6 +779,7 @@ func (v *Dumper) StmtPropertyList(n *ast.StmtPropertyList) {
 	v.indent++
 
 	v.dumpPosition(n.Position)
+	v.dumpVertexList("AttrGroups", n.AttrGroups)
 	v.dumpVertexList("Modifiers", n.Modifiers)
 	v.dumpVertex("Type", n.Type)
 	v.dumpVertexList("Props", n.Props)
@@ -846,6 +882,7 @@ func (v *Dumper) StmtTrait(n *ast.StmtTrait) {
 	v.indent++
 
 	v.dumpPosition(n.Position)
+	v.dumpVertexList("AttrGroups", n.AttrGroups)
 	v.dumpToken("TraitTkn", n.TraitTkn)
 	v.dumpVertex("Name", n.Name)
 	v.dumpToken("OpenCurlyBracketTkn", n.OpenCurlyBracketTkn)
@@ -1056,6 +1093,7 @@ func (v *Dumper) ExprArrowFunction(n *ast.ExprArrowFunction) {
 	v.indent++
 
 	v.dumpPosition(n.Position)
+	v.dumpVertexList("AttrGroups", n.AttrGroups)
 	v.dumpToken("StaticTkn", n.StaticTkn)
 	v.dumpToken("FnTkn", n.FnTkn)
 	v.dumpToken("AmpersandTkn", n.AmpersandTkn)
@@ -1139,6 +1177,7 @@ func (v *Dumper) ExprClosure(n *ast.ExprClosure) {
 	v.indent++
 
 	v.dumpPosition(n.Position)
+	v.dumpVertexList("AttrGroups", n.AttrGroups)
 	v.dumpToken("StaticTkn", n.StaticTkn)
 	v.dumpToken("FunctionTkn", n.FunctionTkn)
 	v.dumpToken("AmpersandTkn", n.AmpersandTkn)

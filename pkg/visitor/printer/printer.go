@@ -146,6 +146,7 @@ func (p *printer) Nullable(n *ast.Nullable) {
 }
 
 func (p *printer) Parameter(n *ast.Parameter) {
+	p.printList(n.AttrGroups)
 	p.printNode(n.Visibility)
 	p.printNode(n.Type)
 	p.printToken(n.AmpersandTkn, nil)
@@ -179,6 +180,19 @@ func (p *printer) Union(n *ast.Union) {
 	p.printSeparatedList(n.Types, n.SeparatorTkns, []byte("|"))
 }
 
+func (p *printer) Attribute(n *ast.Attribute) {
+	p.printNode(n.Name)
+	p.printToken(n.OpenParenthesisTkn, p.ifNodeList(n.Args, []byte("(")))
+	p.printSeparatedList(n.Args, n.SeparatorTkns, []byte(","))
+	p.printToken(n.CloseParenthesisTkn, p.ifNodeList(n.Args, []byte(")")))
+}
+
+func (p *printer) AttributeGroup(n *ast.AttributeGroup) {
+	p.printToken(n.OpenAttributeTkn, []byte("#["))
+	p.printSeparatedList(n.Attrs, n.SeparatorTkns, []byte(","))
+	p.printToken(n.CloseAttributeTkn, []byte("]"))
+}
+
 func (p *printer) StmtBreak(n *ast.StmtBreak) {
 	p.printToken(n.BreakTkn, []byte("break"))
 	p.printNode(n.Expr)
@@ -204,6 +218,7 @@ func (p *printer) StmtCatch(n *ast.StmtCatch) {
 }
 
 func (p *printer) StmtClass(n *ast.StmtClass) {
+	p.printList(n.AttrGroups)
 	p.printList(n.Modifiers)
 	p.printToken(n.ClassTkn, []byte("class"))
 	p.printNode(n.Name)
@@ -220,6 +235,7 @@ func (p *printer) StmtClass(n *ast.StmtClass) {
 }
 
 func (p *printer) StmtClassConstList(n *ast.StmtClassConstList) {
+	p.printList(n.AttrGroups)
 	p.printList(n.Modifiers)
 	p.printToken(n.ConstTkn, []byte("const"))
 	p.printSeparatedList(n.Consts, n.SeparatorTkns, []byte(","))
@@ -227,6 +243,7 @@ func (p *printer) StmtClassConstList(n *ast.StmtClassConstList) {
 }
 
 func (p *printer) StmtClassMethod(n *ast.StmtClassMethod) {
+	p.printList(n.AttrGroups)
 	p.printList(n.Modifiers)
 	p.printToken(n.FunctionTkn, []byte("function"))
 	p.printToken(n.AmpersandTkn, nil)
@@ -380,6 +397,7 @@ func (p *printer) StmtForeach(n *ast.StmtForeach) {
 }
 
 func (p *printer) StmtFunction(n *ast.StmtFunction) {
+	p.printList(n.AttrGroups)
 	p.printToken(n.FunctionTkn, []byte("function"))
 	p.printToken(n.AmpersandTkn, nil)
 	p.printNode(n.Name)
@@ -442,6 +460,7 @@ func (p *printer) StmtInlineHtml(n *ast.StmtInlineHtml) {
 }
 
 func (p *printer) StmtInterface(n *ast.StmtInterface) {
+	p.printList(n.AttrGroups)
 	p.printToken(n.InterfaceTkn, []byte("interface"))
 	p.printNode(n.Name)
 	p.printToken(n.ExtendsTkn, p.ifNodeList(n.Extends, []byte("extends")))
@@ -476,6 +495,7 @@ func (p *printer) StmtProperty(n *ast.StmtProperty) {
 }
 
 func (p *printer) StmtPropertyList(n *ast.StmtPropertyList) {
+	p.printList(n.AttrGroups)
 	p.printList(n.Modifiers)
 	p.printNode(n.Type)
 	p.printSeparatedList(n.Props, n.SeparatorTkns, []byte(","))
@@ -527,6 +547,7 @@ func (p *printer) StmtThrow(n *ast.StmtThrow) {
 }
 
 func (p *printer) StmtTrait(n *ast.StmtTrait) {
+	p.printList(n.AttrGroups)
 	p.printToken(n.TraitTkn, []byte("trait"))
 	p.printNode(n.Name)
 	p.printToken(n.OpenCurlyBracketTkn, []byte("{"))
@@ -646,6 +667,7 @@ func (p *printer) ExprArrayItem(n *ast.ExprArrayItem) {
 }
 
 func (p *printer) ExprArrowFunction(n *ast.ExprArrowFunction) {
+	p.printList(n.AttrGroups)
 	p.printToken(n.StaticTkn, nil)
 	p.printToken(n.FnTkn, []byte("fn"))
 	p.printToken(n.AmpersandTkn, nil)
@@ -686,6 +708,7 @@ func (p *printer) ExprClone(n *ast.ExprClone) {
 }
 
 func (p *printer) ExprClosure(n *ast.ExprClosure) {
+	p.printList(n.AttrGroups)
 	p.printToken(n.StaticTkn, nil)
 	p.printToken(n.FunctionTkn, []byte("function"))
 	p.printToken(n.AmpersandTkn, nil)

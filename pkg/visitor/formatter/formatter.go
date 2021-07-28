@@ -154,6 +154,13 @@ func (f *formatter) Nullable(n *ast.Nullable) {
 }
 
 func (f *formatter) Parameter(n *ast.Parameter) {
+	if n.AttrGroups != nil {
+		for _, group := range n.AttrGroups {
+			group.Accept(f)
+		}
+		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+	}
+
 	if n.Visibility != nil {
 		n.Visibility.Accept(f)
 		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
@@ -228,6 +235,25 @@ func (f *formatter) Union(n *ast.Union) {
 	if len(n.Types) > 0 {
 		n.SeparatorTkns = f.formatList(n.Types, '|')
 	}
+}
+
+func (f *formatter) Attribute(n *ast.Attribute) {
+	n.Name.Accept(f)
+	n.OpenParenthesisTkn = f.newToken('(', []byte("("))
+	n.SeparatorTkns = nil
+	if len(n.Args) > 0 {
+		n.SeparatorTkns = f.formatList(n.Args, ',')
+	}
+	n.CloseParenthesisTkn = f.newToken(')', []byte(")"))
+}
+
+func (f *formatter) AttributeGroup(n *ast.AttributeGroup) {
+	n.OpenAttributeTkn = f.newToken(token.T_ATTRIBUTE, []byte("#["))
+	n.SeparatorTkns = nil
+	if len(n.Attrs) > 0 {
+		n.SeparatorTkns = f.formatList(n.Attrs, ',')
+	}
+	n.CloseAttributeTkn = f.newToken(']', []byte("]"))
 }
 
 func (f *formatter) StmtBreak(n *ast.StmtBreak) {
@@ -341,6 +367,10 @@ func (f *formatter) StmtClass(n *ast.StmtClass) {
 }
 
 func (f *formatter) StmtClassConstList(n *ast.StmtClassConstList) {
+	for _, m := range n.AttrGroups {
+		m.Accept(f)
+		f.addFreeFloating(token.T_WHITESPACE, []byte("\n"))
+	}
 	for _, m := range n.Modifiers {
 		m.Accept(f)
 		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
@@ -770,6 +800,10 @@ func (f *formatter) StmtProperty(n *ast.StmtProperty) {
 }
 
 func (f *formatter) StmtPropertyList(n *ast.StmtPropertyList) {
+	for _, m := range n.AttrGroups {
+		m.Accept(f)
+		f.addFreeFloating(token.T_WHITESPACE, []byte("\n"))
+	}
 	for _, m := range n.Modifiers {
 		m.Accept(f)
 		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
@@ -1095,6 +1129,13 @@ func (f *formatter) ExprArrayItem(n *ast.ExprArrayItem) {
 }
 
 func (f *formatter) ExprArrowFunction(n *ast.ExprArrowFunction) {
+	if n.AttrGroups != nil {
+		for _, group := range n.AttrGroups {
+			group.Accept(f)
+		}
+		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+	}
+
 	if n.StaticTkn != nil {
 		n.StaticTkn = f.newToken(token.T_STATIC, []byte("static"))
 		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
@@ -1157,6 +1198,13 @@ func (f *formatter) ExprClone(n *ast.ExprClone) {
 }
 
 func (f *formatter) ExprClosure(n *ast.ExprClosure) {
+	if n.AttrGroups != nil {
+		for _, group := range n.AttrGroups {
+			group.Accept(f)
+		}
+		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+	}
+
 	if n.StaticTkn != nil {
 		n.StaticTkn = f.newToken(token.T_STATIC, []byte("static"))
 		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))

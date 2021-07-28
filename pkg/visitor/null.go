@@ -50,6 +50,14 @@ func (v *Null) Union(_ *ast.Union) {
 	// do nothing
 }
 
+func (v *Null) Attribute(_ *ast.Attribute) {
+	// do nothing
+}
+
+func (v *Null) AttributeGroup(_ *ast.AttributeGroup) {
+	// do nothing
+}
+
 func (v *Null) StmtBreak(_ *ast.StmtBreak) {
 	// do nothing
 }

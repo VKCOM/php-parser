@@ -53,6 +53,19 @@ func (b *Builder) AppendToSeparatedList(list ast.Vertex, tkn *token.Token, node 
 	return sepList
 }
 
+func (b *Builder) SeparatedListItems(list ast.Vertex) (items []ast.Vertex, sepTkns []*token.Token) {
+	if list == nil {
+		return nil, nil
+	}
+
+	paramsList, ok := list.(*ParserSeparatedList)
+	if !ok {
+		return nil, nil
+	}
+
+	return paramsList.Items, paramsList.SeparatorTkns
+}
+
 func (b *Builder) NewExpressionStmt(
 	Expr ast.Vertex,
 	SemiColonTkn *token.Token,
@@ -474,6 +487,7 @@ func (b *Builder) NewThrowExpr(
 }
 
 func (b *Builder) NewParameter(
+	AttrGroups []ast.Vertex,
 	Visibility ast.Vertex,
 	Type ast.Vertex,
 	AmpersandTkn *token.Token,
@@ -486,7 +500,9 @@ func (b *Builder) NewParameter(
 	var pos *position2.Position
 
 	if WithDefault {
-		if Visibility != nil {
+		if AttrGroups != nil {
+			pos = b.Pos.NewNodeListNodePosition(AttrGroups, DefaultValue)
+		} else if Visibility != nil {
 			pos = b.Pos.NewNodesPosition(Visibility, DefaultValue)
 		} else if Type != nil {
 			pos = b.Pos.NewNodesPosition(Type, DefaultValue)
@@ -498,7 +514,9 @@ func (b *Builder) NewParameter(
 			pos = b.Pos.NewTokenNodePosition(VarTkn, DefaultValue)
 		}
 	} else {
-		if Visibility != nil {
+		if AttrGroups != nil {
+			pos = b.Pos.NewNodeListTokenPosition(AttrGroups, VarTkn)
+		} else if Visibility != nil {
 			pos = b.Pos.NewNodeTokenPosition(Visibility, VarTkn)
 		} else if Type != nil {
 			pos = b.Pos.NewNodeTokenPosition(Type, VarTkn)
@@ -513,6 +531,7 @@ func (b *Builder) NewParameter(
 
 	return &ast.Parameter{
 		Position:     pos,
+		AttrGroups:   AttrGroups,
 		Visibility:   Visibility,
 		Type:         Type,
 		AmpersandTkn: AmpersandTkn,
@@ -527,5 +546,347 @@ func (b *Builder) NewParameter(
 		},
 		EqualTkn:     EqualTkn,
 		DefaultValue: DefaultValue,
+	}
+}
+
+func (b *Builder) NewAttribute(
+	Name ast.Vertex,
+	ArgList ast.Vertex,
+) *ast.Attribute {
+	if ArgList == nil {
+		return &ast.Attribute{
+			Position: b.Pos.NewNodePosition(Name),
+			Name:     Name,
+		}
+	}
+
+	argList := ArgList.(*ArgumentList)
+	return &ast.Attribute{
+		Position:            b.Pos.NewNodeTokenPosition(Name, argList.CloseParenthesisTkn),
+		Name:                Name,
+		OpenParenthesisTkn:  argList.OpenParenthesisTkn,
+		Args:                argList.Arguments,
+		SeparatorTkns:       argList.SeparatorTkns,
+		CloseParenthesisTkn: argList.CloseParenthesisTkn,
+	}
+}
+
+func (b *Builder) NewAttributeGroup(
+	OpenAttributeTkn *token.Token,
+	AttrsList ast.Vertex,
+	OptionalCommaTkn *token.Token,
+	CloseAttributeTkn *token.Token,
+) *ast.AttributeGroup {
+	attrList := AttrsList.(*ParserSeparatedList)
+	if OptionalCommaTkn != nil {
+		attrList.SeparatorTkns = append(attrList.SeparatorTkns, OptionalCommaTkn)
+	}
+	return &ast.AttributeGroup{
+		Position:          b.Pos.NewTokensPosition(OpenAttributeTkn, CloseAttributeTkn),
+		OpenAttributeTkn:  OpenAttributeTkn,
+		Attrs:             attrList.Items,
+		SeparatorTkns:     attrList.SeparatorTkns,
+		CloseAttributeTkn: CloseAttributeTkn,
+	}
+}
+
+func (b *Builder) NewClass(
+	AttrGroups []ast.Vertex,
+	Modifiers []ast.Vertex,
+	ClassTkn *token.Token,
+	Name *token.Token,
+
+	ExtendsFrom ast.Vertex,
+	ImplementsList ast.Vertex,
+
+	OpenCurlyBracketTkn *token.Token,
+	Stmts []ast.Vertex,
+	CloseCurlyBracketTkn *token.Token,
+) *ast.StmtClass {
+	var pos *position2.Position
+	if AttrGroups != nil {
+		pos = b.Pos.NewNodeListTokenPosition(AttrGroups, CloseCurlyBracketTkn)
+	} else if Modifiers != nil {
+		pos = b.Pos.NewNodeListTokenPosition(Modifiers, CloseCurlyBracketTkn)
+	} else {
+		pos = b.Pos.NewTokensPosition(ClassTkn, CloseCurlyBracketTkn)
+	}
+
+	var name ast.Vertex
+
+	if Name != nil {
+		name = &ast.Identifier{
+			Position:      b.Pos.NewTokenPosition(Name),
+			IdentifierTkn: Name,
+			Value:         Name.Value,
+		}
+	}
+
+	class := &ast.StmtClass{
+		Position:             pos,
+		AttrGroups:           AttrGroups,
+		Modifiers:            Modifiers,
+		ClassTkn:             ClassTkn,
+		Name:                 name,
+		OpenCurlyBracketTkn:  OpenCurlyBracketTkn,
+		Stmts:                Stmts,
+		CloseCurlyBracketTkn: CloseCurlyBracketTkn,
+	}
+
+	if ExtendsFrom != nil {
+		class.ExtendsTkn = ExtendsFrom.(*ast.StmtClass).ExtendsTkn
+		class.Extends = ExtendsFrom.(*ast.StmtClass).Extends
+	}
+
+	if ImplementsList != nil {
+		class.ImplementsTkn = ImplementsList.(*ast.StmtClass).ImplementsTkn
+		class.Implements = ImplementsList.(*ast.StmtClass).Implements
+		class.ImplementsSeparatorTkns = ImplementsList.(*ast.StmtClass).ImplementsSeparatorTkns
+	}
+
+	return class
+}
+
+func (b *Builder) NewAnonClass(
+	AttrGroups []ast.Vertex,
+	ClassTkn *token.Token,
+
+	ArgList ast.Vertex,
+
+	ExtendsFrom ast.Vertex,
+	ImplementsList ast.Vertex,
+
+	OpenCurlyBracketTkn *token.Token,
+	Stmts []ast.Vertex,
+	CloseCurlyBracketTkn *token.Token,
+) *ast.StmtClass {
+	class := b.NewClass(
+		AttrGroups,
+		nil, // Modifiers
+		ClassTkn,
+		nil, // Name
+		ExtendsFrom,
+		ImplementsList,
+		OpenCurlyBracketTkn,
+		Stmts,
+		CloseCurlyBracketTkn,
+	)
+
+	if ArgList == nil {
+		return class
+	}
+
+	argList := ArgList.(*ArgumentList)
+
+	class.OpenParenthesisTkn = argList.OpenParenthesisTkn
+	class.Args = argList.Arguments
+	class.SeparatorTkns = argList.SeparatorTkns
+	class.CloseParenthesisTkn = argList.CloseParenthesisTkn
+
+	return class
+}
+
+func (b *Builder) NewTrait(
+	AttrGroups []ast.Vertex,
+	TraitTkn *token.Token,
+	Name *token.Token,
+	OpenCurlyBracketTkn *token.Token,
+	Stmts []ast.Vertex,
+	CloseCurlyBracketTkn *token.Token,
+) *ast.StmtTrait {
+	return &ast.StmtTrait{
+		Position:   b.Pos.NewOptionalListTokensPosition(AttrGroups, TraitTkn, CloseCurlyBracketTkn),
+		AttrGroups: AttrGroups,
+		TraitTkn:   TraitTkn,
+		Name: &ast.Identifier{
+			Position:      b.Pos.NewTokenPosition(Name),
+			IdentifierTkn: Name,
+			Value:         Name.Value,
+		},
+		OpenCurlyBracketTkn:  OpenCurlyBracketTkn,
+		Stmts:                Stmts,
+		CloseCurlyBracketTkn: CloseCurlyBracketTkn,
+	}
+}
+
+func (b *Builder) NewInterface(
+	AttrGroups []ast.Vertex,
+	InterfaceTkn *token.Token,
+	Name *token.Token,
+	ExtendsFrom ast.Vertex,
+	OpenCurlyBracketTkn *token.Token,
+	Stmts []ast.Vertex,
+	CloseCurlyBracketTkn *token.Token,
+) *ast.StmtInterface {
+	iface := &ast.StmtInterface{
+		Position:     b.Pos.NewOptionalListTokensPosition(AttrGroups, InterfaceTkn, CloseCurlyBracketTkn),
+		AttrGroups:   AttrGroups,
+		InterfaceTkn: InterfaceTkn,
+		Name: &ast.Identifier{
+			Position:      b.Pos.NewTokenPosition(Name),
+			IdentifierTkn: Name,
+			Value:         Name.Value,
+		},
+		OpenCurlyBracketTkn:  OpenCurlyBracketTkn,
+		Stmts:                Stmts,
+		CloseCurlyBracketTkn: CloseCurlyBracketTkn,
+	}
+
+	if ExtendsFrom != nil {
+		iface.ExtendsTkn = ExtendsFrom.(*ast.StmtInterface).ExtendsTkn
+		iface.Extends = ExtendsFrom.(*ast.StmtInterface).Extends
+		iface.ExtendsSeparatorTkns = ExtendsFrom.(*ast.StmtInterface).ExtendsSeparatorTkns
+	}
+
+	return iface
+}
+
+func (b *Builder) NewFunction(
+	AttrGroups []ast.Vertex,
+	FunctionTkn *token.Token,
+	AmpersandTkn *token.Token,
+	Name *token.Token,
+	OpenParenthesisTkn *token.Token,
+	Params ast.Vertex,
+	CloseParenthesisTkn *token.Token,
+	RetType ast.Vertex,
+	OpenCurlyBracketTkn *token.Token,
+	Stmts []ast.Vertex,
+	CloseCurlyBracketTkn *token.Token,
+) *ast.StmtFunction {
+	var params []ast.Vertex
+	var sepTkns []*token.Token
+	if Params != nil {
+		paramsList := Params.(*ParserSeparatedList)
+		params = paramsList.Items
+		sepTkns = paramsList.SeparatorTkns
+	}
+
+	returnType := RetType.(*ReturnType)
+
+	return &ast.StmtFunction{
+		Position:     b.Pos.NewOptionalListTokensPosition(AttrGroups, FunctionTkn, CloseCurlyBracketTkn),
+		AttrGroups:   AttrGroups,
+		FunctionTkn:  FunctionTkn,
+		AmpersandTkn: AmpersandTkn,
+		Name: &ast.Identifier{
+			Position:      b.Pos.NewTokenPosition(Name),
+			IdentifierTkn: Name,
+			Value:         Name.Value,
+		},
+		OpenParenthesisTkn:   OpenParenthesisTkn,
+		Params:               params,
+		SeparatorTkns:        sepTkns,
+		CloseParenthesisTkn:  CloseParenthesisTkn,
+		ColonTkn:             returnType.ColonTkn,
+		ReturnType:           returnType.Type,
+		OpenCurlyBracketTkn:  OpenCurlyBracketTkn,
+		Stmts:                Stmts,
+		CloseCurlyBracketTkn: CloseCurlyBracketTkn,
+	}
+}
+
+func (b *Builder) NewPropertyList(
+	AttrGroups []ast.Vertex,
+	Modifiers []ast.Vertex,
+	Type ast.Vertex,
+	PropsList ast.Vertex,
+	SemiColonTkn *token.Token,
+) *ast.StmtPropertyList {
+	props, sepTkns := b.SeparatedListItems(PropsList)
+
+	var pos *position2.Position
+
+	if AttrGroups != nil {
+		pos = b.Pos.NewNodeListTokenPosition(AttrGroups, SemiColonTkn)
+	} else {
+		pos = b.Pos.NewNodeListTokenPosition(Modifiers, SemiColonTkn)
+	}
+
+	return &ast.StmtPropertyList{
+		Position:      pos,
+		AttrGroups:    AttrGroups,
+		Modifiers:     Modifiers,
+		Type:          Type,
+		Props:         props,
+		SeparatorTkns: sepTkns,
+		SemiColonTkn:  SemiColonTkn,
+	}
+}
+
+func (b *Builder) NewClassConstList(
+	AttrGroups []ast.Vertex,
+	Modifiers []ast.Vertex,
+	ConstTkn *token.Token,
+	ConstList ast.Vertex,
+	SemiColonTkn *token.Token,
+) *ast.StmtClassConstList {
+	consts, sepTkns := b.SeparatedListItems(ConstList)
+
+	var pos *position2.Position
+
+	if AttrGroups != nil {
+		pos = b.Pos.NewNodeListTokenPosition(AttrGroups, SemiColonTkn)
+	} else {
+		pos = b.Pos.NewOptionalListTokensPosition(Modifiers, ConstTkn, SemiColonTkn)
+	}
+
+	return &ast.StmtClassConstList{
+		Position:      pos,
+		AttrGroups:    AttrGroups,
+		Modifiers:     Modifiers,
+		ConstTkn:      ConstTkn,
+		Consts:        consts,
+		SeparatorTkns: sepTkns,
+		SemiColonTkn:  SemiColonTkn,
+	}
+}
+
+func (b *Builder) NewClassMethod(
+	AttrGroups []ast.Vertex,
+	Modifiers []ast.Vertex,
+	FunctionTkn *token.Token,
+	AmpersandTkn *token.Token,
+	Name *token.Token,
+
+	OpenParenthesisTkn *token.Token,
+	Params ast.Vertex,
+	CloseParenthesisTkn *token.Token,
+
+	RetType ast.Vertex,
+
+	Stmt ast.Vertex,
+) *ast.StmtClassMethod {
+	params, sepTkns := b.SeparatedListItems(Params)
+	returnType := RetType.(*ReturnType)
+
+	var pos *position2.Position
+
+	if AttrGroups != nil {
+		pos = b.Pos.NewNodeListNodePosition(AttrGroups, Stmt)
+	} else if Modifiers != nil {
+		pos = b.Pos.NewNodeListNodePosition(Modifiers, Stmt)
+	} else {
+		pos = b.Pos.NewTokenNodePosition(FunctionTkn, Stmt)
+	}
+
+	return &ast.StmtClassMethod{
+		Position:     pos,
+		AttrGroups:   AttrGroups,
+		Modifiers:    Modifiers,
+		FunctionTkn:  FunctionTkn,
+		AmpersandTkn: AmpersandTkn,
+		Name: &ast.Identifier{
+			Position:      b.Pos.NewTokenPosition(Name),
+			IdentifierTkn: Name,
+			Value:         Name.Value,
+		},
+		OpenParenthesisTkn:  OpenParenthesisTkn,
+		Params:              params,
+		SeparatorTkns:       sepTkns,
+		CloseParenthesisTkn: CloseParenthesisTkn,
+		ColonTkn:            returnType.ColonTkn,
+		ReturnType:          returnType.Type,
+		Stmt:                Stmt,
 	}
 }

@@ -1,3 +1,5 @@
+> This is a fork of the [z7zmey](https://github.com/z7zmey) [parser](https://github.com/z7zmey/php-parser) that adds PHP 8 support.
+
 PHP Parser written in Go
 ========================
 
@@ -11,12 +13,10 @@ PHP Parser written in Go
 
 This project uses [goyacc](https://godoc.org/golang.org/x/tools/cmd/goyacc) and [ragel](https://www.colm.net/open-source/ragel/) tools to create PHP parser. It parses source code into [AST](https://en.wikipedia.org/wiki/Abstract_syntax_tree). It can be used to write static analysis, refactoring, metrics, code style formatting tools.
 
-#### Try it online: [demo](https://php-parser.com)
-
 Features:
 ---------
 
-- Fully support PHP 5 and PHP 7 syntax
+- Fully support PHP 5, PHP 7 and PHP 8.0 syntax
 - Abstract syntax tree (AST) representation
 - Traversing AST
 - Resolving namespaced names
@@ -26,9 +26,9 @@ Features:
 Who Uses
 --------
 
-[VKCOM/noverify](https://github.com/VKCOM/noverify) - NoVerify is a pretty fast linter for PHP
-
-[quasilyte/phpgrep](https://github.com/quasilyte/phpgrep) - phpgrep is a tool for syntax-aware PHP code search
+- [VKCOM/noverify](https://github.com/VKCOM/noverify) — NoVerify is a pretty fast linter for PHP
+- [VKCOM/nocolor](https://github.com/VKCOM/nocolor) — architecture validation tool for PHP based on the [*concept of colored functions*](https://github.com/VKCOM/nocolor/blob/master/docs/introducing_colors.md).
+- [quasilyte/phpgrep](https://github.com/quasilyte/phpgrep) — phpgrep is a tool for syntax-aware PHP code search
 
 Usage example
 -------
@@ -77,12 +77,6 @@ func main() {
 	rootNode.Accept(goDumper)
 }
 ```
-
-Roadmap
--------
-
-- Control Flow Graph (CFG)
-- PHP8
 
 Install
 -------

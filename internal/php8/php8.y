@@ -840,7 +840,7 @@ function_declaration_statement:
             { $$ = yylex.(*Parser).builder.NewFunction(nil, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10) }
     |   attributes
         T_FUNCTION returns_ref T_STRING '(' parameter_list ')' optional_return_type '{' inner_statement_list '}'
-	    { $$ = yylex.(*Parser).builder.NewFunction($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) }
+            { $$ = yylex.(*Parser).builder.NewFunction($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) }
 ;
 
 optional_arg_ref:
@@ -1880,65 +1880,65 @@ new_expr:
 ;
 
 expr_list_allow_comma:
-	non_empty_expr_list possible_comma
+        non_empty_expr_list possible_comma
             {
                 $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil)
             }
 ;
 
 non_empty_expr_list:
-	non_empty_expr_list ',' expr
+        non_empty_expr_list ',' expr
             {
-		$$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3)
+                $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3)
             }
     |
         expr
             {
-		$$ = yylex.(*Parser).builder.NewSeparatedList($1)
+                $$ = yylex.(*Parser).builder.NewSeparatedList($1)
             }
 ;
 
 match:
-	T_MATCH '(' expr ')' '{' match_arm_list '}'
+        T_MATCH '(' expr ')' '{' match_arm_list '}'
             {
                 $$ = yylex.(*Parser).builder.NewMatch($1, $2, $3, $4, $5, $6, $7)
             }
 ;
 
 match_arm_list:
-	/* empty */
-	    {
-	        $$ = nil;
-	    }
+        /* empty */
+            {
+                $$ = nil;
+            }
     |
-	non_empty_match_arm_list possible_comma
-	    {
-		$$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil)
-	    }
+        non_empty_match_arm_list possible_comma
+            {
+                $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil)
+            }
 ;
 
 non_empty_match_arm_list:
-	match_arm
-	    {
-	    	$$ = yylex.(*Parser).builder.NewSeparatedList($1)
-	    }
+        match_arm
+            {
+                    $$ = yylex.(*Parser).builder.NewSeparatedList($1)
+            }
     |
-	non_empty_match_arm_list ',' match_arm
-	    {
-	    	$$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3)
-	    }
+        non_empty_match_arm_list ',' match_arm
+            {
+                    $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3)
+            }
 ;
 
 match_arm:
-	expr_list_allow_comma T_DOUBLE_ARROW expr
-	    {
-	        $$ = yylex.(*Parser).builder.NewMatchArm(nil, nil, $1, $2, $3);
-	    }
+        expr_list_allow_comma T_DOUBLE_ARROW expr
+            {
+                $$ = yylex.(*Parser).builder.NewMatchArm(nil, nil, $1, $2, $3);
+            }
     |
-	T_DEFAULT possible_comma T_DOUBLE_ARROW expr
-	    {
-	        $$ = yylex.(*Parser).builder.NewMatchArm($1, $2, nil, $3, $4);
-	    }
+        T_DEFAULT possible_comma T_DOUBLE_ARROW expr
+            {
+                $$ = yylex.(*Parser).builder.NewMatchArm($1, $2, nil, $3, $4);
+            }
 ;
 
 expr_without_variable:
@@ -2634,7 +2634,7 @@ expr_without_variable:
 ;
 
 attributed_inline_function:
-	inline_function            { $$ = $1 }
+        inline_function            { $$ = $1 }
     |   attributes inline_function
            {
                switch n := $2.(type) {

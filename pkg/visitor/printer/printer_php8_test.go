@@ -2566,3 +2566,26 @@ use const Foo\{
 };
 `)
 }
+
+func TestParseAndPrintClosureUseWithTrailingCommaPHP8(t *testing.T) {
+	tester.NewParserPrintTestSuite(t).UsePHP8().Run(`<?php
+$_ = function () use (
+  $a
+) {};
+
+$_ = function () use (
+  $a,
+) {};
+
+$_ = function () use (
+  $a,
+  $a,
+) {};
+
+$_ = function () use (
+  $a,
+  $a,
+  $a,
+) {};
+`)
+}

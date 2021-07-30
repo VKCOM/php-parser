@@ -251,7 +251,7 @@ import (
 %type <node> callable_expr callable_variable static_member new_variable
 %type <node> encaps_var encaps_var_offset echo_expr_list name_union name_list
 %type <node> if_stmt const_list non_empty_argument_list property_list
-%type <node> alt_if_stmt lexical_var_list isset_variables class_const_list
+%type <node> alt_if_stmt lexical_var_list non_empty_lexical_var_list isset_variables class_const_list
 %type <node> if_stmt_without_else
 %type <node> group_use_declaration inline_use_declaration
 %type <node> use_declaration unprefixed_use_declaration non_empty_unprefixed_use_declarations
@@ -2697,10 +2697,7 @@ returns_ref:
 ;
 
 lexical_vars:
-        /* empty */
-            {
-                $$ = &ast.ExprClosure{}
-            }
+        /* empty */                   { $$ = &ast.ExprClosure{} }
     |   T_USE '(' lexical_var_list ')'
             {
                 $$ = &ast.ExprClosure{
@@ -2714,19 +2711,12 @@ lexical_vars:
 ;
 
 lexical_var_list:
-        lexical_var_list ',' lexical_var
-            {
-                $1.(*ParserSeparatedList).SeparatorTkns = append($1.(*ParserSeparatedList).SeparatorTkns, $2)
-                $1.(*ParserSeparatedList).Items = append($1.(*ParserSeparatedList).Items, $3)
+       non_empty_lexical_var_list possible_comma   { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil) }
+;
 
-                $$ = $1
-            }
-    |   lexical_var
-            {
-                $$ = &ParserSeparatedList{
-                    Items: []ast.Vertex{$1},
-                }
-            }
+non_empty_lexical_var_list:
+        non_empty_lexical_var_list ',' lexical_var { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
+    |   lexical_var                                { $$ = yylex.(*Parser).builder.NewSeparatedList($1) }
 ;
 
 lexical_var:

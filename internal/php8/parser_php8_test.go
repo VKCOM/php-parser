@@ -4544,3 +4544,43 @@ function f(\Foo \ Boo $a) {}
 
 	suite.Run()
 }
+
+func TestConstFetchClassConstantWithObject(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php
+$a::B;
+$a::class;
+`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtExpression{
+			Expr: &ast.ExprClassConstFetch{
+				Class: &ast.ExprVariable{
+					Name: &ast.Identifier{
+						Val: []byte("$a"),
+					},
+				},
+				Const: &ast.Identifier{
+					Val: []byte("B"),
+				},
+			},
+		},
+		&ast.StmtExpression{
+			Expr: &ast.ExprClassConstFetch{
+				Class: &ast.ExprVariable{
+					Name: &ast.Identifier{
+						Val: []byte("$a"),
+					},
+				},
+				Const: &ast.Identifier{
+					Val: []byte("class"),
+				},
+			},
+		},
+	},
+},`
+
+	suite.Run()
+}

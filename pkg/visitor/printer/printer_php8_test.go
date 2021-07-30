@@ -2599,3 +2599,10 @@ $_ = function () use (
 ) {};
 `)
 }
+
+func TestParseAndPrintConstFetchClassConstantWithObjectPHP8(t *testing.T) {
+	tester.NewParserPrintTestSuite(t).UsePHP8().Run(`<?php
+$a::B;
+$a::class;
+`)
+}

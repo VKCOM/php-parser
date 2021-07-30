@@ -264,3 +264,83 @@ func TestAttribute(t *testing.T) {
 	assert.DeepEqual(t, token.T_ATTRIBUTE, tkn.ID)
 	assert.DeepEqual(t, "#[", string(tkn.Value))
 }
+
+func TestNamespaceFullyQualifiedTokens(t *testing.T) {
+	suite := tester.NewLexerTokenStructTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php use \Foo;`
+	suite.Expected = []*token.Token{
+		{
+			ID:    php8.T_USE,
+			Value: []byte("use"),
+		},
+		{
+			ID:    php8.T_NAME_FULLY_QUALIFIED,
+			Value: []byte(`\Foo`),
+		},
+		{
+			ID:    ';',
+			Value: []byte(";"),
+		},
+	}
+	suite.Run()
+}
+
+func TestNamespaceFullyQualifiedWithKeywordsTokens(t *testing.T) {
+	suite := tester.NewLexerTokenStructTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php use \Foo\match\fn;`
+	suite.Expected = []*token.Token{
+		{
+			ID:    php8.T_USE,
+			Value: []byte("use"),
+		},
+		{
+			ID:    php8.T_NAME_FULLY_QUALIFIED,
+			Value: []byte(`\Foo\match\fn`),
+		},
+		{
+			ID:    ';',
+			Value: []byte(";"),
+		},
+	}
+	suite.Run()
+}
+
+func TestNamespaceQualifiedTokens(t *testing.T) {
+	suite := tester.NewLexerTokenStructTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php namespace Boo\Foo;`
+	suite.Expected = []*token.Token{
+		{
+			ID:    php8.T_NAMESPACE,
+			Value: []byte("namespace"),
+		},
+		{
+			ID:    php8.T_NAME_QUALIFIED,
+			Value: []byte(`Boo\Foo`),
+		},
+		{
+			ID:    ';',
+			Value: []byte(";"),
+		},
+	}
+	suite.Run()
+}
+
+func TestNamespaceRelativeTokens(t *testing.T) {
+	suite := tester.NewLexerTokenStructTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php namespace\match;`
+	suite.Expected = []*token.Token{
+		{
+			ID:    php8.T_NAME_RELATIVE,
+			Value: []byte(`namespace\match`),
+		},
+		{
+			ID:    ';',
+			Value: []byte(";"),
+		},
+	}
+	suite.Run()
+}

@@ -4510,3 +4510,37 @@ class Foo {}
 
 	suite.Run()
 }
+
+func TestUseListWithSpacesParserError(t *testing.T) {
+	suite := tester.NewParserErrorTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php 
+use \ Foo \ Boo;
+`
+
+	suite.Expected = []*errors.Error{
+		{
+			Msg: "syntax error: unexpected T_NS_SEPARATOR",
+			Pos: position.NewPosition(2, 2, 11, 12),
+		},
+	}
+
+	suite.Run()
+}
+
+func TestTypehintWithSpacesParserError(t *testing.T) {
+	suite := tester.NewParserErrorTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php 
+function f(\Foo \ Boo $a) {}
+`
+
+	suite.Expected = []*errors.Error{
+		{
+			Msg: "syntax error: unexpected T_NS_SEPARATOR, expecting T_VARIABLE",
+			Pos: position.NewPosition(2, 2, 23, 24),
+		},
+	}
+
+	suite.Run()
+}

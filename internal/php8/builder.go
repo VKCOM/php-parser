@@ -1,6 +1,8 @@
 package php8
 
 import (
+	"bytes"
+
 	"github.com/z7zmey/php-parser/internal/position"
 	"github.com/z7zmey/php-parser/pkg/ast"
 	position2 "github.com/z7zmey/php-parser/pkg/position"
@@ -11,12 +13,16 @@ import (
 // Creating nodes directly in grammar rules is inconvenient, since
 // there is no autocompletion and you cannot put breakpoints inside.
 type Builder struct {
-	Pos *position.Builder
+	Pos    *position.Builder
+	Parser *Parser
 }
 
 // NewBuilder creates a new Builder.
-func NewBuilder(pos *position.Builder) *Builder {
-	return &Builder{Pos: pos}
+func NewBuilder(pos *position.Builder, parser *Parser) *Builder {
+	return &Builder{
+		Pos:    pos,
+		Parser: parser,
+	}
 }
 
 // NewEmptySeparatedList creates a new empty list.
@@ -37,6 +43,13 @@ func (b *Builder) NewSeparatedListWithTwoElements(node1 ast.Vertex, tkn *token.T
 	return &ParserSeparatedList{
 		Items:         []ast.Vertex{node1, node2},
 		SeparatorTkns: []*token.Token{tkn},
+	}
+}
+
+func (b *Builder) NewNonEmptySeparatedList(nodes []ast.Vertex, tkns []*token.Token) *ParserSeparatedList {
+	return &ParserSeparatedList{
+		Items:         nodes,
+		SeparatorTkns: tkns,
 	}
 }
 
@@ -66,6 +79,319 @@ func (b *Builder) SeparatedListItems(list ast.Vertex) (items []ast.Vertex, sepTk
 	return paramsList.Items, paramsList.SeparatorTkns
 }
 
+// namespace\Foo
+func (b *Builder) parseNameRelativeToken(t *token.Token) *ast.NameRelative {
+	n := &ast.NameRelative{
+		Position: b.Pos.NewTokenPosition(t),
+	}
+	s := t.Position.StartPos
+	v := t.Value
+
+	// namespace token
+
+	p1 := b.Parser.Lexer.positionPool.Get()
+	p1.StartLine = t.Position.StartLine
+	p1.EndLine = t.Position.EndLine
+	p1.StartPos = s
+	p1.EndPos = s + 9
+
+	n.NsTkn = &token.Token{
+		ID:           token.T_NAMESPACE,
+		Value:        v[:9],
+		Position:     p1,
+		FreeFloating: t.FreeFloating,
+	}
+
+	s = s + 9
+	v = v[9:]
+
+	// ns separator token
+
+	p1 = b.Parser.Lexer.positionPool.Get()
+	p1.StartLine = t.Position.StartLine
+	p1.EndLine = t.Position.EndLine
+	p1.StartPos = s
+	p1.EndPos = s + 1
+
+	n.NsSeparatorTkn = &token.Token{
+		ID:       token.T_NS_SEPARATOR,
+		Value:    v[:1],
+		Position: p1,
+	}
+
+	s = s + 1
+	v = v[1:]
+
+	// parts
+
+	for {
+		i := bytes.Index(v, []byte("\\"))
+		if i < 0 {
+			break
+		}
+
+		p1 = b.Parser.Lexer.positionPool.Get()
+		p1.StartLine = t.Position.StartLine
+		p1.EndLine = t.Position.EndLine
+		p1.StartPos = s
+		p1.EndPos = s + i
+
+		p2 := b.Parser.Lexer.positionPool.Get()
+		*p2 = *p1
+
+		n.Parts = append(n.Parts, &ast.NamePart{
+			Position: p1,
+			StringTkn: &token.Token{
+				ID:       token.T_STRING,
+				Value:    v[:i],
+				Position: p2,
+			},
+			Value: v[:i],
+		})
+		t.FreeFloating = nil
+		s = s + i
+		v = v[i:]
+
+		p1 = b.Parser.Lexer.positionPool.Get()
+		p1.StartLine = t.Position.StartLine
+		p1.EndLine = t.Position.EndLine
+		p1.StartPos = s
+		p1.EndPos = s + 1
+
+		n.SeparatorTkns = append(n.SeparatorTkns, &token.Token{
+			ID:       token.T_NS_SEPARATOR,
+			Value:    v[:1],
+			Position: p1,
+		})
+		s = s + 1
+		v = v[1:]
+	}
+
+	// last part
+
+	p1 = b.Parser.Lexer.positionPool.Get()
+	p1.StartLine = t.Position.StartLine
+	p1.EndLine = t.Position.EndLine
+	p1.StartPos = s
+	p1.EndPos = s + len(v)
+	p2 := b.Parser.Lexer.positionPool.Get()
+	*p2 = *p1
+
+	n.Parts = append(n.Parts, &ast.NamePart{
+		Position: p1,
+		StringTkn: &token.Token{
+			ID:       token.T_STRING,
+			Value:    v,
+			Position: p2,
+		},
+		Value: v,
+	})
+
+	return n
+}
+
+// \Foo\Boo
+func (b *Builder) parseNameFullyQualifiedToken(t *token.Token) *ast.NameFullyQualified {
+	n := &ast.NameFullyQualified{
+		Position: b.Pos.NewTokenPosition(t),
+	}
+	s := t.Position.StartPos
+	v := t.Value
+
+	// ns separator token
+
+	p1 := b.Parser.Lexer.positionPool.Get()
+	p1.StartLine = t.Position.StartLine
+	p1.EndLine = t.Position.EndLine
+	p1.StartPos = s
+	p1.EndPos = s + 1
+
+	n.NsSeparatorTkn = &token.Token{
+		ID:           token.T_NS_SEPARATOR,
+		Value:        v[:1],
+		Position:     p1,
+		FreeFloating: t.FreeFloating,
+	}
+
+	s = s + 1
+	v = v[1:]
+
+	// parts
+
+	for {
+		i := bytes.Index(v, []byte("\\"))
+		if i < 0 {
+			break
+		}
+
+		p1 = b.Parser.Lexer.positionPool.Get()
+		p1.StartLine = t.Position.StartLine
+		p1.EndLine = t.Position.EndLine
+		p1.StartPos = s
+		p1.EndPos = s + i
+
+		p2 := b.Parser.Lexer.positionPool.Get()
+		*p2 = *p1
+
+		n.Parts = append(n.Parts, &ast.NamePart{
+			Position: p1,
+			StringTkn: &token.Token{
+				ID:       token.T_STRING,
+				Value:    v[:i],
+				Position: p2,
+			},
+			Value: v[:i],
+		})
+		t.FreeFloating = nil
+		s = s + i
+		v = v[i:]
+
+		p1 = b.Parser.Lexer.positionPool.Get()
+		p1.StartLine = t.Position.StartLine
+		p1.EndLine = t.Position.EndLine
+		p1.StartPos = s
+		p1.EndPos = s + 1
+
+		n.SeparatorTkns = append(n.SeparatorTkns, &token.Token{
+			ID:       token.T_NS_SEPARATOR,
+			Value:    v[:1],
+			Position: p1,
+		})
+		s = s + 1
+		v = v[1:]
+	}
+
+	// last part
+
+	p1 = b.Parser.Lexer.positionPool.Get()
+	p1.StartLine = t.Position.StartLine
+	p1.EndLine = t.Position.EndLine
+	p1.StartPos = s
+	p1.EndPos = s + len(v)
+	p2 := b.Parser.Lexer.positionPool.Get()
+	*p2 = *p1
+
+	n.Parts = append(n.Parts, &ast.NamePart{
+		Position: p1,
+		StringTkn: &token.Token{
+			ID:       token.T_STRING,
+			Value:    v,
+			Position: p2,
+		},
+		Value: v,
+	})
+
+	return n
+}
+
+// Foo\Boo
+func (b *Builder) parseNameToken(t *token.Token) *ast.NameRelative {
+	n := &ast.NameRelative{
+		Position: b.Pos.NewTokenPosition(t),
+	}
+	s := t.Position.StartPos
+	v := t.Value
+
+	if bytes.HasPrefix(bytes.ToLower(v), []byte("namespace")) {
+		p1 := b.Parser.Lexer.positionPool.Get()
+		p1.StartLine = t.Position.StartLine
+		p1.EndLine = t.Position.EndLine
+		p1.StartPos = s
+		p1.EndPos = s + 9
+
+		n.NsTkn = &token.Token{
+			ID:       token.T_NAMESPACE,
+			Value:    v[:9],
+			Position: p1,
+		}
+
+		s = s + 9
+		v = v[9:]
+	}
+
+	if bytes.HasPrefix(bytes.ToLower(v), []byte("\\")) {
+		p1 := b.Parser.Lexer.positionPool.Get()
+		p1.StartLine = t.Position.StartLine
+		p1.EndLine = t.Position.EndLine
+		p1.StartPos = s
+		p1.EndPos = s + 1
+
+		n.NsSeparatorTkn = &token.Token{
+			ID:       token.T_NS_SEPARATOR,
+			Value:    v[:1],
+			Position: p1,
+		}
+
+		s = s + 1
+		v = v[1:]
+	}
+
+	for {
+		i := bytes.Index(v, []byte("\\"))
+		if i < 0 {
+			break
+		}
+
+		p1 := b.Parser.Lexer.positionPool.Get()
+		p1.StartLine = t.Position.StartLine
+		p1.EndLine = t.Position.EndLine
+		p1.StartPos = s
+		p1.EndPos = s + i
+
+		p2 := b.Parser.Lexer.positionPool.Get()
+		*p2 = *p1
+
+		n.Parts = append(n.Parts, &ast.NamePart{
+			Position: p1,
+			StringTkn: &token.Token{
+				ID:           token.T_STRING,
+				Value:        v[:i],
+				Position:     p2,
+				FreeFloating: t.FreeFloating,
+			},
+			Value: v[:i],
+		})
+		t.FreeFloating = nil
+		s = s + i
+		v = v[i:]
+
+		p1 = b.Parser.Lexer.positionPool.Get()
+		p1.StartLine = t.Position.StartLine
+		p1.EndLine = t.Position.EndLine
+		p1.StartPos = s
+		p1.EndPos = s + 1
+
+		n.SeparatorTkns = append(n.SeparatorTkns, &token.Token{
+			ID:       token.T_NS_SEPARATOR,
+			Value:    v[:1],
+			Position: p1,
+		})
+		s = s + 1
+		v = v[1:]
+	}
+
+	p1 := b.Parser.Lexer.positionPool.Get()
+	p1.StartLine = t.Position.StartLine
+	p1.EndLine = t.Position.EndLine
+	p1.StartPos = s
+	p1.EndPos = s + len(v)
+	p2 := b.Parser.Lexer.positionPool.Get()
+	*p2 = *p1
+
+	n.Parts = append(n.Parts, &ast.NamePart{
+		Position: p1,
+		StringTkn: &token.Token{
+			ID:           token.T_STRING,
+			Value:        v,
+			Position:     p2,
+			FreeFloating: t.FreeFloating,
+		},
+		Value: v,
+	})
+
+	return n
+}
+
 func (b *Builder) NewExpressionStmt(
 	Expr ast.Vertex,
 	SemiColonTkn *token.Token,
@@ -90,11 +416,64 @@ func (b *Builder) NewExpressionStmt(
 
 func (b *Builder) NewIdentifier(
 	IdentifierTkn *token.Token,
-) *ast.Identifier {
+) ast.Vertex {
+	if IdentifierTkn == nil {
+		return nil
+	}
+
 	return &ast.Identifier{
 		Position:      b.Pos.NewTokenPosition(IdentifierTkn),
 		IdentifierTkn: IdentifierTkn,
 		Value:         IdentifierTkn.Value,
+	}
+}
+
+func (b *Builder) NewName(
+	NameTkn *token.Token,
+) *ast.Name {
+	return &ast.Name{
+		Position: b.Pos.NewTokenPosition(NameTkn),
+		Parts: []ast.Vertex{
+			&ast.NamePart{
+				Position:  b.Pos.NewTokenPosition(NameTkn),
+				StringTkn: NameTkn,
+				Value:     NameTkn.Value,
+			},
+		},
+	}
+}
+
+func (b *Builder) NewNameQualified(
+	NameTkn *token.Token,
+) *ast.Name {
+	name := b.parseNameToken(NameTkn)
+
+	return &ast.Name{
+		Position:      b.Pos.NewTokenPosition(NameTkn),
+		Parts:         name.Parts,
+		SeparatorTkns: name.SeparatorTkns,
+	}
+}
+
+func (b *Builder) NewNameFullyQualified(
+	NameTkn *token.Token,
+) *ast.NameFullyQualified {
+	return b.parseNameFullyQualifiedToken(NameTkn)
+}
+
+func (b *Builder) NewNameRelative(
+	NameTkn *token.Token,
+) *ast.NameRelative {
+	return b.parseNameRelativeToken(NameTkn)
+}
+
+func (b *Builder) NewNamePart(
+	NameTkn *token.Token,
+) *ast.NamePart {
+	return &ast.NamePart{
+		Position:  b.Pos.NewTokenPosition(NameTkn),
+		StringTkn: NameTkn,
+		Value:     NameTkn.Value,
 	}
 }
 
@@ -889,4 +1268,132 @@ func (b *Builder) NewClassMethod(
 		ReturnType:          returnType.Type,
 		Stmt:                Stmt,
 	}
+}
+
+func (b *Builder) NewNamespace(
+	NsTkn *token.Token,
+	Name ast.Vertex,
+	OpenCurlyBracketTkn *token.Token,
+	Stmts []ast.Vertex,
+	CloseCurlyBracketTkn *token.Token,
+	SemiColonTkn *token.Token,
+) *ast.StmtNamespace {
+	var pos *position2.Position
+
+	if SemiColonTkn != nil {
+		pos = b.Pos.NewTokensPosition(NsTkn, SemiColonTkn)
+	} else {
+		pos = b.Pos.NewTokensPosition(NsTkn, CloseCurlyBracketTkn)
+	}
+
+	return &ast.StmtNamespace{
+		Position:             pos,
+		NsTkn:                NsTkn,
+		Name:                 Name,
+		OpenCurlyBracketTkn:  OpenCurlyBracketTkn,
+		Stmts:                Stmts,
+		CloseCurlyBracketTkn: CloseCurlyBracketTkn,
+		SemiColonTkn:         SemiColonTkn,
+	}
+}
+
+func (b *Builder) NewUseList(
+	UseTkn *token.Token,
+	Type *token.Token,
+	UsesList ast.Vertex,
+	SemiColonTkn *token.Token,
+) *ast.StmtUseList {
+	uses, sepTkns := b.SeparatedListItems(UsesList)
+
+	return &ast.StmtUseList{
+		Position:      b.Pos.NewTokensPosition(UseTkn, SemiColonTkn),
+		UseTkn:        UseTkn,
+		Type:          b.NewIdentifier(Type),
+		Uses:          uses,
+		SeparatorTkns: sepTkns,
+		SemiColonTkn:  SemiColonTkn,
+	}
+}
+
+func (b *Builder) NewGroupUseList(
+	UseTkn *token.Token,
+	Type *token.Token,
+
+	Prefix ast.Vertex,
+
+	NsSeparatorTkn *token.Token,
+
+	OpenCurlyBracketTkn *token.Token,
+
+	UsesList ast.Vertex,
+
+	CloseCurlyBracketTkn *token.Token,
+	SemiColonTkn *token.Token,
+) *ast.StmtGroupUseList {
+	uses, sepTkns := b.SeparatedListItems(UsesList)
+
+	groupUse := &ast.StmtGroupUseList{
+		Position:             b.Pos.NewTokensPosition(UseTkn, SemiColonTkn),
+		UseTkn:               UseTkn,
+		Type:                 b.NewIdentifier(Type),
+		Prefix:               Prefix,
+		NsSeparatorTkn:       NsSeparatorTkn,
+		OpenCurlyBracketTkn:  OpenCurlyBracketTkn,
+		Uses:                 uses,
+		SeparatorTkns:        sepTkns,
+		CloseCurlyBracketTkn: CloseCurlyBracketTkn,
+		SemiColonTkn:         SemiColonTkn,
+	}
+
+	if n, ok := Prefix.(*ast.NameFullyQualified); ok {
+		groupUse.LeadingNsSeparatorTkn = n.NsSeparatorTkn
+
+		prefix := &ast.Name{
+			Position:      n.Position,
+			Parts:         n.Parts,
+			SeparatorTkns: n.SeparatorTkns,
+		}
+		prefix.Position.StartPos++
+
+		groupUse.Prefix = prefix
+	}
+
+	return groupUse
+}
+
+func (b *Builder) NewUse(
+	Type ast.Vertex,
+
+	UseName ast.Vertex,
+
+	AsTkn *token.Token,
+	Alias *token.Token,
+) *ast.StmtUse {
+	use := &ast.StmtUse{
+		Type:  Type,
+		Use:   UseName,
+		AsTkn: AsTkn,
+		Alias: b.NewIdentifier(Alias),
+	}
+
+	if Alias != nil {
+		use.Position = b.Pos.NewNodeTokenPosition(UseName, Alias)
+	} else {
+		use.Position = b.Pos.NewNodePosition(UseName)
+	}
+
+	if n, ok := UseName.(*ast.NameFullyQualified); ok {
+		use.NsSeparatorTkn = n.NsSeparatorTkn
+
+		name := &ast.Name{
+			Position:      n.Position,
+			Parts:         n.Parts,
+			SeparatorTkns: n.SeparatorTkns,
+		}
+		name.Position.StartPos++
+
+		use.Use = name
+	}
+
+	return use
 }

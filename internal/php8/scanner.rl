@@ -199,6 +199,11 @@ func (lex *Lexer) Lex() *token.Token {
                 lex.setTokenPosition(tkn); tok = token.T_DNUMBER; fbreak;
             };
 
+            'namespace'i ('\\' varname)+      => {lex.setTokenPosition(tkn); tok = token.T_NAME_RELATIVE; fbreak;};
+            varname ('\\' varname)+           => {lex.setTokenPosition(tkn); tok = token.T_NAME_QUALIFIED; fbreak;};
+            '\\' varname ('\\' varname)*      => {lex.setTokenPosition(tkn); tok = token.T_NAME_FULLY_QUALIFIED; fbreak;};
+            '\\'                              => {lex.setTokenPosition(tkn); tok = token.T_NS_SEPARATOR; fbreak;};
+
             'abstract'i                       => {lex.setTokenPosition(tkn); tok = token.T_ABSTRACT; fbreak;};
             'array'i                          => {lex.setTokenPosition(tkn); tok = token.T_ARRAY; fbreak;};
             'as'i                             => {lex.setTokenPosition(tkn); tok = token.T_AS; fbreak;};
@@ -276,7 +281,6 @@ func (lex *Lexer) Lex() *token.Token {
             'and'i                            => {lex.setTokenPosition(tkn); tok = token.T_LOGICAL_AND; fbreak;};
             'or'i                             => {lex.setTokenPosition(tkn); tok = token.T_LOGICAL_OR; fbreak;};
             'xor'i                            => {lex.setTokenPosition(tkn); tok = token.T_LOGICAL_XOR; fbreak;};
-            '\\'                              => {lex.setTokenPosition(tkn); tok = token.T_NS_SEPARATOR; fbreak;};
             '#['                              => {lex.setTokenPosition(tkn); tok = token.T_ATTRIBUTE; fbreak;};
             '...'                             => {lex.setTokenPosition(tkn); tok = token.T_ELLIPSIS; fbreak;};
             '::'                              => {lex.setTokenPosition(tkn); tok = token.T_PAAMAYIM_NEKUDOTAYIM; fbreak;};

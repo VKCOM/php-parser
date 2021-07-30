@@ -19,11 +19,12 @@ type Parser struct {
 
 // NewParser creates and returns new Parser
 func NewParser(lexer *Lexer, config conf.Config) *Parser {
-	return &Parser{
+	p := &Parser{
 		Lexer:          lexer,
 		errHandlerFunc: config.ErrorHandlerFunc,
-		builder:        NewBuilder(position.NewBuilder()),
 	}
+	p.builder = NewBuilder(position.NewBuilder(), p)
+	return p
 }
 
 func (p *Parser) Lex(lval *yySymType) int {

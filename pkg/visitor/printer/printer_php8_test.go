@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/z7zmey/php-parser/internal/php8"
+	"github.com/z7zmey/php-parser/internal/tester"
 	"github.com/z7zmey/php-parser/pkg/ast"
 	"github.com/z7zmey/php-parser/pkg/conf"
 	"github.com/z7zmey/php-parser/pkg/version"
@@ -136,8 +137,8 @@ func TestParseAndPrintParameterPHP8(t *testing.T) {
 	src := `<?php
 	function & foo (
 		? int $a , & $b = null
-		, \ Foo ...$c
-	) : namespace  \ Bar \  baz \ quuz{
+		, \Foo ...$c
+	) : namespace\Bar\baz\quuz{
 		;
 	}`
 
@@ -180,8 +181,8 @@ func TestParseAndPrintArgumentPHP8(t *testing.T) {
 func TestParseAndPrintNamesPHP8(t *testing.T) {
 	src := `<?php
 	foo ( ) ;
-	\ foo ( ) ;
-	namespace \ foo ( ) ;
+	\foo ( ) ;
+	namespace\foo ( ) ;
 	`
 
 	actual := printPHP8(parsePHP8(src))
@@ -1171,9 +1172,9 @@ func TestParseAndPrintGotoPHP8(t *testing.T) {
 
 func TestParseAndPrintGroupUsePHP8(t *testing.T) {
 	src := `<?php
-	use function Foo \ { Bar as Baz , Quuz , } ;
-	use Foo \ { function Bar as Baz , const Quuz } ;
-	use \ Foo \ { function Bar as Baz , const Quuz , } ;
+	use function Foo\{ Bar as Baz , Quuz , } ;
+	use Foo\{ function Bar as Baz , const Quuz } ;
+	use \Foo\{ function Bar as Baz , const Quuz , } ;
 	`
 
 	actual := printPHP8(parsePHP8(src))
@@ -1261,7 +1262,7 @@ func TestParseAndPrintGotoLabelPHP8(t *testing.T) {
 
 func TestParseAndPrintNamespacePHP8(t *testing.T) {
 	src := `<?php
-	namespace Foo \ Bar ; 
+	namespace Foo\Bar ; 
 	namespace Baz {
 
 	}
@@ -1377,7 +1378,7 @@ func TestParseAndPrintSwitchPHP8(t *testing.T) {
 
 func TestParseAndPrintThrowPHP8(t *testing.T) {
 	src := `<?php
-	throw new \ Exception ( "msg" ) ;`
+	throw new \Exception ( "msg" ) ;`
 
 	actual := printPHP8(parsePHP8(src))
 
@@ -1389,9 +1390,9 @@ func TestParseAndPrintThrowPHP8(t *testing.T) {
 func TestParseAndPrintTraitUsePHP8(t *testing.T) {
 	src := `<?php
 	class foo {
-		use \ foo , bar ;
-		use foo , \ bar { }
-		use \ foo , \ bar {
+		use \foo , bar ;
+		use foo , \bar { }
+		use \foo , \bar {
 			foo :: a as b ;
 			bar :: a insteadof foo ;
 			foo :: c as public ;
@@ -1425,7 +1426,7 @@ func TestParseAndPrintTryCatchFinallyPHP8(t *testing.T) {
 
 	try {
 
-	} catch ( \ Exception | \ Foo \ Bar $e) {
+	} catch ( \Exception | \Foo\Bar $e) {
 
 	} finally {
 
@@ -1453,8 +1454,8 @@ func TestParseAndPrintUnsetPHP8(t *testing.T) {
 func TestParseAndPrintUseListPHP8(t *testing.T) {
 	src := `<?php
 	use Foo ;
-	use \ Foo as Bar ;
-	use function \ Foo as Bar ;
+	use \Foo as Bar ;
+	use function \Foo as Bar ;
 	use const Foo as Bar, baz ;
 	`
 
@@ -2509,4 +2510,59 @@ class Foo {
 	if src != actual {
 		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
 	}
+}
+
+func TestParseAndPrintUsePHP8(t *testing.T) {
+	tester.NewParserPrintTestSuite(t).UsePHP8().Run(`<?php
+use Foo, \Foo, Boo as Foo, \Boo as Foo;
+use function Foo, \Foo, Boo as Foo, \Boo as Foo;
+use const Foo, \Foo, Boo as Foo, \Boo as Foo;
+
+use Foo\{Boo};
+use Foo\Boo\{Boo};
+
+use Foo\{
+	Boo\Foo
+};
+
+use Foo\{
+	Boo as Name
+};
+
+use Foo\{
+	Boo,
+};
+
+use Foo\{
+	Boo as Name,
+	Boo\Foo as Name,
+};
+
+use Foo\{
+	function Boo as Name,
+	const Boo as Name,
+};
+
+use Foo\{
+	function Boo as Name,
+	Boo,
+	Boo\Foo,
+	const Boo,
+	function Boo,
+};
+
+use function Foo\{
+	// function Boo, // 'function' is not allowed here
+	Boo,
+	Boo as Foo,
+	Boo\Foo as Foo,
+};
+
+use const Foo\{
+	// const Boo, // 'const' is not allowed here
+	Boo,
+	Boo as Foo,
+	Boo\Foo as Foo,
+};
+`)
 }

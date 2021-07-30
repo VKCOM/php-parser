@@ -42,6 +42,22 @@ func (v *Null) Argument(_ *ast.Argument) {
 	// do nothing
 }
 
+func (v *Null) MatchArm(_ *ast.MatchArm) {
+	// do nothing
+}
+
+func (v *Null) Union(_ *ast.Union) {
+	// do nothing
+}
+
+func (v *Null) Attribute(_ *ast.Attribute) {
+	// do nothing
+}
+
+func (v *Null) AttributeGroup(_ *ast.AttributeGroup) {
+	// do nothing
+}
+
 func (v *Null) StmtBreak(_ *ast.StmtBreak) {
 	// do nothing
 }
@@ -322,6 +338,10 @@ func (v *Null) ExprMethodCall(_ *ast.ExprMethodCall) {
 	// do nothing
 }
 
+func (v *Null) ExprNullsafeMethodCall(_ *ast.ExprNullsafeMethodCall) {
+	// do nothing
+}
+
 func (v *Null) ExprNew(_ *ast.ExprNew) {
 	// do nothing
 }
@@ -347,6 +367,10 @@ func (v *Null) ExprPrint(_ *ast.ExprPrint) {
 }
 
 func (v *Null) ExprPropertyFetch(_ *ast.ExprPropertyFetch) {
+	// do nothing
+}
+
+func (v *Null) ExprNullsafePropertyFetch(_ *ast.ExprNullsafePropertyFetch) {
 	// do nothing
 }
 
@@ -587,6 +611,14 @@ func (v *Null) ExprCastString(_ *ast.ExprCastString) {
 }
 
 func (v *Null) ExprCastUnset(_ *ast.ExprCastUnset) {
+	// do nothing
+}
+
+func (v *Null) ExprMatch(_ *ast.ExprMatch) {
+	// do nothing
+}
+
+func (v *Null) ExprThrow(_ *ast.ExprThrow) {
 	// do nothing
 }
 

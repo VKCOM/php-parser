@@ -37,6 +37,11 @@ func (t *Traverser) Nullable(n *ast.Nullable) {
 func (t *Traverser) Parameter(n *ast.Parameter) {
 	n.Accept(t.v)
 
+	for _, nn := range n.AttrGroups {
+		nn.Accept(t)
+	}
+
+	t.Traverse(n.Visibility)
 	t.Traverse(n.Type)
 	t.Traverse(n.Var)
 	t.Traverse(n.DefaultValue)
@@ -49,7 +54,42 @@ func (t *Traverser) Identifier(n *ast.Identifier) {
 func (t *Traverser) Argument(n *ast.Argument) {
 	n.Accept(t.v)
 
+	t.Traverse(n.Name)
 	t.Traverse(n.Expr)
+}
+
+func (t *Traverser) MatchArm(n *ast.MatchArm) {
+	n.Accept(t.v)
+
+	for _, nn := range n.Exprs {
+		nn.Accept(t)
+	}
+	t.Traverse(n.ReturnExpr)
+}
+
+func (t *Traverser) Union(n *ast.Union) {
+	n.Accept(t.v)
+
+	for _, nn := range n.Types {
+		nn.Accept(t)
+	}
+}
+
+func (t *Traverser) Attribute(n *ast.Attribute) {
+	n.Accept(t.v)
+
+	t.Traverse(n.Name)
+	for _, nn := range n.Args {
+		nn.Accept(t)
+	}
+}
+
+func (t *Traverser) AttributeGroup(n *ast.AttributeGroup) {
+	n.Accept(t.v)
+
+	for _, nn := range n.Attrs {
+		nn.Accept(t)
+	}
 }
 
 func (t *Traverser) StmtBreak(n *ast.StmtBreak) {
@@ -82,6 +122,9 @@ func (t *Traverser) StmtCatch(n *ast.StmtCatch) {
 func (t *Traverser) StmtClass(n *ast.StmtClass) {
 	n.Accept(t.v)
 
+	for _, nn := range n.AttrGroups {
+		nn.Accept(t)
+	}
 	for _, nn := range n.Modifiers {
 		nn.Accept(t)
 	}
@@ -101,6 +144,9 @@ func (t *Traverser) StmtClass(n *ast.StmtClass) {
 func (t *Traverser) StmtClassConstList(n *ast.StmtClassConstList) {
 	n.Accept(t.v)
 
+	for _, nn := range n.AttrGroups {
+		nn.Accept(t)
+	}
 	for _, nn := range n.Modifiers {
 		nn.Accept(t)
 	}
@@ -112,6 +158,9 @@ func (t *Traverser) StmtClassConstList(n *ast.StmtClassConstList) {
 func (t *Traverser) StmtClassMethod(n *ast.StmtClassMethod) {
 	n.Accept(t.v)
 
+	for _, nn := range n.AttrGroups {
+		nn.Accept(t)
+	}
 	for _, nn := range n.Modifiers {
 		nn.Accept(t)
 	}
@@ -230,6 +279,9 @@ func (t *Traverser) StmtForeach(n *ast.StmtForeach) {
 func (t *Traverser) StmtFunction(n *ast.StmtFunction) {
 	n.Accept(t.v)
 
+	for _, nn := range n.AttrGroups {
+		nn.Accept(t)
+	}
 	t.Traverse(n.Name)
 	for _, nn := range n.Params {
 		nn.Accept(t)
@@ -276,6 +328,9 @@ func (t *Traverser) StmtInlineHtml(n *ast.StmtInlineHtml) {
 func (t *Traverser) StmtInterface(n *ast.StmtInterface) {
 	n.Accept(t.v)
 
+	for _, nn := range n.AttrGroups {
+		nn.Accept(t)
+	}
 	t.Traverse(n.Name)
 	for _, nn := range n.Extends {
 		nn.Accept(t)
@@ -314,6 +369,9 @@ func (t *Traverser) StmtProperty(n *ast.StmtProperty) {
 func (t *Traverser) StmtPropertyList(n *ast.StmtPropertyList) {
 	n.Accept(t.v)
 
+	for _, nn := range n.AttrGroups {
+		nn.Accept(t)
+	}
 	for _, nn := range n.Modifiers {
 		nn.Accept(t)
 	}
@@ -370,6 +428,9 @@ func (t *Traverser) StmtThrow(n *ast.StmtThrow) {
 func (t *Traverser) StmtTrait(n *ast.StmtTrait) {
 	n.Accept(t.v)
 
+	for _, nn := range n.AttrGroups {
+		nn.Accept(t)
+	}
 	t.Traverse(n.Name)
 	for _, nn := range n.Stmts {
 		nn.Accept(t)
@@ -485,6 +546,9 @@ func (t *Traverser) ExprArrayItem(n *ast.ExprArrayItem) {
 func (t *Traverser) ExprArrowFunction(n *ast.ExprArrowFunction) {
 	n.Accept(t.v)
 
+	for _, nn := range n.AttrGroups {
+		nn.Accept(t)
+	}
 	for _, nn := range n.Params {
 		nn.Accept(t)
 	}
@@ -526,6 +590,9 @@ func (t *Traverser) ExprClone(n *ast.ExprClone) {
 func (t *Traverser) ExprClosure(n *ast.ExprClosure) {
 	n.Accept(t.v)
 
+	for _, nn := range n.AttrGroups {
+		nn.Accept(t)
+	}
 	for _, nn := range n.Params {
 		nn.Accept(t)
 	}
@@ -628,6 +695,16 @@ func (t *Traverser) ExprMethodCall(n *ast.ExprMethodCall) {
 	}
 }
 
+func (t *Traverser) ExprNullsafeMethodCall(n *ast.ExprNullsafeMethodCall) {
+	n.Accept(t.v)
+
+	t.Traverse(n.Var)
+	t.Traverse(n.Method)
+	for _, nn := range n.Args {
+		nn.Accept(t)
+	}
+}
+
 func (t *Traverser) ExprNew(n *ast.ExprNew) {
 	n.Accept(t.v)
 
@@ -668,6 +745,13 @@ func (t *Traverser) ExprPrint(n *ast.ExprPrint) {
 }
 
 func (t *Traverser) ExprPropertyFetch(n *ast.ExprPropertyFetch) {
+	n.Accept(t.v)
+
+	t.Traverse(n.Var)
+	t.Traverse(n.Prop)
+}
+
+func (t *Traverser) ExprNullsafePropertyFetch(n *ast.ExprNullsafePropertyFetch) {
 	n.Accept(t.v)
 
 	t.Traverse(n.Var)
@@ -1081,6 +1165,21 @@ func (t *Traverser) ExprCastString(n *ast.ExprCastString) {
 }
 
 func (t *Traverser) ExprCastUnset(n *ast.ExprCastUnset) {
+	n.Accept(t.v)
+
+	t.Traverse(n.Expr)
+}
+
+func (t *Traverser) ExprMatch(n *ast.ExprMatch) {
+	n.Accept(t.v)
+
+	t.Traverse(n.Expr)
+	for _, nn := range n.Arms {
+		nn.Accept(t)
+	}
+}
+
+func (t *Traverser) ExprThrow(n *ast.ExprThrow) {
 	n.Accept(t.v)
 
 	t.Traverse(n.Expr)

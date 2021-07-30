@@ -2,6 +2,7 @@ package formatter
 
 import (
 	"bytes"
+
 	"github.com/z7zmey/php-parser/pkg/ast"
 	"github.com/z7zmey/php-parser/pkg/token"
 )
@@ -153,6 +154,18 @@ func (f *formatter) Nullable(n *ast.Nullable) {
 }
 
 func (f *formatter) Parameter(n *ast.Parameter) {
+	if n.AttrGroups != nil {
+		for _, group := range n.AttrGroups {
+			group.Accept(f)
+		}
+		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+	}
+
+	if n.Visibility != nil {
+		n.Visibility.Accept(f)
+		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+	}
+
 	if n.Type != nil {
 		n.Type.Accept(f)
 		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
@@ -185,6 +198,14 @@ func (f *formatter) Identifier(n *ast.Identifier) {
 }
 
 func (f *formatter) Argument(n *ast.Argument) {
+	if n.Name != nil {
+		n.Name.Accept(f)
+	}
+
+	if n.ColonTkn != nil {
+		n.ColonTkn = f.newToken(':', []byte(":"))
+	}
+
 	if n.VariadicTkn != nil {
 		n.VariadicTkn = f.newToken(token.T_ELLIPSIS, []byte("..."))
 	}
@@ -194,6 +215,45 @@ func (f *formatter) Argument(n *ast.Argument) {
 	}
 
 	n.Expr.Accept(f)
+}
+
+func (f *formatter) MatchArm(n *ast.MatchArm) {
+	if n.DefaultTkn != nil {
+		n.DefaultTkn = f.newToken(token.T_DEFAULT, []byte("default"))
+	}
+	if n.DefaultCommaTkn != nil {
+		n.DefaultCommaTkn = f.newToken(',', []byte(","))
+	}
+	n.SeparatorTkns = nil
+	if len(n.Exprs) > 0 {
+		n.SeparatorTkns = f.formatList(n.Exprs, ',')
+	}
+	n.DoubleArrowTkn = f.newToken(token.T_DOUBLE_ARROW, []byte("=>"))
+}
+
+func (f *formatter) Union(n *ast.Union) {
+	if len(n.Types) > 0 {
+		n.SeparatorTkns = f.formatList(n.Types, '|')
+	}
+}
+
+func (f *formatter) Attribute(n *ast.Attribute) {
+	n.Name.Accept(f)
+	n.OpenParenthesisTkn = f.newToken('(', []byte("("))
+	n.SeparatorTkns = nil
+	if len(n.Args) > 0 {
+		n.SeparatorTkns = f.formatList(n.Args, ',')
+	}
+	n.CloseParenthesisTkn = f.newToken(')', []byte(")"))
+}
+
+func (f *formatter) AttributeGroup(n *ast.AttributeGroup) {
+	n.OpenAttributeTkn = f.newToken(token.T_ATTRIBUTE, []byte("#["))
+	n.SeparatorTkns = nil
+	if len(n.Attrs) > 0 {
+		n.SeparatorTkns = f.formatList(n.Attrs, ',')
+	}
+	n.CloseAttributeTkn = f.newToken(']', []byte("]"))
 }
 
 func (f *formatter) StmtBreak(n *ast.StmtBreak) {
@@ -307,6 +367,10 @@ func (f *formatter) StmtClass(n *ast.StmtClass) {
 }
 
 func (f *formatter) StmtClassConstList(n *ast.StmtClassConstList) {
+	for _, m := range n.AttrGroups {
+		m.Accept(f)
+		f.addFreeFloating(token.T_WHITESPACE, []byte("\n"))
+	}
 	for _, m := range n.Modifiers {
 		m.Accept(f)
 		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
@@ -736,6 +800,10 @@ func (f *formatter) StmtProperty(n *ast.StmtProperty) {
 }
 
 func (f *formatter) StmtPropertyList(n *ast.StmtPropertyList) {
+	for _, m := range n.AttrGroups {
+		m.Accept(f)
+		f.addFreeFloating(token.T_WHITESPACE, []byte("\n"))
+	}
 	for _, m := range n.Modifiers {
 		m.Accept(f)
 		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
@@ -1061,6 +1129,13 @@ func (f *formatter) ExprArrayItem(n *ast.ExprArrayItem) {
 }
 
 func (f *formatter) ExprArrowFunction(n *ast.ExprArrowFunction) {
+	if n.AttrGroups != nil {
+		for _, group := range n.AttrGroups {
+			group.Accept(f)
+		}
+		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+	}
+
 	if n.StaticTkn != nil {
 		n.StaticTkn = f.newToken(token.T_STATIC, []byte("static"))
 		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
@@ -1123,6 +1198,13 @@ func (f *formatter) ExprClone(n *ast.ExprClone) {
 }
 
 func (f *formatter) ExprClosure(n *ast.ExprClosure) {
+	if n.AttrGroups != nil {
+		for _, group := range n.AttrGroups {
+			group.Accept(f)
+		}
+		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+	}
+
 	if n.StaticTkn != nil {
 		n.StaticTkn = f.newToken(token.T_STATIC, []byte("static"))
 		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
@@ -1287,6 +1369,30 @@ func (f *formatter) ExprMethodCall(n *ast.ExprMethodCall) {
 	n.CloseParenthesisTkn = f.newToken(')', []byte(")"))
 }
 
+func (f *formatter) ExprNullsafeMethodCall(n *ast.ExprNullsafeMethodCall) {
+	n.Var.Accept(f)
+	n.ObjectOperatorTkn = f.newToken(token.T_NULLSAFE_OBJECT_OPERATOR, []byte("?->"))
+
+	n.OpenCurlyBracketTkn = nil
+	n.CloseCurlyBracketTkn = nil
+	switch n.Method.(type) {
+	case *ast.Identifier:
+	case *ast.ExprVariable:
+	default:
+		n.OpenCurlyBracketTkn = f.newToken('{', []byte("{"))
+		n.CloseCurlyBracketTkn = f.newToken('}', []byte("}"))
+	}
+
+	n.Method.Accept(f)
+
+	n.OpenParenthesisTkn = f.newToken('(', []byte("("))
+	n.SeparatorTkns = nil
+	if len(n.Args) > 0 {
+		n.SeparatorTkns = f.formatList(n.Args, ',')
+	}
+	n.CloseParenthesisTkn = f.newToken(')', []byte(")"))
+}
+
 func (f *formatter) ExprNew(n *ast.ExprNew) {
 	n.NewTkn = f.newToken(token.T_NEW, []byte("new"))
 	f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
@@ -1333,6 +1439,23 @@ func (f *formatter) ExprPrint(n *ast.ExprPrint) {
 func (f *formatter) ExprPropertyFetch(n *ast.ExprPropertyFetch) {
 	n.Var.Accept(f)
 	n.ObjectOperatorTkn = f.newToken(token.T_OBJECT_OPERATOR, []byte("->"))
+
+	n.OpenCurlyBracketTkn = nil
+	n.CloseCurlyBracketTkn = nil
+	switch n.Prop.(type) {
+	case *ast.Identifier:
+	case *ast.ExprVariable:
+	default:
+		n.OpenCurlyBracketTkn = f.newToken('{', []byte("{"))
+		n.CloseCurlyBracketTkn = f.newToken('}', []byte("}"))
+	}
+
+	n.Prop.Accept(f)
+}
+
+func (f *formatter) ExprNullsafePropertyFetch(n *ast.ExprNullsafePropertyFetch) {
+	n.Var.Accept(f)
+	n.ObjectOperatorTkn = f.newToken(token.T_NULLSAFE_OBJECT_OPERATOR, []byte("?->"))
 
 	n.OpenCurlyBracketTkn = nil
 	n.CloseCurlyBracketTkn = nil
@@ -1914,6 +2037,27 @@ func (f *formatter) ExprCastString(n *ast.ExprCastString) {
 func (f *formatter) ExprCastUnset(n *ast.ExprCastUnset) {
 	n.CastTkn = f.newToken(token.T_UNSET_CAST, []byte("(unset)"))
 	n.Expr.Accept(f)
+}
+
+func (f *formatter) ExprMatch(n *ast.ExprMatch) {
+	n.MatchTkn = f.newToken(token.T_MATCH, []byte("match"))
+	n.OpenParenthesisTkn = f.newToken('(', []byte("("))
+	n.CloseParenthesisTkn = f.newToken(')', []byte(")"))
+	n.OpenCurlyBracketTkn = f.newToken('}', []byte("}"))
+	n.SeparatorTkns = nil
+	if len(n.Arms) > 0 {
+		n.SeparatorTkns = f.formatList(n.Arms, ',')
+	}
+	n.CloseCurlyBracketTkn = f.newToken('{', []byte("{"))
+}
+
+func (f *formatter) ExprThrow(n *ast.ExprThrow) {
+	n.ThrowTkn = f.newToken(token.T_THROW, []byte("throw"))
+	f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+
+	n.Expr.Accept(f)
+
+	n.SemiColonTkn = f.newSemicolonTkn()
 }
 
 func (f *formatter) ScalarDnumber(n *ast.ScalarDnumber) {

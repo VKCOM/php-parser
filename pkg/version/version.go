@@ -22,6 +22,9 @@ var (
 
 	php7RangeStart = &Version{Major: 7}
 	php7RangeEnd   = &Version{Major: 7, Minor: 4}
+
+	php8RangeStart = &Version{Major: 8}
+	php8RangeEnd   = &Version{Major: 8, Minor: 1}
 )
 
 func New(v string) (*Version, error) {
@@ -48,7 +51,9 @@ func New(v string) (*Version, error) {
 }
 
 func (v *Version) Validate() error {
-	if !v.InRange(php5RangeStart, php5RangeEnd) && !v.InRange(php7RangeStart, php7RangeEnd) {
+	if !v.InRange(php5RangeStart, php5RangeEnd) &&
+		!v.InRange(php7RangeStart, php7RangeEnd) &&
+		!v.InRange(php8RangeStart, php8RangeEnd) {
 		return ErrUnsupportedVer
 	}
 
@@ -75,7 +80,7 @@ func (v *Version) GreaterOrEqual(o *Version) bool {
 	return v.Compare(o) >= 0
 }
 
-// GreaterOrEqual tests if one version is greater than another one or equal
+// InRange tests if version is in range in another one
 func (v *Version) InRange(s, e *Version) bool {
 	return v.Compare(s) >= 0 && v.Compare(e) <= 0
 }

@@ -20,7 +20,7 @@ func (n *Root) GetPosition() *position.Position {
 	return n.Position
 }
 
-// Nullable node
+// Nullable node is ?Expr
 type Nullable struct {
 	Position    *position.Position
 	QuestionTkn *token.Token
@@ -35,9 +35,26 @@ func (n *Nullable) GetPosition() *position.Position {
 	return n.Position
 }
 
+// Union node is Expr|Expr1|...
+type Union struct {
+	Position      *position.Position
+	Types         []Vertex
+	SeparatorTkns []*token.Token
+}
+
+func (n *Union) Accept(v Visitor) {
+	v.Union(n)
+}
+
+func (n *Union) GetPosition() *position.Position {
+	return n.Position
+}
+
 // Parameter node
 type Parameter struct {
 	Position     *position.Position
+	AttrGroups   []Vertex
+	Visibility   Vertex
 	Type         Vertex
 	AmpersandTkn *token.Token
 	VariadicTkn  *token.Token
@@ -72,6 +89,8 @@ func (n *Identifier) GetPosition() *position.Position {
 // Argument node
 type Argument struct {
 	Position     *position.Position
+	Name         Vertex
+	ColonTkn     *token.Token
 	VariadicTkn  *token.Token
 	AmpersandTkn *token.Token
 	Expr         Vertex
@@ -82,6 +101,41 @@ func (n *Argument) Accept(v Visitor) {
 }
 
 func (n *Argument) GetPosition() *position.Position {
+	return n.Position
+}
+
+// Attribute node
+type Attribute struct {
+	Position            *position.Position
+	Name                Vertex
+	OpenParenthesisTkn  *token.Token
+	Args                []Vertex
+	SeparatorTkns       []*token.Token
+	CloseParenthesisTkn *token.Token
+}
+
+func (n *Attribute) Accept(v Visitor) {
+	v.Attribute(n)
+}
+
+func (n *Attribute) GetPosition() *position.Position {
+	return n.Position
+}
+
+// AttributeGroup node
+type AttributeGroup struct {
+	Position          *position.Position
+	OpenAttributeTkn  *token.Token
+	Attrs             []Vertex
+	SeparatorTkns     []*token.Token
+	CloseAttributeTkn *token.Token
+}
+
+func (n *AttributeGroup) Accept(v Visitor) {
+	v.AttributeGroup(n)
+}
+
+func (n *AttributeGroup) GetPosition() *position.Position {
 	return n.Position
 }
 
@@ -286,6 +340,7 @@ func (n *StmtCatch) GetPosition() *position.Position {
 // StmtClass node
 type StmtClass struct {
 	Position                *position.Position
+	AttrGroups              []Vertex
 	Modifiers               []Vertex
 	ClassTkn                *token.Token
 	Name                    Vertex
@@ -314,6 +369,7 @@ func (n *StmtClass) GetPosition() *position.Position {
 // StmtClassConstList node
 type StmtClassConstList struct {
 	Position      *position.Position
+	AttrGroups    []Vertex
 	Modifiers     []Vertex
 	ConstTkn      *token.Token
 	Consts        []Vertex
@@ -332,6 +388,7 @@ func (n *StmtClassConstList) GetPosition() *position.Position {
 // StmtClassMethod node
 type StmtClassMethod struct {
 	Position            *position.Position
+	AttrGroups          []Vertex
 	Modifiers           []Vertex
 	FunctionTkn         *token.Token
 	AmpersandTkn        *token.Token
@@ -601,6 +658,7 @@ func (n *StmtForeach) GetPosition() *position.Position {
 // StmtFunction node
 type StmtFunction struct {
 	Position             *position.Position
+	AttrGroups           []Vertex
 	FunctionTkn          *token.Token
 	AmpersandTkn         *token.Token
 	Name                 Vertex
@@ -714,6 +772,7 @@ func (n *StmtInlineHtml) GetPosition() *position.Position {
 // StmtInterface node
 type StmtInterface struct {
 	Position             *position.Position
+	AttrGroups           []Vertex
 	InterfaceTkn         *token.Token
 	Name                 Vertex
 	ExtendsTkn           *token.Token
@@ -799,6 +858,7 @@ func (n *StmtProperty) GetPosition() *position.Position {
 // StmtPropertyList node
 type StmtPropertyList struct {
 	Position      *position.Position
+	AttrGroups    []Vertex
 	Modifiers     []Vertex
 	Type          Vertex
 	Props         []Vertex
@@ -922,6 +982,7 @@ func (n *StmtThrow) GetPosition() *position.Position {
 // StmtTrait node
 type StmtTrait struct {
 	Position             *position.Position
+	AttrGroups           []Vertex
 	TraitTkn             *token.Token
 	Name                 Vertex
 	OpenCurlyBracketTkn  *token.Token
@@ -1171,6 +1232,7 @@ func (n *ExprArrayItem) GetPosition() *position.Position {
 // ExprArrowFunction node
 type ExprArrowFunction struct {
 	Position            *position.Position
+	AttrGroups          []Vertex
 	StaticTkn           *token.Token
 	FnTkn               *token.Token
 	AmpersandTkn        *token.Token
@@ -1271,6 +1333,7 @@ func (n *ExprClone) GetPosition() *position.Position {
 // ExprClosure node
 type ExprClosure struct {
 	Position               *position.Position
+	AttrGroups             []Vertex
 	StaticTkn              *token.Token
 	FunctionTkn            *token.Token
 	AmpersandTkn           *token.Token
@@ -1515,6 +1578,28 @@ func (n *ExprMethodCall) GetPosition() *position.Position {
 	return n.Position
 }
 
+// ExprNullsafeMethodCall node is $a?->methodName()
+type ExprNullsafeMethodCall struct {
+	Position             *position.Position
+	Var                  Vertex
+	ObjectOperatorTkn    *token.Token
+	OpenCurlyBracketTkn  *token.Token
+	Method               Vertex
+	CloseCurlyBracketTkn *token.Token
+	OpenParenthesisTkn   *token.Token
+	Args                 []Vertex
+	SeparatorTkns        []*token.Token
+	CloseParenthesisTkn  *token.Token
+}
+
+func (n *ExprNullsafeMethodCall) Accept(v Visitor) {
+	v.ExprNullsafeMethodCall(n)
+}
+
+func (n *ExprNullsafeMethodCall) GetPosition() *position.Position {
+	return n.Position
+}
+
 // ExprNew node
 type ExprNew struct {
 	Position            *position.Position
@@ -1624,6 +1709,24 @@ func (n *ExprPropertyFetch) Accept(v Visitor) {
 }
 
 func (n *ExprPropertyFetch) GetPosition() *position.Position {
+	return n.Position
+}
+
+// ExprNullsafePropertyFetch node
+type ExprNullsafePropertyFetch struct {
+	Position             *position.Position
+	Var                  Vertex
+	ObjectOperatorTkn    *token.Token
+	OpenCurlyBracketTkn  *token.Token
+	Prop                 Vertex
+	CloseCurlyBracketTkn *token.Token
+}
+
+func (n *ExprNullsafePropertyFetch) Accept(v Visitor) {
+	v.ExprNullsafePropertyFetch(n)
+}
+
+func (n *ExprNullsafePropertyFetch) GetPosition() *position.Position {
 	return n.Position
 }
 
@@ -2583,6 +2686,62 @@ func (n *ExprBinarySpaceship) Accept(v Visitor) {
 }
 
 func (n *ExprBinarySpaceship) GetPosition() *position.Position {
+	return n.Position
+}
+
+// ExprMatch node is match(expr) { list<MatchArm> }
+type ExprMatch struct {
+	Position             *position.Position
+	MatchTkn             *token.Token
+	OpenParenthesisTkn   *token.Token
+	Expr                 Vertex
+	CloseParenthesisTkn  *token.Token
+	OpenCurlyBracketTkn  *token.Token
+	Arms                 []Vertex
+	SeparatorTkns        []*token.Token
+	CloseCurlyBracketTkn *token.Token
+}
+
+func (n *ExprMatch) Accept(v Visitor) {
+	v.ExprMatch(n)
+}
+
+func (n *ExprMatch) GetPosition() *position.Position {
+	return n.Position
+}
+
+// ExprThrow node is 'throw Expr'
+type ExprThrow struct {
+	Position     *position.Position
+	ThrowTkn     *token.Token
+	Expr         Vertex
+	SemiColonTkn *token.Token
+}
+
+func (n *ExprThrow) Accept(v Visitor) {
+	v.ExprThrow(n)
+}
+
+func (n *ExprThrow) GetPosition() *position.Position {
+	return n.Position
+}
+
+// MatchArm node is [expr, expr1, ...]|default => return_expr
+type MatchArm struct {
+	Position        *position.Position
+	DefaultTkn      *token.Token
+	DefaultCommaTkn *token.Token
+	Exprs           []Vertex
+	SeparatorTkns   []*token.Token
+	DoubleArrowTkn  *token.Token
+	ReturnExpr      Vertex
+}
+
+func (n *MatchArm) Accept(v Visitor) {
+	v.MatchArm(n)
+}
+
+func (n *MatchArm) GetPosition() *position.Position {
 	return n.Position
 }
 

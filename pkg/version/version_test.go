@@ -1,8 +1,9 @@
 package version_test
 
 import (
-	"gotest.tools/assert"
 	"testing"
+
+	"gotest.tools/assert"
 
 	"github.com/z7zmey/php-parser/pkg/version"
 )
@@ -43,6 +44,22 @@ func TestInRange(t *testing.T) {
 	assert.Assert(t, ver.InRange(s, e))
 
 	ver, err = version.New("7.4")
+	assert.NilError(t, err)
+	assert.Assert(t, ver.InRange(s, e))
+}
+
+func TestInRangePHP8(t *testing.T) {
+	s, err := version.New("8.0")
+	assert.NilError(t, err)
+
+	e, err := version.New("8.1")
+	assert.NilError(t, err)
+
+	ver, err := version.New("8.0")
+	assert.NilError(t, err)
+	assert.Assert(t, ver.InRange(s, e))
+
+	ver, err = version.New("8.1")
 	assert.NilError(t, err)
 	assert.Assert(t, ver.InRange(s, e))
 }

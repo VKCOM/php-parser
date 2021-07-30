@@ -2,9 +2,10 @@ package printer
 
 import (
 	"bytes"
+	"io"
+
 	"github.com/z7zmey/php-parser/pkg/ast"
 	"github.com/z7zmey/php-parser/pkg/token"
-	"io"
 )
 
 type printerState int
@@ -145,6 +146,8 @@ func (p *printer) Nullable(n *ast.Nullable) {
 }
 
 func (p *printer) Parameter(n *ast.Parameter) {
+	p.printList(n.AttrGroups)
+	p.printNode(n.Visibility)
 	p.printNode(n.Type)
 	p.printToken(n.AmpersandTkn, nil)
 	p.printToken(n.VariadicTkn, nil)
@@ -158,9 +161,36 @@ func (p *printer) Identifier(n *ast.Identifier) {
 }
 
 func (p *printer) Argument(n *ast.Argument) {
+	p.printNode(n.Name)
+	p.printToken(n.ColonTkn, nil)
 	p.printToken(n.VariadicTkn, nil)
 	p.printToken(n.AmpersandTkn, nil)
 	p.printNode(n.Expr)
+}
+
+func (p *printer) MatchArm(n *ast.MatchArm) {
+	p.printToken(n.DefaultTkn, nil)
+	p.printToken(n.DefaultCommaTkn, nil)
+	p.printSeparatedList(n.Exprs, n.SeparatorTkns, []byte(","))
+	p.printToken(n.DoubleArrowTkn, []byte("=>"))
+	p.printNode(n.ReturnExpr)
+}
+
+func (p *printer) Union(n *ast.Union) {
+	p.printSeparatedList(n.Types, n.SeparatorTkns, []byte("|"))
+}
+
+func (p *printer) Attribute(n *ast.Attribute) {
+	p.printNode(n.Name)
+	p.printToken(n.OpenParenthesisTkn, p.ifNodeList(n.Args, []byte("(")))
+	p.printSeparatedList(n.Args, n.SeparatorTkns, []byte(","))
+	p.printToken(n.CloseParenthesisTkn, p.ifNodeList(n.Args, []byte(")")))
+}
+
+func (p *printer) AttributeGroup(n *ast.AttributeGroup) {
+	p.printToken(n.OpenAttributeTkn, []byte("#["))
+	p.printSeparatedList(n.Attrs, n.SeparatorTkns, []byte(","))
+	p.printToken(n.CloseAttributeTkn, []byte("]"))
 }
 
 func (p *printer) StmtBreak(n *ast.StmtBreak) {
@@ -188,6 +218,7 @@ func (p *printer) StmtCatch(n *ast.StmtCatch) {
 }
 
 func (p *printer) StmtClass(n *ast.StmtClass) {
+	p.printList(n.AttrGroups)
 	p.printList(n.Modifiers)
 	p.printToken(n.ClassTkn, []byte("class"))
 	p.printNode(n.Name)
@@ -204,6 +235,7 @@ func (p *printer) StmtClass(n *ast.StmtClass) {
 }
 
 func (p *printer) StmtClassConstList(n *ast.StmtClassConstList) {
+	p.printList(n.AttrGroups)
 	p.printList(n.Modifiers)
 	p.printToken(n.ConstTkn, []byte("const"))
 	p.printSeparatedList(n.Consts, n.SeparatorTkns, []byte(","))
@@ -211,6 +243,7 @@ func (p *printer) StmtClassConstList(n *ast.StmtClassConstList) {
 }
 
 func (p *printer) StmtClassMethod(n *ast.StmtClassMethod) {
+	p.printList(n.AttrGroups)
 	p.printList(n.Modifiers)
 	p.printToken(n.FunctionTkn, []byte("function"))
 	p.printToken(n.AmpersandTkn, nil)
@@ -364,6 +397,7 @@ func (p *printer) StmtForeach(n *ast.StmtForeach) {
 }
 
 func (p *printer) StmtFunction(n *ast.StmtFunction) {
+	p.printList(n.AttrGroups)
 	p.printToken(n.FunctionTkn, []byte("function"))
 	p.printToken(n.AmpersandTkn, nil)
 	p.printNode(n.Name)
@@ -426,6 +460,7 @@ func (p *printer) StmtInlineHtml(n *ast.StmtInlineHtml) {
 }
 
 func (p *printer) StmtInterface(n *ast.StmtInterface) {
+	p.printList(n.AttrGroups)
 	p.printToken(n.InterfaceTkn, []byte("interface"))
 	p.printNode(n.Name)
 	p.printToken(n.ExtendsTkn, p.ifNodeList(n.Extends, []byte("extends")))
@@ -460,6 +495,7 @@ func (p *printer) StmtProperty(n *ast.StmtProperty) {
 }
 
 func (p *printer) StmtPropertyList(n *ast.StmtPropertyList) {
+	p.printList(n.AttrGroups)
 	p.printList(n.Modifiers)
 	p.printNode(n.Type)
 	p.printSeparatedList(n.Props, n.SeparatorTkns, []byte(","))
@@ -511,6 +547,7 @@ func (p *printer) StmtThrow(n *ast.StmtThrow) {
 }
 
 func (p *printer) StmtTrait(n *ast.StmtTrait) {
+	p.printList(n.AttrGroups)
 	p.printToken(n.TraitTkn, []byte("trait"))
 	p.printNode(n.Name)
 	p.printToken(n.OpenCurlyBracketTkn, []byte("{"))
@@ -630,6 +667,7 @@ func (p *printer) ExprArrayItem(n *ast.ExprArrayItem) {
 }
 
 func (p *printer) ExprArrowFunction(n *ast.ExprArrowFunction) {
+	p.printList(n.AttrGroups)
 	p.printToken(n.StaticTkn, nil)
 	p.printToken(n.FnTkn, []byte("fn"))
 	p.printToken(n.AmpersandTkn, nil)
@@ -670,6 +708,7 @@ func (p *printer) ExprClone(n *ast.ExprClone) {
 }
 
 func (p *printer) ExprClosure(n *ast.ExprClosure) {
+	p.printList(n.AttrGroups)
 	p.printToken(n.StaticTkn, nil)
 	p.printToken(n.FunctionTkn, []byte("function"))
 	p.printToken(n.AmpersandTkn, nil)
@@ -770,6 +809,17 @@ func (p *printer) ExprMethodCall(n *ast.ExprMethodCall) {
 	p.printToken(n.CloseParenthesisTkn, []byte(")"))
 }
 
+func (p *printer) ExprNullsafeMethodCall(n *ast.ExprNullsafeMethodCall) {
+	p.printNode(n.Var)
+	p.printToken(n.ObjectOperatorTkn, []byte("?->"))
+	p.printToken(n.OpenCurlyBracketTkn, nil)
+	p.printNode(n.Method)
+	p.printToken(n.CloseCurlyBracketTkn, nil)
+	p.printToken(n.OpenParenthesisTkn, []byte("("))
+	p.printSeparatedList(n.Args, n.SeparatorTkns, []byte(","))
+	p.printToken(n.CloseParenthesisTkn, []byte(")"))
+}
+
 func (p *printer) ExprNew(n *ast.ExprNew) {
 	p.printToken(n.NewTkn, []byte("new"))
 	p.printNode(n.Class)
@@ -806,6 +856,14 @@ func (p *printer) ExprPrint(n *ast.ExprPrint) {
 func (p *printer) ExprPropertyFetch(n *ast.ExprPropertyFetch) {
 	p.printNode(n.Var)
 	p.printToken(n.ObjectOperatorTkn, []byte("->"))
+	p.printToken(n.OpenCurlyBracketTkn, nil)
+	p.printNode(n.Prop)
+	p.printToken(n.CloseCurlyBracketTkn, nil)
+}
+
+func (p *printer) ExprNullsafePropertyFetch(n *ast.ExprNullsafePropertyFetch) {
+	p.printNode(n.Var)
+	p.printToken(n.ObjectOperatorTkn, []byte("?->"))
 	p.printToken(n.OpenCurlyBracketTkn, nil)
 	p.printNode(n.Prop)
 	p.printToken(n.CloseCurlyBracketTkn, nil)
@@ -1166,6 +1224,21 @@ func (p *printer) ExprCastString(n *ast.ExprCastString) {
 
 func (p *printer) ExprCastUnset(n *ast.ExprCastUnset) {
 	p.printToken(n.CastTkn, []byte("(unset)"))
+	p.printNode(n.Expr)
+}
+
+func (p *printer) ExprMatch(n *ast.ExprMatch) {
+	p.printToken(n.MatchTkn, []byte("match"))
+	p.printToken(n.OpenParenthesisTkn, []byte("("))
+	p.printNode(n.Expr)
+	p.printToken(n.CloseParenthesisTkn, []byte(")"))
+	p.printToken(n.OpenCurlyBracketTkn, []byte("{"))
+	p.printSeparatedList(n.Arms, n.SeparatorTkns, []byte(","))
+	p.printToken(n.CloseCurlyBracketTkn, []byte("}"))
+}
+
+func (p *printer) ExprThrow(n *ast.ExprThrow) {
+	p.printToken(n.ThrowTkn, []byte("throw"))
 	p.printNode(n.Expr)
 }
 

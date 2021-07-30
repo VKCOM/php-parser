@@ -392,6 +392,29 @@ func (b *Builder) parseNameToken(t *token.Token) *ast.NameRelative {
 	return n
 }
 
+func (b *Builder) NewScalarMagicConstant(
+	MagicConstantTkn *token.Token,
+) *ast.ScalarMagicConstant {
+	return &ast.ScalarMagicConstant{
+		Position:      b.Pos.NewTokenPosition(MagicConstantTkn),
+		MagicConstTkn: MagicConstantTkn,
+		Value:         MagicConstantTkn.Value,
+	}
+}
+
+func (b *Builder) NewBracket(
+	OpenParenthesisTkn *token.Token,
+	Expr ast.Vertex,
+	CloseParenthesisTkn *token.Token,
+) *ast.ExprBrackets {
+	return &ast.ExprBrackets{
+		Position:            b.Pos.NewTokensPosition(OpenParenthesisTkn, CloseParenthesisTkn),
+		OpenParenthesisTkn:  OpenParenthesisTkn,
+		Expr:                Expr,
+		CloseParenthesisTkn: CloseParenthesisTkn,
+	}
+}
+
 func (b *Builder) NewExpressionStmt(
 	Expr ast.Vertex,
 	SemiColonTkn *token.Token,
@@ -474,6 +497,15 @@ func (b *Builder) NewNamePart(
 		Position:  b.Pos.NewTokenPosition(NameTkn),
 		StringTkn: NameTkn,
 		Value:     NameTkn.Value,
+	}
+}
+
+func (b *Builder) NewConstFetch(
+	Name ast.Vertex,
+) *ast.ExprConstFetch {
+	return &ast.ExprConstFetch{
+		Position: b.Pos.NewNodePosition(Name),
+		Const:    Name,
 	}
 }
 

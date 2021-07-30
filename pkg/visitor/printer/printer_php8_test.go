@@ -2606,3 +2606,46 @@ $a::B;
 $a::class;
 `)
 }
+
+func TestParseAndPrintEncapsedStringDerefencablePHP8(t *testing.T) {
+	tester.NewParserPrintTestSuite(t).UsePHP8().Run(`<?php
+"string"->length();
+"foo$bar"[0];
+"foo$bar"->length();
+`)
+}
+
+func TestParseAndPrintConstantDerefencablePHP8(t *testing.T) {
+	tester.NewParserPrintTestSuite(t).UsePHP8().Run(`<?php
+A->length;
+A->length();
+A[0];
+A[0][1][2];
+A{0};
+
+A::B[0];
+A::B[0][1][2];
+A::B{0};
+A::B->length;
+A::B->length();
+A::B::C;
+A::B::$c;
+A::B::c();
+`)
+}
+
+func TestParseAndPrintArbitraryExpressionsInNewAndInstanceOfPHP8(t *testing.T) {
+	tester.NewParserPrintTestSuite(t).UsePHP8().Run(`<?php
+new ('Foo' . $bar);
+new ('Foo' . $bar)($arg);
+$obj instanceof ('Foo' . $bar);
+`)
+}
+
+func TestParseAndPrintMagicConstantDerefencablePHP8(t *testing.T) {
+	tester.NewParserPrintTestSuite(t).UsePHP8().Run(`<?php
+__FUNCTION__[0];
+__FUNCTION__->length;
+__FUNCTION__->length();
+`)
+}

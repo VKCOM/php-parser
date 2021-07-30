@@ -4584,3 +4584,313 @@ $a::class;
 
 	suite.Run()
 }
+
+func TestEncapsedStringDerefencable(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php
+"string"->length();
+"foo$bar"[0];
+"foo$bar"->length();
+`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtExpression{
+			Expr: &ast.ExprMethodCall{
+				Var: &ast.ScalarString{
+					Val: []byte("\"string\""),
+				},
+				Method: &ast.Identifier{
+					Val: []byte("length"),
+				},
+			},
+		},
+		&ast.StmtExpression{
+			Expr: &ast.ExprArrayDimFetch{
+				Var: &ast.ScalarEncapsed{
+					Parts: []ast.Vertex{
+						&ast.ScalarEncapsedStringPart{
+							Val: []byte("foo"),
+						},
+						&ast.ExprVariable{
+							Name: &ast.Identifier{
+								Val: []byte("$bar"),
+							},
+						},
+					},
+				},
+				Dim: &ast.ScalarLnumber{
+					Val: []byte("0"),
+				},
+			},
+		},
+		&ast.StmtExpression{
+			Expr: &ast.ExprMethodCall{
+				Var: &ast.ScalarEncapsed{
+					Parts: []ast.Vertex{
+						&ast.ScalarEncapsedStringPart{
+							Val: []byte("foo"),
+						},
+						&ast.ExprVariable{
+							Name: &ast.Identifier{
+								Val: []byte("$bar"),
+							},
+						},
+					},
+				},
+				Method: &ast.Identifier{
+					Val: []byte("length"),
+				},
+			},
+		},
+	},
+},`
+
+	suite.Run()
+}
+
+func TestConstantDerefencable(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php
+A->length;
+A->length();
+A[0];
+A[0][1][2];
+
+A::B[0];
+A::B[0][1][2];
+A::B->length;
+A::B->length();
+A::B::C;
+A::B::$c;
+A::B::c();
+`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtExpression{
+			Expr: &ast.ExprPropertyFetch{
+				Var: &ast.ExprConstFetch{
+					Const: &ast.Name{
+						Parts: []ast.Vertex{
+							&ast.NamePart{
+								Val: []byte("A"),
+							},
+						},
+					},
+				},
+				Prop: &ast.Identifier{
+					Val: []byte("length"),
+				},
+			},
+		},
+		&ast.StmtExpression{
+			Expr: &ast.ExprMethodCall{
+				Var: &ast.ExprConstFetch{
+					Const: &ast.Name{
+						Parts: []ast.Vertex{
+							&ast.NamePart{
+								Val: []byte("A"),
+							},
+						},
+					},
+				},
+				Method: &ast.Identifier{
+					Val: []byte("length"),
+				},
+			},
+		},
+		&ast.StmtExpression{
+			Expr: &ast.ExprArrayDimFetch{
+				Var: &ast.ExprConstFetch{
+					Const: &ast.Name{
+						Parts: []ast.Vertex{
+							&ast.NamePart{
+								Val: []byte("A"),
+							},
+						},
+					},
+				},
+				Dim: &ast.ScalarLnumber{
+					Val: []byte("0"),
+				},
+			},
+		},
+		&ast.StmtExpression{
+			Expr: &ast.ExprArrayDimFetch{
+				Var: &ast.ExprArrayDimFetch{
+					Var: &ast.ExprArrayDimFetch{
+						Var: &ast.ExprConstFetch{
+							Const: &ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										Val: []byte("A"),
+									},
+								},
+							},
+						},
+						Dim: &ast.ScalarLnumber{
+							Val: []byte("0"),
+						},
+					},
+					Dim: &ast.ScalarLnumber{
+						Val: []byte("1"),
+					},
+				},
+				Dim: &ast.ScalarLnumber{
+					Val: []byte("2"),
+				},
+			},
+		},
+		&ast.StmtExpression{
+			Expr: &ast.ExprArrayDimFetch{
+				Var: &ast.ExprClassConstFetch{
+					Class: &ast.Name{
+						Parts: []ast.Vertex{
+							&ast.NamePart{
+								Val: []byte("A"),
+							},
+						},
+					},
+					Const: &ast.Identifier{
+						Val: []byte("B"),
+					},
+				},
+				Dim: &ast.ScalarLnumber{
+					Val: []byte("0"),
+				},
+			},
+		},
+		&ast.StmtExpression{
+			Expr: &ast.ExprArrayDimFetch{
+				Var: &ast.ExprArrayDimFetch{
+					Var: &ast.ExprArrayDimFetch{
+						Var: &ast.ExprClassConstFetch{
+							Class: &ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										Val: []byte("A"),
+									},
+								},
+							},
+							Const: &ast.Identifier{
+								Val: []byte("B"),
+							},
+						},
+						Dim: &ast.ScalarLnumber{
+							Val: []byte("0"),
+						},
+					},
+					Dim: &ast.ScalarLnumber{
+						Val: []byte("1"),
+					},
+				},
+				Dim: &ast.ScalarLnumber{
+					Val: []byte("2"),
+				},
+			},
+		},
+		&ast.StmtExpression{
+			Expr: &ast.ExprPropertyFetch{
+				Var: &ast.ExprClassConstFetch{
+					Class: &ast.Name{
+						Parts: []ast.Vertex{
+							&ast.NamePart{
+								Val: []byte("A"),
+							},
+						},
+					},
+					Const: &ast.Identifier{
+						Val: []byte("B"),
+					},
+				},
+				Prop: &ast.Identifier{
+					Val: []byte("length"),
+				},
+			},
+		},
+		&ast.StmtExpression{
+			Expr: &ast.ExprMethodCall{
+				Var: &ast.ExprClassConstFetch{
+					Class: &ast.Name{
+						Parts: []ast.Vertex{
+							&ast.NamePart{
+								Val: []byte("A"),
+							},
+						},
+					},
+					Const: &ast.Identifier{
+						Val: []byte("B"),
+					},
+				},
+				Method: &ast.Identifier{
+					Val: []byte("length"),
+				},
+			},
+		},
+		&ast.StmtExpression{
+			Expr: &ast.ExprClassConstFetch{
+				Class: &ast.ExprClassConstFetch{
+					Class: &ast.Name{
+						Parts: []ast.Vertex{
+							&ast.NamePart{
+								Val: []byte("A"),
+							},
+						},
+					},
+					Const: &ast.Identifier{
+						Val: []byte("B"),
+					},
+				},
+				Const: &ast.Identifier{
+					Val: []byte("C"),
+				},
+			},
+		},
+		&ast.StmtExpression{
+			Expr: &ast.ExprStaticPropertyFetch{
+				Class: &ast.ExprClassConstFetch{
+					Class: &ast.Name{
+						Parts: []ast.Vertex{
+							&ast.NamePart{
+								Val: []byte("A"),
+							},
+						},
+					},
+					Const: &ast.Identifier{
+						Val: []byte("B"),
+					},
+				},
+				Prop: &ast.ExprVariable{
+					Name: &ast.Identifier{
+						Val: []byte("$c"),
+					},
+				},
+			},
+		},
+		&ast.StmtExpression{
+			Expr: &ast.ExprStaticCall{
+				Class: &ast.ExprClassConstFetch{
+					Class: &ast.Name{
+						Parts: []ast.Vertex{
+							&ast.NamePart{
+								Val: []byte("A"),
+							},
+						},
+					},
+					Const: &ast.Identifier{
+						Val: []byte("B"),
+					},
+				},
+				Call: &ast.Identifier{
+					Val: []byte("c"),
+				},
+			},
+		},
+	},
+},`
+
+	suite.Run()
+}

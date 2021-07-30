@@ -244,10 +244,11 @@ import (
 %type <node> parameter argument expr_without_variable global_var_list global_var
 %type <node> static_var_list static_var class_statement trait_adaptation trait_precedence trait_alias
 %type <node> absolute_trait_method_reference trait_method_reference property echo_expr
-%type <node> new_expr anonymous_class class_name class_name_reference simple_variable
+%type <node> new_expr anonymous_class class_name class_name_or_var class_name_reference simple_variable
 %type <node> internal_functions_in_yacc non_empty_array_pair_list array_pair_list
 %type <node> exit_expr scalar lexical_var function_call member_name property_name
-%type <node> variable_class_name dereferencable_scalar constant dereferencable
+%type <node> constant class_constant
+%type <node> dereferencable_scalar fully_dereferencable array_object_dereferencable
 %type <node> callable_expr callable_variable static_member new_variable
 %type <node> encaps_var encaps_var_offset echo_expr_list name_union name_list
 %type <node> if_stmt const_list non_empty_argument_list property_list
@@ -2763,28 +2764,7 @@ function_call:
                     CloseParenthesisTkn: $2.(*ArgumentList).CloseParenthesisTkn,
                 }
             }
-    |   class_name T_PAAMAYIM_NEKUDOTAYIM member_name argument_list
-            {
-                staticCall := &ast.ExprStaticCall{
-                    Position: yylex.(*Parser).builder.Pos.NewNodesPosition($1, $4),
-                    Class:               $1,
-                    DoubleColonTkn:      $2,
-                    Call:                $3,
-                    OpenParenthesisTkn:  $4.(*ArgumentList).OpenParenthesisTkn,
-                    Args:                $4.(*ArgumentList).Arguments,
-                    SeparatorTkns:       $4.(*ArgumentList).SeparatorTkns,
-                    CloseParenthesisTkn: $4.(*ArgumentList).CloseParenthesisTkn,
-                }
-
-                if brackets, ok := $3.(*ParserBrackets); ok {
-                    staticCall.OpenCurlyBracketTkn  = brackets.OpenBracketTkn
-                    staticCall.Call                 = brackets.Child
-                    staticCall.CloseCurlyBracketTkn = brackets.CloseBracketTkn
-                }
-
-                $$ = staticCall
-            }
-    |   variable_class_name T_PAAMAYIM_NEKUDOTAYIM member_name argument_list
+    |   class_name_or_var T_PAAMAYIM_NEKUDOTAYIM member_name argument_list
             {
                 staticCall := &ast.ExprStaticCall{
                     Position: yylex.(*Parser).builder.Pos.NewNodesPosition($1, $4),
@@ -2818,6 +2798,11 @@ function_call:
             }
 ;
 
+class_name_or_var:
+         class_name           { $$ = $1 }
+    |    fully_dereferencable { $$ = $1 }
+;
+
 class_name:
         T_STATIC
             {
@@ -2834,30 +2819,14 @@ class_name:
 ;
 
 class_name_reference:
-        class_name
-            {
-                $$ = $1
-            }
-    |   new_variable
-            {
-                $$ = $1
-            }
+        class_name            { $$ = $1 }
+    |   new_variable          { $$ = $1 }
+    |   '(' expr ')'          { $$ = yylex.(*Parser).builder.NewBracket($1, $2, $3) }
 ;
 
 exit_expr:
-        /* empty */
-            {
-                $$ = nil
-            }
-    |   '(' optional_expr ')'
-            {
-                $$ = &ast.ExprBrackets{
-                    Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $3),
-                    OpenParenthesisTkn:  $1,
-                    Expr:                $2,
-                    CloseParenthesisTkn: $3,
-                }
-            }
+        /* empty */           { $$ = nil }
+    |   '(' optional_expr ')' { $$ = yylex.(*Parser).builder.NewBracket($1, $2, $3) }
 ;
 
 backticks_expr:
@@ -2922,6 +2891,15 @@ dereferencable_scalar:
                     Value:     $1.Value,
                 }
             }
+    |   '"' encaps_list '"'
+            {
+                $$ = &ast.ScalarEncapsed{
+                    Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $3),
+                    OpenQuoteTkn:  $1,
+                    Parts:         $2,
+                    CloseQuoteTkn: $3,
+                }
+            }
 ;
 
 scalar:
@@ -2939,70 +2917,6 @@ scalar:
                     Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
                     NumberTkn: $1,
                     Value:     $1.Value,
-                }
-            }
-    |   T_LINE
-            {
-                $$ = &ast.ScalarMagicConstant{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    MagicConstTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   T_FILE
-            {
-                $$ = &ast.ScalarMagicConstant{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    MagicConstTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   T_DIR
-            {
-                $$ = &ast.ScalarMagicConstant{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    MagicConstTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   T_TRAIT_C
-            {
-                $$ = &ast.ScalarMagicConstant{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    MagicConstTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   T_METHOD_C
-            {
-                $$ = &ast.ScalarMagicConstant{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    MagicConstTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   T_FUNC_C
-            {
-                $$ = &ast.ScalarMagicConstant{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    MagicConstTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   T_NS_C
-            {
-                $$ = &ast.ScalarMagicConstant{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    MagicConstTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   T_CLASS_C
-            {
-                $$ = &ast.ScalarMagicConstant{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    MagicConstTkn: $1,
-                    Value:         $1.Value,
                 }
             }
     |   T_START_HEREDOC T_ENCAPSED_AND_WHITESPACE T_END_HEREDOC
@@ -3028,15 +2942,6 @@ scalar:
                     CloseHeredocTkn: $2,
                 }
             }
-    |   '"' encaps_list '"'
-            {
-                $$ = &ast.ScalarEncapsed{
-                    Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $3),
-                    OpenQuoteTkn:  $1,
-                    Parts:         $2,
-                    CloseQuoteTkn: $3,
-                }
-            }
     |   T_START_HEREDOC encaps_list T_END_HEREDOC
             {
                 $$ = &ast.ScalarHeredoc{
@@ -3046,127 +2951,71 @@ scalar:
                     CloseHeredocTkn: $3,
                 }
             }
-    |   dereferencable_scalar
+    |   dereferencable_scalar { $$ = $1 }
+    |   class_constant        { $$ = $1 }
+    |   constant              { $$ = $1 }
+;
+
+class_constant:
+        class_name_or_var T_PAAMAYIM_NEKUDOTAYIM identifier_ex
             {
-                $$ = $1
-            }
-    |   constant
-            {
-                $$ = $1
+                $$ = &ast.ExprClassConstFetch{
+                    Position: yylex.(*Parser).builder.Pos.NewNodeTokenPosition($1, $3),
+                    Class:          $1,
+                    DoubleColonTkn: $2,
+                    Const: &ast.Identifier{
+                        Position: yylex.(*Parser).builder.Pos.NewTokenPosition($3),
+                        IdentifierTkn: $3,
+                        Value:         $3.Value,
+                    },
+                }
             }
 ;
 
 constant:
-        name
-            {
-                $$ = &ast.ExprConstFetch{
-                    Position: yylex.(*Parser).builder.Pos.NewNodePosition($1),
-                    Const: $1,
-                }
-            }
-    |   class_name T_PAAMAYIM_NEKUDOTAYIM identifier
-            {
-                $$ = &ast.ExprClassConstFetch{
-                    Position: yylex.(*Parser).builder.Pos.NewNodeTokenPosition($1, $3),
-                    Class:          $1,
-                    DoubleColonTkn: $2,
-                    Const: &ast.Identifier{
-                        Position: yylex.(*Parser).builder.Pos.NewTokenPosition($3),
-                        IdentifierTkn: $3,
-                        Value:         $3.Value,
-                    },
-                }
-            }
-    |   variable_class_name T_PAAMAYIM_NEKUDOTAYIM identifier
-            {
-                $$ = &ast.ExprClassConstFetch{
-                    Position: yylex.(*Parser).builder.Pos.NewNodeTokenPosition($1, $3),
-                    Class:          $1,
-                    DoubleColonTkn: $2,
-                    Const: &ast.Identifier{
-                        Position: yylex.(*Parser).builder.Pos.NewTokenPosition($3),
-                        IdentifierTkn: $3,
-                        Value:         $3.Value,
-                    },
-                }
-            }
+        name                  { $$ = yylex.(*Parser).builder.NewConstFetch($1) }
+    |   T_LINE                { $$ = yylex.(*Parser).builder.NewScalarMagicConstant($1) }
+    |   T_FILE                { $$ = yylex.(*Parser).builder.NewScalarMagicConstant($1) }
+    |   T_DIR                 { $$ = yylex.(*Parser).builder.NewScalarMagicConstant($1) }
+    |   T_TRAIT_C             { $$ = yylex.(*Parser).builder.NewScalarMagicConstant($1) }
+    |   T_METHOD_C            { $$ = yylex.(*Parser).builder.NewScalarMagicConstant($1) }
+    |   T_FUNC_C              { $$ = yylex.(*Parser).builder.NewScalarMagicConstant($1) }
+    |   T_NS_C                { $$ = yylex.(*Parser).builder.NewScalarMagicConstant($1) }
+    |   T_CLASS_C             { $$ = yylex.(*Parser).builder.NewScalarMagicConstant($1) }
 ;
 
 expr:
-        variable
-            {
-                $$ = $1
-            }
-    |   expr_without_variable
-            {
-                $$ = $1
-            }
+        variable              { $$ = $1 }
+    |   expr_without_variable { $$ = $1 }
 ;
 
 optional_expr:
-        /* empty */
-            {
-                $$ = nil
-            }
-    |   expr
-            {
-                $$ = $1
-            }
+        /* empty */           { $$ = nil }
+    |   expr                  { $$ = $1 }
 ;
 
-variable_class_name:
-        dereferencable
-            {
-                $$ = $1
-            }
+fully_dereferencable:
+        variable              { $$ = $1 }
+    |   '(' expr ')'          { $$ = yylex.(*Parser).builder.NewBracket($1, $2, $3) }
+    |   dereferencable_scalar { $$ = $1 }
+    | class_constant          { $$ = $1 }
 ;
 
-dereferencable:
-        variable
-            {
-                $$ = $1
-            }
-    |   '(' expr ')'
-            {
-                $$ = &ast.ExprBrackets{
-                    Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $3),
-                    OpenParenthesisTkn:  $1,
-                    Expr:                $2,
-                    CloseParenthesisTkn: $3,
-                }
-            }
-    |   dereferencable_scalar
-            {
-                $$ = $1;
-            }
+array_object_dereferencable:
+      fully_dereferencable    { $$ = $1 }
+    | constant                { $$ = $1 }
 ;
 
 callable_expr:
-        callable_variable
-            {
-                $$ = $1
-            }
-    |   '(' expr ')'
-            {
-                $$ = &ast.ExprBrackets{
-                    Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $3),
-                    OpenParenthesisTkn:  $1,
-                    Expr:                $2,
-                    CloseParenthesisTkn: $3,
-                }
-            }
-    |   dereferencable_scalar
-            {
-                $$ = $1
-            }
+        callable_variable     { $$ = $1 }
+    |   '(' expr ')'          { $$ = yylex.(*Parser).builder.NewBracket($1, $2, $3) }
+    |   dereferencable_scalar { $$ = $1 }
 ;
 
 callable_variable:
         simple_variable
-            {
-                $$ = $1
-            }
-    |   dereferencable '[' optional_expr ']'
+            { $$ = $1 }
+    |   array_object_dereferencable '[' optional_expr ']'
             {
                 $$ = &ast.ExprArrayDimFetch{
                     Position: yylex.(*Parser).builder.Pos.NewNodeTokenPosition($1, $4),
@@ -3176,17 +3025,7 @@ callable_variable:
                     CloseBracketTkn: $4,
                 }
             }
-    |   constant '[' optional_expr ']'
-            {
-                $$ = &ast.ExprArrayDimFetch{
-                    Position: yylex.(*Parser).builder.Pos.NewNodeTokenPosition($1, $4),
-                    Var:             $1,
-                    OpenBracketTkn:  $2,
-                    Dim:             $3,
-                    CloseBracketTkn: $4,
-                }
-            }
-    |   dereferencable '{' expr '}'
+    |   array_object_dereferencable '{' expr '}'
             {
                 yylex.(*Parser).Error("Array and string offset access syntax with curly braces is no longer supported")
 
@@ -3198,37 +3037,23 @@ callable_variable:
                     CloseBracketTkn: $4,
                 }
             }
-    |   dereferencable T_OBJECT_OPERATOR property_name argument_list
-            {
-            	$$ = yylex.(*Parser).builder.NewMethodCall($1, $2, $3, $4)
-            }
-    |   dereferencable T_NULLSAFE_OBJECT_OPERATOR property_name argument_list
-            {
-            	$$ = yylex.(*Parser).builder.NewNullsafeMethodCall($1, $2, $3, $4)
-            }
+    |   array_object_dereferencable T_OBJECT_OPERATOR property_name argument_list
+            { $$ = yylex.(*Parser).builder.NewMethodCall($1, $2, $3, $4) }
+    |   array_object_dereferencable T_NULLSAFE_OBJECT_OPERATOR property_name argument_list
+            { $$ = yylex.(*Parser).builder.NewNullsafeMethodCall($1, $2, $3, $4) }
     |   function_call
-            {
-                $$ = $1
-            }
+            { $$ = $1 }
 ;
 
 variable:
         callable_variable
-            {
-                $$ = $1
-            }
+            { $$ = $1 }
     |   static_member
-            {
-                $$ = $1
-            }
-    |   dereferencable T_OBJECT_OPERATOR property_name
-            {
-                $$ = yylex.(*Parser).builder.NewPropertyFetch($1, $2, $3)
-            }
-    |   dereferencable T_NULLSAFE_OBJECT_OPERATOR property_name
-            {
-                $$ = yylex.(*Parser).builder.NewNullsafePropertyFetch($1, $2, $3)
-            }
+            { $$ = $1 }
+    |   array_object_dereferencable T_OBJECT_OPERATOR property_name
+            { $$ = yylex.(*Parser).builder.NewPropertyFetch($1, $2, $3) }
+    |   array_object_dereferencable T_NULLSAFE_OBJECT_OPERATOR property_name
+            { $$ = yylex.(*Parser).builder.NewNullsafePropertyFetch($1, $2, $3) }
 ;
 
 simple_variable:
@@ -3264,16 +3089,7 @@ simple_variable:
 ;
 
 static_member:
-        class_name T_PAAMAYIM_NEKUDOTAYIM simple_variable
-            {
-                $$ = &ast.ExprStaticPropertyFetch{
-                    Position: yylex.(*Parser).builder.Pos.NewNodesPosition($1, $3),
-                    Class:          $1,
-                    DoubleColonTkn: $2,
-                    Prop:           $3,
-                }
-            }
-    |   variable_class_name T_PAAMAYIM_NEKUDOTAYIM simple_variable
+        class_name_or_var T_PAAMAYIM_NEKUDOTAYIM simple_variable
             {
                 $$ = &ast.ExprStaticPropertyFetch{
                     Position: yylex.(*Parser).builder.Pos.NewNodesPosition($1, $3),

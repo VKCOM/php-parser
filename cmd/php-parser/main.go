@@ -60,7 +60,7 @@ func main() {
 	printErrors = flag.Bool("e", false, "print errors")
 	dump = flag.Bool("d", false, "dump")
 	flag.StringVar(&profiler, "prof", "", "start profiler: [cpu, mem, trace]")
-	flag.StringVar(&phpVer, "phpver", "7.4", "php version")
+	flag.StringVar(&phpVer, "phpver", "8.0", "php version")
 
 	flag.Parse()
 

@@ -2511,6 +2511,14 @@ class Foo {
 		t.Errorf("\nexpected: %s\ngot: %s\n", src, actual)
 	}
 }
+func TestParseAndPrintNamespaceWithKeywordsPHP8(t *testing.T) {
+	tester.NewParserPrintTestSuite(t).UsePHP8().Run(`<?php
+namespace fn;
+namespace Foo\fn;
+namespace Foo\fn\match;
+namespace Foo\abstract\match;
+`)
+}
 
 func TestParseAndPrintUsePHP8(t *testing.T) {
 	tester.NewParserPrintTestSuite(t).UsePHP8().Run(`<?php
@@ -2520,6 +2528,7 @@ use const Foo, \Foo, Boo as Foo, \Boo as Foo;
 
 use Foo\{Boo};
 use Foo\Boo\{Boo};
+use Foo\Boo\{Boo\Match};
 
 use Foo\{
 	Boo\Foo
@@ -2533,9 +2542,10 @@ use Foo\{
 	Boo,
 };
 
-use Foo\{
+use Foo\Abstract\{
 	Boo as Name,
 	Boo\Foo as Name,
+	Foo\Abstract,
 };
 
 use Foo\{

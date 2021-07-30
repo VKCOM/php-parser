@@ -8,27 +8,25 @@ PHP Parser written in Go
 [![GoDoc](https://godoc.org/github.com/z7zmey/php-parser?status.svg)](https://godoc.org/github.com/z7zmey/php-parser)
 [![Build Status](https://travis-ci.org/z7zmey/php-parser.svg?branch=master)](https://travis-ci.org/z7zmey/php-parser)
 [![Go Report Card](https://goreportcard.com/badge/github.com/z7zmey/php-parser)](https://goreportcard.com/report/github.com/z7zmey/php-parser)
-[![Maintainability](https://api.codeclimate.com/v1/badges/950783b2e739db26e0ed/maintainability)](https://codeclimate.com/github/z7zmey/php-parser/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/950783b2e739db26e0ed/test_coverage)](https://codeclimate.com/github/z7zmey/php-parser/test_coverage)
 
 This project uses [goyacc](https://godoc.org/golang.org/x/tools/cmd/goyacc) and [ragel](https://www.colm.net/open-source/ragel/) tools to create PHP parser. It parses source code into [AST](https://en.wikipedia.org/wiki/Abstract_syntax_tree). It can be used to write static analysis, refactoring, metrics, code style formatting tools.
 
-Features:
+Features
 ---------
 
 - Fully support PHP 5, PHP 7 and PHP 8.0 syntax
 - Abstract syntax tree (AST) representation
 - Traversing AST
-- Resolving namespaced names
+- Resolving namespace names
 - Parsing syntax-invalid PHP files
 - Saving and printing free-floating comments and whitespaces
 
 Who Uses
 --------
 
-- [VKCOM/noverify](https://github.com/VKCOM/noverify) — NoVerify is a pretty fast linter for PHP
-- [VKCOM/nocolor](https://github.com/VKCOM/nocolor) — architecture validation tool for PHP based on the [*concept of colored functions*](https://github.com/VKCOM/nocolor/blob/master/docs/introducing_colors.md).
-- [quasilyte/phpgrep](https://github.com/quasilyte/phpgrep) — phpgrep is a tool for syntax-aware PHP code search
+- [VKCOM/noverify](https://github.com/VKCOM/noverify) — pretty fast linter for PHP
+- [VKCOM/nocolor](https://github.com/VKCOM/nocolor) — architecture validation tool for PHP based on the [*concept of colored functions*](https://github.com/VKCOM/nocolor/blob/master/docs/introducing_colors.md)
+- [quasilyte/phpgrep](https://github.com/quasilyte/phpgrep) — tool for syntax-aware PHP code search
 
 Usage example
 -------
@@ -48,7 +46,7 @@ import (
 )
 
 func main() {
-	src := []byte(`<? echo "Hello world";`)
+	src := []byte(`<?php echo "Hello world";`)
 
 	// Error handler
 
@@ -60,7 +58,7 @@ func main() {
 	// Parse
 
 	rootNode, err := parser.Parse(src, cfg.Config{
-		Version:          &version.Version{Major: 5, Minor: 6},
+		Version:          &version.Version{Major: 8, Minor: 0},
 		ErrorHandlerFunc: errorHandler,
 	})
 
@@ -92,14 +90,14 @@ CLI
 php-parser [flags] <path> ...
 ```
 
-| flag    | type   | description                       |
-| ------- | ------ | --------------------------------- |
-| -p      | bool   | print filepath                    |
-| -e      | bool   | print errors                      |
-| -d      | bool   | dump in golang format             |
-| -r      | bool   | resolve names                     |
-| -prof   | string | start profiler: [cpu, mem, trace] |
-| -phpver | string | php version (default: 7.4)        |
+| flag       | type     | description                         |
+| ---------- | -------- | ----------------------------------- |
+| `--p`      | `bool`   | Print file paths                    |
+| `--e`      | `bool`   | Print errors                        |
+| `--d`      | `bool`   | Dump AST in Golang format           |
+| `--r`      | `bool`   | Resolve names                       |
+| `--prof`   | `string` | Start profiler: `[cpu, mem, trace]` |
+| `--phpver` | `string` | PHP version (default: 8.0)          |
 
 Namespace resolver
 ------------------

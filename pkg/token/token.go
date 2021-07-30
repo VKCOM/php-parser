@@ -1,6 +1,6 @@
 package token
 
-import "github.com/z7zmey/php-parser/pkg/position"
+import "github.com/VKCOM/php-parser/pkg/position"
 
 //go:generate stringer -type=ID -output ./token_string.go
 type ID int

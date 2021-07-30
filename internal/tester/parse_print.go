@@ -4,11 +4,11 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/z7zmey/php-parser/pkg/ast"
-	"github.com/z7zmey/php-parser/pkg/conf"
-	"github.com/z7zmey/php-parser/pkg/parser"
-	"github.com/z7zmey/php-parser/pkg/version"
-	"github.com/z7zmey/php-parser/pkg/visitor/printer"
+	"github.com/VKCOM/php-parser/pkg/ast"
+	"github.com/VKCOM/php-parser/pkg/conf"
+	"github.com/VKCOM/php-parser/pkg/parser"
+	"github.com/VKCOM/php-parser/pkg/version"
+	"github.com/VKCOM/php-parser/pkg/visitor/printer"
 	"gotest.tools/assert"
 )
 

@@ -3,13 +3,13 @@ package parser
 import (
 	"errors"
 
-	"github.com/z7zmey/php-parser/internal/php5"
-	"github.com/z7zmey/php-parser/internal/php7"
-	"github.com/z7zmey/php-parser/internal/php8"
-	"github.com/z7zmey/php-parser/internal/scanner"
-	"github.com/z7zmey/php-parser/pkg/ast"
-	"github.com/z7zmey/php-parser/pkg/conf"
-	"github.com/z7zmey/php-parser/pkg/version"
+	"github.com/VKCOM/php-parser/internal/php5"
+	"github.com/VKCOM/php-parser/internal/php7"
+	"github.com/VKCOM/php-parser/internal/php8"
+	"github.com/VKCOM/php-parser/internal/scanner"
+	"github.com/VKCOM/php-parser/pkg/ast"
+	"github.com/VKCOM/php-parser/pkg/conf"
+	"github.com/VKCOM/php-parser/pkg/version"
 )
 
 var (

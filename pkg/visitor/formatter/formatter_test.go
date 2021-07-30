@@ -2,12 +2,12 @@ package formatter_test
 
 import (
 	"bytes"
-	"github.com/z7zmey/php-parser/pkg/token"
-	"github.com/z7zmey/php-parser/pkg/visitor/formatter"
-	"github.com/z7zmey/php-parser/pkg/visitor/printer"
+	"github.com/VKCOM/php-parser/pkg/token"
+	"github.com/VKCOM/php-parser/pkg/visitor/formatter"
+	"github.com/VKCOM/php-parser/pkg/visitor/printer"
 	"testing"
 
-	"github.com/z7zmey/php-parser/pkg/ast"
+	"github.com/VKCOM/php-parser/pkg/ast"
 )
 
 func TestFormatter_Root(t *testing.T) {

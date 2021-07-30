@@ -4,9 +4,9 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/z7zmey/php-parser/internal/php8"
-	"github.com/z7zmey/php-parser/pkg/conf"
-	"github.com/z7zmey/php-parser/pkg/version"
+	"github.com/VKCOM/php-parser/internal/php8"
+	"github.com/VKCOM/php-parser/pkg/conf"
+	"github.com/VKCOM/php-parser/pkg/version"
 )
 
 func BenchmarkPhp8(b *testing.B) {

@@ -10,8 +10,8 @@ import __yyfmt__ "fmt"
 import (
 	"strconv"
 
-	"github.com/z7zmey/php-parser/pkg/ast"
-	"github.com/z7zmey/php-parser/pkg/token"
+	"github.com/VKCOM/php-parser/pkg/ast"
+	"github.com/VKCOM/php-parser/pkg/token"
 )
 
 // line internal/php7/php7.y:13

@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/z7zmey/php-parser/pkg/token"
+	"github.com/VKCOM/php-parser/pkg/token"
 )
 
 // line internal/scanner/scanner.go:15

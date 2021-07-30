@@ -3,10 +3,10 @@ package php8_test
 import (
 	"testing"
 
-	"github.com/z7zmey/php-parser/internal/php8"
-	"github.com/z7zmey/php-parser/internal/tester"
-	"github.com/z7zmey/php-parser/pkg/conf"
-	"github.com/z7zmey/php-parser/pkg/token"
+	"github.com/VKCOM/php-parser/internal/php8"
+	"github.com/VKCOM/php-parser/internal/tester"
+	"github.com/VKCOM/php-parser/pkg/conf"
+	"github.com/VKCOM/php-parser/pkg/token"
 	"gotest.tools/assert"
 )
 

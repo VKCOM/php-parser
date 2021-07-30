@@ -1,13 +1,13 @@
-> This is a fork of the [z7zmey](https://github.com/z7zmey) [parser](https://github.com/z7zmey/php-parser) that adds PHP 8 support.
+> This is a fork of the [z7zmey](https://github.com/z7zmey) [parser](https://github.com/VKCOM/php-parser) that adds PHP 8 support.
 
 PHP Parser written in Go
 ========================
 
 <img src="./parser.jpg" alt="PHP Parser written in Go" width="980"/>
 
-[![GoDoc](https://godoc.org/github.com/z7zmey/php-parser?status.svg)](https://godoc.org/github.com/z7zmey/php-parser)
+[![GoDoc](https://godoc.org/github.com/VKCOM/php-parser?status.svg)](https://godoc.org/github.com/VKCOM/php-parser)
 [![Build Status](https://travis-ci.org/z7zmey/php-parser.svg?branch=master)](https://travis-ci.org/z7zmey/php-parser)
-[![Go Report Card](https://goreportcard.com/badge/github.com/z7zmey/php-parser)](https://goreportcard.com/report/github.com/z7zmey/php-parser)
+[![Go Report Card](https://goreportcard.com/badge/github.com/VKCOM/php-parser)](https://goreportcard.com/report/github.com/VKCOM/php-parser)
 
 This project uses [goyacc](https://godoc.org/golang.org/x/tools/cmd/goyacc) and [ragel](https://www.colm.net/open-source/ragel/) tools to create PHP parser. It parses source code into [AST](https://en.wikipedia.org/wiki/Abstract_syntax_tree). It can be used to write static analysis, refactoring, metrics, code style formatting tools.
 
@@ -38,11 +38,11 @@ import (
 	"log"
 	"os"
 
-	"github.com/z7zmey/php-parser/pkg/cfg"
-	"github.com/z7zmey/php-parser/pkg/errors"
-	"github.com/z7zmey/php-parser/pkg/parser"
-	"github.com/z7zmey/php-parser/pkg/version"
-	"github.com/z7zmey/php-parser/pkg/visitor/dumper"
+	"github.com/VKCOM/php-parser/pkg/cfg"
+	"github.com/VKCOM/php-parser/pkg/errors"
+	"github.com/VKCOM/php-parser/pkg/parser"
+	"github.com/VKCOM/php-parser/pkg/version"
+	"github.com/VKCOM/php-parser/pkg/visitor/dumper"
 )
 
 func main() {
@@ -80,7 +80,7 @@ Install
 -------
 
 ```
-go get github.com/z7zmey/php-parser/cmd/php-parser
+go get github.com/VKCOM/php-parser/cmd/php-parser
 ```
 
 CLI

@@ -10,11 +10,11 @@ Package usage example:
 		"log"
 		"os"
 
-		"github.com/z7zmey/php-parser/pkg/conf"
-		"github.com/z7zmey/php-parser/pkg/errors"
-		"github.com/z7zmey/php-parser/pkg/parser"
-		"github.com/z7zmey/php-parser/pkg/version"
-		"github.com/z7zmey/php-parser/pkg/visitor/dumper"
+		"github.com/VKCOM/php-parser/pkg/conf"
+		"github.com/VKCOM/php-parser/pkg/errors"
+		"github.com/VKCOM/php-parser/pkg/parser"
+		"github.com/VKCOM/php-parser/pkg/version"
+		"github.com/VKCOM/php-parser/pkg/visitor/dumper"
 	)
 
 	func main() {

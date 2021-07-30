@@ -1,8 +1,8 @@
 package conf
 
 import (
-	"github.com/z7zmey/php-parser/pkg/errors"
-	"github.com/z7zmey/php-parser/pkg/version"
+	"github.com/VKCOM/php-parser/pkg/errors"
+	"github.com/VKCOM/php-parser/pkg/version"
 )
 
 type Config struct {

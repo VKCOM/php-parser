@@ -1,7 +1,7 @@
 package visitor
 
 import (
-	"github.com/z7zmey/php-parser/pkg/ast"
+	"github.com/VKCOM/php-parser/pkg/ast"
 )
 
 type Null struct {

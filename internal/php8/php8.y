@@ -342,8 +342,8 @@ identifier_ex:
 ;
 
 possible_comma:
-        /* empty */ { $$ = nil }
-    |   ','         { $$ = $1 }
+        /* empty */     { $$ = nil }
+    |   ','             { $$ = $1 }
 ;
 
 optional_plain_variable:
@@ -371,13 +371,13 @@ namespace_declaration_name:
 ;
 
 namespace_name:
-        T_STRING              { $$ = yylex.(*Parser).builder.NewName($1) }
-    |   T_NAME_QUALIFIED      { $$ = yylex.(*Parser).builder.NewNameQualified($1) }
+        T_STRING                 { $$ = yylex.(*Parser).builder.NewName($1) }
+    |   T_NAME_QUALIFIED         { $$ = yylex.(*Parser).builder.NewNameQualified($1) }
 ;
 
 legacy_namespace_name:
-        namespace_name          { $$ = $1 }
-    |   T_NAME_FULLY_QUALIFIED  { $$ = yylex.(*Parser).builder.NewNameFullyQualified($1) }
+        namespace_name           { $$ = $1 }
+    |   T_NAME_FULLY_QUALIFIED   { $$ = yylex.(*Parser).builder.NewNameFullyQualified($1) }
 ;
 
 name:
@@ -829,10 +829,7 @@ unset_variables:
 ;
 
 unset_variable:
-        variable
-            {
-                $$ = $1
-            }
+        variable { $$ = $1 }
 ;
 
 function_declaration_statement:
@@ -844,13 +841,13 @@ function_declaration_statement:
 ;
 
 optional_arg_ref:
-        /* empty */ { $$ = nil }
-    |   '&'         { $$ = $1 }
+        /* empty */                    { $$ = nil }
+    |   '&'                            { $$ = $1 }
 ;
 
 optional_ellipsis:
-        /* empty */ { $$ = nil }
-    |   T_ELLIPSIS  { $$ = $1 }
+        /* empty */                    { $$ = nil }
+    |   T_ELLIPSIS                     { $$ = $1 }
 ;
 
 optional_class_modifiers:
@@ -1108,14 +1105,8 @@ case_list:
 ;
 
 case_separator:
-        ':'
-            {
-                $$ = $1
-            }
-    |   ';'
-            {
-                $$ = $1
-            }
+        ':' { $$ = $1 }
+    |   ';' { $$ = $1 }
 ;
 
 while_statement:
@@ -1363,18 +1354,9 @@ non_empty_argument_list:
 ;
 
 argument:
-        expr
-            {
-                $$ = yylex.(*Parser).builder.NewArgument($1)
-            }
-    |   T_ELLIPSIS expr
-            {
-                $$ = yylex.(*Parser).builder.NewVariadicArgument($1, $2)
-            }
-    |   identifier_ex ':' expr
-            {
-                $$ = yylex.(*Parser).builder.NewNamedArgument($1, $2, $3)
-            }
+        expr                   { $$ = yylex.(*Parser).builder.NewArgument($1) }
+    |   T_ELLIPSIS expr        { $$ = yylex.(*Parser).builder.NewVariadicArgument($1, $2) }
+    |   identifier_ex ':' expr { $$ = yylex.(*Parser).builder.NewNamedArgument($1, $2, $3) }
 ;
 
 global_var_list:
@@ -1394,10 +1376,7 @@ global_var_list:
 ;
 
 global_var:
-        simple_variable
-            {
-                $$ = $1
-            }
+        simple_variable { $$ = $1 }
 ;
 
 static_var_list:
@@ -1419,7 +1398,6 @@ static_var_list:
 static_var:
         plain_variable
             {
-
                 $$ = &ast.StmtStaticVar{
                     Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
                     Var: &ast.ExprVariable{
@@ -1517,14 +1495,8 @@ trait_adaptations:
 ;
 
 trait_adaptation_list:
-        trait_adaptation
-            {
-                $$ = []ast.Vertex{$1}
-            }
-    |   trait_adaptation_list trait_adaptation
-            {
-                $$ = append($1, $2)
-            }
+        trait_adaptation                       { $$ = []ast.Vertex{$1} }
+    |   trait_adaptation_list trait_adaptation { $$ = append($1, $2) }
 ;
 
 trait_adaptation:
@@ -1686,28 +1658,17 @@ non_empty_member_modifiers:
 ;
 
 member_modifier:
-        T_PUBLIC    { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
-    |   T_PROTECTED { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
-    |   T_PRIVATE   { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
-    |   T_STATIC    { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
-    |   T_ABSTRACT  { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
-    |   T_FINAL     { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+        T_PUBLIC                   { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   T_PROTECTED                { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   T_PRIVATE                  { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   T_STATIC                   { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   T_ABSTRACT                 { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   T_FINAL                    { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
 ;
 
 property_list:
-        property_list ',' property
-            {
-                $1.(*ParserSeparatedList).SeparatorTkns = append($1.(*ParserSeparatedList).SeparatorTkns, $2)
-                $1.(*ParserSeparatedList).Items = append($1.(*ParserSeparatedList).Items, $3)
-
-                $$ = $1
-            }
-    |   property
-            {
-                $$ = &ParserSeparatedList{
-                    Items: []ast.Vertex{$1},
-                }
-            }
+        property_list ',' property { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
+    |   property                   { $$ = yylex.(*Parser).builder.NewSeparatedList($1) }
 ;
 
 property:
@@ -1745,19 +1706,8 @@ property:
 ;
 
 class_const_list:
-        class_const_list ',' class_const_decl
-            {
-                $1.(*ParserSeparatedList).SeparatorTkns = append($1.(*ParserSeparatedList).SeparatorTkns, $2)
-                $1.(*ParserSeparatedList).Items = append($1.(*ParserSeparatedList).Items, $3)
-
-                $$ = $1
-            }
-    |   class_const_decl
-            {
-                $$ = &ParserSeparatedList{
-                    Items: []ast.Vertex{$1},
-                }
-            }
+        class_const_list ',' class_const_decl { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
+    |   class_const_decl                      { $$ = yylex.(*Parser).builder.NewSeparatedList($1) }
 ;
 
 class_const_decl:
@@ -1809,37 +1759,17 @@ echo_expr_list:
 ;
 
 echo_expr:
-        expr
-            {
-                $$ = $1
-            }
+        expr { $$ = $1 }
 ;
 
 for_exprs:
-        /* empty */
-            {
-                $$ = &ParserSeparatedList{}
-            }
-    |   non_empty_for_exprs
-            {
-                $$ = $1
-            }
+        /* empty */                  { $$ = &ParserSeparatedList{} }
+    |   non_empty_for_exprs          { $$ = $1 }
 ;
 
 non_empty_for_exprs:
-        non_empty_for_exprs ',' expr
-            {
-                $1.(*ParserSeparatedList).SeparatorTkns = append($1.(*ParserSeparatedList).SeparatorTkns, $2)
-                $1.(*ParserSeparatedList).Items = append($1.(*ParserSeparatedList).Items, $3)
-
-                $$ = $1
-            }
-    |   expr
-            {
-                $$ = &ParserSeparatedList{
-                    Items: []ast.Vertex{$1},
-                }
-            }
+        non_empty_for_exprs ',' expr { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
+    |   expr                         { $$ = yylex.(*Parser).builder.NewSeparatedList($1) }
 ;
 
 anonymous_class:
@@ -1881,64 +1811,38 @@ new_expr:
 
 expr_list_allow_comma:
         non_empty_expr_list possible_comma
-            {
-                $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil)
-            }
+            { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil) }
 ;
 
 non_empty_expr_list:
-        non_empty_expr_list ',' expr
-            {
-                $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3)
-            }
-    |
-        expr
-            {
-                $$ = yylex.(*Parser).builder.NewSeparatedList($1)
-            }
+        non_empty_expr_list ',' expr { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
+    |   expr                         { $$ = yylex.(*Parser).builder.NewSeparatedList($1) }
 ;
 
 match:
         T_MATCH '(' expr ')' '{' match_arm_list '}'
-            {
-                $$ = yylex.(*Parser).builder.NewMatch($1, $2, $3, $4, $5, $6, $7)
-            }
+            { $$ = yylex.(*Parser).builder.NewMatch($1, $2, $3, $4, $5, $6, $7) }
 ;
 
 match_arm_list:
         /* empty */
-            {
-                $$ = nil;
-            }
-    |
-        non_empty_match_arm_list possible_comma
-            {
-                $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil)
-            }
+            { $$ = nil; }
+    |   non_empty_match_arm_list possible_comma
+            { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil) }
 ;
 
 non_empty_match_arm_list:
         match_arm
-            {
-                    $$ = yylex.(*Parser).builder.NewSeparatedList($1)
-            }
-    |
-        non_empty_match_arm_list ',' match_arm
-            {
-                    $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3)
-            }
+            { $$ = yylex.(*Parser).builder.NewSeparatedList($1) }
+    |   non_empty_match_arm_list ',' match_arm
+            { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
 ;
 
 match_arm:
         expr_list_allow_comma T_DOUBLE_ARROW expr
-            {
-                $$ = yylex.(*Parser).builder.NewMatchArm(nil, nil, $1, $2, $3);
-            }
-    |
-        T_DEFAULT possible_comma T_DOUBLE_ARROW expr
-            {
-                $$ = yylex.(*Parser).builder.NewMatchArm($1, $2, nil, $3, $4);
-            }
+            { $$ = yylex.(*Parser).builder.NewMatchArm(nil, nil, $1, $2, $3) }
+    |   T_DEFAULT possible_comma T_DOUBLE_ARROW expr
+            { $$ = yylex.(*Parser).builder.NewMatchArm($1, $2, nil, $3, $4) }
 ;
 
 expr_without_variable:
@@ -2698,7 +2602,8 @@ returns_ref:
 ;
 
 lexical_vars:
-        /* empty */                   { $$ = &ast.ExprClosure{} }
+        /* empty */
+            { $$ = &ast.ExprClosure{} }
     |   T_USE '(' lexical_var_list ')'
             {
                 $$ = &ast.ExprClosure{
@@ -2804,18 +2709,8 @@ class_name_or_var:
 ;
 
 class_name:
-        T_STATIC
-            {
-                $$ = &ast.Identifier{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    IdentifierTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   name
-            {
-                $$ = $1
-            }
+        T_STATIC              { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   name                  { $$ = $1 }
 ;
 
 class_name_reference:
@@ -2851,14 +2746,8 @@ backticks_expr:
 ;
 
 ctor_arguments:
-        /* empty */
-            {
-                $$ = nil
-            }
-    |   argument_list
-            {
-                $$ = $1
-            }
+        /* empty */   { $$ = nil }
+    |   argument_list { $$ = $1 }
 ;
 
 dereferencable_scalar:
@@ -3156,51 +3045,15 @@ new_variable:
 ;
 
 member_name:
-        identifier
-            {
-                $$ = &ast.Identifier{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    IdentifierTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   '{' expr '}'
-            {
-                $$ = &ParserBrackets{
-                    Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $3),
-                    OpenBracketTkn:  $1,
-                    Child:           $2,
-                    CloseBracketTkn: $3,
-                }
-            }
-    |   simple_variable
-            {
-                $$ = $1
-            }
+        identifier      { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   '{' expr '}'    { $$ = yylex.(*Parser).builder.NewBracket($1, $2, $3) }
+    |   simple_variable { $$ = $1 }
 ;
 
 property_name:
-        T_STRING
-            {
-                $$ = &ast.Identifier{
-                    Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
-                    IdentifierTkn: $1,
-                    Value:         $1.Value,
-                }
-            }
-    |   '{' expr '}'
-            {
-                $$ = &ParserBrackets{
-                    Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $3),
-                    OpenBracketTkn:  $1,
-                    Child:           $2,
-                    CloseBracketTkn: $3,
-                }
-            }
-    |   simple_variable
-            {
-                $$ = $1
-            }
+        T_STRING        { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   '{' expr '}'    { $$ = yylex.(*Parser).builder.NewBracket($1, $2, $3) }
+    |   simple_variable { $$ = $1 }
 ;
 
 array_pair_list:
@@ -3218,30 +3071,15 @@ array_pair_list:
 ;
 
 possible_array_pair:
-        /* empty */
-            {
-                $$ = &ast.ExprArrayItem{}
-            }
-    |   array_pair
-            {
-                $$ = $1
-            }
+        /* empty */ { $$ = &ast.ExprArrayItem{} }
+    |   array_pair  { $$ = $1}
 ;
 
 non_empty_array_pair_list:
         non_empty_array_pair_list ',' possible_array_pair
-            {
-                $1.(*ParserSeparatedList).SeparatorTkns = append($1.(*ParserSeparatedList).SeparatorTkns, $2)
-                $1.(*ParserSeparatedList).Items = append($1.(*ParserSeparatedList).Items, $3)
-
-                $$ = $1
-            }
+            { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
     |   possible_array_pair
-            {
-                $$ = &ParserSeparatedList{
-                    Items: []ast.Vertex{$1},
-                }
-            }
+            { $$ = yylex.(*Parser).builder.NewSeparatedList($1) }
 ;
 
 array_pair:
@@ -3572,26 +3410,12 @@ internal_functions_in_yacc:
 ;
 
 isset_variables:
-        isset_variable
-            {
-                $$ = &ParserSeparatedList{
-                    Items: []ast.Vertex{$1},
-                }
-            }
-    |   isset_variables ',' isset_variable
-            {
-                $1.(*ParserSeparatedList).SeparatorTkns = append($1.(*ParserSeparatedList).SeparatorTkns, $2)
-                $1.(*ParserSeparatedList).Items = append($1.(*ParserSeparatedList).Items, $3)
-
-                $$ = $1
-            }
+        isset_variable                     { $$ = yylex.(*Parser).builder.NewSeparatedList($1) }
+    |   isset_variables ',' isset_variable { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
 ;
 
 isset_variable:
-        expr
-            {
-                $$ = $1
-            }
+        expr                               { $$ = $1 }
 ;
 
 /////////////////////////////////////////////////////////////////////////

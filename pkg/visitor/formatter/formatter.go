@@ -1364,6 +1364,9 @@ func (f *formatter) ExprFunctionCall(n *ast.ExprFunctionCall) {
 	if len(n.Args) > 0 {
 		n.SeparatorTkns = f.formatList(n.Args, ',')
 	}
+	if n.EllipsisTkn != nil {
+		n.EllipsisTkn = f.newToken(token.T_ELLIPSIS, []byte("..."))
+	}
 	n.CloseParenthesisTkn = f.newToken(')', []byte(")"))
 }
 
@@ -1424,6 +1427,9 @@ func (f *formatter) ExprMethodCall(n *ast.ExprMethodCall) {
 	if len(n.Args) > 0 {
 		n.SeparatorTkns = f.formatList(n.Args, ',')
 	}
+	if n.EllipsisTkn != nil {
+		n.EllipsisTkn = f.newToken(token.T_ELLIPSIS, []byte("..."))
+	}
 	n.CloseParenthesisTkn = f.newToken(')', []byte(")"))
 }
 
@@ -1447,6 +1453,9 @@ func (f *formatter) ExprNullsafeMethodCall(n *ast.ExprNullsafeMethodCall) {
 	n.SeparatorTkns = nil
 	if len(n.Args) > 0 {
 		n.SeparatorTkns = f.formatList(n.Args, ',')
+	}
+	if n.EllipsisTkn != nil {
+		n.EllipsisTkn = f.newToken(token.T_ELLIPSIS, []byte("..."))
 	}
 	n.CloseParenthesisTkn = f.newToken(')', []byte(")"))
 }
@@ -1568,6 +1577,9 @@ func (f *formatter) ExprStaticCall(n *ast.ExprStaticCall) {
 	n.SeparatorTkns = nil
 	if len(n.Args) > 0 {
 		n.SeparatorTkns = f.formatList(n.Args, ',')
+	}
+	if n.EllipsisTkn != nil {
+		n.EllipsisTkn = f.newToken(token.T_ELLIPSIS, []byte("..."))
 	}
 	n.CloseParenthesisTkn = f.newToken(')', []byte(")"))
 }

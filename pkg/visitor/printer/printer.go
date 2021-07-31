@@ -787,6 +787,7 @@ func (p *printer) ExprFunctionCall(n *ast.ExprFunctionCall) {
 	p.printNode(n.Function)
 	p.printToken(n.OpenParenthesisTkn, []byte("("))
 	p.printSeparatedList(n.Args, n.SeparatorTkns, []byte(","))
+	p.printToken(n.EllipsisTkn, nil)
 	p.printToken(n.CloseParenthesisTkn, []byte(")"))
 }
 
@@ -828,6 +829,7 @@ func (p *printer) ExprMethodCall(n *ast.ExprMethodCall) {
 	p.printToken(n.CloseCurlyBracketTkn, nil)
 	p.printToken(n.OpenParenthesisTkn, []byte("("))
 	p.printSeparatedList(n.Args, n.SeparatorTkns, []byte(","))
+	p.printToken(n.EllipsisTkn, nil)
 	p.printToken(n.CloseParenthesisTkn, []byte(")"))
 }
 
@@ -839,6 +841,7 @@ func (p *printer) ExprNullsafeMethodCall(n *ast.ExprNullsafeMethodCall) {
 	p.printToken(n.CloseCurlyBracketTkn, nil)
 	p.printToken(n.OpenParenthesisTkn, []byte("("))
 	p.printSeparatedList(n.Args, n.SeparatorTkns, []byte(","))
+	p.printToken(n.EllipsisTkn, nil)
 	p.printToken(n.CloseParenthesisTkn, []byte(")"))
 }
 
@@ -915,6 +918,7 @@ func (p *printer) ExprStaticCall(n *ast.ExprStaticCall) {
 	p.printToken(n.CloseCurlyBracketTkn, nil)
 	p.printToken(n.OpenParenthesisTkn, p.ifNodeList(n.Args, []byte("(")))
 	p.printSeparatedList(n.Args, n.SeparatorTkns, []byte(","))
+	p.printToken(n.EllipsisTkn, nil)
 	p.printToken(n.CloseParenthesisTkn, p.ifNodeList(n.Args, []byte(")")))
 }
 

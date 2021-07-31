@@ -38,7 +38,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/VKCOM/php-parser/pkg/cfg"
+	"github.com/VKCOM/php-parser/pkg/conf"
 	"github.com/VKCOM/php-parser/pkg/errors"
 	"github.com/VKCOM/php-parser/pkg/parser"
 	"github.com/VKCOM/php-parser/pkg/version"
@@ -57,7 +57,7 @@ func main() {
 
 	// Parse
 
-	rootNode, err := parser.Parse(src, cfg.Config{
+	rootNode, err := parser.Parse(src, conf.Config{
 		Version:          &version.Version{Major: 8, Minor: 0},
 		ErrorHandlerFunc: errorHandler,
 	})

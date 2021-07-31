@@ -60,7 +60,7 @@ func (lex *Lexer) Lex() *token.Token {
         dnum = (lnum?"." lnum)|(lnum"."lnum?);
         hnum = '0x'i[0-9a-fA-F]+('_'[0-9a-fA-F]+)*;
         bnum = '0b'i[01]+('_'[01]+)*;
-        onum = '0o'i[0-8]+('_'[0-8]+)*;
+        onum = '0o'i[0-7]+('_'[0-7]+)*;
 
         exponent_dnum = (lnum | dnum) ('e'|'E') ('+'|'-')? lnum;
         varname_first = [a-zA-Z_] | (0x0080..0x00FF);

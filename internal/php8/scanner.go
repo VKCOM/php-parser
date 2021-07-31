@@ -7003,7 +7003,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof77
 		}
 	st_case_77:
-		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 56 {
+		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 55 {
 			goto tr104
 		}
 		goto tr12
@@ -7023,7 +7023,7 @@ func (lex *Lexer) Lex() *token.Token {
 		if lex.data[(lex.p)] == 95 {
 			goto st77
 		}
-		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 56 {
+		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 55 {
 			goto tr104
 		}
 		goto tr304
@@ -24674,7 +24674,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof117
 		}
 	st_case_117:
-		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 56 {
+		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 55 {
 			goto tr171
 		}
 		goto tr168
@@ -24692,7 +24692,7 @@ func (lex *Lexer) Lex() *token.Token {
 		if lex.data[(lex.p)] == 95 {
 			goto st117
 		}
-		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 56 {
+		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 55 {
 			goto tr171
 		}
 		goto tr814

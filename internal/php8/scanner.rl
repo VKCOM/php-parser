@@ -252,6 +252,7 @@ func (lex *Lexer) Lex() *token.Token {
             'print'i                          => {lex.setTokenPosition(tkn); tok = token.T_PRINT; fbreak;};
             'protected'i                      => {lex.setTokenPosition(tkn); tok = token.T_PROTECTED; fbreak;};
             'return'i                         => {lex.setTokenPosition(tkn); tok = token.T_RETURN; fbreak;};
+            'readonly'i                       => {lex.setTokenPosition(tkn); tok = token.T_READONLY; fbreak;};
             'static'i                         => {lex.setTokenPosition(tkn); tok = token.T_STATIC; fbreak;};
             'switch'i                         => {lex.setTokenPosition(tkn); tok = token.T_SWITCH; fbreak;};
             'match'i                          => {lex.setTokenPosition(tkn); tok = token.T_MATCH; fbreak;};

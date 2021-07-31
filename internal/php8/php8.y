@@ -160,6 +160,7 @@ import (
 %token <token> T_NAME_RELATIVE
 %token <token> T_NAME_QUALIFIED
 %token <token> T_NAME_FULLY_QUALIFIED
+%token <token> T_READONLY
 %token <token> '"'
 %token <token> '`'
 %token <token> '{'
@@ -223,7 +224,7 @@ import (
 %left T_ELSEIF
 %left T_ELSE
 %left T_ENDIF
-%right T_STATIC T_ABSTRACT T_FINAL T_PRIVATE T_PROTECTED T_PUBLIC
+%right T_STATIC T_ABSTRACT T_FINAL T_PRIVATE T_PROTECTED T_PUBLIC T_READONLY
 
 %type <token> optional_arg_ref optional_ellipsis returns_ref
 
@@ -281,7 +282,7 @@ import (
 %type <node> expr_list_allow_comma non_empty_expr_list
 %type <node> match match_arm match_arm_list non_empty_match_arm_list
 %type <node> catch_list catch
-%type <node> optional_visibility_modifier
+%type <node> property_modifier
 %type <node> attribute_decl attribute_group attribute
 
 %type <node> member_modifier
@@ -293,6 +294,7 @@ import (
 %type <list> top_statement_list
 %type <list> inner_statement_list class_statement_list
 %type <list> method_modifiers variable_modifiers
+%type <list> optional_property_modifiers
 %type <list> non_empty_member_modifiers class_modifiers optional_class_modifiers
 %type <list> optional_attributes attributes
 
@@ -328,7 +330,8 @@ semi_reserved:
             {
                 $$ = $1
             }
-    |   T_STATIC {$$=$1} | T_ABSTRACT {$$=$1} | T_FINAL {$$=$1} | T_PRIVATE {$$=$1} | T_PROTECTED {$$=$1} | T_PUBLIC {$$=$1}
+    |   T_STATIC {$$=$1} | T_ABSTRACT {$$=$1} | T_FINAL {$$=$1} | T_PRIVATE {$$=$1}
+    |   T_PROTECTED {$$=$1} | T_PUBLIC {$$=$1} | T_READONLY {$$=$1}
 ;
 
 identifier:
@@ -1244,27 +1247,32 @@ alt_if_stmt:
 ;
 
 parameter_list:
-        non_empty_parameter_list possible_comma { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil) }
-    |   /* empty */                             { $$ = yylex.(*Parser).builder.NewEmptySeparatedList() }
+        non_empty_parameter_list possible_comma        { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil) }
+    |   /* empty */                                    { $$ = yylex.(*Parser).builder.NewEmptySeparatedList() }
 ;
 
 non_empty_parameter_list:
-        parameter                               { $$ = yylex.(*Parser).builder.NewSeparatedList($1) }
-    |   non_empty_parameter_list ',' parameter  { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
+        parameter                                      { $$ = yylex.(*Parser).builder.NewSeparatedList($1) }
+    |   non_empty_parameter_list ',' parameter         { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
 ;
 
-optional_visibility_modifier:
-      /* empty */               { $$ = nil; }
-    | T_PUBLIC                  { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
-    | T_PROTECTED               { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
-    | T_PRIVATE                 { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+optional_property_modifiers:
+         /* empty */                                   { $$ = nil }
+    |    optional_property_modifiers property_modifier { $$ = append($1, $2) }
+;
+
+property_modifier:
+        T_PUBLIC                  { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   T_PROTECTED               { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   T_PRIVATE                 { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   T_READONLY                { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
 ;
 
 parameter:
-        optional_attributes optional_visibility_modifier optional_type_without_static
+        optional_attributes optional_property_modifiers optional_type_without_static
         optional_arg_ref optional_ellipsis plain_variable
             { $$ = yylex.(*Parser).builder.NewParameter($1, $2, $3, $4, $5, $6, nil, nil, false) }
-    |   optional_attributes optional_visibility_modifier optional_type_without_static
+    |   optional_attributes optional_property_modifiers optional_type_without_static
         optional_arg_ref optional_ellipsis plain_variable '=' expr
             { $$ = yylex.(*Parser).builder.NewParameter($1, $2, $3, $4, $5, $6, $7, $8, true) }
 ;
@@ -1664,6 +1672,7 @@ member_modifier:
     |   T_STATIC                   { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
     |   T_ABSTRACT                 { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
     |   T_FINAL                    { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   T_READONLY                 { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
 ;
 
 property_list:

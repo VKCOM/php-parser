@@ -3883,8 +3883,10 @@ class Point {
 					},
 					Params: []ast.Vertex{
 						&ast.Parameter{
-							Visibility: &ast.Identifier{
-								Val: []byte("public"),
+							Modifiers: []ast.Vertex{
+								&ast.Identifier{
+									Val: []byte("public"),
+								},
 							},
 							Type: &ast.Name{
 								Parts: []ast.Vertex{
@@ -3903,8 +3905,10 @@ class Point {
 							},
 						},
 						&ast.Parameter{
-							Visibility: &ast.Identifier{
-								Val: []byte("public"),
+							Modifiers: []ast.Vertex{
+								&ast.Identifier{
+									Val: []byte("public"),
+								},
 							},
 							Type: &ast.Name{
 								Parts: []ast.Vertex{
@@ -3923,8 +3927,10 @@ class Point {
 							},
 						},
 						&ast.Parameter{
-							Visibility: &ast.Identifier{
-								Val: []byte("public"),
+							Modifiers: []ast.Vertex{
+								&ast.Identifier{
+									Val: []byte("public"),
+								},
 							},
 							Type: &ast.Name{
 								Parts: []ast.Vertex{
@@ -4057,18 +4063,20 @@ class Point {
 					},
 					Params: []ast.Vertex{
 						&ast.Parameter{
-							Visibility: &ast.Identifier{
-								IdentifierTkn: &token.Token{
-									ID: token.T_PUBLIC,
-									Val: []byte("public"),
-									FreeFloating: []*token.Token{
-										{
-											ID: token.T_WHITESPACE,
-											Val: []byte("\n    "),
+							Modifiers: []ast.Vertex{
+								&ast.Identifier{
+									IdentifierTkn: &token.Token{
+										ID: token.T_PUBLIC,
+										Val: []byte("public"),
+										FreeFloating: []*token.Token{
+											{
+												ID: token.T_WHITESPACE,
+												Val: []byte("\n    "),
+											},
 										},
 									},
+									Val: []byte("public"),
 								},
-								Val: []byte("public"),
 							},
 							Var: &ast.ExprVariable{
 								Name: &ast.Identifier{
@@ -4087,18 +4095,20 @@ class Point {
 							},
 						},
 						&ast.Parameter{
-							Visibility: &ast.Identifier{
-								IdentifierTkn: &token.Token{
-									ID: token.T_PUBLIC,
-									Val: []byte("public"),
-									FreeFloating: []*token.Token{
-										{
-											ID: token.T_WHITESPACE,
-											Val: []byte("\n    "),
+							Modifiers: []ast.Vertex{
+								&ast.Identifier{
+									IdentifierTkn: &token.Token{
+										ID: token.T_PUBLIC,
+										Val: []byte("public"),
+										FreeFloating: []*token.Token{
+											{
+												ID: token.T_WHITESPACE,
+												Val: []byte("\n    "),
+											},
 										},
 									},
+									Val: []byte("public"),
 								},
-								Val: []byte("public"),
 							},
 							Type: &ast.Name{
 								Parts: []ast.Vertex{
@@ -4134,18 +4144,20 @@ class Point {
 							},
 						},
 						&ast.Parameter{
-							Visibility: &ast.Identifier{
-								IdentifierTkn: &token.Token{
-									ID: token.T_PUBLIC,
-									Val: []byte("public"),
-									FreeFloating: []*token.Token{
-										{
-											ID: token.T_WHITESPACE,
-											Val: []byte("\n    "),
+							Modifiers: []ast.Vertex{
+								&ast.Identifier{
+									IdentifierTkn: &token.Token{
+										ID: token.T_PUBLIC,
+										Val: []byte("public"),
+										FreeFloating: []*token.Token{
+											{
+												ID: token.T_WHITESPACE,
+												Val: []byte("\n    "),
+											},
 										},
 									},
+									Val: []byte("public"),
 								},
-								Val: []byte("public"),
 							},
 							Type: &ast.Name{
 								Parts: []ast.Vertex{
@@ -4185,18 +4197,20 @@ class Point {
 							},
 						},
 						&ast.Parameter{
-							Visibility: &ast.Identifier{
-								IdentifierTkn: &token.Token{
-									ID: token.T_PUBLIC,
-									Val: []byte("public"),
-									FreeFloating: []*token.Token{
-										{
-											ID: token.T_WHITESPACE,
-											Val: []byte("\n    "),
+							Modifiers: []ast.Vertex{
+								&ast.Identifier{
+									IdentifierTkn: &token.Token{
+										ID: token.T_PUBLIC,
+										Val: []byte("public"),
+										FreeFloating: []*token.Token{
+											{
+												ID: token.T_WHITESPACE,
+												Val: []byte("\n    "),
+											},
 										},
 									},
+									Val: []byte("public"),
 								},
-								Val: []byte("public"),
 							},
 							Type: &ast.Name{
 								Parts: []ast.Vertex{
@@ -4255,18 +4269,20 @@ class Point {
 							},
 						},
 						&ast.Parameter{
-							Visibility: &ast.Identifier{
-								IdentifierTkn: &token.Token{
-									ID: token.T_PUBLIC,
-									Val: []byte("public"),
-									FreeFloating: []*token.Token{
-										{
-											ID: token.T_WHITESPACE,
-											Val: []byte("\n    "),
+							Modifiers: []ast.Vertex{
+								&ast.Identifier{
+									IdentifierTkn: &token.Token{
+										ID: token.T_PUBLIC,
+										Val: []byte("public"),
+										FreeFloating: []*token.Token{
+											{
+												ID: token.T_WHITESPACE,
+												Val: []byte("\n    "),
+											},
 										},
 									},
+									Val: []byte("public"),
 								},
-								Val: []byte("public"),
 							},
 							Type: &ast.Name{
 								Parts: []ast.Vertex{

@@ -41,7 +41,10 @@ func (t *Traverser) Parameter(n *ast.Parameter) {
 		nn.Accept(t)
 	}
 
-	t.Traverse(n.Visibility)
+	for _, nn := range n.Modifiers {
+		nn.Accept(t)
+	}
+
 	t.Traverse(n.Type)
 	t.Traverse(n.Var)
 	t.Traverse(n.DefaultValue)

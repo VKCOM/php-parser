@@ -6,7 +6,7 @@ PHP Parser written in Go
 <img src="./parser.jpg" alt="PHP Parser written in Go" width="980"/>
 
 [![GoDoc](https://godoc.org/github.com/VKCOM/php-parser?status.svg)](https://godoc.org/github.com/VKCOM/php-parser)
-[![Build Status](https://travis-ci.org/z7zmey/php-parser.svg?branch=master)](https://travis-ci.org/z7zmey/php-parser)
+[![Build Status](https://github.com/VKCOM/php-parser/workflows/Go/badge.svg)](https://github.com/VKCOM/php-parser/workflows/Go)
 [![Go Report Card](https://goreportcard.com/badge/github.com/VKCOM/php-parser)](https://goreportcard.com/report/github.com/VKCOM/php-parser)
 
 This project uses [goyacc](https://godoc.org/golang.org/x/tools/cmd/goyacc) and [ragel](https://www.colm.net/open-source/ragel/) tools to create PHP parser. It parses source code into [AST](https://en.wikipedia.org/wiki/Abstract_syntax_tree). It can be used to write static analysis, refactoring, metrics, code style formatting tools.

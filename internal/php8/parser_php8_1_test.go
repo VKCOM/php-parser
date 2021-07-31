@@ -254,3 +254,71 @@ function f(): never {}
 
 	suite.Run()
 }
+
+func TestEnum(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php
+enum A {}
+enum B implements Bar, Baz {
+}
+enum C: int implements Bar {}
+`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtEnum{
+			Name: &ast.Identifier{
+				Val: []byte("A"),
+			},
+			Stmts: []ast.Vertex{},
+		},
+		&ast.StmtEnum{
+			Name: &ast.Identifier{
+				Val: []byte("B"),
+			},
+			Implements: []ast.Vertex{
+				&ast.Name{
+					Parts: []ast.Vertex{
+						&ast.NamePart{
+							Val: []byte("Bar"),
+						},
+					},
+				},
+				&ast.Name{
+					Parts: []ast.Vertex{
+						&ast.NamePart{
+							Val: []byte("Baz"),
+						},
+					},
+				},
+			},
+			Stmts: []ast.Vertex{},
+		},
+		&ast.StmtEnum{
+			Name: &ast.Identifier{
+				Val: []byte("C"),
+			},
+			Type: &ast.Name{
+				Parts: []ast.Vertex{
+					&ast.NamePart{
+						Val: []byte("int"),
+					},
+				},
+			},
+			Implements: []ast.Vertex{
+				&ast.Name{
+					Parts: []ast.Vertex{
+						&ast.NamePart{
+							Val: []byte("Bar"),
+						},
+					},
+				},
+			},
+			Stmts: []ast.Vertex{},
+		},
+	},
+},`
+
+	suite.Run()
+}

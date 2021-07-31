@@ -239,6 +239,7 @@ func (lex *Lexer) Lex() *token.Token {
             'endif'i                          => {lex.setTokenPosition(tkn); tok = token.T_ENDIF; fbreak;};
             'endswitch'i                      => {lex.setTokenPosition(tkn); tok = token.T_ENDSWITCH; fbreak;};
             'endwhile'i                       => {lex.setTokenPosition(tkn); tok = token.T_ENDWHILE; fbreak;};
+            'enum'i                           => {lex.setTokenPosition(tkn); tok = token.T_ENUM; fbreak;};
             'eval'i                           => {lex.setTokenPosition(tkn); tok = token.T_EVAL; fbreak;};
             'exit'i | 'die'i                  => {lex.setTokenPosition(tkn); tok = token.T_EXIT; fbreak;};
             'extends'i                        => {lex.setTokenPosition(tkn); tok = token.T_EXTENDS; fbreak;};

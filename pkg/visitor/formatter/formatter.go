@@ -318,7 +318,65 @@ func (f *formatter) StmtCatch(n *ast.StmtCatch) {
 	n.CloseCurlyBracketTkn = f.newToken('}', []byte("}"))
 }
 
+func (f *formatter) StmtEnum(n *ast.StmtEnum) {
+	for _, m := range n.AttrGroups {
+		m.Accept(f)
+		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+	}
+
+	n.EnumTkn = f.newToken(token.T_CLASS, []byte("enum"))
+
+	f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+	n.Name.Accept(f)
+
+	n.ColonTkn = f.newToken(':', []byte(":"))
+	n.Type.Accept(f)
+
+	f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+
+	if n.Implements != nil {
+		n.ImplementsTkn = f.newToken(token.T_IMPLEMENTS, []byte("implements"))
+		n.ImplementsSeparatorTkns = f.formatList(n.Implements, ',')
+		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+	}
+
+	n.OpenCurlyBracketTkn = f.newToken('{', []byte("{"))
+
+	if len(n.Stmts) > 0 {
+		f.indent++
+		f.formatStmts(&n.Stmts)
+		f.indent--
+
+		f.addFreeFloating(token.T_WHITESPACE, []byte("\n"))
+		f.addIndent()
+	}
+
+	n.CloseCurlyBracketTkn = f.newToken('}', []byte("}"))
+}
+
+func (f *formatter) EnumCase(n *ast.EnumCase) {
+	for _, m := range n.AttrGroups {
+		m.Accept(f)
+		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+	}
+
+	n.CaseTkn = f.newToken(token.T_CASE, []byte("case"))
+
+	f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+	n.Name.Accept(f)
+
+	n.EqualTkn = f.newToken('=', []byte("="))
+	n.Expr.Accept(f)
+
+	n.SemiColonTkn = f.newToken(';', []byte(";"))
+}
+
 func (f *formatter) StmtClass(n *ast.StmtClass) {
+	for _, m := range n.AttrGroups {
+		m.Accept(f)
+		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
+	}
+
 	for _, m := range n.Modifiers {
 		m.Accept(f)
 		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))

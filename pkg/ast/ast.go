@@ -21,6 +21,8 @@ type Visitor interface {
 	StmtBreak(n *StmtBreak)
 	StmtCase(n *StmtCase)
 	StmtCatch(n *StmtCatch)
+	StmtEnum(n *StmtEnum)
+	EnumCase(n *EnumCase)
 	StmtClass(n *StmtClass)
 	StmtClassConstList(n *StmtClassConstList)
 	StmtClassMethod(n *StmtClassMethod)

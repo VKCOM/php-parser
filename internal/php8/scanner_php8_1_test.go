@@ -155,3 +155,28 @@ func TestNumberStringTokens(t *testing.T) {
 	}
 	suite.Run()
 }
+
+func TestEnumTokens(t *testing.T) {
+	suite := tester.NewLexerTokenStructTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = "<?php enum A {}"
+	suite.Expected = []*token.Token{
+		{
+			ID:    token.T_ENUM,
+			Value: []byte("enum"),
+		},
+		{
+			ID:    token.T_STRING,
+			Value: []byte("A"),
+		},
+		{
+			ID:    '{',
+			Value: []byte("{"),
+		},
+		{
+			ID:    '}',
+			Value: []byte("}"),
+		},
+	}
+	suite.Run()
+}

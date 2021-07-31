@@ -161,6 +161,7 @@ import (
 %token <token> T_NAME_QUALIFIED
 %token <token> T_NAME_FULLY_QUALIFIED
 %token <token> T_READONLY
+%token <token> T_ENUM
 %token <token> '"'
 %token <token> '`'
 %token <token> '{'
@@ -284,6 +285,7 @@ import (
 %type <node> catch_list catch
 %type <node> property_modifier
 %type <node> attribute_decl attribute_group attribute
+%type <node> enum_declaration_statement enum_case_expr enum_scalar_type
 
 %type <node> member_modifier
 %type <node> foreach_variable
@@ -322,7 +324,7 @@ reserved_non_modifiers:
     | T_THROW {$$=$1} | T_USE {$$=$1} | T_INSTEADOF {$$=$1} | T_GLOBAL {$$=$1} | T_VAR {$$=$1} | T_UNSET {$$=$1} | T_ISSET {$$=$1} | T_EMPTY {$$=$1} | T_CONTINUE {$$=$1} | T_GOTO {$$=$1}
     | T_FUNCTION {$$=$1} | T_CONST {$$=$1} | T_RETURN {$$=$1} | T_PRINT {$$=$1} | T_YIELD {$$=$1} | T_LIST {$$=$1} | T_SWITCH {$$=$1} | T_ENDSWITCH {$$=$1} | T_CASE {$$=$1} | T_DEFAULT {$$=$1} | T_BREAK {$$=$1}
     | T_ARRAY {$$=$1} | T_CALLABLE {$$=$1} | T_EXTENDS {$$=$1} | T_IMPLEMENTS {$$=$1} | T_NAMESPACE {$$=$1} | T_TRAIT {$$=$1} | T_INTERFACE {$$=$1} | T_CLASS {$$=$1}
-    | T_CLASS_C {$$=$1} | T_TRAIT_C {$$=$1} | T_FUNC_C {$$=$1} | T_METHOD_C {$$=$1} | T_LINE {$$=$1} | T_FILE {$$=$1} | T_DIR {$$=$1} | T_NS_C {$$=$1} | T_FN {$$=$1} | T_MATCH {$$=$1}
+    | T_CLASS_C {$$=$1} | T_TRAIT_C {$$=$1} | T_FUNC_C {$$=$1} | T_METHOD_C {$$=$1} | T_LINE {$$=$1} | T_FILE {$$=$1} | T_DIR {$$=$1} | T_NS_C {$$=$1} | T_FN {$$=$1} | T_MATCH {$$=$1} | T_ENUM {$$=$1}
 ;
 
 semi_reserved:
@@ -422,6 +424,7 @@ top_statement:
     |   class_declaration_statement     { $$ = $1 }
     |   trait_declaration_statement     { $$ = $1 }
     |   interface_declaration_statement { $$ = $1 }
+    |   enum_declaration_statement      { $$ = $1 }
     |   T_HALT_COMPILER '(' ')' ';'
             {
                 $$ = &ast.StmtHaltCompiler{
@@ -540,6 +543,7 @@ inner_statement:
     |   class_declaration_statement          { $$ = $1 }
     |   trait_declaration_statement          { $$ = $1 }
     |   interface_declaration_statement      { $$ = $1 }
+    |   enum_declaration_statement           { $$ = $1 }
     |   T_HALT_COMPILER '(' ')' ';'
             {
                 $$ = &ast.StmtHaltCompiler{
@@ -885,6 +889,20 @@ interface_declaration_statement:
         T_INTERFACE T_STRING interface_extends_list '{' class_statement_list '}'
             { $$ = yylex.(*Parser).builder.NewInterface($1, $2, $3, $4, $5, $6, $7) }
 ;
+
+enum_declaration_statement:
+        optional_attributes
+        T_ENUM T_STRING enum_scalar_type implements_list '{' class_statement_list '}'
+            { $$ = yylex.(*Parser).builder.NewEnum($1, $2, $3, $4, $5, $6, $7, $8) }
+;
+
+enum_scalar_type:
+        /* empty */   { $$ = nil }
+    |   ':' type      { $$ = yylex.(*Parser).builder.NewEnumType($1, $2) }
+
+enum_case_expr:
+        /* empty */   { $$ = nil }
+    |   '=' expr      { $$ = yylex.(*Parser).builder.NewEnumExpr($1, $2) }
 
 extends_from:
         /* empty */
@@ -1468,6 +1486,8 @@ class_statement:
 
                 $$ = traitUse
             }
+    |   optional_attributes T_CASE T_STRING enum_case_expr ';'
+            { $$ = yylex.(*Parser).builder.NewEnumCase($1, $2, $3, $4, $5) }
 ;
 
 name_list:

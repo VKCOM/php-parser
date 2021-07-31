@@ -29,3 +29,14 @@ func TestNeverTypePHP81(t *testing.T) {
 function f(): never {}
 `)
 }
+
+func TestNumbersPHP81(t *testing.T) {
+	tester.NewParserPrintTestSuite(t).UsePHP8().Run(`<?php
+echo 0x10;
+echo 0X10;
+echo 0b10;
+echo 0B10;
+echo 0o10;
+echo 0O10;
+`)
+}

@@ -70,6 +70,14 @@ func (v *Null) StmtCatch(_ *ast.StmtCatch) {
 	// do nothing
 }
 
+func (v *Null) StmtEnum(_ *ast.StmtEnum) {
+	// do nothing
+}
+
+func (v *Null) EnumCase(_ *ast.EnumCase) {
+	// do nothing
+}
+
 func (v *Null) StmtClass(_ *ast.StmtClass) {
 	// do nothing
 }

@@ -122,6 +122,33 @@ func (t *Traverser) StmtCatch(n *ast.StmtCatch) {
 	}
 }
 
+func (t *Traverser) StmtEnum(n *ast.StmtEnum) {
+	n.Accept(t.v)
+
+	for _, nn := range n.AttrGroups {
+		nn.Accept(t)
+	}
+	t.Traverse(n.Name)
+	t.Traverse(n.Type)
+
+	for _, nn := range n.Implements {
+		nn.Accept(t)
+	}
+	for _, nn := range n.Stmts {
+		nn.Accept(t)
+	}
+}
+
+func (t *Traverser) EnumCase(n *ast.EnumCase) {
+	n.Accept(t.v)
+
+	for _, nn := range n.AttrGroups {
+		nn.Accept(t)
+	}
+	t.Traverse(n.Name)
+	t.Traverse(n.Expr)
+}
+
 func (t *Traverser) StmtClass(n *ast.StmtClass) {
 	n.Accept(t.v)
 

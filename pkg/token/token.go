@@ -151,6 +151,7 @@ const (
 	T_NAME_QUALIFIED
 	T_NAME_FULLY_QUALIFIED
 	T_READONLY
+	T_ENUM
 )
 
 type Token struct {

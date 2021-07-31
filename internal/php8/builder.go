@@ -1152,6 +1152,105 @@ func (b *Builder) NewInterface(
 	return iface
 }
 
+func (b *Builder) NewEnumType(
+	ColonTkn *token.Token,
+	Type ast.Vertex,
+) *ReturnType {
+	return &ReturnType{
+		ColonTkn: ColonTkn,
+		Type:     Type,
+	}
+}
+
+func (b *Builder) NewEnumExpr(
+	AssignTkn *token.Token,
+	Expr ast.Vertex,
+) *EnumCaseExpr {
+	return &EnumCaseExpr{
+		AssignTkn: AssignTkn,
+		Expr:      Expr,
+	}
+}
+
+func (b *Builder) NewEnum(
+	AttrGroups []ast.Vertex,
+	EnumTkn *token.Token,
+	Name *token.Token,
+
+	EnumScalarType ast.Vertex,
+
+	ImplementsList ast.Vertex,
+
+	OpenCurlyBracketTkn *token.Token,
+	Stmts []ast.Vertex,
+	CloseCurlyBracketTkn *token.Token,
+) *ast.StmtEnum {
+	var pos *position2.Position
+	if AttrGroups != nil {
+		pos = b.Pos.NewNodeListTokenPosition(AttrGroups, CloseCurlyBracketTkn)
+	} else {
+		pos = b.Pos.NewTokensPosition(EnumTkn, CloseCurlyBracketTkn)
+	}
+
+	enum := &ast.StmtEnum{
+		Position:             pos,
+		AttrGroups:           AttrGroups,
+		EnumTkn:              EnumTkn,
+		Name:                 b.NewIdentifier(Name),
+		OpenCurlyBracketTkn:  OpenCurlyBracketTkn,
+		Stmts:                Stmts,
+		CloseCurlyBracketTkn: CloseCurlyBracketTkn,
+	}
+
+	if EnumScalarType != nil {
+		enumType := EnumScalarType.(*ReturnType)
+		enum.ColonTkn = enumType.ColonTkn
+		enum.Type = enumType.Type
+	}
+
+	if ImplementsList != nil {
+		enum.ImplementsTkn = ImplementsList.(*ast.StmtClass).ImplementsTkn
+		enum.Implements = ImplementsList.(*ast.StmtClass).Implements
+		enum.ImplementsSeparatorTkns = ImplementsList.(*ast.StmtClass).ImplementsSeparatorTkns
+	}
+
+	return enum
+}
+
+func (b *Builder) NewEnumCase(
+	AttrGroups []ast.Vertex,
+	CaseTkn *token.Token,
+	Name *token.Token,
+	Expr ast.Vertex,
+	SemiColonTkn *token.Token,
+) *ast.EnumCase {
+	var equalTkn *token.Token
+	var expr ast.Vertex
+	if Expr != nil {
+		caseExpr := Expr.(*EnumCaseExpr)
+		equalTkn = caseExpr.AssignTkn
+		expr = caseExpr.Expr
+	}
+
+	var pos *position2.Position
+
+	if AttrGroups != nil {
+		pos = b.Pos.NewNodeListTokenPosition(AttrGroups, SemiColonTkn)
+	} else {
+		pos = b.Pos.NewTokensPosition(CaseTkn, SemiColonTkn)
+	}
+
+	return &ast.EnumCase{
+		Position:     pos,
+		CaseTkn:      CaseTkn,
+		AttrGroups:   AttrGroups,
+		Name:         b.NewIdentifier(Name),
+		EqualTkn:     equalTkn,
+		Expr:         expr,
+		SemiColonTkn: SemiColonTkn,
+	}
+}
+
 func (b *Builder) NewFunction(
 	AttrGroups []ast.Vertex,
 	FunctionTkn *token.Token,

@@ -226,3 +226,31 @@ class Foo {
 
 	suite.Run()
 }
+
+func TestNeverType(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php
+function f(): never {}
+`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtFunction{
+			Name: &ast.Identifier{
+				Val: []byte("f"),
+			},
+			ReturnType: &ast.Name{
+				Parts: []ast.Vertex{
+					&ast.NamePart{
+						Val: []byte("never"),
+					},
+				},
+			},
+			Stmts: []ast.Vertex{},
+		},
+	},
+},`
+
+	suite.Run()
+}

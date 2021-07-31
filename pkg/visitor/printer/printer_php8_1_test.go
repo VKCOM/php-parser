@@ -23,3 +23,9 @@ class Foo {
 }
 `)
 }
+
+func TestNeverTypePHP81(t *testing.T) {
+	tester.NewParserPrintTestSuite(t).UsePHP8().Run(`<?php
+function f(): never {}
+`)
+}

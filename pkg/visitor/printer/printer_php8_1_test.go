@@ -74,3 +74,13 @@ enum A implements B, C, D {
 }
 `)
 }
+
+func TestFinalConstantPHP81(t *testing.T) {
+	tester.NewParserPrintTestSuite(t).UsePHP8().Run(`<?php
+class Foo {
+    public const X = "foo";
+    final public const X = "foo";
+    final private const X = "foo";
+}
+`)
+}

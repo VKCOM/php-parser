@@ -1323,6 +1323,7 @@ func (v *Dumper) ExprFunctionCall(n *ast.ExprFunctionCall) {
 	v.dumpToken("OpenParenthesisTkn", n.OpenParenthesisTkn)
 	v.dumpVertexList("Args", n.Args)
 	v.dumpTokenList("SeparatorTkns", n.SeparatorTkns)
+	v.dumpToken("EllipsisTkn", n.EllipsisTkn)
 	v.dumpToken("CloseParenthesisTkn", n.CloseParenthesisTkn)
 
 	v.indent--
@@ -1409,6 +1410,7 @@ func (v *Dumper) ExprMethodCall(n *ast.ExprMethodCall) {
 	v.dumpToken("OpenParenthesisTkn", n.OpenParenthesisTkn)
 	v.dumpVertexList("Args", n.Args)
 	v.dumpTokenList("SeparatorTkns", n.SeparatorTkns)
+	v.dumpToken("EllipsisTkn", n.EllipsisTkn)
 	v.dumpToken("CloseParenthesisTkn", n.CloseParenthesisTkn)
 
 	v.indent--
@@ -1428,6 +1430,7 @@ func (v *Dumper) ExprNullsafeMethodCall(n *ast.ExprNullsafeMethodCall) {
 	v.dumpToken("OpenParenthesisTkn", n.OpenParenthesisTkn)
 	v.dumpVertexList("Args", n.Args)
 	v.dumpTokenList("SeparatorTkns", n.SeparatorTkns)
+	v.dumpToken("EllipsisTkn", n.EllipsisTkn)
 	v.dumpToken("CloseParenthesisTkn", n.CloseParenthesisTkn)
 
 	v.indent--
@@ -1591,6 +1594,7 @@ func (v *Dumper) ExprStaticCall(n *ast.ExprStaticCall) {
 	v.dumpVertexList("Args", n.Args)
 	v.dumpTokenList("SeparatorTkns", n.SeparatorTkns)
 	v.dumpToken("CloseParenthesisTkn", n.CloseParenthesisTkn)
+	v.dumpToken("EllipsisTkn", n.EllipsisTkn)
 
 	v.indent--
 	v.print(v.indent, "},\n")

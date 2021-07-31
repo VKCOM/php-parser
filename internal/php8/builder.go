@@ -524,6 +524,7 @@ func (b *Builder) NewMethodCall(
 		OpenParenthesisTkn:  argumentList.OpenParenthesisTkn,
 		Args:                argumentList.Arguments,
 		SeparatorTkns:       argumentList.SeparatorTkns,
+		EllipsisTkn:         argumentList.EllipsisTkn,
 		CloseParenthesisTkn: argumentList.CloseParenthesisTkn,
 	}
 
@@ -551,6 +552,7 @@ func (b *Builder) NewNullsafeMethodCall(
 		OpenParenthesisTkn:  argumentList.OpenParenthesisTkn,
 		Args:                argumentList.Arguments,
 		SeparatorTkns:       argumentList.SeparatorTkns,
+		EllipsisTkn:         argumentList.EllipsisTkn,
 		CloseParenthesisTkn: argumentList.CloseParenthesisTkn,
 	}
 
@@ -1527,4 +1529,38 @@ func (b *Builder) NewUse(
 	}
 
 	return use
+}
+
+func (b *Builder) NewArgumentList(
+	OpenParenthesisTkn *token.Token,
+
+	ArgList ast.Vertex,
+	CommaTkn *token.Token,
+
+	EllipsisTkn *token.Token,
+
+	CloseParenthesisTkn *token.Token,
+) *ArgumentList {
+	if ArgList == nil {
+		return &ArgumentList{
+			Position:            b.Pos.NewTokensPosition(OpenParenthesisTkn, CloseParenthesisTkn),
+			OpenParenthesisTkn:  OpenParenthesisTkn,
+			EllipsisTkn:         EllipsisTkn,
+			CloseParenthesisTkn: CloseParenthesisTkn,
+		}
+	}
+
+	args, sepTkns := b.SeparatedListItems(ArgList)
+
+	if CommaTkn != nil {
+		sepTkns = append(sepTkns, CommaTkn)
+	}
+
+	return &ArgumentList{
+		Position:            b.Pos.NewTokensPosition(OpenParenthesisTkn, CloseParenthesisTkn),
+		OpenParenthesisTkn:  OpenParenthesisTkn,
+		Arguments:           args,
+		SeparatorTkns:       sepTkns,
+		CloseParenthesisTkn: CloseParenthesisTkn,
+	}
 }

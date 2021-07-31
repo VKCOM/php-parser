@@ -1340,48 +1340,22 @@ optional_return_type:
 ;
 
 argument_list:
-        '(' ')'
-            {
-                $$ = &ArgumentList{
-                    Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $2),
-                    OpenParenthesisTkn: $1,
-                    CloseParenthesisTkn: $2,
-                }
-            }
+        '(' ')'                   { $$ = yylex.(*Parser).builder.NewArgumentList($1, nil, nil, nil, $2) }
     |   '(' non_empty_argument_list optional_comma ')'
-            {
-                argumentList := $2.(*ArgumentList)
-                argumentList.Position = yylex.(*Parser).builder.Pos.NewTokensPosition($1, $4)
-                argumentList.OpenParenthesisTkn = $1
-                if $3 != nil {
-                    argumentList.SeparatorTkns = append(argumentList.SeparatorTkns, $3)
-                }
-                argumentList.CloseParenthesisTkn = $4
-
-                $$ = argumentList
-            }
+                                  { $$ = yylex.(*Parser).builder.NewArgumentList($1, $2, $3, nil, $4) }
+    |   '(' T_ELLIPSIS ')'        { $$ = yylex.(*Parser).builder.NewArgumentList($1, nil, nil, $2, $3) }
 ;
 
 non_empty_argument_list:
-        argument
-            {
-                $$ = &ArgumentList{
-                    Arguments: []ast.Vertex{$1},
-                }
-            }
+        argument                  { $$ = yylex.(*Parser).builder.NewSeparatedList($1) }
     |   non_empty_argument_list ',' argument
-            {
-                $1.(*ArgumentList).SeparatorTkns = append($1.(*ArgumentList).SeparatorTkns, $2)
-                $1.(*ArgumentList).Arguments = append($1.(*ArgumentList).Arguments, $3)
-
-                $$ = $1
-            }
+                                  { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
 ;
 
 argument:
-        expr                   { $$ = yylex.(*Parser).builder.NewArgument($1) }
-    |   T_ELLIPSIS expr        { $$ = yylex.(*Parser).builder.NewVariadicArgument($1, $2) }
-    |   identifier_ex ':' expr { $$ = yylex.(*Parser).builder.NewNamedArgument($1, $2, $3) }
+        expr                      { $$ = yylex.(*Parser).builder.NewArgument($1) }
+    |   T_ELLIPSIS expr           { $$ = yylex.(*Parser).builder.NewVariadicArgument($1, $2) }
+    |   identifier_ex ':' expr    { $$ = yylex.(*Parser).builder.NewNamedArgument($1, $2, $3) }
 ;
 
 global_var_list:
@@ -2694,6 +2668,7 @@ function_call:
                     OpenParenthesisTkn:  $2.(*ArgumentList).OpenParenthesisTkn,
                     Args:                $2.(*ArgumentList).Arguments,
                     SeparatorTkns:       $2.(*ArgumentList).SeparatorTkns,
+                    EllipsisTkn:         $2.(*ArgumentList).EllipsisTkn,
                     CloseParenthesisTkn: $2.(*ArgumentList).CloseParenthesisTkn,
                 }
             }
@@ -2707,6 +2682,7 @@ function_call:
                     OpenParenthesisTkn:  $4.(*ArgumentList).OpenParenthesisTkn,
                     Args:                $4.(*ArgumentList).Arguments,
                     SeparatorTkns:       $4.(*ArgumentList).SeparatorTkns,
+                    EllipsisTkn:         $4.(*ArgumentList).EllipsisTkn,
                     CloseParenthesisTkn: $4.(*ArgumentList).CloseParenthesisTkn,
                 }
 
@@ -2726,6 +2702,7 @@ function_call:
                     OpenParenthesisTkn:  $2.(*ArgumentList).OpenParenthesisTkn,
                     Args:                $2.(*ArgumentList).Arguments,
                     SeparatorTkns:       $2.(*ArgumentList).SeparatorTkns,
+                    EllipsisTkn:         $2.(*ArgumentList).EllipsisTkn,
                     CloseParenthesisTkn: $2.(*ArgumentList).CloseParenthesisTkn,
                 }
             }

@@ -57,6 +57,7 @@ type ArgumentList struct {
 	OpenParenthesisTkn  *token.Token
 	Arguments           []ast.Vertex
 	SeparatorTkns       []*token.Token
+	EllipsisTkn         *token.Token
 	CloseParenthesisTkn *token.Token
 }
 

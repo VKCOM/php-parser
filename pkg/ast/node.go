@@ -1506,6 +1506,7 @@ type ExprFunctionCall struct {
 	OpenParenthesisTkn  *token.Token
 	Args                []Vertex
 	SeparatorTkns       []*token.Token
+	EllipsisTkn         *token.Token
 	CloseParenthesisTkn *token.Token
 }
 
@@ -1610,6 +1611,7 @@ type ExprMethodCall struct {
 	OpenParenthesisTkn   *token.Token
 	Args                 []Vertex
 	SeparatorTkns        []*token.Token
+	EllipsisTkn          *token.Token
 	CloseParenthesisTkn  *token.Token
 }
 
@@ -1632,6 +1634,7 @@ type ExprNullsafeMethodCall struct {
 	OpenParenthesisTkn   *token.Token
 	Args                 []Vertex
 	SeparatorTkns        []*token.Token
+	EllipsisTkn          *token.Token
 	CloseParenthesisTkn  *token.Token
 }
 
@@ -1830,6 +1833,7 @@ type ExprStaticCall struct {
 	OpenParenthesisTkn   *token.Token
 	Args                 []Vertex
 	SeparatorTkns        []*token.Token
+	EllipsisTkn          *token.Token
 	CloseParenthesisTkn  *token.Token
 }
 

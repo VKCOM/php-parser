@@ -84,3 +84,23 @@ class Foo {
 }
 `)
 }
+
+func TestFirstClassCallableSyntaxPHP81(t *testing.T) {
+	tester.NewParserPrintTestSuite(t).UsePHP8().Run(`<?php
+$fn = id(...);
+stdClass::doesNotExist(...);
+(new stdClass)->doesNotExist(...);
+Test::privateMethod(...);
+Test::instanceMethod(...);
+$fn = (new A)->$name2(...);
+false && strlen(...);
+$foo?->foo->bar(...);
+$foo?->foo($foo->bar(...));
+$foo = $closure->__invoke(...);
+
+// #[Attribute(...)] // not working
+// class Foo {}
+
+// new Foo(...); // not working
+`)
+}

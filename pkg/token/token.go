@@ -150,6 +150,7 @@ const (
 	T_NAME_RELATIVE
 	T_NAME_QUALIFIED
 	T_NAME_FULLY_QUALIFIED
+	T_READONLY
 )
 
 type Token struct {

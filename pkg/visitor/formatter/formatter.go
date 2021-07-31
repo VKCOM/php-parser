@@ -161,8 +161,8 @@ func (f *formatter) Parameter(n *ast.Parameter) {
 		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
 	}
 
-	if n.Visibility != nil {
-		n.Visibility.Accept(f)
+	for _, modifier := range n.Modifiers {
+		modifier.Accept(f)
 		f.addFreeFloating(token.T_WHITESPACE, []byte(" "))
 	}
 

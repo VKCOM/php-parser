@@ -194,7 +194,7 @@ func (v *Dumper) Parameter(n *ast.Parameter) {
 
 	v.dumpPosition(n.Position)
 	v.dumpVertexList("AttrGroups", n.AttrGroups)
-	v.dumpVertex("Visibility", n.Visibility)
+	v.dumpVertexList("Modifiers", n.Modifiers)
 	v.dumpVertex("Type", n.Type)
 	v.dumpToken("AmpersandTkn", n.AmpersandTkn)
 	v.dumpToken("VariadicTkn", n.VariadicTkn)

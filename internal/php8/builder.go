@@ -899,7 +899,7 @@ func (b *Builder) NewThrowExpr(
 
 func (b *Builder) NewParameter(
 	AttrGroups []ast.Vertex,
-	Visibility ast.Vertex,
+	Modifiers []ast.Vertex,
 	Type ast.Vertex,
 	AmpersandTkn *token.Token,
 	VariadicTkn *token.Token,
@@ -913,8 +913,8 @@ func (b *Builder) NewParameter(
 	if WithDefault {
 		if AttrGroups != nil {
 			pos = b.Pos.NewNodeListNodePosition(AttrGroups, DefaultValue)
-		} else if Visibility != nil {
-			pos = b.Pos.NewNodesPosition(Visibility, DefaultValue)
+		} else if Modifiers != nil {
+			pos = b.Pos.NewNodeListNodePosition(Modifiers, DefaultValue)
 		} else if Type != nil {
 			pos = b.Pos.NewNodesPosition(Type, DefaultValue)
 		} else if AmpersandTkn != nil {
@@ -927,8 +927,8 @@ func (b *Builder) NewParameter(
 	} else {
 		if AttrGroups != nil {
 			pos = b.Pos.NewNodeListTokenPosition(AttrGroups, VarTkn)
-		} else if Visibility != nil {
-			pos = b.Pos.NewNodeTokenPosition(Visibility, VarTkn)
+		} else if Modifiers != nil {
+			pos = b.Pos.NewNodeListTokenPosition(Modifiers, VarTkn)
 		} else if Type != nil {
 			pos = b.Pos.NewNodeTokenPosition(Type, VarTkn)
 		} else if AmpersandTkn != nil {
@@ -943,7 +943,7 @@ func (b *Builder) NewParameter(
 	return &ast.Parameter{
 		Position:     pos,
 		AttrGroups:   AttrGroups,
-		Visibility:   Visibility,
+		Modifiers:    Modifiers,
 		Type:         Type,
 		AmpersandTkn: AmpersandTkn,
 		VariadicTkn:  VariadicTkn,

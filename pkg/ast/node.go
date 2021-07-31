@@ -54,7 +54,7 @@ func (n *Union) GetPosition() *position.Position {
 type Parameter struct {
 	Position     *position.Position
 	AttrGroups   []Vertex
-	Visibility   Vertex
+	Modifiers    []Vertex
 	Type         Vertex
 	AmpersandTkn *token.Token
 	VariadicTkn  *token.Token

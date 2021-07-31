@@ -233,7 +233,7 @@ import (
 %type <token> semi_reserved
 %type <token> identifier identifier_ex
 %type <token> plain_variable optional_plain_variable
-%type <token> possible_comma
+%type <token> optional_comma
 %type <token> case_separator
 %type <token> use_type
 
@@ -338,15 +338,14 @@ semi_reserved:
 
 identifier:
         T_STRING        { $$ = $1 }
-    |   semi_reserved   { $$ = $1 }
 ;
 
 identifier_ex:
-        T_STRING        { $$ = $1 }
+        identifier      { $$ = $1 }
     |   semi_reserved   { $$ = $1 }
 ;
 
-possible_comma:
+optional_comma:
         /* empty */     { $$ = nil }
     |   ','             { $$ = $1 }
 ;
@@ -403,7 +402,7 @@ attribute_group:
 ;
 
 attribute:
-         T_ATTRIBUTE attribute_group possible_comma ']'
+         T_ATTRIBUTE attribute_group optional_comma ']'
                                 { $$ = yylex.(*Parser).builder.NewAttributeGroup($1, $2, $3, $4) }
 ;
 
@@ -474,7 +473,7 @@ group_use_declaration:
 ;
 
 inline_use_declarations:
-        non_empty_inline_use_declarations possible_comma
+        non_empty_inline_use_declarations optional_comma
             { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil) }
 ;
 
@@ -486,7 +485,7 @@ non_empty_inline_use_declarations:
 ;
 
 unprefixed_use_declarations:
-      non_empty_unprefixed_use_declarations possible_comma
+      non_empty_unprefixed_use_declarations optional_comma
             { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil) }
 ;
 
@@ -498,52 +497,52 @@ non_empty_unprefixed_use_declarations:
 ;
 
 use_declarations:
-        use_declarations ',' use_declaration { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
-    |   use_declaration                      { $$ = yylex.(*Parser).builder.NewSeparatedList($1) }
+        use_declarations ',' use_declaration  { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
+    |   use_declaration                       { $$ = yylex.(*Parser).builder.NewSeparatedList($1) }
 ;
 
 inline_use_declaration:
-        unprefixed_use_declaration           { $$ = $1 }
-    |   use_type unprefixed_use_declaration  {
+        unprefixed_use_declaration            { $$ = $1 }
+    |   use_type unprefixed_use_declaration   {
                                                decl := $2.(*ast.StmtUse)
                                                decl.Type = yylex.(*Parser).builder.NewIdentifier($1)
                                                decl.Position = yylex.(*Parser).builder.Pos.NewTokenNodePosition($1, $2)
                                                $$ = $2
-                                             }
+                                              }
 ;
 
 unprefixed_use_declaration:
-        namespace_name                       { $$ = yylex.(*Parser).builder.NewUse(nil, $1, nil, nil) }
-    |   namespace_name T_AS T_STRING         { $$ = yylex.(*Parser).builder.NewUse(nil, $1, $2, $3)}
+        namespace_name                        { $$ = yylex.(*Parser).builder.NewUse(nil, $1, nil, nil) }
+    |   namespace_name T_AS identifier        { $$ = yylex.(*Parser).builder.NewUse(nil, $1, $2, $3)}
 ;
 
 use_declaration:
-        legacy_namespace_name                { $$ = yylex.(*Parser).builder.NewUse(nil, $1, nil, nil) }
-    |   legacy_namespace_name T_AS T_STRING  { $$ = yylex.(*Parser).builder.NewUse(nil, $1, $2, $3)}
+        legacy_namespace_name                 { $$ = yylex.(*Parser).builder.NewUse(nil, $1, nil, nil) }
+    |   legacy_namespace_name T_AS identifier { $$ = yylex.(*Parser).builder.NewUse(nil, $1, $2, $3)}
 ;
 
 const_list:
-        const_list ',' const_decl            { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
-    |   const_decl                           { $$ = yylex.(*Parser).builder.NewSeparatedList($1)}
+        const_list ',' const_decl             { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
+    |   const_decl                            { $$ = yylex.(*Parser).builder.NewSeparatedList($1)}
 ;
 
 inner_statement_list:
-        inner_statement_list inner_statement {
-                                               if $2 != nil {
-                                                   $$ = append($1, $2)
-                                               }
-                                             }
-    |   /* empty */                          { $$ = []ast.Vertex{} }
+        inner_statement_list inner_statement  {
+                                                if $2 != nil {
+                                                    $$ = append($1, $2)
+                                                }
+                                              }
+    |   /* empty */                           { $$ = []ast.Vertex{} }
 ;
 
 inner_statement:
-        error                                { $$ = nil }
-    |   statement                            { $$ = $1 }
-    |   function_declaration_statement       { $$ = $1 }
-    |   class_declaration_statement          { $$ = $1 }
-    |   trait_declaration_statement          { $$ = $1 }
-    |   interface_declaration_statement      { $$ = $1 }
-    |   enum_declaration_statement           { $$ = $1 }
+        error                                 { $$ = nil }
+    |   statement                             { $$ = $1 }
+    |   function_declaration_statement        { $$ = $1 }
+    |   class_declaration_statement           { $$ = $1 }
+    |   trait_declaration_statement           { $$ = $1 }
+    |   interface_declaration_statement       { $$ = $1 }
+    |   enum_declaration_statement            { $$ = $1 }
     |   T_HALT_COMPILER '(' ')' ';'
             {
                 $$ = &ast.StmtHaltCompiler{
@@ -686,7 +685,7 @@ statement:
             {
                 $$ = yylex.(*Parser).builder.NewExpressionStmt($1, $2)
             }
-    |   T_UNSET '(' unset_variables possible_comma ')' ';'
+    |   T_UNSET '(' unset_variables optional_comma ')' ';'
             {
                 $3.(*ast.StmtUnset).UnsetTkn = $1
                 $3.(*ast.StmtUnset).OpenParenthesisTkn = $2
@@ -761,7 +760,7 @@ statement:
             {
                 $$ = yylex.(*Parser).builder.NewTry($1, $2, $3, $4, $5, $6)
             }
-    |   T_GOTO T_STRING ';'
+    |   T_GOTO identifier ';'
             {
                 $$ = &ast.StmtGoto{
                     Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $3),
@@ -774,7 +773,7 @@ statement:
                     SemiColonTkn: $3,
                 }
             }
-    |   T_STRING ':'
+    |   identifier ':'
             {
                 $$ = &ast.StmtLabel{
                     Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $2),
@@ -840,10 +839,10 @@ unset_variable:
 ;
 
 function_declaration_statement:
-        T_FUNCTION returns_ref T_STRING '(' parameter_list ')' optional_return_type '{' inner_statement_list '}'
+        T_FUNCTION returns_ref identifier '(' parameter_list ')' optional_return_type '{' inner_statement_list '}'
             { $$ = yylex.(*Parser).builder.NewFunction(nil, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10) }
     |   attributes
-        T_FUNCTION returns_ref T_STRING '(' parameter_list ')' optional_return_type '{' inner_statement_list '}'
+        T_FUNCTION returns_ref identifier '(' parameter_list ')' optional_return_type '{' inner_statement_list '}'
             { $$ = yylex.(*Parser).builder.NewFunction($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) }
 ;
 
@@ -874,25 +873,25 @@ class_modifier:
 
 class_declaration_statement:
     optional_attributes optional_class_modifiers
-    T_CLASS T_STRING extends_from implements_list '{' class_statement_list '}'
+    T_CLASS identifier extends_from implements_list '{' class_statement_list '}'
             { $$ = yylex.(*Parser).builder.NewClass($1, $2, $3, $4, $5, $6, $7, $8, $9) }
 ;
 
 trait_declaration_statement:
         optional_attributes
-        T_TRAIT T_STRING '{' class_statement_list '}'
+        T_TRAIT identifier '{' class_statement_list '}'
             { $$ = yylex.(*Parser).builder.NewTrait($1, $2, $3, $4, $5, $6) }
 ;
 
 interface_declaration_statement:
         optional_attributes
-        T_INTERFACE T_STRING interface_extends_list '{' class_statement_list '}'
+        T_INTERFACE identifier interface_extends_list '{' class_statement_list '}'
             { $$ = yylex.(*Parser).builder.NewInterface($1, $2, $3, $4, $5, $6, $7) }
 ;
 
 enum_declaration_statement:
         optional_attributes
-        T_ENUM T_STRING enum_scalar_type implements_list '{' class_statement_list '}'
+        T_ENUM identifier enum_scalar_type implements_list '{' class_statement_list '}'
             { $$ = yylex.(*Parser).builder.NewEnum($1, $2, $3, $4, $5, $6, $7, $8) }
 ;
 
@@ -1265,7 +1264,7 @@ alt_if_stmt:
 ;
 
 parameter_list:
-        non_empty_parameter_list possible_comma        { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil) }
+        non_empty_parameter_list optional_comma        { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil) }
     |   /* empty */                                    { $$ = yylex.(*Parser).builder.NewEmptySeparatedList() }
 ;
 
@@ -1349,7 +1348,7 @@ argument_list:
                     CloseParenthesisTkn: $2,
                 }
             }
-    |   '(' non_empty_argument_list possible_comma ')'
+    |   '(' non_empty_argument_list optional_comma ')'
             {
                 argumentList := $2.(*ArgumentList)
                 argumentList.Position = yylex.(*Parser).builder.Pos.NewTokensPosition($1, $4)
@@ -1464,7 +1463,7 @@ class_statement:
             { $$ = yylex.(*Parser).builder.NewPropertyList($1, $2, $3, $4, $5) }
     |   optional_attributes method_modifiers T_CONST class_const_list ';'
             { $$ = yylex.(*Parser).builder.NewClassConstList($1, $2, $3, $4, $5) }
-    |   optional_attributes method_modifiers T_FUNCTION returns_ref identifier '(' parameter_list ')' optional_return_type method_body
+    |   optional_attributes method_modifiers T_FUNCTION returns_ref identifier_ex '(' parameter_list ')' optional_return_type method_body
             { $$ = yylex.(*Parser).builder.NewClassMethod($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) }
     |   T_USE name_list trait_adaptations
             {
@@ -1486,7 +1485,7 @@ class_statement:
 
                 $$ = traitUse
             }
-    |   optional_attributes T_CASE T_STRING enum_case_expr ';'
+    |   optional_attributes T_CASE identifier enum_case_expr ';'
             { $$ = yylex.(*Parser).builder.NewEnumCase($1, $2, $3, $4, $5) }
 ;
 
@@ -1558,7 +1557,7 @@ trait_precedence:
 ;
 
 trait_alias:
-        trait_method_reference T_AS T_STRING
+        trait_method_reference T_AS identifier
             {
                 $$ = &ast.StmtTraitUseAlias{
                     Position:       yylex.(*Parser).builder.Pos.NewNodeTokenPosition($1, $3),
@@ -1588,7 +1587,7 @@ trait_alias:
                     },
                 }
             }
-    |   trait_method_reference T_AS member_modifier identifier
+    |   trait_method_reference T_AS member_modifier identifier_ex
             {
                 $$ = &ast.StmtTraitUseAlias{
                     Position:       yylex.(*Parser).builder.Pos.NewNodeTokenPosition($1, $4),
@@ -1618,7 +1617,7 @@ trait_alias:
 ;
 
 trait_method_reference:
-        identifier
+        identifier_ex
             {
                 $$ = &TraitMethodRef{
                     Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
@@ -1636,7 +1635,7 @@ trait_method_reference:
 ;
 
 absolute_trait_method_reference:
-        name T_PAAMAYIM_NEKUDOTAYIM identifier
+        name T_PAAMAYIM_NEKUDOTAYIM identifier_ex
             {
                 $$ = &TraitMethodRef{
                     Position: yylex.(*Parser).builder.Pos.NewNodeTokenPosition($1, $3),
@@ -1740,7 +1739,7 @@ class_const_list:
 ;
 
 class_const_decl:
-        identifier '=' expr backup_doc_comment
+        identifier_ex '=' expr backup_doc_comment
             {
                 $$ = &ast.StmtConstant{
                     Position: yylex.(*Parser).builder.Pos.NewTokenNodePosition($1, $3),
@@ -1756,7 +1755,7 @@ class_const_decl:
 ;
 
 const_decl:
-        T_STRING '=' expr backup_doc_comment
+        identifier '=' expr backup_doc_comment
             {
                 $$ = &ast.StmtConstant{
                     Position: yylex.(*Parser).builder.Pos.NewTokenNodePosition($1, $3),
@@ -1839,7 +1838,7 @@ new_expr:
 ;
 
 expr_list_allow_comma:
-        non_empty_expr_list possible_comma
+        non_empty_expr_list optional_comma
             { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil) }
 ;
 
@@ -1856,7 +1855,7 @@ match:
 match_arm_list:
         /* empty */
             { $$ = nil; }
-    |   non_empty_match_arm_list possible_comma
+    |   non_empty_match_arm_list optional_comma
             { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil) }
 ;
 
@@ -1870,7 +1869,7 @@ non_empty_match_arm_list:
 match_arm:
         expr_list_allow_comma T_DOUBLE_ARROW expr
             { $$ = yylex.(*Parser).builder.NewMatchArm(nil, nil, $1, $2, $3) }
-    |   T_DEFAULT possible_comma T_DOUBLE_ARROW expr
+    |   T_DEFAULT optional_comma T_DOUBLE_ARROW expr
             { $$ = yylex.(*Parser).builder.NewMatchArm($1, $2, nil, $3, $4) }
 ;
 
@@ -2646,7 +2645,7 @@ lexical_vars:
 ;
 
 lexical_var_list:
-       non_empty_lexical_var_list possible_comma   { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil) }
+       non_empty_lexical_var_list optional_comma   { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, nil) }
 ;
 
 non_empty_lexical_var_list:
@@ -3074,13 +3073,13 @@ new_variable:
 ;
 
 member_name:
-        identifier      { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+        identifier_ex      { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
     |   '{' expr '}'    { $$ = yylex.(*Parser).builder.NewBracket($1, $2, $3) }
     |   simple_variable { $$ = $1 }
 ;
 
 property_name:
-        T_STRING        { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+        identifier      { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
     |   '{' expr '}'    { $$ = yylex.(*Parser).builder.NewBracket($1, $2, $3) }
     |   simple_variable { $$ = $1 }
 ;
@@ -3248,11 +3247,11 @@ encaps_var:
                     CloseBracketTkn: $4,
                 }
             }
-    |   plain_variable T_OBJECT_OPERATOR T_STRING
+    |   plain_variable T_OBJECT_OPERATOR identifier
             {
                 $$ = yylex.(*Parser).builder.NewPropertyFetchFromTokens($1, $2, $3)
             }
-    |   plain_variable T_NULLSAFE_OBJECT_OPERATOR T_STRING
+    |   plain_variable T_NULLSAFE_OBJECT_OPERATOR identifier
             {
                 $$ = yylex.(*Parser).builder.NewNullsafePropertyFetchFromTokens($1, $2, $3)
             }
@@ -3306,7 +3305,7 @@ encaps_var:
 ;
 
 encaps_var_offset:
-        T_STRING
+        identifier
             {
                 $$ = &ast.ScalarString{
                     Position: yylex.(*Parser).builder.Pos.NewTokenPosition($1),
@@ -3369,7 +3368,7 @@ encaps_var_offset:
 ;
 
 internal_functions_in_yacc:
-        T_ISSET '(' isset_variables possible_comma ')'
+        T_ISSET '(' isset_variables optional_comma ')'
             {
                 if $4 != nil {
                     $3.(*ParserSeparatedList).SeparatorTkns = append($3.(*ParserSeparatedList).SeparatorTkns, $4)

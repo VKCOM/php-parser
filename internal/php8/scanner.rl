@@ -58,8 +58,9 @@ func (lex *Lexer) Lex() *token.Token {
 
         lnum = [0-9]+('_'[0-9]+)*;
         dnum = (lnum?"." lnum)|(lnum"."lnum?);
-        hnum = '0x'[0-9a-fA-F]+('_'[0-9a-fA-F]+)*;
-        bnum = '0b'[01]+('_'[01]+)*;
+        hnum = '0x'i[0-9a-fA-F]+('_'[0-9a-fA-F]+)*;
+        bnum = '0b'i[01]+('_'[01]+)*;
+        onum = '0o'i[0-8]+('_'[0-8]+)*;
 
         exponent_dnum = (lnum | dnum) ('e'|'E') ('+'|'-')? lnum;
         varname_first = [a-zA-Z_] | (0x0080..0x00FF);
@@ -164,7 +165,7 @@ func (lex *Lexer) Lex() *token.Token {
 
             (dnum | exponent_dnum)          => {lex.setTokenPosition(tkn); tok = token.T_DNUMBER; fbreak;};
             bnum => {
-                s := strings.Replace(string(lex.data[lex.ts+2:lex.te]), "_", "", -1)
+                s := strings.ReplaceAll(string(lex.data[lex.ts+2:lex.te]), "_", "")
                 _, err := strconv.ParseInt(s, 2, 0)
 
                 if err == nil {
@@ -179,7 +180,7 @@ func (lex *Lexer) Lex() *token.Token {
                     base = 8
                 }
 
-                s := strings.Replace(string(lex.data[lex.ts:lex.te]), "_", "", -1)
+                s := strings.ReplaceAll(string(lex.data[lex.ts:lex.te]), "_", "")
                 _, err := strconv.ParseInt(s, base, 0)
 
                 if err == nil {
@@ -189,8 +190,18 @@ func (lex *Lexer) Lex() *token.Token {
                 lex.setTokenPosition(tkn); tok = token.T_DNUMBER; fbreak;
             };
             hnum => {
-                s := strings.Replace(string(lex.data[lex.ts+2:lex.te]), "_", "", -1)
+                s := strings.ReplaceAll(string(lex.data[lex.ts+2:lex.te]), "_", "")
                 _, err := strconv.ParseInt(s, 16, 0)
+
+                if err == nil {
+                    lex.setTokenPosition(tkn); tok = token.T_LNUMBER; fbreak;
+                }
+
+                lex.setTokenPosition(tkn); tok = token.T_DNUMBER; fbreak;
+            };
+            onum => {
+                s := strings.ReplaceAll(string(lex.data[lex.ts+2:lex.te]), "_", "")
+                _, err := strconv.ParseInt(s, 8, 0)
 
                 if err == nil {
                     lex.setTokenPosition(tkn); tok = token.T_LNUMBER; fbreak;
@@ -468,12 +479,12 @@ func (lex *Lexer) Lex() *token.Token {
         *|;
 
         string_var_index := |*
-            lnum | hnum | bnum       => {lex.setTokenPosition(tkn); tok = token.T_NUM_STRING; fbreak;};
-            '$' varname              => {lex.setTokenPosition(tkn); tok = token.T_VARIABLE; fbreak;};
-            varname                  => {lex.setTokenPosition(tkn); tok = token.T_STRING; fbreak;};
-            whitespace_line | [\\'#] => {lex.setTokenPosition(tkn); tok = token.T_ENCAPSED_AND_WHITESPACE; lex.ret(2); goto _out;};
-            operators > (svi, 1)     => {lex.setTokenPosition(tkn); tok = token.ID(int(lex.data[lex.ts])); fbreak;};
-            ']'       > (svi, 2)     => {lex.setTokenPosition(tkn); tok = token.ID(int(']')); lex.ret(2); goto _out;};
+            lnum | hnum | bnum | onum => {lex.setTokenPosition(tkn); tok = token.T_NUM_STRING; fbreak;};
+            '$' varname               => {lex.setTokenPosition(tkn); tok = token.T_VARIABLE; fbreak;};
+            varname                   => {lex.setTokenPosition(tkn); tok = token.T_STRING; fbreak;};
+            whitespace_line | [\\'#]  => {lex.setTokenPosition(tkn); tok = token.T_ENCAPSED_AND_WHITESPACE; lex.ret(2); goto _out;};
+            operators > (svi, 1)      => {lex.setTokenPosition(tkn); tok = token.ID(int(lex.data[lex.ts])); fbreak;};
+            ']'       > (svi, 2)      => {lex.setTokenPosition(tkn); tok = token.ID(int(']')); lex.ret(2); goto _out;};
             any_line => {
                 c := lex.data[lex.p]
                 lex.error(fmt.Sprintf("WARNING: Unexpected character in input: '%c' (ASCII=%d)", c, c));

@@ -168,10 +168,12 @@ func printerWorker(r <-chan result) {
 			_, _ = io.WriteString(os.Stderr, "==> ["+strconv.Itoa(counter)+"] "+res.path+"\n")
 		}
 
-		if *printErrors {
+		if *printErrors && len(res.errors) > 0 {
+			_, _ = io.WriteString(os.Stderr, "==> ["+strconv.Itoa(counter)+"] "+res.path+"\n")
 			for _, e := range res.errors {
 				_, _ = io.WriteString(os.Stderr, "==> "+e.String()+"\n")
 			}
+			_, _ = io.WriteString(os.Stderr, "\n")
 		}
 
 		if *printBack {

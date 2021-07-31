@@ -337,6 +337,49 @@ func (n *StmtCatch) GetPosition() *position.Position {
 	return n.Position
 }
 
+// StmtEnum node
+type StmtEnum struct {
+	Position                *position.Position
+	AttrGroups              []Vertex
+	EnumTkn                 *token.Token
+	Name                    Vertex
+	ColonTkn                *token.Token
+	Type                    Vertex
+	ImplementsTkn           *token.Token
+	Implements              []Vertex
+	ImplementsSeparatorTkns []*token.Token
+	OpenCurlyBracketTkn     *token.Token
+	Stmts                   []Vertex
+	CloseCurlyBracketTkn    *token.Token
+}
+
+func (n *StmtEnum) Accept(v Visitor) {
+	v.StmtEnum(n)
+}
+
+func (n *StmtEnum) GetPosition() *position.Position {
+	return n.Position
+}
+
+// EnumCase node
+type EnumCase struct {
+	Position     *position.Position
+	AttrGroups   []Vertex
+	CaseTkn      *token.Token
+	Name         Vertex
+	EqualTkn     *token.Token
+	Expr         Vertex
+	SemiColonTkn *token.Token
+}
+
+func (n *EnumCase) Accept(v Visitor) {
+	v.EnumCase(n)
+}
+
+func (n *EnumCase) GetPosition() *position.Position {
+	return n.Position
+}
+
 // StmtClass node
 type StmtClass struct {
 	Position                *position.Position

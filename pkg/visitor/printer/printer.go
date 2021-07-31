@@ -234,6 +234,28 @@ func (p *printer) StmtClass(n *ast.StmtClass) {
 	p.printToken(n.CloseCurlyBracketTkn, []byte("}"))
 }
 
+func (p *printer) StmtEnum(n *ast.StmtEnum) {
+	p.printList(n.AttrGroups)
+	p.printToken(n.EnumTkn, []byte("enum"))
+	p.printNode(n.Name)
+	p.printToken(n.ColonTkn, nil)
+	p.printNode(n.Type)
+	p.printToken(n.ImplementsTkn, p.ifNodeList(n.Implements, []byte("implements")))
+	p.printSeparatedList(n.Implements, n.ImplementsSeparatorTkns, []byte(","))
+	p.printToken(n.OpenCurlyBracketTkn, []byte("{"))
+	p.printList(n.Stmts)
+	p.printToken(n.CloseCurlyBracketTkn, []byte("}"))
+}
+
+func (p *printer) EnumCase(n *ast.EnumCase) {
+	p.printList(n.AttrGroups)
+	p.printToken(n.CaseTkn, []byte("case"))
+	p.printNode(n.Name)
+	p.printToken(n.EqualTkn, nil)
+	p.printNode(n.Expr)
+	p.printToken(n.SemiColonTkn, []byte(";"))
+}
+
 func (p *printer) StmtClassConstList(n *ast.StmtClassConstList) {
 	p.printList(n.AttrGroups)
 	p.printList(n.Modifiers)

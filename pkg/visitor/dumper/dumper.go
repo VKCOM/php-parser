@@ -336,6 +336,43 @@ func (v *Dumper) StmtCatch(n *ast.StmtCatch) {
 	v.print(v.indent, "},\n")
 }
 
+func (v *Dumper) StmtEnum(n *ast.StmtEnum) {
+	v.print(0, "&ast.StmtEnum{\n")
+	v.indent++
+
+	v.dumpPosition(n.Position)
+	v.dumpVertexList("AttrGroups", n.AttrGroups)
+	v.dumpToken("EnumTkn", n.EnumTkn)
+	v.dumpVertex("Name", n.Name)
+	v.dumpToken("ColonTkn", n.ColonTkn)
+	v.dumpVertex("Type", n.Type)
+	v.dumpToken("ImplementsTkn", n.ImplementsTkn)
+	v.dumpVertexList("Implements", n.Implements)
+	v.dumpTokenList("ImplementsSeparatorTkns", n.ImplementsSeparatorTkns)
+	v.dumpToken("OpenCurlyBracketTkn", n.OpenCurlyBracketTkn)
+	v.dumpVertexList("Stmts", n.Stmts)
+	v.dumpToken("CloseCurlyBracketTkn", n.CloseCurlyBracketTkn)
+
+	v.indent--
+	v.print(v.indent, "},\n")
+}
+
+func (v *Dumper) EnumCase(n *ast.EnumCase) {
+	v.print(0, "&ast.EnumCase{\n")
+	v.indent++
+
+	v.dumpPosition(n.Position)
+	v.dumpVertexList("AttrGroups", n.AttrGroups)
+	v.dumpToken("CaseTkn", n.CaseTkn)
+	v.dumpVertex("Name", n.Name)
+	v.dumpToken("EqualTkn", n.EqualTkn)
+	v.dumpVertex("Expr", n.Expr)
+	v.dumpToken("SemiColonTkn", n.SemiColonTkn)
+
+	v.indent--
+	v.print(v.indent, "},\n")
+}
+
 func (v *Dumper) StmtClass(n *ast.StmtClass) {
 	v.print(0, "&ast.StmtClass{\n")
 	v.indent++

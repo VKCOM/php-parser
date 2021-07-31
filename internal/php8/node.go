@@ -68,6 +68,20 @@ func (n *ArgumentList) GetPosition() *position.Position {
 	return n.Position
 }
 
+type EnumCaseExpr struct {
+	Position  *position.Position
+	AssignTkn *token.Token
+	Expr      ast.Vertex
+}
+
+func (n *EnumCaseExpr) Accept(v ast.Visitor) {
+	// do nothing
+}
+
+func (n *EnumCaseExpr) GetPosition() *position.Position {
+	return n.Position
+}
+
 type ReturnType struct {
 	Position *position.Position
 	ColonTkn *token.Token

@@ -40,3 +40,37 @@ echo 0o10;
 echo 0O10;
 `)
 }
+
+func TestEnumPHP81(t *testing.T) {
+	tester.NewParserPrintTestSuite(t).UsePHP8().Run(`<?php
+enum A {
+  case B;
+  case B = 100;
+  case C = "aa";
+  case 
+	D;
+}
+
+enum A: int {
+  case B;
+  case B = 100;
+
+  #[Attribute]
+  case C = 100;
+
+  #[Attribute1]
+  #[Attribute2]
+  case D;
+}
+
+enum A implements B {
+  case C;
+  public function f(): string {}
+}
+
+enum A implements B, C, D {
+  case E;
+  public function f(): string {}
+}
+`)
+}

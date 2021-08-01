@@ -65,6 +65,13 @@ func main() {
 	if err != nil {
 		log.Fatal("Error:" + err.Error())
 	}
+	
+	if len(parserErrors) > 0 {
+		for _, e := range parserErrors {
+			log.Println(e.String())
+		}
+		os.Exit(1)
+	}
 
 	// Dump
 

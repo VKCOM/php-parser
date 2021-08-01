@@ -15,7 +15,7 @@ Added
 
 Changed
 
-- [4cd50d](https://github.com/VKCOM/php-parser/commit/85b5d3ef36c9b12923404caf1c57497aa84cd50d): `cmd`: added file path output before errors
+- [`4cd50d`](https://github.com/VKCOM/php-parser/commit/85b5d3ef36c9b12923404caf1c57497aa84cd50d): `cmd`: added file path output before errors
 
 ## `v0.8.0-rc.2` 2021-30-07
 
@@ -40,5 +40,7 @@ Removed
 - [#11](https://github.com/i582/php-parser/pull/11): `php8`: removed `(real)` cast 
 - [#15](https://github.com/i582/php-parser/pull/15): `php8`: removed `(unset)` cast 
 - [#17](https://github.com/i582/php-parser/pull/17): `php8`: removed `{}` access 
+
+---
 
 Versions prior to 0.8.0 were not included in this changelog.

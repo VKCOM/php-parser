@@ -10,7 +10,7 @@ Added
 - [#8](https://github.com/VKCOM/php-parser/pull/8): `php8.1`: added `never` type
 - [#10](https://github.com/VKCOM/php-parser/pull/10): `php8.1`: added new octal numbers syntax
 - [#12](https://github.com/VKCOM/php-parser/pull/12): `php8.1`: added enums
-- [#15](https://github.com/VKCOM/php-parser/pull/15): `php8.1`: added final modifier for constants in class
+- [#15](https://github.com/VKCOM/php-parser/pull/15): `php8.1`: added `final` modifier for constants in class
 - [#18](https://github.com/VKCOM/php-parser/pull/18): `php8.1`: added first class callable syntax
 
 Changed

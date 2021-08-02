@@ -18,6 +18,9 @@ type LexerTokenStructTestSuite struct {
 	Expected []*token.Token
 
 	Version version.Version
+
+	withPosition     bool
+	withFreeFloating bool
 }
 
 func NewLexerTokenStructTestSuite(t *testing.T) *LexerTokenStructTestSuite {
@@ -32,6 +35,14 @@ func NewLexerTokenStructTestSuite(t *testing.T) *LexerTokenStructTestSuite {
 
 func (l *LexerTokenStructTestSuite) UsePHP8() {
 	l.Version = version.Version{Major: 8, Minor: 0}
+}
+
+func (l *LexerTokenStructTestSuite) WithPosition() {
+	l.withPosition = true
+}
+
+func (l *LexerTokenStructTestSuite) WithFreeFloating() {
+	l.withFreeFloating = true
 }
 
 func (l *LexerTokenStructTestSuite) Run() {
@@ -49,8 +60,12 @@ func (l *LexerTokenStructTestSuite) Run() {
 
 	for _, expected := range l.Expected {
 		actual := lexer.Lex()
-		actual.Position = nil
-		actual.FreeFloating = nil
+		if !l.withPosition {
+			actual.Position = nil
+		}
+		if !l.withFreeFloating {
+			actual.FreeFloating = nil
+		}
 		assert.DeepEqual(l.t, expected, actual)
 	}
 }

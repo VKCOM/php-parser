@@ -6,6 +6,7 @@ import (
 	"github.com/VKCOM/php-parser/internal/php8"
 	"github.com/VKCOM/php-parser/internal/tester"
 	"github.com/VKCOM/php-parser/pkg/conf"
+	"github.com/VKCOM/php-parser/pkg/position"
 	"github.com/VKCOM/php-parser/pkg/token"
 	"gotest.tools/assert"
 )
@@ -340,6 +341,65 @@ func TestNamespaceRelativeTokens(t *testing.T) {
 		{
 			ID:    ';',
 			Value: []byte(";"),
+		},
+	}
+	suite.Run()
+}
+
+func TestSharpCommentTokens(t *testing.T) {
+	suite := tester.NewLexerTokenStructTestSuite(t)
+	suite.UsePHP8()
+	suite.WithPosition()
+	suite.WithFreeFloating()
+	suite.Code = `<?php
+#
+# Hello
+#
+
+$a;
+`
+	suite.Expected = []*token.Token{
+		{
+			ID:    php8.T_VARIABLE,
+			Value: []byte(`$a`),
+			FreeFloating: []*token.Token{
+				{
+					ID:       php8.T_OPEN_TAG,
+					Value:    []byte("<?php"),
+					Position: &position.Position{StartLine: 1, EndLine: 1, EndPos: 5},
+				},
+				{
+					ID:       php8.T_WHITESPACE,
+					Value:    []byte("\n"),
+					Position: &position.Position{StartLine: 1, EndLine: 1, StartPos: 5, EndPos: 6},
+				},
+				{
+					ID:       php8.T_COMMENT,
+					Value:    []byte("#\n"),
+					Position: &position.Position{StartLine: 2, EndLine: 2, StartPos: 6, EndPos: 8},
+				},
+				{
+					ID:       php8.T_COMMENT,
+					Value:    []byte("# Hello\n"),
+					Position: &position.Position{StartLine: 3, EndLine: 3, StartPos: 8, EndPos: 16},
+				},
+				{
+					ID:       php8.T_COMMENT,
+					Value:    []byte("#\n"),
+					Position: &position.Position{StartLine: 4, EndLine: 4, StartPos: 16, EndPos: 18},
+				},
+				{
+					ID:       php8.T_WHITESPACE,
+					Value:    []byte("\n"),
+					Position: &position.Position{StartLine: 5, EndLine: 5, StartPos: 18, EndPos: 19},
+				},
+			},
+			Position: &position.Position{StartLine: 6, EndLine: 6, StartPos: 19, EndPos: 21},
+		},
+		{
+			ID:       ';',
+			Value:    []byte(";"),
+			Position: &position.Position{StartLine: 6, EndLine: 6, StartPos: 21, EndPos: 22},
 		},
 	}
 	suite.Run()

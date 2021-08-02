@@ -17,19 +17,19 @@ const lexer_error int = 0
 const lexer_en_main int = 123
 const lexer_en_html int = 126
 const lexer_en_php int = 133
-const lexer_en_property int = 494
-const lexer_en_nowdoc int = 501
-const lexer_en_heredoc int = 505
-const lexer_en_backqote int = 512
-const lexer_en_template_string int = 518
-const lexer_en_heredoc_end int = 524
-const lexer_en_string_var int = 526
-const lexer_en_string_var_index int = 532
-const lexer_en_string_var_name int = 543
-const lexer_en_halt_compiller_open_parenthesis int = 545
-const lexer_en_halt_compiller_close_parenthesis int = 549
-const lexer_en_halt_compiller_close_semicolon int = 553
-const lexer_en_halt_compiller_end int = 557
+const lexer_en_property int = 496
+const lexer_en_nowdoc int = 503
+const lexer_en_heredoc int = 507
+const lexer_en_backqote int = 514
+const lexer_en_template_string int = 520
+const lexer_en_heredoc_end int = 526
+const lexer_en_string_var int = 528
+const lexer_en_string_var_index int = 534
+const lexer_en_string_var_name int = 545
+const lexer_en_halt_compiller_open_parenthesis int = 547
+const lexer_en_halt_compiller_close_parenthesis int = 551
+const lexer_en_halt_compiller_close_semicolon int = 555
+const lexer_en_halt_compiller_end int = 559
 
 // line internal/php8/scanner.rl:17
 
@@ -138,12 +138,16 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st146
 		case 147:
 			goto st147
+		case 148:
+			goto st148
+		case 149:
+			goto st149
 		case 11:
 			goto st11
 		case 12:
 			goto st12
-		case 148:
-			goto st148
+		case 150:
+			goto st150
 		case 13:
 			goto st13
 		case 14:
@@ -254,60 +258,60 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st66
 		case 67:
 			goto st67
-		case 149:
-			goto st149
-		case 150:
-			goto st150
 		case 151:
 			goto st151
 		case 152:
 			goto st152
 		case 153:
 			goto st153
-		case 68:
-			goto st68
 		case 154:
 			goto st154
+		case 155:
+			goto st155
+		case 68:
+			goto st68
+		case 156:
+			goto st156
 		case 69:
 			goto st69
 		case 70:
 			goto st70
-		case 155:
-			goto st155
+		case 157:
+			goto st157
 		case 71:
 			goto st71
-		case 156:
-			goto st156
+		case 158:
+			goto st158
 		case 72:
 			goto st72
 		case 73:
 			goto st73
 		case 74:
 			goto st74
-		case 157:
-			goto st157
-		case 158:
-			goto st158
 		case 159:
 			goto st159
+		case 160:
+			goto st160
+		case 161:
+			goto st161
 		case 75:
 			goto st75
 		case 76:
 			goto st76
-		case 160:
-			goto st160
-		case 77:
-			goto st77
-		case 161:
-			goto st161
-		case 78:
-			goto st78
 		case 162:
 			goto st162
+		case 77:
+			goto st77
 		case 163:
 			goto st163
+		case 78:
+			goto st78
 		case 164:
 			goto st164
+		case 165:
+			goto st165
+		case 166:
+			goto st166
 		case 79:
 			goto st79
 		case 80:
@@ -316,16 +320,16 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st81
 		case 82:
 			goto st82
-		case 165:
-			goto st165
-		case 166:
-			goto st166
-		case 83:
-			goto st83
 		case 167:
 			goto st167
 		case 168:
 			goto st168
+		case 83:
+			goto st83
+		case 169:
+			goto st169
+		case 170:
+			goto st170
 		case 84:
 			goto st84
 		case 85:
@@ -334,8 +338,8 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st86
 		case 87:
 			goto st87
-		case 169:
-			goto st169
+		case 171:
+			goto st171
 		case 88:
 			goto st88
 		case 89:
@@ -344,10 +348,6 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st90
 		case 91:
 			goto st91
-		case 170:
-			goto st170
-		case 171:
-			goto st171
 		case 172:
 			goto st172
 		case 173:
@@ -356,26 +356,26 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st174
 		case 175:
 			goto st175
-		case 92:
-			goto st92
 		case 176:
 			goto st176
 		case 177:
 			goto st177
-		case 93:
-			goto st93
+		case 92:
+			goto st92
 		case 178:
 			goto st178
 		case 179:
 			goto st179
+		case 93:
+			goto st93
 		case 180:
 			goto st180
-		case 94:
-			goto st94
 		case 181:
 			goto st181
 		case 182:
 			goto st182
+		case 94:
+			goto st94
 		case 183:
 			goto st183
 		case 184:
@@ -396,14 +396,14 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st191
 		case 192:
 			goto st192
-		case 95:
-			goto st95
-		case 96:
-			goto st96
 		case 193:
 			goto st193
 		case 194:
 			goto st194
+		case 95:
+			goto st95
+		case 96:
+			goto st96
 		case 195:
 			goto st195
 		case 196:
@@ -718,12 +718,12 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st350
 		case 351:
 			goto st351
-		case 97:
-			goto st97
 		case 352:
 			goto st352
 		case 353:
 			goto st353
+		case 97:
+			goto st97
 		case 354:
 			goto st354
 		case 355:
@@ -866,6 +866,10 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st423
 		case 424:
 			goto st424
+		case 425:
+			goto st425
+		case 426:
+			goto st426
 		case 98:
 			goto st98
 		case 99:
@@ -878,16 +882,12 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st102
 		case 103:
 			goto st103
-		case 425:
-			goto st425
-		case 426:
-			goto st426
-		case 104:
-			goto st104
 		case 427:
 			goto st427
 		case 428:
 			goto st428
+		case 104:
+			goto st104
 		case 429:
 			goto st429
 		case 430:
@@ -1024,38 +1024,38 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st495
 		case 496:
 			goto st496
-		case 105:
-			goto st105
 		case 497:
 			goto st497
 		case 498:
 			goto st498
+		case 105:
+			goto st105
 		case 499:
 			goto st499
-		case 106:
-			goto st106
 		case 500:
 			goto st500
 		case 501:
 			goto st501
-		case 0:
-			goto st0
+		case 106:
+			goto st106
 		case 502:
 			goto st502
 		case 503:
 			goto st503
+		case 0:
+			goto st0
 		case 504:
 			goto st504
 		case 505:
 			goto st505
 		case 506:
 			goto st506
-		case 107:
-			goto st107
 		case 507:
 			goto st507
 		case 508:
 			goto st508
+		case 107:
+			goto st107
 		case 509:
 			goto st509
 		case 510:
@@ -1064,14 +1064,14 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st511
 		case 512:
 			goto st512
-		case 108:
-			goto st108
-		case 109:
-			goto st109
 		case 513:
 			goto st513
 		case 514:
 			goto st514
+		case 108:
+			goto st108
+		case 109:
+			goto st109
 		case 515:
 			goto st515
 		case 516:
@@ -1080,14 +1080,14 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st517
 		case 518:
 			goto st518
-		case 110:
-			goto st110
-		case 111:
-			goto st111
 		case 519:
 			goto st519
 		case 520:
 			goto st520
+		case 110:
+			goto st110
+		case 111:
+			goto st111
 		case 521:
 			goto st521
 		case 522:
@@ -1106,18 +1106,18 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st528
 		case 529:
 			goto st529
-		case 112:
-			goto st112
 		case 530:
 			goto st530
+		case 531:
+			goto st531
+		case 112:
+			goto st112
+		case 532:
+			goto st532
 		case 113:
 			goto st113
 		case 114:
 			goto st114
-		case 531:
-			goto st531
-		case 532:
-			goto st532
 		case 533:
 			goto st533
 		case 534:
@@ -1130,66 +1130,70 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st537
 		case 538:
 			goto st538
+		case 539:
+			goto st539
+		case 540:
+			goto st540
 		case 115:
 			goto st115
 		case 116:
 			goto st116
-		case 539:
-			goto st539
-		case 117:
-			goto st117
-		case 540:
-			goto st540
-		case 118:
-			goto st118
 		case 541:
 			goto st541
+		case 117:
+			goto st117
 		case 542:
 			goto st542
+		case 118:
+			goto st118
 		case 543:
 			goto st543
 		case 544:
 			goto st544
-		case 119:
-			goto st119
 		case 545:
 			goto st545
 		case 546:
 			goto st546
+		case 119:
+			goto st119
 		case 547:
 			goto st547
-		case 120:
-			goto st120
 		case 548:
 			goto st548
 		case 549:
 			goto st549
+		case 120:
+			goto st120
 		case 550:
 			goto st550
 		case 551:
 			goto st551
-		case 121:
-			goto st121
 		case 552:
 			goto st552
 		case 553:
 			goto st553
+		case 121:
+			goto st121
 		case 554:
 			goto st554
 		case 555:
 			goto st555
-		case 122:
-			goto st122
 		case 556:
 			goto st556
 		case 557:
 			goto st557
+		case 122:
+			goto st122
 		case 558:
 			goto st558
 		case 559:
 			goto st559
 		case 560:
 			goto st560
+		case 561:
+			goto st561
+		case 562:
+			goto st562
 		}
 
 		if (lex.p)++; (lex.p) == (lex.pe) {
@@ -1267,12 +1271,16 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st_case_146
 		case 147:
 			goto st_case_147
+		case 148:
+			goto st_case_148
+		case 149:
+			goto st_case_149
 		case 11:
 			goto st_case_11
 		case 12:
 			goto st_case_12
-		case 148:
-			goto st_case_148
+		case 150:
+			goto st_case_150
 		case 13:
 			goto st_case_13
 		case 14:
@@ -1383,60 +1391,60 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st_case_66
 		case 67:
 			goto st_case_67
-		case 149:
-			goto st_case_149
-		case 150:
-			goto st_case_150
 		case 151:
 			goto st_case_151
 		case 152:
 			goto st_case_152
 		case 153:
 			goto st_case_153
-		case 68:
-			goto st_case_68
 		case 154:
 			goto st_case_154
+		case 155:
+			goto st_case_155
+		case 68:
+			goto st_case_68
+		case 156:
+			goto st_case_156
 		case 69:
 			goto st_case_69
 		case 70:
 			goto st_case_70
-		case 155:
-			goto st_case_155
+		case 157:
+			goto st_case_157
 		case 71:
 			goto st_case_71
-		case 156:
-			goto st_case_156
+		case 158:
+			goto st_case_158
 		case 72:
 			goto st_case_72
 		case 73:
 			goto st_case_73
 		case 74:
 			goto st_case_74
-		case 157:
-			goto st_case_157
-		case 158:
-			goto st_case_158
 		case 159:
 			goto st_case_159
+		case 160:
+			goto st_case_160
+		case 161:
+			goto st_case_161
 		case 75:
 			goto st_case_75
 		case 76:
 			goto st_case_76
-		case 160:
-			goto st_case_160
-		case 77:
-			goto st_case_77
-		case 161:
-			goto st_case_161
-		case 78:
-			goto st_case_78
 		case 162:
 			goto st_case_162
+		case 77:
+			goto st_case_77
 		case 163:
 			goto st_case_163
+		case 78:
+			goto st_case_78
 		case 164:
 			goto st_case_164
+		case 165:
+			goto st_case_165
+		case 166:
+			goto st_case_166
 		case 79:
 			goto st_case_79
 		case 80:
@@ -1445,16 +1453,16 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st_case_81
 		case 82:
 			goto st_case_82
-		case 165:
-			goto st_case_165
-		case 166:
-			goto st_case_166
-		case 83:
-			goto st_case_83
 		case 167:
 			goto st_case_167
 		case 168:
 			goto st_case_168
+		case 83:
+			goto st_case_83
+		case 169:
+			goto st_case_169
+		case 170:
+			goto st_case_170
 		case 84:
 			goto st_case_84
 		case 85:
@@ -1463,8 +1471,8 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st_case_86
 		case 87:
 			goto st_case_87
-		case 169:
-			goto st_case_169
+		case 171:
+			goto st_case_171
 		case 88:
 			goto st_case_88
 		case 89:
@@ -1473,10 +1481,6 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st_case_90
 		case 91:
 			goto st_case_91
-		case 170:
-			goto st_case_170
-		case 171:
-			goto st_case_171
 		case 172:
 			goto st_case_172
 		case 173:
@@ -1485,26 +1489,26 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st_case_174
 		case 175:
 			goto st_case_175
-		case 92:
-			goto st_case_92
 		case 176:
 			goto st_case_176
 		case 177:
 			goto st_case_177
-		case 93:
-			goto st_case_93
+		case 92:
+			goto st_case_92
 		case 178:
 			goto st_case_178
 		case 179:
 			goto st_case_179
+		case 93:
+			goto st_case_93
 		case 180:
 			goto st_case_180
-		case 94:
-			goto st_case_94
 		case 181:
 			goto st_case_181
 		case 182:
 			goto st_case_182
+		case 94:
+			goto st_case_94
 		case 183:
 			goto st_case_183
 		case 184:
@@ -1525,14 +1529,14 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st_case_191
 		case 192:
 			goto st_case_192
-		case 95:
-			goto st_case_95
-		case 96:
-			goto st_case_96
 		case 193:
 			goto st_case_193
 		case 194:
 			goto st_case_194
+		case 95:
+			goto st_case_95
+		case 96:
+			goto st_case_96
 		case 195:
 			goto st_case_195
 		case 196:
@@ -1847,12 +1851,12 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st_case_350
 		case 351:
 			goto st_case_351
-		case 97:
-			goto st_case_97
 		case 352:
 			goto st_case_352
 		case 353:
 			goto st_case_353
+		case 97:
+			goto st_case_97
 		case 354:
 			goto st_case_354
 		case 355:
@@ -1995,6 +1999,10 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st_case_423
 		case 424:
 			goto st_case_424
+		case 425:
+			goto st_case_425
+		case 426:
+			goto st_case_426
 		case 98:
 			goto st_case_98
 		case 99:
@@ -2007,16 +2015,12 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st_case_102
 		case 103:
 			goto st_case_103
-		case 425:
-			goto st_case_425
-		case 426:
-			goto st_case_426
-		case 104:
-			goto st_case_104
 		case 427:
 			goto st_case_427
 		case 428:
 			goto st_case_428
+		case 104:
+			goto st_case_104
 		case 429:
 			goto st_case_429
 		case 430:
@@ -2153,38 +2157,38 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st_case_495
 		case 496:
 			goto st_case_496
-		case 105:
-			goto st_case_105
 		case 497:
 			goto st_case_497
 		case 498:
 			goto st_case_498
+		case 105:
+			goto st_case_105
 		case 499:
 			goto st_case_499
-		case 106:
-			goto st_case_106
 		case 500:
 			goto st_case_500
 		case 501:
 			goto st_case_501
-		case 0:
-			goto st_case_0
+		case 106:
+			goto st_case_106
 		case 502:
 			goto st_case_502
 		case 503:
 			goto st_case_503
+		case 0:
+			goto st_case_0
 		case 504:
 			goto st_case_504
 		case 505:
 			goto st_case_505
 		case 506:
 			goto st_case_506
-		case 107:
-			goto st_case_107
 		case 507:
 			goto st_case_507
 		case 508:
 			goto st_case_508
+		case 107:
+			goto st_case_107
 		case 509:
 			goto st_case_509
 		case 510:
@@ -2193,14 +2197,14 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st_case_511
 		case 512:
 			goto st_case_512
-		case 108:
-			goto st_case_108
-		case 109:
-			goto st_case_109
 		case 513:
 			goto st_case_513
 		case 514:
 			goto st_case_514
+		case 108:
+			goto st_case_108
+		case 109:
+			goto st_case_109
 		case 515:
 			goto st_case_515
 		case 516:
@@ -2209,14 +2213,14 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st_case_517
 		case 518:
 			goto st_case_518
-		case 110:
-			goto st_case_110
-		case 111:
-			goto st_case_111
 		case 519:
 			goto st_case_519
 		case 520:
 			goto st_case_520
+		case 110:
+			goto st_case_110
+		case 111:
+			goto st_case_111
 		case 521:
 			goto st_case_521
 		case 522:
@@ -2235,18 +2239,18 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st_case_528
 		case 529:
 			goto st_case_529
-		case 112:
-			goto st_case_112
 		case 530:
 			goto st_case_530
+		case 531:
+			goto st_case_531
+		case 112:
+			goto st_case_112
+		case 532:
+			goto st_case_532
 		case 113:
 			goto st_case_113
 		case 114:
 			goto st_case_114
-		case 531:
-			goto st_case_531
-		case 532:
-			goto st_case_532
 		case 533:
 			goto st_case_533
 		case 534:
@@ -2259,66 +2263,70 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st_case_537
 		case 538:
 			goto st_case_538
+		case 539:
+			goto st_case_539
+		case 540:
+			goto st_case_540
 		case 115:
 			goto st_case_115
 		case 116:
 			goto st_case_116
-		case 539:
-			goto st_case_539
-		case 117:
-			goto st_case_117
-		case 540:
-			goto st_case_540
-		case 118:
-			goto st_case_118
 		case 541:
 			goto st_case_541
+		case 117:
+			goto st_case_117
 		case 542:
 			goto st_case_542
+		case 118:
+			goto st_case_118
 		case 543:
 			goto st_case_543
 		case 544:
 			goto st_case_544
-		case 119:
-			goto st_case_119
 		case 545:
 			goto st_case_545
 		case 546:
 			goto st_case_546
+		case 119:
+			goto st_case_119
 		case 547:
 			goto st_case_547
-		case 120:
-			goto st_case_120
 		case 548:
 			goto st_case_548
 		case 549:
 			goto st_case_549
+		case 120:
+			goto st_case_120
 		case 550:
 			goto st_case_550
 		case 551:
 			goto st_case_551
-		case 121:
-			goto st_case_121
 		case 552:
 			goto st_case_552
 		case 553:
 			goto st_case_553
+		case 121:
+			goto st_case_121
 		case 554:
 			goto st_case_554
 		case 555:
 			goto st_case_555
-		case 122:
-			goto st_case_122
 		case 556:
 			goto st_case_556
 		case 557:
 			goto st_case_557
+		case 122:
+			goto st_case_122
 		case 558:
 			goto st_case_558
 		case 559:
 			goto st_case_559
 		case 560:
 			goto st_case_560
+		case 561:
+			goto st_case_561
+		case 562:
+			goto st_case_562
 		}
 		goto st_out
 	tr0:
@@ -2370,7 +2378,7 @@ func (lex *Lexer) Lex() *token.Token {
 		// line NONE:1
 		lex.ts = (lex.p)
 
-		// line internal/php8/scanner.go:2379
+		// line internal/php8/scanner.go:2387
 		if lex.data[(lex.p)] == 35 {
 			goto tr183
 		}
@@ -2385,7 +2393,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof124
 		}
 	st_case_124:
-		// line internal/php8/scanner.go:2394
+		// line internal/php8/scanner.go:2402
 		if lex.data[(lex.p)] == 33 {
 			goto st1
 		}
@@ -2407,7 +2415,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof1
 		}
 	st_case_1:
-		// line internal/php8/scanner.go:2416
+		// line internal/php8/scanner.go:2424
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr2
@@ -2432,7 +2440,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof125
 		}
 	st_case_125:
-		// line internal/php8/scanner.go:2441
+		// line internal/php8/scanner.go:2449
 		goto tr185
 	tr4:
 		lex.cs = 126
@@ -2533,7 +2541,7 @@ func (lex *Lexer) Lex() *token.Token {
 		// line NONE:1
 		lex.ts = (lex.p)
 
-		// line internal/php8/scanner.go:2531
+		// line internal/php8/scanner.go:2539
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr187
@@ -2578,7 +2586,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof127
 		}
 	st_case_127:
-		// line internal/php8/scanner.go:2576
+		// line internal/php8/scanner.go:2584
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr187
@@ -2619,7 +2627,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof128
 		}
 	st_case_128:
-		// line internal/php8/scanner.go:2617
+		// line internal/php8/scanner.go:2625
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr194
@@ -2638,7 +2646,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof129
 		}
 	st_case_129:
-		// line internal/php8/scanner.go:2636
+		// line internal/php8/scanner.go:2644
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr187
@@ -2676,7 +2684,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof131
 		}
 	st_case_131:
-		// line internal/php8/scanner.go:2674
+		// line internal/php8/scanner.go:2682
 		switch lex.data[(lex.p)] {
 		case 61:
 			goto tr199
@@ -2743,7 +2751,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof132
 		}
 	st_case_132:
-		// line internal/php8/scanner.go:2741
+		// line internal/php8/scanner.go:2749
 		goto tr201
 	tr9:
 		// line internal/php8/scanner.rl:38
@@ -2762,7 +2770,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof5
 		}
 	st_case_5:
-		// line internal/php8/scanner.go:2760
+		// line internal/php8/scanner.go:2768
 		if lex.data[(lex.p)] == 10 {
 			goto tr8
 		}
@@ -3640,7 +3648,7 @@ func (lex *Lexer) Lex() *token.Token {
 				(lex.p) = (lex.te) - 1
 				lex.setTokenPosition(tkn)
 				tok = token.T_HALT_COMPILER
-				lex.cs = 545
+				lex.cs = 547
 				{
 					(lex.p)++
 					goto _out
@@ -3696,7 +3704,7 @@ func (lex *Lexer) Lex() *token.Token {
 					goto _out
 				}
 			}
-		case 145:
+		case 146:
 			{
 				(lex.p) = (lex.te) - 1
 				lex.setTokenPosition(tkn)
@@ -3706,12 +3714,12 @@ func (lex *Lexer) Lex() *token.Token {
 					goto _out
 				}
 			}
-		case 151:
+		case 152:
 			{
 				(lex.p) = (lex.te) - 1
 				lex.setTokenPosition(tkn)
 				tok = token.ID(int('"'))
-				lex.cs = 518
+				lex.cs = 520
 				{
 					(lex.p)++
 					goto _out
@@ -3721,7 +3729,7 @@ func (lex *Lexer) Lex() *token.Token {
 
 		goto _again
 	tr15:
-		// line internal/php8/scanner.rl:373
+		// line internal/php8/scanner.rl:380
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
@@ -3734,7 +3742,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		goto st133
 	tr19:
-		// line internal/php8/scanner.rl:396
+		// line internal/php8/scanner.rl:403
 		(lex.p) = (lex.te) - 1
 		{
 			c := lex.data[lex.p]
@@ -3742,7 +3750,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		goto st133
 	tr23:
-		// line internal/php8/scanner.rl:359
+		// line internal/php8/scanner.rl:366
 		(lex.p) = (lex.te) - 1
 		{
 			lex.setTokenPosition(tkn)
@@ -3883,7 +3891,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		goto st133
 	tr100:
-		// line internal/php8/scanner.rl:346
+		// line internal/php8/scanner.rl:353
 		lex.te = (lex.p) + 1
 		{
 			isDocComment := false
@@ -3945,12 +3953,12 @@ func (lex *Lexer) Lex() *token.Token {
 		goto _again
 	tr131:
 		lex.cs = 133
-		// line internal/php8/scanner.rl:371
+		// line internal/php8/scanner.rl:378
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
 			tok = token.T_NULLSAFE_OBJECT_OPERATOR
-			lex.cs = 494
+			lex.cs = 496
 			{
 				(lex.p)++
 				goto _out
@@ -3972,7 +3980,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		goto _again
 	tr135:
-		// line internal/php8/scanner.rl:368
+		// line internal/php8/scanner.rl:375
 		(lex.p) = (lex.te) - 1
 		{
 			lex.setTokenPosition(tkn)
@@ -4024,7 +4032,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		goto st133
 	tr202:
-		// line internal/php8/scanner.rl:396
+		// line internal/php8/scanner.rl:403
 		lex.te = (lex.p) + 1
 		{
 			c := lex.data[lex.p]
@@ -4032,7 +4040,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		goto st133
 	tr213:
-		// line internal/php8/scanner.rl:359
+		// line internal/php8/scanner.rl:366
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
@@ -4046,12 +4054,12 @@ func (lex *Lexer) Lex() *token.Token {
 		goto st133
 	tr251:
 		lex.cs = 133
-		// line internal/php8/scanner.rl:393
+		// line internal/php8/scanner.rl:400
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
 			tok = token.ID(int('`'))
-			lex.cs = 512
+			lex.cs = 514
 			{
 				(lex.p)++
 				goto _out
@@ -4059,7 +4067,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		goto _again
 	tr252:
-		// line internal/php8/scanner.rl:365
+		// line internal/php8/scanner.rl:372
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
@@ -4069,7 +4077,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		goto st133
 	tr254:
-		// line internal/php8/scanner.rl:366
+		// line internal/php8/scanner.rl:373
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
@@ -4097,7 +4105,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		goto st133
 	tr261:
-		// line internal/php8/scanner.rl:396
+		// line internal/php8/scanner.rl:403
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -4106,7 +4114,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		goto st133
 	tr262:
-		// line internal/php8/scanner.rl:359
+		// line internal/php8/scanner.rl:366
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -4148,13 +4156,13 @@ func (lex *Lexer) Lex() *token.Token {
 		goto st133
 	tr266:
 		lex.cs = 133
-		// line internal/php8/scanner.rl:394
+		// line internal/php8/scanner.rl:401
 		lex.te = (lex.p)
 		(lex.p)--
 		{
 			lex.setTokenPosition(tkn)
 			tok = token.ID(int('"'))
-			lex.cs = 518
+			lex.cs = 520
 			{
 				(lex.p)++
 				goto _out
@@ -4162,7 +4170,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		goto _again
 	tr267:
-		// line internal/php8/scanner.rl:343
+		// line internal/php8/scanner.rl:349
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -4182,8 +4190,8 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr270:
-		// line internal/php8/scanner.rl:339
+	tr272:
+		// line internal/php8/scanner.rl:344
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -4191,7 +4199,18 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.addFreeFloatingToken(tkn, token.T_COMMENT, lex.ts, lex.te)
 		}
 		goto st133
-	tr273:
+	tr275:
+		// line internal/php8/scanner.rl:54
+
+		// line internal/php8/scanner.rl:344
+		lex.te = (lex.p)
+		(lex.p)--
+		{
+			lex.ungetStr("?>")
+			lex.addFreeFloatingToken(tkn, token.T_COMMENT, lex.ts, lex.te)
+		}
+		goto st133
+	tr279:
 		// line internal/php8/scanner.rl:54
 
 		// line internal/php8/scanner.rl:339
@@ -4202,8 +4221,17 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.addFreeFloatingToken(tkn, token.T_COMMENT, lex.ts, lex.te)
 		}
 		goto st133
-	tr278:
-		// line internal/php8/scanner.rl:367
+	tr280:
+		// line internal/php8/scanner.rl:339
+		lex.te = (lex.p)
+		(lex.p)--
+		{
+			lex.ungetStr("?>")
+			lex.addFreeFloatingToken(tkn, token.T_COMMENT, lex.ts, lex.te)
+		}
+		goto st133
+	tr282:
+		// line internal/php8/scanner.rl:374
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -4216,7 +4244,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr279:
+	tr283:
 		// line internal/php8/scanner.rl:311
 		lex.te = (lex.p) + 1
 		{
@@ -4229,7 +4257,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr280:
+	tr284:
 		// line internal/php8/scanner.rl:300
 		lex.te = (lex.p) + 1
 		{
@@ -4242,7 +4270,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr281:
+	tr285:
 		// line internal/php8/scanner.rl:302
 		lex.te = (lex.p) + 1
 		{
@@ -4255,7 +4283,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr283:
+	tr287:
 		// line internal/php8/scanner.rl:305
 		lex.te = (lex.p) + 1
 		{
@@ -4268,7 +4296,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr284:
+	tr288:
 		// line internal/php8/scanner.rl:324
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4282,7 +4310,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr285:
+	tr289:
 		// line internal/php8/scanner.rl:306
 		lex.te = (lex.p) + 1
 		{
@@ -4295,7 +4323,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr286:
+	tr290:
 		// line internal/php8/scanner.rl:313
 		lex.te = (lex.p) + 1
 		{
@@ -4308,7 +4336,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr287:
+	tr291:
 		// line internal/php8/scanner.rl:308
 		lex.te = (lex.p) + 1
 		{
@@ -4321,7 +4349,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr288:
+	tr292:
 		// line internal/php8/scanner.rl:312
 		lex.te = (lex.p) + 1
 		{
@@ -4334,7 +4362,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr289:
+	tr293:
 		// line internal/php8/scanner.rl:309
 		lex.te = (lex.p) + 1
 		{
@@ -4347,21 +4375,21 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr290:
+	tr294:
 		lex.cs = 133
-		// line internal/php8/scanner.rl:370
+		// line internal/php8/scanner.rl:377
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
 			tok = token.T_OBJECT_OPERATOR
-			lex.cs = 494
+			lex.cs = 496
 			{
 				(lex.p)++
 				goto _out
 			}
 		}
 		goto _again
-	tr292:
+	tr296:
 		// line internal/php8/scanner.rl:304
 		lex.te = (lex.p) + 1
 		{
@@ -4374,7 +4402,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr293:
+	tr297:
 		// line internal/php8/scanner.rl:166
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4388,7 +4416,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr296:
+	tr300:
 		// line internal/php8/scanner.rl:307
 		lex.te = (lex.p) + 1
 		{
@@ -4401,7 +4429,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr297:
+	tr301:
 		// line internal/php8/scanner.rl:177
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4433,7 +4461,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr303:
+	tr307:
 		// line internal/php8/scanner.rl:167
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4460,7 +4488,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr304:
+	tr308:
 		// line internal/php8/scanner.rl:202
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4487,7 +4515,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr305:
+	tr309:
 		// line internal/php8/scanner.rl:192
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4514,7 +4542,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr306:
+	tr310:
 		// line internal/php8/scanner.rl:299
 		lex.te = (lex.p) + 1
 		{
@@ -4527,7 +4555,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr307:
+	tr311:
 		lex.cs = 133
 		// line internal/php8/scanner.rl:164
 		lex.te = (lex.p)
@@ -4542,7 +4570,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto _again
-	tr309:
+	tr313:
 		lex.cs = 133
 		// line internal/php8/scanner.rl:54
 
@@ -4559,7 +4587,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto _again
-	tr312:
+	tr316:
 		// line internal/php8/scanner.rl:316
 		lex.te = (lex.p) + 1
 		{
@@ -4572,7 +4600,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr313:
+	tr317:
 		// line internal/php8/scanner.rl:325
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4586,7 +4614,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr314:
+	tr318:
 		// line internal/php8/scanner.rl:320
 		lex.te = (lex.p) + 1
 		{
@@ -4599,11 +4627,11 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr315:
+	tr319:
 		lex.cs = 133
 		// line internal/php8/scanner.rl:54
 
-		// line internal/php8/scanner.rl:379
+		// line internal/php8/scanner.rl:386
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -4612,11 +4640,11 @@ func (lex *Lexer) Lex() *token.Token {
 			tok = token.T_START_HEREDOC
 
 			if lex.isHeredocEnd(lex.p + 1) {
-				lex.cs = 524
+				lex.cs = 526
 			} else if lex.data[lblStart-1] == '\'' {
-				lex.cs = 501
+				lex.cs = 503
 			} else {
-				lex.cs = 505
+				lex.cs = 507
 			}
 			{
 				(lex.p)++
@@ -4624,7 +4652,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto _again
-	tr316:
+	tr320:
 		// line internal/php8/scanner.rl:323
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4638,7 +4666,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr317:
+	tr321:
 		// line internal/php8/scanner.rl:315
 		lex.te = (lex.p) + 1
 		{
@@ -4651,7 +4679,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr319:
+	tr323:
 		// line internal/php8/scanner.rl:314
 		lex.te = (lex.p) + 1
 		{
@@ -4664,7 +4692,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr320:
+	tr324:
 		// line internal/php8/scanner.rl:318
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4678,7 +4706,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr321:
+	tr325:
 		// line internal/php8/scanner.rl:319
 		lex.te = (lex.p) + 1
 		{
@@ -4691,7 +4719,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr322:
+	tr326:
 		// line internal/php8/scanner.rl:322
 		lex.te = (lex.p) + 1
 		{
@@ -4704,7 +4732,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr324:
+	tr328:
 		// line internal/php8/scanner.rl:326
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4718,7 +4746,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr325:
+	tr329:
 		// line internal/php8/scanner.rl:321
 		lex.te = (lex.p) + 1
 		{
@@ -4731,7 +4759,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr329:
+	tr333:
 		lex.cs = 133
 		// line internal/php8/scanner.rl:163
 		lex.te = (lex.p)
@@ -4746,7 +4774,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto _again
-	tr331:
+	tr335:
 		lex.cs = 133
 		// line internal/php8/scanner.rl:54
 
@@ -4763,7 +4791,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto _again
-	tr332:
+	tr336:
 		// line internal/php8/scanner.rl:327
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4777,7 +4805,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr333:
+	tr337:
 		// line internal/php8/scanner.rl:328
 		lex.te = (lex.p) + 1
 		{
@@ -4790,8 +4818,8 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr334:
-		// line internal/php8/scanner.rl:368
+	tr338:
+		// line internal/php8/scanner.rl:375
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -4804,7 +4832,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr340:
+	tr344:
 		// line internal/php8/scanner.rl:214
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4818,7 +4846,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr416:
+	tr420:
 		// line internal/php8/scanner.rl:233
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4832,7 +4860,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr437:
+	tr441:
 		// line internal/php8/scanner.rl:237
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4846,7 +4874,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr467:
+	tr471:
 		// line internal/php8/scanner.rl:246
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4860,7 +4888,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr471:
+	tr475:
 		// line internal/php8/scanner.rl:248
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4874,7 +4902,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr503:
+	tr507:
 		// line internal/php8/scanner.rl:280
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4888,7 +4916,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr546:
+	tr550:
 		// line internal/php8/scanner.rl:261
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4902,7 +4930,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr548:
+	tr552:
 		// line internal/php8/scanner.rl:213
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4916,7 +4944,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr584:
+	tr588:
 		// line internal/php8/scanner.rl:282
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4930,7 +4958,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr630:
+	tr634:
 		// line internal/php8/scanner.rl:279
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4944,7 +4972,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr631:
+	tr635:
 		// line internal/php8/scanner.rl:216
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4958,7 +4986,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr632:
+	tr636:
 		// line internal/php8/scanner.rl:215
 		lex.te = (lex.p)
 		(lex.p)--
@@ -4972,7 +5000,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr634:
+	tr638:
 		// line internal/php8/scanner.rl:310
 		lex.te = (lex.p) + 1
 		{
@@ -4985,7 +5013,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr708:
+	tr712:
 		// line internal/php8/scanner.rl:303
 		lex.te = (lex.p) + 1
 		{
@@ -4998,7 +5026,7 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto st133
-	tr709:
+	tr713:
 		// line internal/php8/scanner.rl:301
 		lex.te = (lex.p) + 1
 		{
@@ -5022,7 +5050,7 @@ func (lex *Lexer) Lex() *token.Token {
 		// line NONE:1
 		lex.ts = (lex.p)
 
-		// line internal/php8/scanner.go:3725
+		// line internal/php8/scanner.go:3753
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr11
@@ -5037,21 +5065,21 @@ func (lex *Lexer) Lex() *token.Token {
 		case 35:
 			goto st140
 		case 36:
-			goto st143
-		case 37:
 			goto st145
+		case 37:
+			goto st147
 		case 38:
-			goto st146
+			goto st148
 		case 39:
 			goto tr211
 		case 40:
 			goto tr212
 		case 42:
-			goto st149
-		case 43:
 			goto st151
+		case 43:
+			goto st153
 		case 45:
-			goto st152
+			goto st154
 		case 46:
 			goto tr217
 		case 47:
@@ -5059,15 +5087,15 @@ func (lex *Lexer) Lex() *token.Token {
 		case 48:
 			goto tr219
 		case 58:
-			goto st163
+			goto st165
 		case 59:
 			goto tr221
 		case 60:
-			goto st167
+			goto st169
 		case 61:
-			goto st171
-		case 62:
 			goto st173
+		case 62:
+			goto st175
 		case 63:
 			goto tr225
 		case 64:
@@ -5115,9 +5143,9 @@ func (lex *Lexer) Lex() *token.Token {
 		case 89:
 			goto tr247
 		case 92:
-			goto st425
-		case 94:
 			goto st427
+		case 94:
+			goto st429
 		case 95:
 			goto tr250
 		case 96:
@@ -5167,7 +5195,7 @@ func (lex *Lexer) Lex() *token.Token {
 		case 123:
 			goto tr252
 		case 124:
-			goto st493
+			goto st495
 		case 125:
 			goto tr254
 		case 126:
@@ -5219,7 +5247,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof134
 		}
 	st_case_134:
-		// line internal/php8/scanner.go:3922
+		// line internal/php8/scanner.go:3950
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr11
@@ -5269,7 +5297,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof135
 		}
 	st_case_135:
-		// line internal/php8/scanner.go:3972
+		// line internal/php8/scanner.go:4000
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr259
@@ -5313,7 +5341,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof6
 		}
 	st_case_6:
-		// line internal/php8/scanner.go:4016
+		// line internal/php8/scanner.go:4044
 		if lex.data[(lex.p)] == 10 {
 			goto tr11
 		}
@@ -5335,7 +5363,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof136
 		}
 	st_case_136:
-		// line internal/php8/scanner.go:4038
+		// line internal/php8/scanner.go:4066
 		if lex.data[(lex.p)] == 10 {
 			goto tr11
 		}
@@ -5362,15 +5390,15 @@ func (lex *Lexer) Lex() *token.Token {
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:394
-		lex.act = 151
+		// line internal/php8/scanner.rl:401
+		lex.act = 152
 		goto st139
 	st139:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof139
 		}
 	st_case_139:
-		// line internal/php8/scanner.go:4073
+		// line internal/php8/scanner.go:4101
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr14
@@ -5403,7 +5431,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof7
 		}
 	st_case_7:
-		// line internal/php8/scanner.go:4106
+		// line internal/php8/scanner.go:4134
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr14
@@ -5486,11 +5514,47 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof140
 		}
 	st_case_140:
-		if lex.data[(lex.p)] == 91 {
-			goto tr269
+		_widec = int16(lex.data[(lex.p)])
+		switch {
+		case lex.data[(lex.p)] > 10:
+			if 13 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 13 {
+				_widec = 256 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotPhpCloseToken() && lex.isNotNewLine() {
+					_widec += 256
+				}
+			}
+		case lex.data[(lex.p)] >= 10:
+			_widec = 256 + (int16(lex.data[(lex.p)]) - 0)
+			if lex.isNotPhpCloseToken() && lex.isNotNewLine() {
+				_widec += 256
+			}
 		}
-		goto st141
-	tr272:
+		switch _widec {
+		case 91:
+			goto tr269
+		case 266:
+			goto st141
+		case 269:
+			goto st141
+		case 522:
+			goto tr270
+		case 525:
+			goto tr271
+		}
+		switch {
+		case _widec < 11:
+			if _widec <= 9 {
+				goto st141
+			}
+		case _widec > 12:
+			if 14 <= _widec {
+				goto st141
+			}
+		default:
+			goto st141
+		}
+		goto tr267
+	tr274:
 		// line internal/php8/scanner.rl:38
 
 		if lex.data[lex.p] == '\n' {
@@ -5502,11 +5566,11 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 
 		goto st141
-	tr274:
+	tr276:
 		// line internal/php8/scanner.rl:54
 
 		goto st141
-	tr276:
+	tr278:
 		// line internal/php8/scanner.rl:54
 
 		// line internal/php8/scanner.rl:38
@@ -5525,7 +5589,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof141
 		}
 	st_case_141:
-		// line internal/php8/scanner.go:4228
+		// line internal/php8/scanner.go:4292
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -5566,15 +5630,15 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		switch _widec {
 		case 522:
-			goto tr271
+			goto tr273
 		case 525:
-			goto tr272
+			goto tr274
 		}
 		if 512 <= _widec && _widec <= 767 {
 			goto st141
 		}
-		goto tr270
-	tr271:
+		goto tr272
+	tr273:
 		// line internal/php8/scanner.rl:38
 
 		if lex.data[lex.p] == '\n' {
@@ -5586,7 +5650,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 
 		goto st142
-	tr275:
+	tr277:
 		// line internal/php8/scanner.rl:54
 
 		// line internal/php8/scanner.rl:38
@@ -5605,7 +5669,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof142
 		}
 	st_case_142:
-		// line internal/php8/scanner.go:4308
+		// line internal/php8/scanner.go:4372
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -5646,19 +5710,156 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		switch _widec {
 		case 522:
-			goto tr275
+			goto tr277
 		case 525:
-			goto tr276
+			goto tr278
 		}
 		if 512 <= _widec && _widec <= 767 {
-			goto tr274
+			goto tr276
 		}
-		goto tr273
+		goto tr275
+	tr270:
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st143
 	st143:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof143
 		}
 	st_case_143:
+		// line internal/php8/scanner.go:4438
+		_widec = int16(lex.data[(lex.p)])
+		switch {
+		case lex.data[(lex.p)] < 11:
+			switch {
+			case lex.data[(lex.p)] > 9:
+				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
+					_widec = 256 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotPhpCloseToken() && lex.isNotNewLine() {
+						_widec += 256
+					}
+				}
+			default:
+				_widec = 256 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotPhpCloseToken() && lex.isNotNewLine() {
+					_widec += 256
+				}
+			}
+		case lex.data[(lex.p)] > 12:
+			switch {
+			case lex.data[(lex.p)] > 13:
+				if 14 <= lex.data[(lex.p)] {
+					_widec = 256 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotPhpCloseToken() && lex.isNotNewLine() {
+						_widec += 256
+					}
+				}
+			case lex.data[(lex.p)] >= 13:
+				_widec = 256 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotPhpCloseToken() && lex.isNotNewLine() {
+					_widec += 256
+				}
+			}
+		default:
+			_widec = 256 + (int16(lex.data[(lex.p)]) - 0)
+			if lex.isNotPhpCloseToken() && lex.isNotNewLine() {
+				_widec += 256
+			}
+		}
+		switch _widec {
+		case 522:
+			goto tr277
+		case 525:
+			goto tr278
+		}
+		switch {
+		case _widec > 255:
+			if 512 <= _widec && _widec <= 767 {
+				goto tr276
+			}
+		default:
+			goto tr280
+		}
+		goto tr279
+	tr271:
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st144
+	st144:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof144
+		}
+	st_case_144:
+		// line internal/php8/scanner.go:4509
+		_widec = int16(lex.data[(lex.p)])
+		switch {
+		case lex.data[(lex.p)] < 11:
+			switch {
+			case lex.data[(lex.p)] > 9:
+				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
+					_widec = 256 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotPhpCloseToken() && lex.isNotNewLine() {
+						_widec += 256
+					}
+				}
+			default:
+				_widec = 256 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotPhpCloseToken() && lex.isNotNewLine() {
+					_widec += 256
+				}
+			}
+		case lex.data[(lex.p)] > 12:
+			switch {
+			case lex.data[(lex.p)] > 13:
+				if 14 <= lex.data[(lex.p)] {
+					_widec = 256 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotPhpCloseToken() && lex.isNotNewLine() {
+						_widec += 256
+					}
+				}
+			case lex.data[(lex.p)] >= 13:
+				_widec = 256 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotPhpCloseToken() && lex.isNotNewLine() {
+					_widec += 256
+				}
+			}
+		default:
+			_widec = 256 + (int16(lex.data[(lex.p)]) - 0)
+			if lex.isNotPhpCloseToken() && lex.isNotNewLine() {
+				_widec += 256
+			}
+		}
+		switch _widec {
+		case 522:
+			goto tr270
+		case 525:
+			goto tr274
+		}
+		if 512 <= _widec && _widec <= 767 {
+			goto st141
+		}
+		goto tr272
+	st145:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof145
+		}
+	st_case_145:
 		if lex.data[(lex.p)] == 96 {
 			goto tr262
 		}
@@ -5674,65 +5875,65 @@ func (lex *Lexer) Lex() *token.Token {
 		default:
 			goto tr262
 		}
-		goto st144
-	st144:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof144
-		}
-	st_case_144:
-		if lex.data[(lex.p)] == 96 {
-			goto tr278
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr278
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr278
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr278
-			}
-		default:
-			goto tr278
-		}
-		goto st144
-	st145:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof145
-		}
-	st_case_145:
-		if lex.data[(lex.p)] == 61 {
-			goto tr279
-		}
-		goto tr262
+		goto st146
 	st146:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof146
 		}
 	st_case_146:
+		if lex.data[(lex.p)] == 96 {
+			goto tr282
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr282
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr282
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr282
+			}
+		default:
+			goto tr282
+		}
+		goto st146
+	st147:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof147
+		}
+	st_case_147:
+		if lex.data[(lex.p)] == 61 {
+			goto tr283
+		}
+		goto tr262
+	st148:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof148
+		}
+	st_case_148:
 		switch lex.data[(lex.p)] {
 		case 38:
-			goto tr280
+			goto tr284
 		case 61:
-			goto tr281
+			goto tr285
 		}
 		goto tr262
 	tr211:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st147
-	st147:
+		goto st149
+	st149:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof147
+			goto _test_eof149
 		}
-	st_case_147:
-		// line internal/php8/scanner.go:4435
+	st_case_149:
+		// line internal/php8/scanner.go:4636
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr21
@@ -5761,7 +5962,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof11
 		}
 	st_case_11:
-		// line internal/php8/scanner.go:4464
+		// line internal/php8/scanner.go:4665
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr21
@@ -5789,13 +5990,13 @@ func (lex *Lexer) Lex() *token.Token {
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st148
-	st148:
+		goto st150
+	st150:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof148
+			goto _test_eof150
 		}
-	st_case_148:
-		// line internal/php8/scanner.go:4498
+	st_case_150:
+		// line internal/php8/scanner.go:4699
 		switch lex.data[(lex.p)] {
 		case 9:
 			goto st13
@@ -6603,35 +6804,14 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st67
 		}
 		goto tr23
-	st149:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof149
-		}
-	st_case_149:
-		switch lex.data[(lex.p)] {
-		case 42:
-			goto st150
-		case 61:
-			goto tr283
-		}
-		goto tr262
-	st150:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof150
-		}
-	st_case_150:
-		if lex.data[(lex.p)] == 61 {
-			goto tr285
-		}
-		goto tr284
 	st151:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof151
 		}
 	st_case_151:
 		switch lex.data[(lex.p)] {
-		case 43:
-			goto tr286
+		case 42:
+			goto st152
 		case 61:
 			goto tr287
 		}
@@ -6641,31 +6821,52 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof152
 		}
 	st_case_152:
+		if lex.data[(lex.p)] == 61 {
+			goto tr289
+		}
+		goto tr288
+	st153:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof153
+		}
+	st_case_153:
+		switch lex.data[(lex.p)] {
+		case 43:
+			goto tr290
+		case 61:
+			goto tr291
+		}
+		goto tr262
+	st154:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof154
+		}
+	st_case_154:
 		switch lex.data[(lex.p)] {
 		case 45:
-			goto tr288
+			goto tr292
 		case 61:
-			goto tr289
+			goto tr293
 		case 62:
-			goto tr290
+			goto tr294
 		}
 		goto tr262
 	tr217:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st153
-	st153:
+		goto st155
+	st155:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof153
+			goto _test_eof155
 		}
-	st_case_153:
-		// line internal/php8/scanner.go:5363
+	st_case_155:
+		// line internal/php8/scanner.go:5564
 		switch lex.data[(lex.p)] {
 		case 46:
 			goto st68
 		case 61:
-			goto tr292
+			goto tr296
 		}
 		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 57 {
 			goto tr91
@@ -6686,13 +6887,13 @@ func (lex *Lexer) Lex() *token.Token {
 
 		// line internal/php8/scanner.rl:166
 		lex.act = 10
-		goto st154
-	st154:
+		goto st156
+	st156:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof154
+			goto _test_eof156
 		}
-	st_case_154:
-		// line internal/php8/scanner.go:5395
+	st_case_156:
+		// line internal/php8/scanner.go:5596
 		switch lex.data[(lex.p)] {
 		case 69:
 			goto st69
@@ -6704,7 +6905,7 @@ func (lex *Lexer) Lex() *token.Token {
 		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 57 {
 			goto tr91
 		}
-		goto tr293
+		goto tr297
 	st69:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof69
@@ -6735,20 +6936,20 @@ func (lex *Lexer) Lex() *token.Token {
 
 		// line internal/php8/scanner.rl:166
 		lex.act = 10
-		goto st155
-	st155:
+		goto st157
+	st157:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof155
+			goto _test_eof157
 		}
-	st_case_155:
-		// line internal/php8/scanner.go:5444
+	st_case_157:
+		// line internal/php8/scanner.go:5645
 		if lex.data[(lex.p)] == 95 {
 			goto st70
 		}
 		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 57 {
 			goto tr89
 		}
-		goto tr293
+		goto tr297
 	st71:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof71
@@ -6762,20 +6963,20 @@ func (lex *Lexer) Lex() *token.Token {
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st156
-	st156:
+		goto st158
+	st158:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof156
+			goto _test_eof158
 		}
-	st_case_156:
-		// line internal/php8/scanner.go:5471
+	st_case_158:
+		// line internal/php8/scanner.go:5672
 		switch lex.data[(lex.p)] {
 		case 42:
 			goto st72
 		case 47:
 			goto st141
 		case 61:
-			goto tr296
+			goto tr300
 		}
 		goto tr262
 	tr94:
@@ -6813,7 +7014,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof72
 		}
 	st_case_72:
-		// line internal/php8/scanner.go:5516
+		// line internal/php8/scanner.go:5717
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr93
@@ -6854,7 +7055,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof73
 		}
 	st_case_73:
-		// line internal/php8/scanner.go:5557
+		// line internal/php8/scanner.go:5758
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr97
@@ -6873,7 +7074,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof74
 		}
 	st_case_74:
-		// line internal/php8/scanner.go:5576
+		// line internal/php8/scanner.go:5777
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr93
@@ -6891,16 +7092,16 @@ func (lex *Lexer) Lex() *token.Token {
 
 		// line internal/php8/scanner.rl:177
 		lex.act = 12
-		goto st157
-	st157:
+		goto st159
+	st159:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof157
+			goto _test_eof159
 		}
-	st_case_157:
-		// line internal/php8/scanner.go:5600
+	st_case_159:
+		// line internal/php8/scanner.go:5801
 		switch lex.data[(lex.p)] {
 		case 46:
-			goto tr298
+			goto tr302
 		case 66:
 			goto st76
 		case 69:
@@ -6923,20 +7124,20 @@ func (lex *Lexer) Lex() *token.Token {
 		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 57 {
 			goto tr102
 		}
-		goto tr297
-	tr298:
+		goto tr301
+	tr302:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:166
 		lex.act = 10
-		goto st158
-	st158:
+		goto st160
+	st160:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof158
+			goto _test_eof160
 		}
-	st_case_158:
-		// line internal/php8/scanner.go:5639
+	st_case_160:
+		// line internal/php8/scanner.go:5840
 		switch lex.data[(lex.p)] {
 		case 69:
 			goto st69
@@ -6946,23 +7147,23 @@ func (lex *Lexer) Lex() *token.Token {
 		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 57 {
 			goto tr91
 		}
-		goto tr293
+		goto tr297
 	tr102:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:177
 		lex.act = 12
-		goto st159
-	st159:
+		goto st161
+	st161:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof159
+			goto _test_eof161
 		}
-	st_case_159:
-		// line internal/php8/scanner.go:5662
+	st_case_161:
+		// line internal/php8/scanner.go:5863
 		switch lex.data[(lex.p)] {
 		case 46:
-			goto tr298
+			goto tr302
 		case 69:
 			goto st69
 		case 95:
@@ -6973,7 +7174,7 @@ func (lex *Lexer) Lex() *token.Token {
 		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 57 {
 			goto tr102
 		}
-		goto tr297
+		goto tr301
 	st75:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof75
@@ -6998,20 +7199,20 @@ func (lex *Lexer) Lex() *token.Token {
 
 		// line internal/php8/scanner.rl:167
 		lex.act = 11
-		goto st160
-	st160:
+		goto st162
+	st162:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof160
+			goto _test_eof162
 		}
-	st_case_160:
-		// line internal/php8/scanner.go:5707
+	st_case_162:
+		// line internal/php8/scanner.go:5908
 		if lex.data[(lex.p)] == 95 {
 			goto st76
 		}
 		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 49 {
 			goto tr103
 		}
-		goto tr303
+		goto tr307
 	st77:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof77
@@ -7027,20 +7228,20 @@ func (lex *Lexer) Lex() *token.Token {
 
 		// line internal/php8/scanner.rl:202
 		lex.act = 14
-		goto st161
-	st161:
+		goto st163
+	st163:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof161
+			goto _test_eof163
 		}
-	st_case_161:
-		// line internal/php8/scanner.go:5736
+	st_case_163:
+		// line internal/php8/scanner.go:5937
 		if lex.data[(lex.p)] == 95 {
 			goto st77
 		}
 		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 55 {
 			goto tr104
 		}
-		goto tr304
+		goto tr308
 	st78:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof78
@@ -7065,13 +7266,13 @@ func (lex *Lexer) Lex() *token.Token {
 
 		// line internal/php8/scanner.rl:192
 		lex.act = 13
-		goto st162
-	st162:
+		goto st164
+	st164:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof162
+			goto _test_eof164
 		}
-	st_case_162:
-		// line internal/php8/scanner.go:5774
+	st_case_164:
+		// line internal/php8/scanner.go:5975
 		if lex.data[(lex.p)] == 95 {
 			goto st78
 		}
@@ -7087,27 +7288,27 @@ func (lex *Lexer) Lex() *token.Token {
 		default:
 			goto tr105
 		}
-		goto tr305
-	st163:
+		goto tr309
+	st165:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof163
+			goto _test_eof165
 		}
-	st_case_163:
+	st_case_165:
 		if lex.data[(lex.p)] == 58 {
-			goto tr306
+			goto tr310
 		}
 		goto tr262
 	tr221:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st164
-	st164:
+		goto st166
+	st166:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof164
+			goto _test_eof166
 		}
-	st_case_164:
-		// line internal/php8/scanner.go:5810
+	st_case_166:
+		// line internal/php8/scanner.go:6011
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr107
@@ -7131,7 +7332,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof79
 		}
 	st_case_79:
-		// line internal/php8/scanner.go:5834
+		// line internal/php8/scanner.go:6035
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr107
@@ -7177,7 +7378,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof80
 		}
 	st_case_80:
-		// line internal/php8/scanner.go:5880
+		// line internal/php8/scanner.go:6081
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr111
@@ -7223,7 +7424,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof81
 		}
 	st_case_81:
-		// line internal/php8/scanner.go:5926
+		// line internal/php8/scanner.go:6127
 		if lex.data[(lex.p)] == 10 {
 			goto tr107
 		}
@@ -7237,7 +7438,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof82
 		}
 	st_case_82:
-		// line internal/php8/scanner.go:5940
+		// line internal/php8/scanner.go:6141
 		if lex.data[(lex.p)] == 62 {
 			goto tr114
 		}
@@ -7246,20 +7447,20 @@ func (lex *Lexer) Lex() *token.Token {
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st165
-	st165:
+		goto st167
+	st167:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof165
+			goto _test_eof167
 		}
-	st_case_165:
-		// line internal/php8/scanner.go:5955
+	st_case_167:
+		// line internal/php8/scanner.go:6156
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr116
 		case 13:
-			goto tr308
+			goto tr312
 		}
-		goto tr307
+		goto tr311
 	tr116:
 		// line internal/php8/scanner.rl:38
 
@@ -7271,15 +7472,15 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st166
-	st166:
+		goto st168
+	st168:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof166
+			goto _test_eof168
 		}
-	st_case_166:
-		// line internal/php8/scanner.go:5980
-		goto tr309
-	tr308:
+	st_case_168:
+		// line internal/php8/scanner.go:6181
+		goto tr313
+	tr312:
 		// line internal/php8/scanner.rl:38
 
 		if lex.data[lex.p] == '\n' {
@@ -7296,45 +7497,45 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof83
 		}
 	st_case_83:
-		// line internal/php8/scanner.go:5999
+		// line internal/php8/scanner.go:6200
 		if lex.data[(lex.p)] == 10 {
 			goto tr116
 		}
 		goto tr115
-	st167:
+	st169:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof167
+			goto _test_eof169
 		}
-	st_case_167:
+	st_case_169:
 		switch lex.data[(lex.p)] {
 		case 60:
-			goto tr310
+			goto tr314
 		case 61:
-			goto st170
+			goto st172
 		case 62:
-			goto tr312
+			goto tr316
 		}
 		goto tr262
-	tr310:
+	tr314:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:325
 		lex.act = 126
-		goto st168
-	st168:
+		goto st170
+	st170:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof168
+			goto _test_eof170
 		}
-	st_case_168:
-		// line internal/php8/scanner.go:6030
+	st_case_170:
+		// line internal/php8/scanner.go:6231
 		switch lex.data[(lex.p)] {
 		case 60:
 			goto st84
 		case 61:
-			goto tr314
+			goto tr318
 		}
-		goto tr313
+		goto tr317
 	st84:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof84
@@ -7395,7 +7596,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof86
 		}
 	st_case_86:
-		// line internal/php8/scanner.go:6098
+		// line internal/php8/scanner.go:6299
 		switch lex.data[(lex.p)] {
 		case 34:
 			goto tr122
@@ -7429,7 +7630,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof87
 		}
 	st_case_87:
-		// line internal/php8/scanner.go:6132
+		// line internal/php8/scanner.go:6333
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr124
@@ -7448,7 +7649,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st169
+		goto st171
 	tr128:
 		// line internal/php8/scanner.rl:36
 		lblEnd = lex.p
@@ -7462,14 +7663,14 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st169
-	st169:
+		goto st171
+	st171:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof169
+			goto _test_eof171
 		}
-	st_case_169:
-		// line internal/php8/scanner.go:6171
-		goto tr315
+	st_case_171:
+		// line internal/php8/scanner.go:6372
+		goto tr319
 	tr125:
 		// line internal/php8/scanner.rl:38
 
@@ -7501,7 +7702,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof88
 		}
 	st_case_88:
-		// line internal/php8/scanner.go:6204
+		// line internal/php8/scanner.go:6405
 		if lex.data[(lex.p)] == 10 {
 			goto tr124
 		}
@@ -7536,7 +7737,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof90
 		}
 	st_case_90:
-		// line internal/php8/scanner.go:6239
+		// line internal/php8/scanner.go:6440
 		switch lex.data[(lex.p)] {
 		case 39:
 			goto tr122
@@ -7570,7 +7771,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof91
 		}
 	st_case_91:
-		// line internal/php8/scanner.go:6273
+		// line internal/php8/scanner.go:6474
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr128
@@ -7597,33 +7798,12 @@ func (lex *Lexer) Lex() *token.Token {
 			goto tr12
 		}
 		goto st91
-	st170:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof170
-		}
-	st_case_170:
-		if lex.data[(lex.p)] == 62 {
-			goto tr317
-		}
-		goto tr316
-	st171:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof171
-		}
-	st_case_171:
-		switch lex.data[(lex.p)] {
-		case 61:
-			goto st172
-		case 62:
-			goto tr319
-		}
-		goto tr262
 	st172:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof172
 		}
 	st_case_172:
-		if lex.data[(lex.p)] == 61 {
+		if lex.data[(lex.p)] == 62 {
 			goto tr321
 		}
 		goto tr320
@@ -7634,9 +7814,9 @@ func (lex *Lexer) Lex() *token.Token {
 	st_case_173:
 		switch lex.data[(lex.p)] {
 		case 61:
-			goto tr322
-		case 62:
 			goto st174
+		case 62:
+			goto tr323
 		}
 		goto tr262
 	st174:
@@ -7648,24 +7828,45 @@ func (lex *Lexer) Lex() *token.Token {
 			goto tr325
 		}
 		goto tr324
-	tr225:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		goto st175
 	st175:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof175
 		}
 	st_case_175:
-		// line internal/php8/scanner.go:6361
+		switch lex.data[(lex.p)] {
+		case 61:
+			goto tr326
+		case 62:
+			goto st176
+		}
+		goto tr262
+	st176:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof176
+		}
+	st_case_176:
+		if lex.data[(lex.p)] == 61 {
+			goto tr329
+		}
+		goto tr328
+	tr225:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		goto st177
+	st177:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof177
+		}
+	st_case_177:
+		// line internal/php8/scanner.go:6562
 		switch lex.data[(lex.p)] {
 		case 45:
 			goto st92
 		case 62:
-			goto tr327
+			goto tr331
 		case 63:
-			goto st178
+			goto st180
 		}
 		goto tr262
 	st92:
@@ -7677,24 +7878,24 @@ func (lex *Lexer) Lex() *token.Token {
 			goto tr131
 		}
 		goto tr23
-	tr327:
+	tr331:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st176
-	st176:
+		goto st178
+	st178:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof176
+			goto _test_eof178
 		}
-	st_case_176:
-		// line internal/php8/scanner.go:6390
+	st_case_178:
+		// line internal/php8/scanner.go:6591
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr133
 		case 13:
-			goto tr330
+			goto tr334
 		}
-		goto tr329
+		goto tr333
 	tr133:
 		// line internal/php8/scanner.rl:38
 
@@ -7706,15 +7907,15 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st177
-	st177:
+		goto st179
+	st179:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof177
+			goto _test_eof179
 		}
-	st_case_177:
-		// line internal/php8/scanner.go:6415
-		goto tr331
-	tr330:
+	st_case_179:
+		// line internal/php8/scanner.go:6616
+		goto tr335
+	tr334:
 		// line internal/php8/scanner.rl:38
 
 		if lex.data[lex.p] == '\n' {
@@ -7731,576 +7932,576 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof93
 		}
 	st_case_93:
-		// line internal/php8/scanner.go:6434
+		// line internal/php8/scanner.go:6635
 		if lex.data[(lex.p)] == 10 {
 			goto tr133
 		}
 		goto tr132
-	st178:
+	st180:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof178
+			goto _test_eof180
 		}
-	st_case_178:
+	st_case_180:
 		if lex.data[(lex.p)] == 61 {
-			goto tr333
+			goto tr337
 		}
-		goto tr332
+		goto tr336
 	tr226:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st179
-	st179:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st181
+	st181:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof179
+			goto _test_eof181
 		}
-	st_case_179:
-		// line internal/php8/scanner.go:6460
+	st_case_181:
+		// line internal/php8/scanner.go:6661
 		switch lex.data[(lex.p)] {
 		case 66:
-			goto tr335
+			goto tr339
 		case 78:
-			goto tr336
+			goto tr340
 		case 82:
-			goto tr337
+			goto tr341
 		case 83:
-			goto tr338
+			goto tr342
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 98:
-			goto tr335
-		case 110:
-			goto tr336
-		case 114:
-			goto tr337
-		case 115:
 			goto tr338
+		case 98:
+			goto tr339
+		case 110:
+			goto tr340
+		case 114:
+			goto tr341
+		case 115:
+			goto tr342
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr233:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st180
-	tr338:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st182
+	tr342:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:220
 		lex.act = 21
-		goto st180
-	tr346:
+		goto st182
+	tr350:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:218
 		lex.act = 19
-		goto st180
-	tr347:
+		goto st182
+	tr351:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:294
 		lex.act = 95
-		goto st180
-	tr350:
+		goto st182
+	tr354:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:219
 		lex.act = 20
-		goto st180
-	tr355:
+		goto st182
+	tr359:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:221
 		lex.act = 22
-		goto st180
-	tr367:
+		goto st182
+	tr371:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:222
 		lex.act = 23
-		goto st180
-	tr368:
+		goto st182
+	tr372:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:223
 		lex.act = 24
-		goto st180
-	tr370:
+		goto st182
+	tr374:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:224
 		lex.act = 25
-		goto st180
-	tr377:
+		goto st182
+	tr381:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:250
 		lex.act = 51
-		goto st180
-	tr381:
+		goto st182
+	tr385:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:225
 		lex.act = 26
-		goto st180
-	tr383:
+		goto st182
+	tr387:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:226
 		lex.act = 27
-		goto st180
-	tr387:
+		goto st182
+	tr391:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:227
 		lex.act = 28
-		goto st180
-	tr391:
+		goto st182
+	tr395:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:228
 		lex.act = 29
-		goto st180
-	tr394:
+		goto st182
+	tr398:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:231
 		lex.act = 32
-		goto st180
-	tr400:
+		goto st182
+	tr404:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:229
 		lex.act = 30
-		goto st180
-	tr404:
+		goto st182
+	tr408:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:230
 		lex.act = 31
-		goto st180
-	tr405:
+		goto st182
+	tr409:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:244
 		lex.act = 45
-		goto st180
-	tr413:
+		goto st182
+	tr417:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:232
 		lex.act = 33
-		goto st180
-	tr418:
+		goto st182
+	tr422:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:234
 		lex.act = 35
-		goto st180
-	tr421:
+		goto st182
+	tr425:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:235
 		lex.act = 36
-		goto st180
-	tr434:
+		goto st182
+	tr438:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:236
 		lex.act = 37
-		goto st180
-	tr441:
+		goto st182
+	tr445:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:238
 		lex.act = 39
-		goto st180
-	tr442:
+		goto st182
+	tr446:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:239
 		lex.act = 40
-		goto st180
-	tr447:
+		goto st182
+	tr451:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:240
 		lex.act = 41
-		goto st180
-	tr451:
+		goto st182
+	tr455:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:241
 		lex.act = 42
-		goto st180
-	tr452:
+		goto st182
+	tr456:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:242
 		lex.act = 43
-		goto st180
-	tr454:
+		goto st182
+	tr458:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:243
 		lex.act = 44
-		goto st180
-	tr460:
+		goto st182
+	tr464:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:245
 		lex.act = 46
-		goto st180
-	tr462:
+		goto st182
+	tr466:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:251
 		lex.act = 52
-		goto st180
-	tr469:
+		goto st182
+	tr473:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:247
 		lex.act = 48
-		goto st180
-	tr475:
+		goto st182
+	tr479:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:249
 		lex.act = 50
-		goto st180
-	tr481:
+		goto st182
+	tr485:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:252
 		lex.act = 53
-		goto st180
-	tr483:
+		goto st182
+	tr487:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:253
 		lex.act = 54
-		goto st180
-	tr484:
+		goto st182
+	tr488:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:254
 		lex.act = 55
-		goto st180
-	tr495:
+		goto st182
+	tr499:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:256
 		lex.act = 57
-		goto st180
-	tr508:
+		goto st182
+	tr512:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:281
 		lex.act = 82
-		goto st180
-	tr516:
+		goto st182
+	tr520:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:257
 		lex.act = 58
-		goto st180
-	tr520:
+		goto st182
+	tr524:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:258
 		lex.act = 59
-		goto st180
-	tr526:
+		goto st182
+	tr530:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:259
 		lex.act = 60
-		goto st180
-	tr529:
+		goto st182
+	tr533:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:255
 		lex.act = 56
-		goto st180
-	tr532:
+		goto st182
+	tr536:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:260
 		lex.act = 61
-		goto st180
-	tr536:
+		goto st182
+	tr540:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:270
 		lex.act = 71
-		goto st180
-	tr549:
+		goto st182
+	tr553:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:293
 		lex.act = 94
-		goto st180
-	tr550:
+		goto st182
+	tr554:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:295
 		lex.act = 96
-		goto st180
-	tr557:
+		goto st182
+	tr561:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:264
 		lex.act = 65
-		goto st180
-	tr560:
+		goto st182
+	tr564:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:262
 		lex.act = 63
-		goto st180
-	tr566:
+		goto st182
+	tr570:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:265
 		lex.act = 66
-		goto st180
-	tr570:
+		goto st182
+	tr574:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:263
 		lex.act = 64
-		goto st180
-	tr579:
+		goto st182
+	tr583:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:267
 		lex.act = 68
-		goto st180
-	tr589:
+		goto st182
+	tr593:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:283
 		lex.act = 84
-		goto st180
-	tr592:
+		goto st182
+	tr596:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:266
 		lex.act = 67
-		goto st180
-	tr598:
+		goto st182
+	tr602:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:268
 		lex.act = 69
-		goto st180
-	tr602:
+		goto st182
+	tr606:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:269
 		lex.act = 70
-		goto st180
-	tr607:
+		goto st182
+	tr611:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:271
 		lex.act = 72
-		goto st180
-	tr609:
+		goto st182
+	tr613:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:273
 		lex.act = 74
-		goto st180
-	tr611:
+		goto st182
+	tr615:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:272
 		lex.act = 73
-		goto st180
-	tr616:
+		goto st182
+	tr620:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:274
 		lex.act = 75
-		goto st180
-	tr617:
+		goto st182
+	tr621:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:275
 		lex.act = 76
-		goto st180
-	tr619:
+		goto st182
+	tr623:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:276
 		lex.act = 77
-		goto st180
-	tr623:
+		goto st182
+	tr627:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:277
 		lex.act = 78
-		goto st180
-	tr625:
+		goto st182
+	tr629:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:296
 		lex.act = 97
-		goto st180
-	tr649:
+		goto st182
+	tr653:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:284
 		lex.act = 85
-		goto st180
-	tr653:
+		goto st182
+	tr657:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:285
 		lex.act = 86
-		goto st180
-	tr659:
+		goto st182
+	tr663:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:286
 		lex.act = 87
-		goto st180
-	tr667:
+		goto st182
+	tr671:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:287
 		lex.act = 88
-		goto st180
-	tr679:
+		goto st182
+	tr683:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:292
 		lex.act = 93
-		goto st180
-	tr684:
+		goto st182
+	tr688:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:288
 		lex.act = 89
-		goto st180
-	tr691:
+		goto st182
+	tr695:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:290
 		lex.act = 91
-		goto st180
-	tr701:
+		goto st182
+	tr705:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:289
 		lex.act = 90
-		goto st180
-	tr707:
+		goto st182
+	tr711:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:291
 		lex.act = 92
-		goto st180
-	st180:
+		goto st182
+	st182:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof180
+			goto _test_eof182
 		}
-	st_case_180:
-		// line internal/php8/scanner.go:7003
+	st_case_182:
+		// line internal/php8/scanner.go:7204
 		switch lex.data[(lex.p)] {
 		case 92:
 			goto st94
@@ -8352,490 +8553,490 @@ func (lex *Lexer) Lex() *token.Token {
 
 		// line internal/php8/scanner.rl:214
 		lex.act = 16
-		goto st181
-	st181:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof181
-		}
-	st_case_181:
-		// line internal/php8/scanner.go:7061
-		switch lex.data[(lex.p)] {
-		case 92:
-			goto st94
-		case 96:
-			goto tr340
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr340
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr340
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr340
-			}
-		default:
-			goto tr340
-		}
-		goto tr134
-	tr335:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st182
-	st182:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof182
-		}
-	st_case_182:
-		// line internal/php8/scanner.go:7098
-		switch lex.data[(lex.p)] {
-		case 83:
-			goto tr341
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 115:
-			goto tr341
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr341:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
 		goto st183
 	st183:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof183
 		}
 	st_case_183:
-		// line internal/php8/scanner.go:7139
+		// line internal/php8/scanner.go:7262
 		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr342
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 116:
-			goto tr342
+			goto tr344
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr344
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr344
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr344
 			}
 		default:
-			goto tr334
+			goto tr344
 		}
-		goto tr233
-	tr342:
+		goto tr134
+	tr339:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st184
 	st184:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof184
 		}
 	st_case_184:
-		// line internal/php8/scanner.go:7180
+		// line internal/php8/scanner.go:7299
 		switch lex.data[(lex.p)] {
-		case 82:
-			goto tr343
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 114:
-			goto tr343
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr343:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st185
-	st185:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof185
-		}
-	st_case_185:
-		// line internal/php8/scanner.go:7221
-		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr344
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr344
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr344:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st186
-	st186:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof186
-		}
-	st_case_186:
-		// line internal/php8/scanner.go:7262
-		switch lex.data[(lex.p)] {
-		case 67:
+		case 83:
 			goto tr345
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 99:
+			goto tr338
+		case 115:
 			goto tr345
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr345:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st187
-	st187:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st185
+	st185:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof187
+			goto _test_eof185
 		}
-	st_case_187:
-		// line internal/php8/scanner.go:7303
+	st_case_185:
+		// line internal/php8/scanner.go:7340
 		switch lex.data[(lex.p)] {
 		case 84:
 			goto tr346
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 116:
 			goto tr346
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr336:
+	tr346:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st188
-	st188:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st186
+	st186:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof188
+			goto _test_eof186
 		}
-	st_case_188:
-		// line internal/php8/scanner.go:7344
-		switch lex.data[(lex.p)] {
-		case 68:
-			goto tr347
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 100:
-			goto tr347
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr337:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st189
-	st189:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof189
-		}
-	st_case_189:
-		// line internal/php8/scanner.go:7385
+	st_case_186:
+		// line internal/php8/scanner.go:7381
 		switch lex.data[(lex.p)] {
 		case 82:
-			goto tr348
+			goto tr347
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 114:
-			goto tr348
+			goto tr347
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr347:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st187
+	st187:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof187
+		}
+	st_case_187:
+		// line internal/php8/scanner.go:7422
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr348
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr348
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr348:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st190
-	st190:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st188
+	st188:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof190
+			goto _test_eof188
 		}
-	st_case_190:
-		// line internal/php8/scanner.go:7426
+	st_case_188:
+		// line internal/php8/scanner.go:7463
 		switch lex.data[(lex.p)] {
-		case 65:
+		case 67:
 			goto tr349
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 97:
+			goto tr338
+		case 99:
 			goto tr349
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr349:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st189
+	st189:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof189
+		}
+	st_case_189:
+		// line internal/php8/scanner.go:7504
+		switch lex.data[(lex.p)] {
+		case 84:
+			goto tr350
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 116:
+			goto tr350
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr340:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st190
+	st190:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof190
+		}
+	st_case_190:
+		// line internal/php8/scanner.go:7545
+		switch lex.data[(lex.p)] {
+		case 68:
+			goto tr351
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 100:
+			goto tr351
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr341:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st191
 	st191:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof191
 		}
 	st_case_191:
-		// line internal/php8/scanner.go:7467
+		// line internal/php8/scanner.go:7586
 		switch lex.data[(lex.p)] {
-		case 89:
-			goto tr350
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 121:
-			goto tr350
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr227:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st192
-	st192:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof192
-		}
-	st_case_192:
-		// line internal/php8/scanner.go:7508
-		switch lex.data[(lex.p)] {
-		case 34:
-			goto st7
-		case 60:
-			goto st95
 		case 82:
 			goto tr352
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 114:
 			goto tr352
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr352:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st192
+	st192:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof192
+		}
+	st_case_192:
+		// line internal/php8/scanner.go:7627
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr353
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr353
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr353:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st193
+	st193:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof193
+		}
+	st_case_193:
+		// line internal/php8/scanner.go:7668
+		switch lex.data[(lex.p)] {
+		case 89:
+			goto tr354
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 121:
+			goto tr354
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr227:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st194
+	st194:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof194
+		}
+	st_case_194:
+		// line internal/php8/scanner.go:7709
+		switch lex.data[(lex.p)] {
+		case 34:
+			goto st7
+		case 60:
+			goto st95
+		case 82:
+			goto tr356
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 114:
+			goto tr356
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	st95:
@@ -8856,3936 +9057,3813 @@ func (lex *Lexer) Lex() *token.Token {
 			goto st84
 		}
 		goto tr135
-	tr352:
+	tr356:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st193
-	st193:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof193
-		}
-	st_case_193:
-		// line internal/php8/scanner.go:7571
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr353
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr353
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr353:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st194
-	st194:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof194
-		}
-	st_case_194:
-		// line internal/php8/scanner.go:7612
-		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr354
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr354
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr354:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st195
 	st195:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof195
 		}
 	st_case_195:
-		// line internal/php8/scanner.go:7653
-		switch lex.data[(lex.p)] {
-		case 75:
-			goto tr355
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 107:
-			goto tr355
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr228:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st196
-	st196:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof196
-		}
-	st_case_196:
-		// line internal/php8/scanner.go:7694
-		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr356
-		case 70:
-			goto tr357
-		case 76:
-			goto tr358
-		case 79:
-			goto tr359
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr356
-		case 102:
-			goto tr357
-		case 108:
-			goto tr358
-		case 111:
-			goto tr359
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr356:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st197
-	st197:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof197
-		}
-	st_case_197:
-		// line internal/php8/scanner.go:7747
-		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr360
-		case 83:
-			goto tr361
-		case 84:
-			goto tr362
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr360
-		case 115:
-			goto tr361
-		case 116:
-			goto tr362
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr360:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st198
-	st198:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof198
-		}
-	st_case_198:
-		// line internal/php8/scanner.go:7796
-		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr363
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr363
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr363:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st199
-	st199:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof199
-		}
-	st_case_199:
-		// line internal/php8/scanner.go:7837
-		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr364
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr364
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr364:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st200
-	st200:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof200
-		}
-	st_case_200:
-		// line internal/php8/scanner.go:7878
-		switch lex.data[(lex.p)] {
-		case 66:
-			goto tr365
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 98:
-			goto tr365
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr365:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st201
-	st201:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof201
-		}
-	st_case_201:
-		// line internal/php8/scanner.go:7919
-		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr366
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr366
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr366:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st202
-	st202:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof202
-		}
-	st_case_202:
-		// line internal/php8/scanner.go:7960
+		// line internal/php8/scanner.go:7772
 		switch lex.data[(lex.p)] {
 		case 69:
-			goto tr367
+			goto tr357
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 101:
-			goto tr367
+			goto tr357
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr361:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st203
-	st203:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof203
-		}
-	st_case_203:
-		// line internal/php8/scanner.go:8001
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr368
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr368
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr362:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st204
-	st204:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof204
-		}
-	st_case_204:
-		// line internal/php8/scanner.go:8042
-		switch lex.data[(lex.p)] {
-		case 67:
-			goto tr369
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 99:
-			goto tr369
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr369:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st205
-	st205:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof205
-		}
-	st_case_205:
-		// line internal/php8/scanner.go:8083
-		switch lex.data[(lex.p)] {
-		case 72:
-			goto tr370
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 104:
-			goto tr370
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr357:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st206
-	st206:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st196
+	st196:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof206
+			goto _test_eof196
 		}
-	st_case_206:
-		// line internal/php8/scanner.go:8124
+	st_case_196:
+		// line internal/php8/scanner.go:7813
 		switch lex.data[(lex.p)] {
-		case 85:
-			goto tr371
+		case 65:
+			goto tr358
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 117:
-			goto tr371
+			goto tr338
+		case 97:
+			goto tr358
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr371:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st207
-	st207:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof207
-		}
-	st_case_207:
-		// line internal/php8/scanner.go:8165
-		switch lex.data[(lex.p)] {
-		case 78:
-			goto tr372
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 110:
-			goto tr372
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr372:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st208
-	st208:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof208
-		}
-	st_case_208:
-		// line internal/php8/scanner.go:8206
-		switch lex.data[(lex.p)] {
-		case 67:
-			goto tr373
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 99:
-			goto tr373
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr373:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st209
-	st209:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof209
-		}
-	st_case_209:
-		// line internal/php8/scanner.go:8247
-		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr374
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 116:
-			goto tr374
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr374:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st210
-	st210:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof210
-		}
-	st_case_210:
-		// line internal/php8/scanner.go:8288
-		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr375
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 105:
-			goto tr375
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr375:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st211
-	st211:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof211
-		}
-	st_case_211:
-		// line internal/php8/scanner.go:8329
-		switch lex.data[(lex.p)] {
-		case 79:
-			goto tr376
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 111:
-			goto tr376
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr376:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st212
-	st212:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof212
-		}
-	st_case_212:
-		// line internal/php8/scanner.go:8370
-		switch lex.data[(lex.p)] {
-		case 78:
-			goto tr377
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 110:
-			goto tr377
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr358:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st213
-	st213:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st197
+	st197:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof213
+			goto _test_eof197
 		}
-	st_case_213:
-		// line internal/php8/scanner.go:8411
+	st_case_197:
+		// line internal/php8/scanner.go:7854
 		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr378
-		case 79:
-			goto tr379
+		case 75:
+			goto tr359
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 97:
-			goto tr378
-		case 111:
-			goto tr379
+			goto tr338
+		case 107:
+			goto tr359
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr228:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st198
+	st198:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof198
+		}
+	st_case_198:
+		// line internal/php8/scanner.go:7895
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr360
+		case 70:
+			goto tr361
+		case 76:
+			goto tr362
+		case 79:
+			goto tr363
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr360
+		case 102:
+			goto tr361
+		case 108:
+			goto tr362
+		case 111:
+			goto tr363
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr360:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st199
+	st199:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof199
+		}
+	st_case_199:
+		// line internal/php8/scanner.go:7948
+		switch lex.data[(lex.p)] {
+		case 76:
+			goto tr364
+		case 83:
+			goto tr365
+		case 84:
+			goto tr366
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 108:
+			goto tr364
+		case 115:
+			goto tr365
+		case 116:
+			goto tr366
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr364:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st200
+	st200:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof200
+		}
+	st_case_200:
+		// line internal/php8/scanner.go:7997
+		switch lex.data[(lex.p)] {
+		case 76:
+			goto tr367
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 108:
+			goto tr367
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr367:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st201
+	st201:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof201
+		}
+	st_case_201:
+		// line internal/php8/scanner.go:8038
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr368
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr368
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr368:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st202
+	st202:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof202
+		}
+	st_case_202:
+		// line internal/php8/scanner.go:8079
+		switch lex.data[(lex.p)] {
+		case 66:
+			goto tr369
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 98:
+			goto tr369
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr369:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st203
+	st203:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof203
+		}
+	st_case_203:
+		// line internal/php8/scanner.go:8120
+		switch lex.data[(lex.p)] {
+		case 76:
+			goto tr370
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 108:
+			goto tr370
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr370:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st204
+	st204:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof204
+		}
+	st_case_204:
+		// line internal/php8/scanner.go:8161
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr371
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr371
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr365:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st205
+	st205:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof205
+		}
+	st_case_205:
+		// line internal/php8/scanner.go:8202
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr372
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr372
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr366:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st206
+	st206:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof206
+		}
+	st_case_206:
+		// line internal/php8/scanner.go:8243
+		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr373
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 99:
+			goto tr373
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr373:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st207
+	st207:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof207
+		}
+	st_case_207:
+		// line internal/php8/scanner.go:8284
+		switch lex.data[(lex.p)] {
+		case 72:
+			goto tr374
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 104:
+			goto tr374
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr361:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st208
+	st208:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof208
+		}
+	st_case_208:
+		// line internal/php8/scanner.go:8325
+		switch lex.data[(lex.p)] {
+		case 85:
+			goto tr375
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 117:
+			goto tr375
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr375:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st209
+	st209:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof209
+		}
+	st_case_209:
+		// line internal/php8/scanner.go:8366
+		switch lex.data[(lex.p)] {
+		case 78:
+			goto tr376
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 110:
+			goto tr376
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr376:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st210
+	st210:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof210
+		}
+	st_case_210:
+		// line internal/php8/scanner.go:8407
+		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr377
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 99:
+			goto tr377
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr377:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st211
+	st211:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof211
+		}
+	st_case_211:
+		// line internal/php8/scanner.go:8448
+		switch lex.data[(lex.p)] {
+		case 84:
+			goto tr378
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 116:
+			goto tr378
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr378:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st214
-	st214:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st212
+	st212:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof214
+			goto _test_eof212
 		}
-	st_case_214:
-		// line internal/php8/scanner.go:8456
+	st_case_212:
+		// line internal/php8/scanner.go:8489
 		switch lex.data[(lex.p)] {
-		case 83:
-			goto tr380
+		case 73:
+			goto tr379
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 115:
-			goto tr380
+			goto tr338
+		case 105:
+			goto tr379
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr380:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st215
-	st215:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof215
-		}
-	st_case_215:
-		// line internal/php8/scanner.go:8497
-		switch lex.data[(lex.p)] {
-		case 83:
-			goto tr381
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 115:
-			goto tr381
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr379:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st216
-	st216:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st213
+	st213:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof216
+			goto _test_eof213
 		}
-	st_case_216:
-		// line internal/php8/scanner.go:8538
+	st_case_213:
+		// line internal/php8/scanner.go:8530
 		switch lex.data[(lex.p)] {
-		case 78:
-			goto tr382
+		case 79:
+			goto tr380
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 110:
-			goto tr382
+			goto tr338
+		case 111:
+			goto tr380
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr380:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st214
+	st214:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof214
+		}
+	st_case_214:
+		// line internal/php8/scanner.go:8571
+		switch lex.data[(lex.p)] {
+		case 78:
+			goto tr381
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 110:
+			goto tr381
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr362:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st215
+	st215:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof215
+		}
+	st_case_215:
+		// line internal/php8/scanner.go:8612
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr382
+		case 79:
+			goto tr383
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr382
+		case 111:
+			goto tr383
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr382:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st217
-	st217:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st216
+	st216:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof217
+			goto _test_eof216
 		}
-	st_case_217:
-		// line internal/php8/scanner.go:8579
+	st_case_216:
+		// line internal/php8/scanner.go:8657
 		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr383
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr383
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr359:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st218
-	st218:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof218
-		}
-	st_case_218:
-		// line internal/php8/scanner.go:8620
-		switch lex.data[(lex.p)] {
-		case 78:
+		case 83:
 			goto tr384
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 110:
+			goto tr338
+		case 115:
 			goto tr384
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr384:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st219
-	st219:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st217
+	st217:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof219
+			goto _test_eof217
 		}
-	st_case_219:
-		// line internal/php8/scanner.go:8661
+	st_case_217:
+		// line internal/php8/scanner.go:8698
 		switch lex.data[(lex.p)] {
 		case 83:
 			goto tr385
-		case 84:
-			goto tr386
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 115:
 			goto tr385
-		case 116:
-			goto tr386
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr385:
+	tr383:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st220
-	st220:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st218
+	st218:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof220
+			goto _test_eof218
 		}
-	st_case_220:
-		// line internal/php8/scanner.go:8706
+	st_case_218:
+		// line internal/php8/scanner.go:8739
 		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr387
+		case 78:
+			goto tr386
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 116:
-			goto tr387
+			goto tr338
+		case 110:
+			goto tr386
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr386:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st221
-	st221:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st219
+	st219:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof221
+			goto _test_eof219
 		}
-	st_case_221:
-		// line internal/php8/scanner.go:8747
+	st_case_219:
+		// line internal/php8/scanner.go:8780
 		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr388
+		case 69:
+			goto tr387
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 105:
-			goto tr388
+			goto tr338
+		case 101:
+			goto tr387
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr363:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st220
+	st220:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof220
+		}
+	st_case_220:
+		// line internal/php8/scanner.go:8821
+		switch lex.data[(lex.p)] {
+		case 78:
+			goto tr388
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 110:
+			goto tr388
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr388:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st222
-	st222:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st221
+	st221:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof222
+			goto _test_eof221
 		}
-	st_case_222:
-		// line internal/php8/scanner.go:8788
+	st_case_221:
+		// line internal/php8/scanner.go:8862
 		switch lex.data[(lex.p)] {
-		case 78:
+		case 83:
 			goto tr389
+		case 84:
+			goto tr390
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 110:
+			goto tr338
+		case 115:
 			goto tr389
+		case 116:
+			goto tr390
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr389:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st223
-	st223:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st222
+	st222:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof223
+			goto _test_eof222
 		}
-	st_case_223:
-		// line internal/php8/scanner.go:8829
+	st_case_222:
+		// line internal/php8/scanner.go:8907
 		switch lex.data[(lex.p)] {
-		case 85:
-			goto tr390
+		case 84:
+			goto tr391
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 117:
-			goto tr390
+			goto tr338
+		case 116:
+			goto tr391
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr390:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st224
-	st224:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st223
+	st223:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof224
+			goto _test_eof223
 		}
-	st_case_224:
-		// line internal/php8/scanner.go:8870
+	st_case_223:
+		// line internal/php8/scanner.go:8948
 		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr391
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr391
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr229:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st225
-	st225:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof225
-		}
-	st_case_225:
-		// line internal/php8/scanner.go:8911
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr392
 		case 73:
-			goto tr393
-		case 79:
-			goto tr394
+			goto tr392
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 101:
-			goto tr392
+			goto tr338
 		case 105:
-			goto tr393
-		case 111:
-			goto tr394
+			goto tr392
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr392:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st226
-	st226:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st224
+	st224:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof226
+			goto _test_eof224
 		}
-	st_case_226:
-		// line internal/php8/scanner.go:8960
+	st_case_224:
+		// line internal/php8/scanner.go:8989
 		switch lex.data[(lex.p)] {
-		case 67:
-			goto tr395
-		case 70:
-			goto tr396
+		case 78:
+			goto tr393
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 99:
-			goto tr395
-		case 102:
-			goto tr396
+			goto tr338
+		case 110:
+			goto tr393
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr395:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st227
-	st227:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof227
-		}
-	st_case_227:
-		// line internal/php8/scanner.go:9005
-		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr397
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr397
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr397:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st228
-	st228:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof228
-		}
-	st_case_228:
-		// line internal/php8/scanner.go:9046
-		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr398
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr398
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr398:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st229
-	st229:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof229
-		}
-	st_case_229:
-		// line internal/php8/scanner.go:9087
-		switch lex.data[(lex.p)] {
-		case 82:
-			goto tr399
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 114:
-			goto tr399
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr399:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st230
-	st230:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof230
-		}
-	st_case_230:
-		// line internal/php8/scanner.go:9128
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr400
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr400
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr396:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st231
-	st231:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof231
-		}
-	st_case_231:
-		// line internal/php8/scanner.go:9169
-		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr401
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr401
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr401:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st232
-	st232:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof232
-		}
-	st_case_232:
-		// line internal/php8/scanner.go:9210
-		switch lex.data[(lex.p)] {
-		case 85:
-			goto tr402
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 117:
-			goto tr402
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr402:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st233
-	st233:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof233
-		}
-	st_case_233:
-		// line internal/php8/scanner.go:9251
-		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr403
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr403
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr403:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st234
-	st234:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof234
-		}
-	st_case_234:
-		// line internal/php8/scanner.go:9292
-		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr404
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 116:
-			goto tr404
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr393:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st235
-	st235:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st225
+	st225:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof235
+			goto _test_eof225
 		}
-	st_case_235:
-		// line internal/php8/scanner.go:9333
+	st_case_225:
+		// line internal/php8/scanner.go:9030
 		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr405
+		case 85:
+			goto tr394
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 101:
-			goto tr405
+			goto tr338
+		case 117:
+			goto tr394
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr230:
+	tr394:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st236
-	st236:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st226
+	st226:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof236
+			goto _test_eof226
 		}
-	st_case_236:
-		// line internal/php8/scanner.go:9374
+	st_case_226:
+		// line internal/php8/scanner.go:9071
 		switch lex.data[(lex.p)] {
-		case 67:
-			goto tr406
-		case 76:
-			goto tr407
-		case 77:
-			goto tr408
-		case 78:
-			goto tr409
-		case 86:
-			goto tr410
-		case 88:
-			goto tr411
+		case 69:
+			goto tr395
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 99:
-			goto tr406
-		case 108:
-			goto tr407
-		case 109:
-			goto tr408
-		case 110:
-			goto tr409
-		case 118:
-			goto tr410
-		case 120:
-			goto tr411
+			goto tr338
+		case 101:
+			goto tr395
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr229:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st227
+	st227:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof227
+		}
+	st_case_227:
+		// line internal/php8/scanner.go:9112
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr396
+		case 73:
+			goto tr397
+		case 79:
+			goto tr398
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr396
+		case 105:
+			goto tr397
+		case 111:
+			goto tr398
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr396:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st228
+	st228:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof228
+		}
+	st_case_228:
+		// line internal/php8/scanner.go:9161
+		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr399
+		case 70:
+			goto tr400
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 99:
+			goto tr399
+		case 102:
+			goto tr400
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr399:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st229
+	st229:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof229
+		}
+	st_case_229:
+		// line internal/php8/scanner.go:9206
+		switch lex.data[(lex.p)] {
+		case 76:
+			goto tr401
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 108:
+			goto tr401
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr401:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st230
+	st230:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof230
+		}
+	st_case_230:
+		// line internal/php8/scanner.go:9247
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr402
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr402
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr402:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st231
+	st231:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof231
+		}
+	st_case_231:
+		// line internal/php8/scanner.go:9288
+		switch lex.data[(lex.p)] {
+		case 82:
+			goto tr403
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 114:
+			goto tr403
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr403:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st232
+	st232:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof232
+		}
+	st_case_232:
+		// line internal/php8/scanner.go:9329
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr404
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr404
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr400:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st233
+	st233:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof233
+		}
+	st_case_233:
+		// line internal/php8/scanner.go:9370
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr405
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr405
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr405:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st234
+	st234:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof234
+		}
+	st_case_234:
+		// line internal/php8/scanner.go:9411
+		switch lex.data[(lex.p)] {
+		case 85:
+			goto tr406
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 117:
+			goto tr406
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr406:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st237
-	st237:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st235
+	st235:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof237
+			goto _test_eof235
 		}
-	st_case_237:
-		// line internal/php8/scanner.go:9435
+	st_case_235:
+		// line internal/php8/scanner.go:9452
 		switch lex.data[(lex.p)] {
-		case 72:
-			goto tr412
+		case 76:
+			goto tr407
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 104:
-			goto tr412
+			goto tr338
+		case 108:
+			goto tr407
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr412:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st238
-	st238:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof238
-		}
-	st_case_238:
-		// line internal/php8/scanner.go:9476
-		switch lex.data[(lex.p)] {
-		case 79:
-			goto tr413
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 111:
-			goto tr413
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr407:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st239
-	st239:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st236
+	st236:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof239
+			goto _test_eof236
 		}
-	st_case_239:
-		// line internal/php8/scanner.go:9517
-		switch lex.data[(lex.p)] {
-		case 83:
-			goto tr414
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 115:
-			goto tr414
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr414:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st240
-	st240:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof240
-		}
-	st_case_240:
-		// line internal/php8/scanner.go:9558
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr415
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr415
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr415:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:233
-		lex.act = 34
-		goto st241
-	st241:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof241
-		}
-	st_case_241:
-		// line internal/php8/scanner.go:9599
-		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr417
-		case 92:
-			goto st94
-		case 96:
-			goto tr416
-		case 105:
-			goto tr417
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr416
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr416
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr416
-			}
-		default:
-			goto tr416
-		}
-		goto tr233
-	tr417:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st242
-	st242:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof242
-		}
-	st_case_242:
-		// line internal/php8/scanner.go:9640
-		switch lex.data[(lex.p)] {
-		case 70:
-			goto tr418
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 102:
-			goto tr418
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr408:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st243
-	st243:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof243
-		}
-	st_case_243:
-		// line internal/php8/scanner.go:9681
-		switch lex.data[(lex.p)] {
-		case 80:
-			goto tr419
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 112:
-			goto tr419
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr419:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st244
-	st244:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof244
-		}
-	st_case_244:
-		// line internal/php8/scanner.go:9722
+	st_case_236:
+		// line internal/php8/scanner.go:9493
 		switch lex.data[(lex.p)] {
 		case 84:
-			goto tr420
+			goto tr408
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 116:
-			goto tr420
+			goto tr408
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr420:
+	tr397:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st245
-	st245:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st237
+	st237:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof245
+			goto _test_eof237
 		}
-	st_case_245:
-		// line internal/php8/scanner.go:9763
-		switch lex.data[(lex.p)] {
-		case 89:
-			goto tr421
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 121:
-			goto tr421
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr409:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st246
-	st246:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof246
-		}
-	st_case_246:
-		// line internal/php8/scanner.go:9804
-		switch lex.data[(lex.p)] {
-		case 68:
-			goto tr422
-		case 85:
-			goto tr423
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 100:
-			goto tr422
-		case 117:
-			goto tr423
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr422:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st247
-	st247:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof247
-		}
-	st_case_247:
-		// line internal/php8/scanner.go:9849
-		switch lex.data[(lex.p)] {
-		case 68:
-			goto tr424
-		case 70:
-			goto tr425
-		case 73:
-			goto tr426
-		case 83:
-			goto tr427
-		case 87:
-			goto tr428
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 100:
-			goto tr424
-		case 102:
-			goto tr425
-		case 105:
-			goto tr426
-		case 115:
-			goto tr427
-		case 119:
-			goto tr428
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr424:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st248
-	st248:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof248
-		}
-	st_case_248:
-		// line internal/php8/scanner.go:9906
+	st_case_237:
+		// line internal/php8/scanner.go:9534
 		switch lex.data[(lex.p)] {
 		case 69:
-			goto tr429
+			goto tr409
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 101:
-			goto tr429
+			goto tr409
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr429:
+	tr230:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st249
-	st249:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st238
+	st238:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof249
+			goto _test_eof238
 		}
-	st_case_249:
-		// line internal/php8/scanner.go:9947
+	st_case_238:
+		// line internal/php8/scanner.go:9575
 		switch lex.data[(lex.p)] {
 		case 67:
-			goto tr430
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 99:
-			goto tr430
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr430:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st250
-	st250:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof250
-		}
-	st_case_250:
-		// line internal/php8/scanner.go:9988
-		switch lex.data[(lex.p)] {
+			goto tr410
 		case 76:
-			goto tr431
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr431
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr431:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st251
-	st251:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof251
-		}
-	st_case_251:
-		// line internal/php8/scanner.go:10029
-		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr432
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr432
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr432:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st252
-	st252:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof252
-		}
-	st_case_252:
-		// line internal/php8/scanner.go:10070
-		switch lex.data[(lex.p)] {
-		case 82:
-			goto tr433
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 114:
-			goto tr433
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr433:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st253
-	st253:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof253
-		}
-	st_case_253:
-		// line internal/php8/scanner.go:10111
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr434
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr434
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr425:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st254
-	st254:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof254
-		}
-	st_case_254:
-		// line internal/php8/scanner.go:10152
-		switch lex.data[(lex.p)] {
-		case 79:
-			goto tr435
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 111:
-			goto tr435
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr435:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st255
-	st255:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof255
-		}
-	st_case_255:
-		// line internal/php8/scanner.go:10193
-		switch lex.data[(lex.p)] {
-		case 82:
-			goto tr436
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 114:
-			goto tr436
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr436:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:237
-		lex.act = 38
-		goto st256
-	st256:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof256
-		}
-	st_case_256:
-		// line internal/php8/scanner.go:10234
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr438
-		case 92:
-			goto st94
-		case 96:
-			goto tr437
-		case 101:
-			goto tr438
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr437
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr437
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr437
-			}
-		default:
-			goto tr437
-		}
-		goto tr233
-	tr438:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st257
-	st257:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof257
-		}
-	st_case_257:
-		// line internal/php8/scanner.go:10275
-		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr439
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr439
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr439:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st258
-	st258:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof258
-		}
-	st_case_258:
-		// line internal/php8/scanner.go:10316
-		switch lex.data[(lex.p)] {
-		case 67:
-			goto tr440
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 99:
-			goto tr440
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr440:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st259
-	st259:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof259
-		}
-	st_case_259:
-		// line internal/php8/scanner.go:10357
-		switch lex.data[(lex.p)] {
-		case 72:
-			goto tr441
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 104:
-			goto tr441
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr426:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st260
-	st260:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof260
-		}
-	st_case_260:
-		// line internal/php8/scanner.go:10398
-		switch lex.data[(lex.p)] {
-		case 70:
-			goto tr442
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 102:
-			goto tr442
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr427:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st261
-	st261:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof261
-		}
-	st_case_261:
-		// line internal/php8/scanner.go:10439
-		switch lex.data[(lex.p)] {
-		case 87:
-			goto tr443
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 119:
-			goto tr443
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr443:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st262
-	st262:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof262
-		}
-	st_case_262:
-		// line internal/php8/scanner.go:10480
-		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr444
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 105:
-			goto tr444
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr444:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st263
-	st263:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof263
-		}
-	st_case_263:
-		// line internal/php8/scanner.go:10521
-		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr445
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 116:
-			goto tr445
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr445:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st264
-	st264:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof264
-		}
-	st_case_264:
-		// line internal/php8/scanner.go:10562
-		switch lex.data[(lex.p)] {
-		case 67:
-			goto tr446
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 99:
-			goto tr446
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr446:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st265
-	st265:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof265
-		}
-	st_case_265:
-		// line internal/php8/scanner.go:10603
-		switch lex.data[(lex.p)] {
-		case 72:
-			goto tr447
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 104:
-			goto tr447
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr428:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st266
-	st266:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof266
-		}
-	st_case_266:
-		// line internal/php8/scanner.go:10644
-		switch lex.data[(lex.p)] {
-		case 72:
-			goto tr448
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 104:
-			goto tr448
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr448:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st267
-	st267:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof267
-		}
-	st_case_267:
-		// line internal/php8/scanner.go:10685
-		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr449
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 105:
-			goto tr449
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr449:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st268
-	st268:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof268
-		}
-	st_case_268:
-		// line internal/php8/scanner.go:10726
-		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr450
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr450
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr450:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st269
-	st269:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof269
-		}
-	st_case_269:
-		// line internal/php8/scanner.go:10767
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr451
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr451
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr423:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st270
-	st270:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof270
-		}
-	st_case_270:
-		// line internal/php8/scanner.go:10808
-		switch lex.data[(lex.p)] {
+			goto tr411
 		case 77:
-			goto tr452
+			goto tr412
+		case 78:
+			goto tr413
+		case 86:
+			goto tr414
+		case 88:
+			goto tr415
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
+		case 99:
+			goto tr410
+		case 108:
+			goto tr411
 		case 109:
-			goto tr452
+			goto tr412
+		case 110:
+			goto tr413
+		case 118:
+			goto tr414
+		case 120:
+			goto tr415
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr410:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st271
-	st271:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st239
+	st239:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof271
+			goto _test_eof239
 		}
-	st_case_271:
-		// line internal/php8/scanner.go:10849
+	st_case_239:
+		// line internal/php8/scanner.go:9636
 		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr453
+		case 72:
+			goto tr416
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 97:
-			goto tr453
+			goto tr338
+		case 104:
+			goto tr416
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr453:
+	tr416:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st272
-	st272:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st240
+	st240:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof272
+			goto _test_eof240
 		}
-	st_case_272:
-		// line internal/php8/scanner.go:10890
+	st_case_240:
+		// line internal/php8/scanner.go:9677
 		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr454
+		case 79:
+			goto tr417
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 108:
-			goto tr454
+			goto tr338
+		case 111:
+			goto tr417
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr411:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st241
+	st241:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof241
+		}
+	st_case_241:
+		// line internal/php8/scanner.go:9718
+		switch lex.data[(lex.p)] {
+		case 83:
+			goto tr418
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 115:
+			goto tr418
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr418:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st242
+	st242:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof242
+		}
+	st_case_242:
+		// line internal/php8/scanner.go:9759
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr419
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr419
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr419:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:233
+		lex.act = 34
+		goto st243
+	st243:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof243
+		}
+	st_case_243:
+		// line internal/php8/scanner.go:9800
+		switch lex.data[(lex.p)] {
+		case 73:
+			goto tr421
+		case 92:
+			goto st94
+		case 96:
+			goto tr420
+		case 105:
+			goto tr421
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr420
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr420
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr420
+			}
+		default:
+			goto tr420
+		}
+		goto tr233
+	tr421:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st244
+	st244:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof244
+		}
+	st_case_244:
+		// line internal/php8/scanner.go:9841
+		switch lex.data[(lex.p)] {
+		case 70:
+			goto tr422
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 102:
+			goto tr422
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr412:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st245
+	st245:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof245
+		}
+	st_case_245:
+		// line internal/php8/scanner.go:9882
+		switch lex.data[(lex.p)] {
+		case 80:
+			goto tr423
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 112:
+			goto tr423
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr423:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st246
+	st246:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof246
+		}
+	st_case_246:
+		// line internal/php8/scanner.go:9923
+		switch lex.data[(lex.p)] {
+		case 84:
+			goto tr424
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 116:
+			goto tr424
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr424:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st247
+	st247:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof247
+		}
+	st_case_247:
+		// line internal/php8/scanner.go:9964
+		switch lex.data[(lex.p)] {
+		case 89:
+			goto tr425
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 121:
+			goto tr425
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr413:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st248
+	st248:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof248
+		}
+	st_case_248:
+		// line internal/php8/scanner.go:10005
+		switch lex.data[(lex.p)] {
+		case 68:
+			goto tr426
+		case 85:
+			goto tr427
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 100:
+			goto tr426
+		case 117:
+			goto tr427
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr426:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st249
+	st249:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof249
+		}
+	st_case_249:
+		// line internal/php8/scanner.go:10050
+		switch lex.data[(lex.p)] {
+		case 68:
+			goto tr428
+		case 70:
+			goto tr429
+		case 73:
+			goto tr430
+		case 83:
+			goto tr431
+		case 87:
+			goto tr432
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 100:
+			goto tr428
+		case 102:
+			goto tr429
+		case 105:
+			goto tr430
+		case 115:
+			goto tr431
+		case 119:
+			goto tr432
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr428:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st250
+	st250:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof250
+		}
+	st_case_250:
+		// line internal/php8/scanner.go:10107
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr433
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr433
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr433:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st251
+	st251:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof251
+		}
+	st_case_251:
+		// line internal/php8/scanner.go:10148
+		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr434
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 99:
+			goto tr434
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr434:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st252
+	st252:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof252
+		}
+	st_case_252:
+		// line internal/php8/scanner.go:10189
+		switch lex.data[(lex.p)] {
+		case 76:
+			goto tr435
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 108:
+			goto tr435
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr435:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st253
+	st253:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof253
+		}
+	st_case_253:
+		// line internal/php8/scanner.go:10230
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr436
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr436
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr436:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st254
+	st254:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof254
+		}
+	st_case_254:
+		// line internal/php8/scanner.go:10271
+		switch lex.data[(lex.p)] {
+		case 82:
+			goto tr437
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 114:
+			goto tr437
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr437:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st255
+	st255:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof255
+		}
+	st_case_255:
+		// line internal/php8/scanner.go:10312
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr438
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr438
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr429:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st256
+	st256:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof256
+		}
+	st_case_256:
+		// line internal/php8/scanner.go:10353
+		switch lex.data[(lex.p)] {
+		case 79:
+			goto tr439
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 111:
+			goto tr439
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr439:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st257
+	st257:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof257
+		}
+	st_case_257:
+		// line internal/php8/scanner.go:10394
+		switch lex.data[(lex.p)] {
+		case 82:
+			goto tr440
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 114:
+			goto tr440
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr440:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:237
+		lex.act = 38
+		goto st258
+	st258:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof258
+		}
+	st_case_258:
+		// line internal/php8/scanner.go:10435
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr442
+		case 92:
+			goto st94
+		case 96:
+			goto tr441
+		case 101:
+			goto tr442
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr441
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr441
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr441
+			}
+		default:
+			goto tr441
+		}
+		goto tr233
+	tr442:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st259
+	st259:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof259
+		}
+	st_case_259:
+		// line internal/php8/scanner.go:10476
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr443
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr443
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr443:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st260
+	st260:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof260
+		}
+	st_case_260:
+		// line internal/php8/scanner.go:10517
+		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr444
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 99:
+			goto tr444
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr444:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st261
+	st261:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof261
+		}
+	st_case_261:
+		// line internal/php8/scanner.go:10558
+		switch lex.data[(lex.p)] {
+		case 72:
+			goto tr445
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 104:
+			goto tr445
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr430:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st262
+	st262:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof262
+		}
+	st_case_262:
+		// line internal/php8/scanner.go:10599
+		switch lex.data[(lex.p)] {
+		case 70:
+			goto tr446
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 102:
+			goto tr446
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr431:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st263
+	st263:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof263
+		}
+	st_case_263:
+		// line internal/php8/scanner.go:10640
+		switch lex.data[(lex.p)] {
+		case 87:
+			goto tr447
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 119:
+			goto tr447
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr447:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st264
+	st264:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof264
+		}
+	st_case_264:
+		// line internal/php8/scanner.go:10681
+		switch lex.data[(lex.p)] {
+		case 73:
+			goto tr448
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 105:
+			goto tr448
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr448:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st265
+	st265:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof265
+		}
+	st_case_265:
+		// line internal/php8/scanner.go:10722
+		switch lex.data[(lex.p)] {
+		case 84:
+			goto tr449
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 116:
+			goto tr449
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr449:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st266
+	st266:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof266
+		}
+	st_case_266:
+		// line internal/php8/scanner.go:10763
+		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr450
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 99:
+			goto tr450
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr450:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st267
+	st267:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof267
+		}
+	st_case_267:
+		// line internal/php8/scanner.go:10804
+		switch lex.data[(lex.p)] {
+		case 72:
+			goto tr451
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 104:
+			goto tr451
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr432:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st268
+	st268:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof268
+		}
+	st_case_268:
+		// line internal/php8/scanner.go:10845
+		switch lex.data[(lex.p)] {
+		case 72:
+			goto tr452
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 104:
+			goto tr452
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr452:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st269
+	st269:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof269
+		}
+	st_case_269:
+		// line internal/php8/scanner.go:10886
+		switch lex.data[(lex.p)] {
+		case 73:
+			goto tr453
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 105:
+			goto tr453
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr453:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st270
+	st270:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof270
+		}
+	st_case_270:
+		// line internal/php8/scanner.go:10927
+		switch lex.data[(lex.p)] {
+		case 76:
+			goto tr454
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 108:
+			goto tr454
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr454:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st271
+	st271:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof271
+		}
+	st_case_271:
+		// line internal/php8/scanner.go:10968
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr455
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr455
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr427:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st272
+	st272:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof272
+		}
+	st_case_272:
+		// line internal/php8/scanner.go:11009
+		switch lex.data[(lex.p)] {
+		case 77:
+			goto tr456
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 109:
+			goto tr456
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr414:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st273
 	st273:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof273
 		}
 	st_case_273:
-		// line internal/php8/scanner.go:10931
+		// line internal/php8/scanner.go:11050
 		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr455
-		case 84:
-			goto tr456
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 105:
-			goto tr455
-		case 116:
-			goto tr456
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr455:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st274
-	st274:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof274
-		}
-	st_case_274:
-		// line internal/php8/scanner.go:10976
-		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr405
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 116:
-			goto tr405
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr456:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st275
-	st275:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof275
-		}
-	st_case_275:
-		// line internal/php8/scanner.go:11017
-		switch lex.data[(lex.p)] {
-		case 69:
+		case 65:
 			goto tr457
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 101:
+			goto tr338
+		case 97:
 			goto tr457
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr457:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st276
-	st276:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st274
+	st274:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof276
+			goto _test_eof274
 		}
-	st_case_276:
-		// line internal/php8/scanner.go:11058
+	st_case_274:
+		// line internal/php8/scanner.go:11091
 		switch lex.data[(lex.p)] {
-		case 78:
+		case 76:
 			goto tr458
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 110:
+			goto tr338
+		case 108:
 			goto tr458
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr458:
+	tr415:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st277
-	st277:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st275
+	st275:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof277
+			goto _test_eof275
 		}
-	st_case_277:
-		// line internal/php8/scanner.go:11099
+	st_case_275:
+		// line internal/php8/scanner.go:11132
 		switch lex.data[(lex.p)] {
-		case 68:
+		case 73:
 			goto tr459
+		case 84:
+			goto tr460
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 100:
+			goto tr338
+		case 105:
 			goto tr459
+		case 116:
+			goto tr460
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr459:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st278
-	st278:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st276
+	st276:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof278
+			goto _test_eof276
 		}
-	st_case_278:
-		// line internal/php8/scanner.go:11140
+	st_case_276:
+		// line internal/php8/scanner.go:11177
 		switch lex.data[(lex.p)] {
-		case 83:
-			goto tr460
+		case 84:
+			goto tr409
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 115:
-			goto tr460
+			goto tr338
+		case 116:
+			goto tr409
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr231:
+	tr460:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st279
-	st279:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st277
+	st277:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof279
+			goto _test_eof277
 		}
-	st_case_279:
-		// line internal/php8/scanner.go:11181
+	st_case_277:
+		// line internal/php8/scanner.go:11218
 		switch lex.data[(lex.p)] {
-		case 73:
+		case 69:
 			goto tr461
-		case 78:
-			goto tr462
-		case 79:
-			goto tr463
-		case 85:
-			goto tr371
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 105:
+			goto tr338
+		case 101:
 			goto tr461
-		case 110:
-			goto tr462
-		case 111:
-			goto tr463
-		case 117:
-			goto tr371
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr461:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st280
-	st280:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st278
+	st278:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof280
+			goto _test_eof278
 		}
-	st_case_280:
-		// line internal/php8/scanner.go:11234
+	st_case_278:
+		// line internal/php8/scanner.go:11259
 		switch lex.data[(lex.p)] {
 		case 78:
-			goto tr464
+			goto tr462
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 110:
-			goto tr464
+			goto tr462
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr464:
+	tr462:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st281
-	st281:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st279
+	st279:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof281
+			goto _test_eof279
 		}
-	st_case_281:
-		// line internal/php8/scanner.go:11275
+	st_case_279:
+		// line internal/php8/scanner.go:11300
 		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr465
+		case 68:
+			goto tr463
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 97:
-			goto tr465
+			goto tr338
+		case 100:
+			goto tr463
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr465:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st282
-	st282:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof282
-		}
-	st_case_282:
-		// line internal/php8/scanner.go:11316
-		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr466
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr466
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr466:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:246
-		lex.act = 47
-		goto st283
-	st283:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof283
-		}
-	st_case_283:
-		// line internal/php8/scanner.go:11357
-		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr468
-		case 92:
-			goto st94
-		case 96:
-			goto tr467
-		case 108:
-			goto tr468
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr467
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr467
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr467
-			}
-		default:
-			goto tr467
-		}
-		goto tr233
-	tr468:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st284
-	st284:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof284
-		}
-	st_case_284:
-		// line internal/php8/scanner.go:11398
-		switch lex.data[(lex.p)] {
-		case 89:
-			goto tr469
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 121:
-			goto tr469
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr463:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st285
-	st285:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st280
+	st280:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof285
+			goto _test_eof280
 		}
-	st_case_285:
-		// line internal/php8/scanner.go:11439
+	st_case_280:
+		// line internal/php8/scanner.go:11341
 		switch lex.data[(lex.p)] {
-		case 82:
-			goto tr470
+		case 83:
+			goto tr464
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 114:
-			goto tr470
+			goto tr338
+		case 115:
+			goto tr464
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr231:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st281
+	st281:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof281
+		}
+	st_case_281:
+		// line internal/php8/scanner.go:11382
+		switch lex.data[(lex.p)] {
+		case 73:
+			goto tr465
+		case 78:
+			goto tr466
+		case 79:
+			goto tr467
+		case 85:
+			goto tr375
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 105:
+			goto tr465
+		case 110:
+			goto tr466
+		case 111:
+			goto tr467
+		case 117:
+			goto tr375
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr465:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st282
+	st282:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof282
+		}
+	st_case_282:
+		// line internal/php8/scanner.go:11435
+		switch lex.data[(lex.p)] {
+		case 78:
+			goto tr468
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 110:
+			goto tr468
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr468:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st283
+	st283:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof283
+		}
+	st_case_283:
+		// line internal/php8/scanner.go:11476
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr469
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr469
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr469:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st284
+	st284:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof284
+		}
+	st_case_284:
+		// line internal/php8/scanner.go:11517
+		switch lex.data[(lex.p)] {
+		case 76:
+			goto tr470
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 108:
+			goto tr470
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr470:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:248
-		lex.act = 49
-		goto st286
-	st286:
+		// line internal/php8/scanner.rl:246
+		lex.act = 47
+		goto st285
+	st285:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof286
+			goto _test_eof285
 		}
-	st_case_286:
-		// line internal/php8/scanner.go:11480
+	st_case_285:
+		// line internal/php8/scanner.go:11558
 		switch lex.data[(lex.p)] {
-		case 69:
+		case 76:
 			goto tr472
 		case 92:
 			goto st94
 		case 96:
 			goto tr471
-		case 101:
+		case 108:
 			goto tr472
 		}
 		switch {
@@ -12810,2689 +12888,2812 @@ func (lex *Lexer) Lex() *token.Token {
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st286
+	st286:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof286
+		}
+	st_case_286:
+		// line internal/php8/scanner.go:11599
+		switch lex.data[(lex.p)] {
+		case 89:
+			goto tr473
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 121:
+			goto tr473
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr467:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st287
 	st287:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof287
 		}
 	st_case_287:
-		// line internal/php8/scanner.go:11521
+		// line internal/php8/scanner.go:11640
 		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr473
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr473
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr473:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st288
-	st288:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof288
-		}
-	st_case_288:
-		// line internal/php8/scanner.go:11562
-		switch lex.data[(lex.p)] {
-		case 67:
+		case 82:
 			goto tr474
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 99:
+			goto tr338
+		case 114:
 			goto tr474
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr474:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st289
-	st289:
+		// line internal/php8/scanner.rl:248
+		lex.act = 49
+		goto st288
+	st288:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof289
+			goto _test_eof288
 		}
-	st_case_289:
-		// line internal/php8/scanner.go:11603
+	st_case_288:
+		// line internal/php8/scanner.go:11681
 		switch lex.data[(lex.p)] {
-		case 72:
-			goto tr475
+		case 69:
+			goto tr476
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 104:
 			goto tr475
+		case 101:
+			goto tr476
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr475
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr475
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr475
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr232:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st290
-	st290:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof290
-		}
-	st_case_290:
-		// line internal/php8/scanner.go:11644
-		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr476
-		case 79:
-			goto tr477
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr476
-		case 111:
-			goto tr477
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr475
 		}
 		goto tr233
 	tr476:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st291
-	st291:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st289
+	st289:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof291
+			goto _test_eof289
 		}
-	st_case_291:
-		// line internal/php8/scanner.go:11689
-		switch lex.data[(lex.p)] {
-		case 79:
-			goto tr478
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 111:
-			goto tr478
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr478:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st292
-	st292:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof292
-		}
-	st_case_292:
-		// line internal/php8/scanner.go:11730
-		switch lex.data[(lex.p)] {
-		case 66:
-			goto tr479
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 98:
-			goto tr479
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr479:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st293
-	st293:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof293
-		}
-	st_case_293:
-		// line internal/php8/scanner.go:11771
+	st_case_289:
+		// line internal/php8/scanner.go:11722
 		switch lex.data[(lex.p)] {
 		case 65:
-			goto tr480
+			goto tr477
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 97:
-			goto tr480
+			goto tr477
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr480:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st294
-	st294:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof294
-		}
-	st_case_294:
-		// line internal/php8/scanner.go:11812
-		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr481
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr481
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr477:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st295
-	st295:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st290
+	st290:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof295
+			goto _test_eof290
 		}
-	st_case_295:
-		// line internal/php8/scanner.go:11853
+	st_case_290:
+		// line internal/php8/scanner.go:11763
 		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr482
+		case 67:
+			goto tr478
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 116:
-			goto tr482
+			goto tr338
+		case 99:
+			goto tr478
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr478:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st291
+	st291:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof291
+		}
+	st_case_291:
+		// line internal/php8/scanner.go:11804
+		switch lex.data[(lex.p)] {
+		case 72:
+			goto tr479
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 104:
+			goto tr479
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr232:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st292
+	st292:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof292
+		}
+	st_case_292:
+		// line internal/php8/scanner.go:11845
+		switch lex.data[(lex.p)] {
+		case 76:
+			goto tr480
+		case 79:
+			goto tr481
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 108:
+			goto tr480
+		case 111:
+			goto tr481
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr480:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st293
+	st293:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof293
+		}
+	st_case_293:
+		// line internal/php8/scanner.go:11890
+		switch lex.data[(lex.p)] {
+		case 79:
+			goto tr482
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 111:
+			goto tr482
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr482:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st294
+	st294:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof294
+		}
+	st_case_294:
+		// line internal/php8/scanner.go:11931
+		switch lex.data[(lex.p)] {
+		case 66:
+			goto tr483
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 98:
+			goto tr483
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr483:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st295
+	st295:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof295
+		}
+	st_case_295:
+		// line internal/php8/scanner.go:11972
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr484
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr484
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr484:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st296
 	st296:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof296
 		}
 	st_case_296:
-		// line internal/php8/scanner.go:11894
+		// line internal/php8/scanner.go:12013
 		switch lex.data[(lex.p)] {
-		case 79:
-			goto tr483
+		case 76:
+			goto tr485
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 111:
-			goto tr483
+			goto tr338
+		case 108:
+			goto tr485
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr234:
+	tr481:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st297
 	st297:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof297
 		}
 	st_case_297:
-		// line internal/php8/scanner.go:11935
-		switch lex.data[(lex.p)] {
-		case 70:
-			goto tr484
-		case 77:
-			goto tr485
-		case 78:
-			goto tr486
-		case 83:
-			goto tr487
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 102:
-			goto tr484
-		case 109:
-			goto tr485
-		case 110:
-			goto tr486
-		case 115:
-			goto tr487
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr485:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st298
-	st298:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof298
-		}
-	st_case_298:
-		// line internal/php8/scanner.go:11988
-		switch lex.data[(lex.p)] {
-		case 80:
-			goto tr488
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 112:
-			goto tr488
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr488:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st299
-	st299:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof299
-		}
-	st_case_299:
-		// line internal/php8/scanner.go:12029
-		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr489
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr489
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr489:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st300
-	st300:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof300
-		}
-	st_case_300:
-		// line internal/php8/scanner.go:12070
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr490
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr490
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr490:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st301
-	st301:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof301
-		}
-	st_case_301:
-		// line internal/php8/scanner.go:12111
-		switch lex.data[(lex.p)] {
-		case 77:
-			goto tr491
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 109:
-			goto tr491
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr491:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st302
-	st302:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof302
-		}
-	st_case_302:
-		// line internal/php8/scanner.go:12152
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr492
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr492
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr492:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st303
-	st303:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof303
-		}
-	st_case_303:
-		// line internal/php8/scanner.go:12193
-		switch lex.data[(lex.p)] {
-		case 78:
-			goto tr493
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 110:
-			goto tr493
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr493:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st304
-	st304:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof304
-		}
-	st_case_304:
-		// line internal/php8/scanner.go:12234
+		// line internal/php8/scanner.go:12054
 		switch lex.data[(lex.p)] {
 		case 84:
-			goto tr494
+			goto tr486
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 116:
-			goto tr494
+			goto tr486
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr494:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st305
-	st305:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof305
-		}
-	st_case_305:
-		// line internal/php8/scanner.go:12275
-		switch lex.data[(lex.p)] {
-		case 83:
-			goto tr495
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 115:
-			goto tr495
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr486:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st306
-	st306:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st298
+	st298:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof306
+			goto _test_eof298
 		}
-	st_case_306:
-		// line internal/php8/scanner.go:12316
+	st_case_298:
+		// line internal/php8/scanner.go:12095
 		switch lex.data[(lex.p)] {
-		case 67:
-			goto tr496
-		case 83:
-			goto tr497
-		case 84:
-			goto tr498
+		case 79:
+			goto tr487
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 99:
-			goto tr496
-		case 115:
-			goto tr497
-		case 116:
-			goto tr498
+			goto tr338
+		case 111:
+			goto tr487
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr234:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st299
+	st299:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof299
+		}
+	st_case_299:
+		// line internal/php8/scanner.go:12136
+		switch lex.data[(lex.p)] {
+		case 70:
+			goto tr488
+		case 77:
+			goto tr489
+		case 78:
+			goto tr490
+		case 83:
+			goto tr491
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 102:
+			goto tr488
+		case 109:
+			goto tr489
+		case 110:
+			goto tr490
+		case 115:
+			goto tr491
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr489:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st300
+	st300:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof300
+		}
+	st_case_300:
+		// line internal/php8/scanner.go:12189
+		switch lex.data[(lex.p)] {
+		case 80:
+			goto tr492
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 112:
+			goto tr492
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr492:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st301
+	st301:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof301
+		}
+	st_case_301:
+		// line internal/php8/scanner.go:12230
+		switch lex.data[(lex.p)] {
+		case 76:
+			goto tr493
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 108:
+			goto tr493
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr493:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st302
+	st302:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof302
+		}
+	st_case_302:
+		// line internal/php8/scanner.go:12271
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr494
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr494
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr494:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st303
+	st303:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof303
+		}
+	st_case_303:
+		// line internal/php8/scanner.go:12312
+		switch lex.data[(lex.p)] {
+		case 77:
+			goto tr495
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 109:
+			goto tr495
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr495:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st304
+	st304:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof304
+		}
+	st_case_304:
+		// line internal/php8/scanner.go:12353
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr496
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr496
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr496:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st307
-	st307:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st305
+	st305:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof307
+			goto _test_eof305
 		}
-	st_case_307:
-		// line internal/php8/scanner.go:12365
-		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr499
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr499
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr499:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st308
-	st308:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof308
-		}
-	st_case_308:
-		// line internal/php8/scanner.go:12406
-		switch lex.data[(lex.p)] {
-		case 85:
-			goto tr500
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 117:
-			goto tr500
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr500:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st309
-	st309:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof309
-		}
-	st_case_309:
-		// line internal/php8/scanner.go:12447
-		switch lex.data[(lex.p)] {
-		case 68:
-			goto tr501
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 100:
-			goto tr501
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr501:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st310
-	st310:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof310
-		}
-	st_case_310:
-		// line internal/php8/scanner.go:12488
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr502
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr502
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr502:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:280
-		lex.act = 81
-		goto st311
-	st311:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof311
-		}
-	st_case_311:
-		// line internal/php8/scanner.go:12529
-		switch lex.data[(lex.p)] {
-		case 92:
-			goto st94
-		case 95:
-			goto tr504
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr503
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 96:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr503
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr503
-			}
-		default:
-			goto tr503
-		}
-		goto tr233
-	tr504:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st312
-	st312:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof312
-		}
-	st_case_312:
-		// line internal/php8/scanner.go:12566
-		switch lex.data[(lex.p)] {
-		case 79:
-			goto tr505
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 111:
-			goto tr505
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr505:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st313
-	st313:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof313
-		}
-	st_case_313:
-		// line internal/php8/scanner.go:12607
+	st_case_305:
+		// line internal/php8/scanner.go:12394
 		switch lex.data[(lex.p)] {
 		case 78:
-			goto tr506
+			goto tr497
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 110:
-			goto tr506
+			goto tr497
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr506:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st314
-	st314:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof314
-		}
-	st_case_314:
-		// line internal/php8/scanner.go:12648
-		switch lex.data[(lex.p)] {
-		case 67:
-			goto tr507
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 99:
-			goto tr507
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr507:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st315
-	st315:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof315
-		}
-	st_case_315:
-		// line internal/php8/scanner.go:12689
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr508
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr508
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr497:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st316
-	st316:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st306
+	st306:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof316
+			goto _test_eof306
 		}
-	st_case_316:
-		// line internal/php8/scanner.go:12730
+	st_case_306:
+		// line internal/php8/scanner.go:12435
 		switch lex.data[(lex.p)] {
 		case 84:
-			goto tr509
+			goto tr498
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 116:
-			goto tr509
+			goto tr498
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr509:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st317
-	st317:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof317
-		}
-	st_case_317:
-		// line internal/php8/scanner.go:12771
-		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr510
-		case 69:
-			goto tr511
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr510
-		case 101:
-			goto tr511
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr510:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st318
-	st318:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof318
-		}
-	st_case_318:
-		// line internal/php8/scanner.go:12816
-		switch lex.data[(lex.p)] {
-		case 78:
-			goto tr512
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 110:
-			goto tr512
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr512:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st319
-	st319:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof319
-		}
-	st_case_319:
-		// line internal/php8/scanner.go:12857
-		switch lex.data[(lex.p)] {
-		case 67:
-			goto tr513
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 99:
-			goto tr513
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr513:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st320
-	st320:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof320
-		}
-	st_case_320:
-		// line internal/php8/scanner.go:12898
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr514
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr514
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr514:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st321
-	st321:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof321
-		}
-	st_case_321:
-		// line internal/php8/scanner.go:12939
-		switch lex.data[(lex.p)] {
-		case 79:
-			goto tr515
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 111:
-			goto tr515
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr515:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st322
-	st322:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof322
-		}
-	st_case_322:
-		// line internal/php8/scanner.go:12980
-		switch lex.data[(lex.p)] {
-		case 70:
-			goto tr516
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 102:
-			goto tr516
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr511:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st323
-	st323:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof323
-		}
-	st_case_323:
-		// line internal/php8/scanner.go:13021
-		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr517
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr517
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr517:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st324
-	st324:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof324
-		}
-	st_case_324:
-		// line internal/php8/scanner.go:13062
-		switch lex.data[(lex.p)] {
-		case 68:
-			goto tr518
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 100:
-			goto tr518
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr518:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st325
-	st325:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof325
-		}
-	st_case_325:
-		// line internal/php8/scanner.go:13103
-		switch lex.data[(lex.p)] {
-		case 79:
-			goto tr519
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 111:
-			goto tr519
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr519:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st326
-	st326:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof326
-		}
-	st_case_326:
-		// line internal/php8/scanner.go:13144
-		switch lex.data[(lex.p)] {
-		case 70:
-			goto tr520
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 102:
-			goto tr520
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr498:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st327
-	st327:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st307
+	st307:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof327
+			goto _test_eof307
 		}
-	st_case_327:
-		// line internal/php8/scanner.go:13185
+	st_case_307:
+		// line internal/php8/scanner.go:12476
 		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr521
+		case 83:
+			goto tr499
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 101:
-			goto tr521
+			goto tr338
+		case 115:
+			goto tr499
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr490:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st308
+	st308:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof308
+		}
+	st_case_308:
+		// line internal/php8/scanner.go:12517
+		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr500
+		case 83:
+			goto tr501
+		case 84:
+			goto tr502
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 99:
+			goto tr500
+		case 115:
+			goto tr501
+		case 116:
+			goto tr502
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr500:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st309
+	st309:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof309
+		}
+	st_case_309:
+		// line internal/php8/scanner.go:12566
+		switch lex.data[(lex.p)] {
+		case 76:
+			goto tr503
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 108:
+			goto tr503
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr503:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st310
+	st310:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof310
+		}
+	st_case_310:
+		// line internal/php8/scanner.go:12607
+		switch lex.data[(lex.p)] {
+		case 85:
+			goto tr504
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 117:
+			goto tr504
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr504:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st311
+	st311:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof311
+		}
+	st_case_311:
+		// line internal/php8/scanner.go:12648
+		switch lex.data[(lex.p)] {
+		case 68:
+			goto tr505
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 100:
+			goto tr505
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr505:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st312
+	st312:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof312
+		}
+	st_case_312:
+		// line internal/php8/scanner.go:12689
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr506
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr506
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr506:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:280
+		lex.act = 81
+		goto st313
+	st313:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof313
+		}
+	st_case_313:
+		// line internal/php8/scanner.go:12730
+		switch lex.data[(lex.p)] {
+		case 92:
+			goto st94
+		case 95:
+			goto tr508
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr507
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 96:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr507
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr507
+			}
+		default:
+			goto tr507
+		}
+		goto tr233
+	tr508:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st314
+	st314:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof314
+		}
+	st_case_314:
+		// line internal/php8/scanner.go:12767
+		switch lex.data[(lex.p)] {
+		case 79:
+			goto tr509
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 111:
+			goto tr509
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr509:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st315
+	st315:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof315
+		}
+	st_case_315:
+		// line internal/php8/scanner.go:12808
+		switch lex.data[(lex.p)] {
+		case 78:
+			goto tr510
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 110:
+			goto tr510
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr510:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st316
+	st316:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof316
+		}
+	st_case_316:
+		// line internal/php8/scanner.go:12849
+		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr511
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 99:
+			goto tr511
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr511:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st317
+	st317:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof317
+		}
+	st_case_317:
+		// line internal/php8/scanner.go:12890
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr512
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr512
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr501:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st318
+	st318:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof318
+		}
+	st_case_318:
+		// line internal/php8/scanner.go:12931
+		switch lex.data[(lex.p)] {
+		case 84:
+			goto tr513
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 116:
+			goto tr513
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr513:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st319
+	st319:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof319
+		}
+	st_case_319:
+		// line internal/php8/scanner.go:12972
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr514
+		case 69:
+			goto tr515
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr514
+		case 101:
+			goto tr515
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr514:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st320
+	st320:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof320
+		}
+	st_case_320:
+		// line internal/php8/scanner.go:13017
+		switch lex.data[(lex.p)] {
+		case 78:
+			goto tr516
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 110:
+			goto tr516
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr516:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st321
+	st321:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof321
+		}
+	st_case_321:
+		// line internal/php8/scanner.go:13058
+		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr517
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 99:
+			goto tr517
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr517:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st322
+	st322:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof322
+		}
+	st_case_322:
+		// line internal/php8/scanner.go:13099
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr518
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr518
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr518:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st323
+	st323:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof323
+		}
+	st_case_323:
+		// line internal/php8/scanner.go:13140
+		switch lex.data[(lex.p)] {
+		case 79:
+			goto tr519
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 111:
+			goto tr519
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr519:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st324
+	st324:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof324
+		}
+	st_case_324:
+		// line internal/php8/scanner.go:13181
+		switch lex.data[(lex.p)] {
+		case 70:
+			goto tr520
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 102:
+			goto tr520
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr515:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st325
+	st325:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof325
+		}
+	st_case_325:
+		// line internal/php8/scanner.go:13222
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr521
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr521
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr521:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st328
-	st328:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st326
+	st326:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof328
+			goto _test_eof326
 		}
-	st_case_328:
-		// line internal/php8/scanner.go:13226
+	st_case_326:
+		// line internal/php8/scanner.go:13263
 		switch lex.data[(lex.p)] {
-		case 82:
+		case 68:
 			goto tr522
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 114:
+			goto tr338
+		case 100:
 			goto tr522
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr522:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st329
-	st329:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st327
+	st327:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof329
+			goto _test_eof327
 		}
-	st_case_329:
-		// line internal/php8/scanner.go:13267
+	st_case_327:
+		// line internal/php8/scanner.go:13304
 		switch lex.data[(lex.p)] {
-		case 70:
+		case 79:
 			goto tr523
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 102:
+			goto tr338
+		case 111:
 			goto tr523
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr523:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st330
-	st330:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st328
+	st328:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof330
+			goto _test_eof328
 		}
-	st_case_330:
-		// line internal/php8/scanner.go:13308
+	st_case_328:
+		// line internal/php8/scanner.go:13345
 		switch lex.data[(lex.p)] {
-		case 65:
+		case 70:
 			goto tr524
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 97:
+			goto tr338
+		case 102:
 			goto tr524
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr524:
+	tr502:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st331
-	st331:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st329
+	st329:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof331
+			goto _test_eof329
 		}
-	st_case_331:
-		// line internal/php8/scanner.go:13349
+	st_case_329:
+		// line internal/php8/scanner.go:13386
 		switch lex.data[(lex.p)] {
-		case 67:
+		case 69:
 			goto tr525
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 99:
+			goto tr338
+		case 101:
 			goto tr525
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr525:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st332
-	st332:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st330
+	st330:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof332
+			goto _test_eof330
 		}
-	st_case_332:
-		// line internal/php8/scanner.go:13390
+	st_case_330:
+		// line internal/php8/scanner.go:13427
 		switch lex.data[(lex.p)] {
-		case 69:
+		case 82:
 			goto tr526
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 101:
+			goto tr338
+		case 114:
 			goto tr526
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr487:
+	tr526:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st333
-	st333:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st331
+	st331:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof333
+			goto _test_eof331
 		}
-	st_case_333:
-		// line internal/php8/scanner.go:13431
+	st_case_331:
+		// line internal/php8/scanner.go:13468
 		switch lex.data[(lex.p)] {
-		case 83:
+		case 70:
 			goto tr527
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 115:
+			goto tr338
+		case 102:
 			goto tr527
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr527:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st334
-	st334:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st332
+	st332:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof334
+			goto _test_eof332
 		}
-	st_case_334:
-		// line internal/php8/scanner.go:13472
+	st_case_332:
+		// line internal/php8/scanner.go:13509
 		switch lex.data[(lex.p)] {
-		case 69:
+		case 65:
 			goto tr528
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 101:
+			goto tr338
+		case 97:
 			goto tr528
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr528:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st333
+	st333:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof333
+		}
+	st_case_333:
+		// line internal/php8/scanner.go:13550
+		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr529
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 99:
+			goto tr529
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr529:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st334
+	st334:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof334
+		}
+	st_case_334:
+		// line internal/php8/scanner.go:13591
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr530
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr530
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr491:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st335
 	st335:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof335
 		}
 	st_case_335:
-		// line internal/php8/scanner.go:13513
-		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr529
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 116:
-			goto tr529
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr235:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st336
-	st336:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof336
-		}
-	st_case_336:
-		// line internal/php8/scanner.go:13554
-		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr530
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 105:
-			goto tr530
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr530:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st337
-	st337:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof337
-		}
-	st_case_337:
-		// line internal/php8/scanner.go:13595
+		// line internal/php8/scanner.go:13632
 		switch lex.data[(lex.p)] {
 		case 83:
 			goto tr531
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 115:
 			goto tr531
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr531:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st336
+	st336:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof336
+		}
+	st_case_336:
+		// line internal/php8/scanner.go:13673
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr532
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr532
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr532:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st337
+	st337:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof337
+		}
+	st_case_337:
+		// line internal/php8/scanner.go:13714
+		switch lex.data[(lex.p)] {
+		case 84:
+			goto tr533
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 116:
+			goto tr533
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr235:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st338
 	st338:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof338
 		}
 	st_case_338:
-		// line internal/php8/scanner.go:13636
+		// line internal/php8/scanner.go:13755
 		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr532
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 116:
-			goto tr532
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr236:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st339
-	st339:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof339
-		}
-	st_case_339:
-		// line internal/php8/scanner.go:13677
-		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr533
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr533
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr533:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st340
-	st340:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof340
-		}
-	st_case_340:
-		// line internal/php8/scanner.go:13718
-		switch lex.data[(lex.p)] {
-		case 84:
+		case 73:
 			goto tr534
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 116:
+			goto tr338
+		case 105:
 			goto tr534
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr534:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st341
-	st341:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st339
+	st339:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof341
+			goto _test_eof339
 		}
-	st_case_341:
-		// line internal/php8/scanner.go:13759
+	st_case_339:
+		// line internal/php8/scanner.go:13796
 		switch lex.data[(lex.p)] {
-		case 67:
+		case 83:
 			goto tr535
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 99:
+			goto tr338
+		case 115:
 			goto tr535
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr535:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st342
-	st342:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st340
+	st340:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof342
+			goto _test_eof340
 		}
-	st_case_342:
-		// line internal/php8/scanner.go:13800
+	st_case_340:
+		// line internal/php8/scanner.go:13837
 		switch lex.data[(lex.p)] {
-		case 72:
+		case 84:
 			goto tr536
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 104:
+			goto tr338
+		case 116:
 			goto tr536
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr237:
+	tr236:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st343
-	st343:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st341
+	st341:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof343
+			goto _test_eof341
 		}
-	st_case_343:
-		// line internal/php8/scanner.go:13841
+	st_case_341:
+		// line internal/php8/scanner.go:13878
 		switch lex.data[(lex.p)] {
 		case 65:
 			goto tr537
-		case 69:
-			goto tr538
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 97:
 			goto tr537
-		case 101:
-			goto tr538
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr537:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st344
-	st344:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st342
+	st342:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof344
+			goto _test_eof342
 		}
-	st_case_344:
-		// line internal/php8/scanner.go:13886
+	st_case_342:
+		// line internal/php8/scanner.go:13919
 		switch lex.data[(lex.p)] {
-		case 77:
-			goto tr539
+		case 84:
+			goto tr538
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 109:
-			goto tr539
+			goto tr338
+		case 116:
+			goto tr538
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr538:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st343
+	st343:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof343
+		}
+	st_case_343:
+		// line internal/php8/scanner.go:13960
+		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr539
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 99:
+			goto tr539
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr539:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st344
+	st344:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof344
+		}
+	st_case_344:
+		// line internal/php8/scanner.go:14001
+		switch lex.data[(lex.p)] {
+		case 72:
+			goto tr540
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 104:
+			goto tr540
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr237:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st345
 	st345:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof345
 		}
 	st_case_345:
-		// line internal/php8/scanner.go:13927
+		// line internal/php8/scanner.go:14042
 		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr541
 		case 69:
-			goto tr540
+			goto tr542
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
+		case 97:
+			goto tr541
 		case 101:
-			goto tr540
+			goto tr542
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr540:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st346
-	st346:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof346
-		}
-	st_case_346:
-		// line internal/php8/scanner.go:13968
-		switch lex.data[(lex.p)] {
-		case 83:
-			goto tr541
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 115:
-			goto tr541
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr541:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st347
-	st347:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st346
+	st346:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof347
+			goto _test_eof346
 		}
-	st_case_347:
-		// line internal/php8/scanner.go:14009
+	st_case_346:
+		// line internal/php8/scanner.go:14087
 		switch lex.data[(lex.p)] {
-		case 80:
-			goto tr542
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 112:
-			goto tr542
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr542:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st348
-	st348:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof348
-		}
-	st_case_348:
-		// line internal/php8/scanner.go:14050
-		switch lex.data[(lex.p)] {
-		case 65:
+		case 77:
 			goto tr543
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 97:
+			goto tr338
+		case 109:
 			goto tr543
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr543:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st349
-	st349:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st347
+	st347:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof349
+			goto _test_eof347
 		}
-	st_case_349:
-		// line internal/php8/scanner.go:14091
+	st_case_347:
+		// line internal/php8/scanner.go:14128
 		switch lex.data[(lex.p)] {
-		case 67:
+		case 69:
 			goto tr544
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 99:
+			goto tr338
+		case 101:
 			goto tr544
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr544:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st350
-	st350:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st348
+	st348:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof350
+			goto _test_eof348
 		}
-	st_case_350:
-		// line internal/php8/scanner.go:14132
+	st_case_348:
+		// line internal/php8/scanner.go:14169
 		switch lex.data[(lex.p)] {
-		case 69:
+		case 83:
 			goto tr545
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 101:
+			goto tr338
+		case 115:
 			goto tr545
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr545:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:261
-		lex.act = 62
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st349
+	st349:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof349
+		}
+	st_case_349:
+		// line internal/php8/scanner.go:14210
+		switch lex.data[(lex.p)] {
+		case 80:
+			goto tr546
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 112:
+			goto tr546
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr546:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st350
+	st350:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof350
+		}
+	st_case_350:
+		// line internal/php8/scanner.go:14251
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr547
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr547
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr547:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st351
 	st351:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof351
 		}
 	st_case_351:
-		// line internal/php8/scanner.go:14173
+		// line internal/php8/scanner.go:14292
 		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr548
 		case 92:
-			goto st97
+			goto st94
 		case 96:
-			goto tr546
+			goto tr338
+		case 99:
+			goto tr548
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr546
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr546
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr546
+				goto tr338
 			}
 		default:
-			goto tr546
+			goto tr338
+		}
+		goto tr233
+	tr548:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st352
+	st352:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof352
+		}
+	st_case_352:
+		// line internal/php8/scanner.go:14333
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr549
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr549
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr549:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:261
+		lex.act = 62
+		goto st353
+	st353:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof353
+		}
+	st_case_353:
+		// line internal/php8/scanner.go:14374
+		switch lex.data[(lex.p)] {
+		case 92:
+			goto st97
+		case 96:
+			goto tr550
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr550
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr550
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr550
+			}
+		default:
+			goto tr550
 		}
 		goto tr233
 	st97:
@@ -15522,2993 +15723,2993 @@ func (lex *Lexer) Lex() *token.Token {
 
 		// line internal/php8/scanner.rl:213
 		lex.act = 15
-		goto st352
-	st352:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof352
-		}
-	st_case_352:
-		// line internal/php8/scanner.go:14231
-		switch lex.data[(lex.p)] {
-		case 92:
-			goto st97
-		case 96:
-			goto tr548
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr548
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr548
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr548
-			}
-		default:
-			goto tr548
-		}
-		goto tr137
-	tr538:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st353
-	st353:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof353
-		}
-	st_case_353:
-		// line internal/php8/scanner.go:14268
-		switch lex.data[(lex.p)] {
-		case 87:
-			goto tr549
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 119:
-			goto tr549
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr238:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
 		goto st354
 	st354:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof354
 		}
 	st_case_354:
-		// line internal/php8/scanner.go:14309
+		// line internal/php8/scanner.go:14432
 		switch lex.data[(lex.p)] {
-		case 82:
-			goto tr550
 		case 92:
-			goto st94
+			goto st97
 		case 96:
-			goto tr334
-		case 114:
-			goto tr550
+			goto tr552
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr552
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr552
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr552
 			}
 		default:
-			goto tr334
+			goto tr552
 		}
-		goto tr233
-	tr239:
+		goto tr137
+	tr542:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st355
 	st355:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof355
 		}
 	st_case_355:
-		// line internal/php8/scanner.go:14350
+		// line internal/php8/scanner.go:14469
 		switch lex.data[(lex.p)] {
-		case 82:
-			goto tr551
-		case 85:
-			goto tr552
+		case 87:
+			goto tr553
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 114:
-			goto tr551
-		case 117:
-			goto tr552
+			goto tr338
+		case 119:
+			goto tr553
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr551:
+	tr238:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st356
 	st356:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof356
 		}
 	st_case_356:
-		// line internal/php8/scanner.go:14395
+		// line internal/php8/scanner.go:14510
 		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr553
-		case 79:
+		case 82:
 			goto tr554
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 105:
-			goto tr553
-		case 111:
+			goto tr338
+		case 114:
 			goto tr554
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr553:
+	tr239:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st357
 	st357:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof357
 		}
 	st_case_357:
-		// line internal/php8/scanner.go:14440
+		// line internal/php8/scanner.go:14551
 		switch lex.data[(lex.p)] {
-		case 78:
+		case 82:
 			goto tr555
-		case 86:
+		case 85:
 			goto tr556
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 110:
+			goto tr338
+		case 114:
 			goto tr555
-		case 118:
+		case 117:
 			goto tr556
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr555:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st358
 	st358:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof358
 		}
 	st_case_358:
-		// line internal/php8/scanner.go:14485
+		// line internal/php8/scanner.go:14596
 		switch lex.data[(lex.p)] {
-		case 84:
+		case 73:
 			goto tr557
+		case 79:
+			goto tr558
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 116:
+			goto tr338
+		case 105:
 			goto tr557
+		case 111:
+			goto tr558
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr556:
+	tr557:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st359
 	st359:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof359
 		}
 	st_case_359:
-		// line internal/php8/scanner.go:14526
+		// line internal/php8/scanner.go:14641
 		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr558
+		case 78:
+			goto tr559
+		case 86:
+			goto tr560
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 97:
-			goto tr558
+			goto tr338
+		case 110:
+			goto tr559
+		case 118:
+			goto tr560
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr558:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st360
-	st360:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof360
-		}
-	st_case_360:
-		// line internal/php8/scanner.go:14567
-		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr559
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 116:
-			goto tr559
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr559:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st360
+	st360:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof360
+		}
+	st_case_360:
+		// line internal/php8/scanner.go:14686
+		switch lex.data[(lex.p)] {
+		case 84:
+			goto tr561
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 116:
+			goto tr561
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr560:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st361
 	st361:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof361
 		}
 	st_case_361:
-		// line internal/php8/scanner.go:14608
+		// line internal/php8/scanner.go:14727
 		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr560
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr560
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr554:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st362
-	st362:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof362
-		}
-	st_case_362:
-		// line internal/php8/scanner.go:14649
-		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr561
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 116:
-			goto tr561
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr561:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st363
-	st363:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof363
-		}
-	st_case_363:
-		// line internal/php8/scanner.go:14690
-		switch lex.data[(lex.p)] {
-		case 69:
+		case 65:
 			goto tr562
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 101:
+			goto tr338
+		case 97:
 			goto tr562
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr562:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st364
-	st364:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st362
+	st362:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof364
+			goto _test_eof362
 		}
-	st_case_364:
-		// line internal/php8/scanner.go:14731
+	st_case_362:
+		// line internal/php8/scanner.go:14768
 		switch lex.data[(lex.p)] {
-		case 67:
+		case 84:
 			goto tr563
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 99:
+			goto tr338
+		case 116:
 			goto tr563
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr563:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st365
-	st365:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st363
+	st363:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof365
+			goto _test_eof363
 		}
-	st_case_365:
-		// line internal/php8/scanner.go:14772
+	st_case_363:
+		// line internal/php8/scanner.go:14809
 		switch lex.data[(lex.p)] {
-		case 84:
+		case 69:
 			goto tr564
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 116:
+			goto tr338
+		case 101:
 			goto tr564
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr564:
+	tr558:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st366
-	st366:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st364
+	st364:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof366
+			goto _test_eof364
 		}
-	st_case_366:
-		// line internal/php8/scanner.go:14813
+	st_case_364:
+		// line internal/php8/scanner.go:14850
 		switch lex.data[(lex.p)] {
-		case 69:
+		case 84:
 			goto tr565
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 101:
+			goto tr338
+		case 116:
 			goto tr565
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr565:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st367
-	st367:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st365
+	st365:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof367
+			goto _test_eof365
 		}
-	st_case_367:
-		// line internal/php8/scanner.go:14854
+	st_case_365:
+		// line internal/php8/scanner.go:14891
 		switch lex.data[(lex.p)] {
-		case 68:
+		case 69:
 			goto tr566
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 100:
+			goto tr338
+		case 101:
 			goto tr566
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr552:
+	tr566:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st368
-	st368:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st366
+	st366:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof368
+			goto _test_eof366
 		}
-	st_case_368:
-		// line internal/php8/scanner.go:14895
+	st_case_366:
+		// line internal/php8/scanner.go:14932
 		switch lex.data[(lex.p)] {
-		case 66:
+		case 67:
 			goto tr567
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 98:
+			goto tr338
+		case 99:
 			goto tr567
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr567:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st369
-	st369:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st367
+	st367:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof369
+			goto _test_eof367
 		}
-	st_case_369:
-		// line internal/php8/scanner.go:14936
+	st_case_367:
+		// line internal/php8/scanner.go:14973
 		switch lex.data[(lex.p)] {
-		case 76:
+		case 84:
 			goto tr568
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 108:
+			goto tr338
+		case 116:
 			goto tr568
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr568:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st370
-	st370:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st368
+	st368:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof370
+			goto _test_eof368
 		}
-	st_case_370:
-		// line internal/php8/scanner.go:14977
+	st_case_368:
+		// line internal/php8/scanner.go:15014
 		switch lex.data[(lex.p)] {
-		case 73:
+		case 69:
 			goto tr569
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 105:
+			goto tr338
+		case 101:
 			goto tr569
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr569:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st371
-	st371:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st369
+	st369:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof371
+			goto _test_eof369
 		}
-	st_case_371:
-		// line internal/php8/scanner.go:15018
+	st_case_369:
+		// line internal/php8/scanner.go:15055
 		switch lex.data[(lex.p)] {
-		case 67:
+		case 68:
 			goto tr570
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 99:
+			goto tr338
+		case 100:
 			goto tr570
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr240:
+	tr556:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st372
-	st372:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st370
+	st370:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof372
+			goto _test_eof370
 		}
-	st_case_372:
-		// line internal/php8/scanner.go:15059
+	st_case_370:
+		// line internal/php8/scanner.go:15096
 		switch lex.data[(lex.p)] {
-		case 69:
+		case 66:
 			goto tr571
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 101:
+			goto tr338
+		case 98:
 			goto tr571
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr571:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st373
-	st373:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st371
+	st371:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof373
+			goto _test_eof371
 		}
-	st_case_373:
-		// line internal/php8/scanner.go:15100
+	st_case_371:
+		// line internal/php8/scanner.go:15137
 		switch lex.data[(lex.p)] {
-		case 65:
+		case 76:
 			goto tr572
-		case 81:
-			goto tr573
-		case 84:
-			goto tr574
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 97:
+			goto tr338
+		case 108:
 			goto tr572
-		case 113:
-			goto tr573
-		case 116:
-			goto tr574
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr572:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st374
-	st374:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st372
+	st372:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof374
+			goto _test_eof372
 		}
-	st_case_374:
-		// line internal/php8/scanner.go:15149
+	st_case_372:
+		// line internal/php8/scanner.go:15178
 		switch lex.data[(lex.p)] {
-		case 68:
-			goto tr575
+		case 73:
+			goto tr573
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 100:
-			goto tr575
+			goto tr338
+		case 105:
+			goto tr573
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr575:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st375
-	st375:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof375
-		}
-	st_case_375:
-		// line internal/php8/scanner.go:15190
-		switch lex.data[(lex.p)] {
-		case 79:
-			goto tr576
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 111:
-			goto tr576
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr576:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st376
-	st376:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof376
-		}
-	st_case_376:
-		// line internal/php8/scanner.go:15231
-		switch lex.data[(lex.p)] {
-		case 78:
-			goto tr577
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 110:
-			goto tr577
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr577:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st377
-	st377:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof377
-		}
-	st_case_377:
-		// line internal/php8/scanner.go:15272
-		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr578
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr578
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr578:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st378
-	st378:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof378
-		}
-	st_case_378:
-		// line internal/php8/scanner.go:15313
-		switch lex.data[(lex.p)] {
-		case 89:
-			goto tr579
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 121:
-			goto tr579
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr573:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st379
-	st379:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st373
+	st373:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof379
+			goto _test_eof373
 		}
-	st_case_379:
-		// line internal/php8/scanner.go:15354
+	st_case_373:
+		// line internal/php8/scanner.go:15219
 		switch lex.data[(lex.p)] {
-		case 85:
-			goto tr580
+		case 67:
+			goto tr574
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 117:
-			goto tr580
+			goto tr338
+		case 99:
+			goto tr574
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr240:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st374
+	st374:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof374
+		}
+	st_case_374:
+		// line internal/php8/scanner.go:15260
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr575
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr575
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr575:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st375
+	st375:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof375
+		}
+	st_case_375:
+		// line internal/php8/scanner.go:15301
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr576
+		case 81:
+			goto tr577
+		case 84:
+			goto tr578
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr576
+		case 113:
+			goto tr577
+		case 116:
+			goto tr578
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr576:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st376
+	st376:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof376
+		}
+	st_case_376:
+		// line internal/php8/scanner.go:15350
+		switch lex.data[(lex.p)] {
+		case 68:
+			goto tr579
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 100:
+			goto tr579
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr579:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st377
+	st377:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof377
+		}
+	st_case_377:
+		// line internal/php8/scanner.go:15391
+		switch lex.data[(lex.p)] {
+		case 79:
+			goto tr580
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 111:
+			goto tr580
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr580:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st380
-	st380:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st378
+	st378:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof380
+			goto _test_eof378
 		}
-	st_case_380:
-		// line internal/php8/scanner.go:15395
+	st_case_378:
+		// line internal/php8/scanner.go:15432
 		switch lex.data[(lex.p)] {
-		case 73:
+		case 78:
 			goto tr581
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 105:
+			goto tr338
+		case 110:
 			goto tr581
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr581:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st381
-	st381:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st379
+	st379:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof381
+			goto _test_eof379
 		}
-	st_case_381:
-		// line internal/php8/scanner.go:15436
+	st_case_379:
+		// line internal/php8/scanner.go:15473
 		switch lex.data[(lex.p)] {
-		case 82:
+		case 76:
 			goto tr582
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 114:
+			goto tr338
+		case 108:
 			goto tr582
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr582:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st380
+	st380:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof380
+		}
+	st_case_380:
+		// line internal/php8/scanner.go:15514
+		switch lex.data[(lex.p)] {
+		case 89:
+			goto tr583
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 121:
+			goto tr583
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr577:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st381
+	st381:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof381
+		}
+	st_case_381:
+		// line internal/php8/scanner.go:15555
+		switch lex.data[(lex.p)] {
+		case 85:
+			goto tr584
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 117:
+			goto tr584
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr584:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st382
 	st382:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof382
 		}
 	st_case_382:
-		// line internal/php8/scanner.go:15477
+		// line internal/php8/scanner.go:15596
 		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr583
+		case 73:
+			goto tr585
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 101:
-			goto tr583
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr583:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:282
-		lex.act = 83
-		goto st383
-	st383:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof383
-		}
-	st_case_383:
-		// line internal/php8/scanner.go:15518
-		switch lex.data[(lex.p)] {
-		case 92:
-			goto st94
-		case 95:
+			goto tr338
+		case 105:
 			goto tr585
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr584
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
-			case lex.data[(lex.p)] > 96:
+			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr584
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr584
+				goto tr338
 			}
 		default:
-			goto tr584
+			goto tr338
 		}
 		goto tr233
 	tr585:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st384
-	st384:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st383
+	st383:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof384
+			goto _test_eof383
 		}
-	st_case_384:
-		// line internal/php8/scanner.go:15555
+	st_case_383:
+		// line internal/php8/scanner.go:15637
 		switch lex.data[(lex.p)] {
-		case 79:
+		case 82:
 			goto tr586
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 111:
+			goto tr338
+		case 114:
 			goto tr586
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr586:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st385
-	st385:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st384
+	st384:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof385
+			goto _test_eof384
 		}
-	st_case_385:
-		// line internal/php8/scanner.go:15596
+	st_case_384:
+		// line internal/php8/scanner.go:15678
 		switch lex.data[(lex.p)] {
-		case 78:
+		case 69:
 			goto tr587
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 110:
+			goto tr338
+		case 101:
 			goto tr587
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr587:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:282
+		lex.act = 83
+		goto st385
+	st385:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof385
+		}
+	st_case_385:
+		// line internal/php8/scanner.go:15719
+		switch lex.data[(lex.p)] {
+		case 92:
+			goto st94
+		case 95:
+			goto tr589
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr588
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 96:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr588
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr588
+			}
+		default:
+			goto tr588
+		}
+		goto tr233
+	tr589:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st386
 	st386:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof386
 		}
 	st_case_386:
-		// line internal/php8/scanner.go:15637
+		// line internal/php8/scanner.go:15756
 		switch lex.data[(lex.p)] {
-		case 67:
-			goto tr588
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 99:
-			goto tr588
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr588:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st387
-	st387:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof387
-		}
-	st_case_387:
-		// line internal/php8/scanner.go:15678
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr589
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr589
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr574:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st388
-	st388:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof388
-		}
-	st_case_388:
-		// line internal/php8/scanner.go:15719
-		switch lex.data[(lex.p)] {
-		case 85:
+		case 79:
 			goto tr590
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 117:
+			goto tr338
+		case 111:
 			goto tr590
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr590:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st389
-	st389:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st387
+	st387:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof389
+			goto _test_eof387
 		}
-	st_case_389:
-		// line internal/php8/scanner.go:15760
+	st_case_387:
+		// line internal/php8/scanner.go:15797
 		switch lex.data[(lex.p)] {
-		case 82:
+		case 78:
 			goto tr591
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 114:
+			goto tr338
+		case 110:
 			goto tr591
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr591:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st388
+	st388:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof388
+		}
+	st_case_388:
+		// line internal/php8/scanner.go:15838
+		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr592
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 99:
+			goto tr592
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr592:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st389
+	st389:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof389
+		}
+	st_case_389:
+		// line internal/php8/scanner.go:15879
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr593
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr593
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr578:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st390
 	st390:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof390
 		}
 	st_case_390:
-		// line internal/php8/scanner.go:15801
+		// line internal/php8/scanner.go:15920
 		switch lex.data[(lex.p)] {
-		case 78:
-			goto tr592
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 110:
-			goto tr592
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr241:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st391
-	st391:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof391
-		}
-	st_case_391:
-		// line internal/php8/scanner.go:15842
-		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr593
-		case 87:
+		case 85:
 			goto tr594
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 116:
-			goto tr593
-		case 119:
+			goto tr338
+		case 117:
 			goto tr594
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr593:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st392
-	st392:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof392
-		}
-	st_case_392:
-		// line internal/php8/scanner.go:15887
-		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr595
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr595
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr595:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st393
-	st393:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof393
-		}
-	st_case_393:
-		// line internal/php8/scanner.go:15928
-		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr596
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 116:
-			goto tr596
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr596:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st394
-	st394:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof394
-		}
-	st_case_394:
-		// line internal/php8/scanner.go:15969
-		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr597
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 105:
-			goto tr597
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr597:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st395
-	st395:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof395
-		}
-	st_case_395:
-		// line internal/php8/scanner.go:16010
-		switch lex.data[(lex.p)] {
-		case 67:
-			goto tr598
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 99:
-			goto tr598
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr594:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st396
-	st396:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st391
+	st391:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof396
+			goto _test_eof391
 		}
-	st_case_396:
-		// line internal/php8/scanner.go:16051
+	st_case_391:
+		// line internal/php8/scanner.go:15961
 		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr599
+		case 82:
+			goto tr595
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 105:
-			goto tr599
+			goto tr338
+		case 114:
+			goto tr595
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr595:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st392
+	st392:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof392
+		}
+	st_case_392:
+		// line internal/php8/scanner.go:16002
+		switch lex.data[(lex.p)] {
+		case 78:
+			goto tr596
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 110:
+			goto tr596
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr241:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st393
+	st393:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof393
+		}
+	st_case_393:
+		// line internal/php8/scanner.go:16043
+		switch lex.data[(lex.p)] {
+		case 84:
+			goto tr597
+		case 87:
+			goto tr598
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 116:
+			goto tr597
+		case 119:
+			goto tr598
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr597:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st394
+	st394:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof394
+		}
+	st_case_394:
+		// line internal/php8/scanner.go:16088
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr599
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr599
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr599:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st397
-	st397:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st395
+	st395:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof397
+			goto _test_eof395
 		}
-	st_case_397:
-		// line internal/php8/scanner.go:16092
+	st_case_395:
+		// line internal/php8/scanner.go:16129
 		switch lex.data[(lex.p)] {
 		case 84:
 			goto tr600
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 116:
 			goto tr600
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr600:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st398
-	st398:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st396
+	st396:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof398
+			goto _test_eof396
 		}
-	st_case_398:
-		// line internal/php8/scanner.go:16133
+	st_case_396:
+		// line internal/php8/scanner.go:16170
 		switch lex.data[(lex.p)] {
-		case 67:
+		case 73:
 			goto tr601
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 99:
+			goto tr338
+		case 105:
 			goto tr601
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr601:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st399
-	st399:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st397
+	st397:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof399
+			goto _test_eof397
 		}
-	st_case_399:
-		// line internal/php8/scanner.go:16174
+	st_case_397:
+		// line internal/php8/scanner.go:16211
 		switch lex.data[(lex.p)] {
-		case 72:
+		case 67:
 			goto tr602
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 104:
+			goto tr338
+		case 99:
 			goto tr602
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr242:
+	tr598:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st400
-	st400:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st398
+	st398:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof400
+			goto _test_eof398
 		}
-	st_case_400:
-		// line internal/php8/scanner.go:16215
+	st_case_398:
+		// line internal/php8/scanner.go:16252
 		switch lex.data[(lex.p)] {
-		case 72:
+		case 73:
 			goto tr603
-		case 82:
-			goto tr604
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 104:
+			goto tr338
+		case 105:
 			goto tr603
-		case 114:
-			goto tr604
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr603:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st401
-	st401:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st399
+	st399:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof401
+			goto _test_eof399
 		}
-	st_case_401:
-		// line internal/php8/scanner.go:16260
+	st_case_399:
+		// line internal/php8/scanner.go:16293
 		switch lex.data[(lex.p)] {
-		case 82:
-			goto tr605
+		case 84:
+			goto tr604
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 114:
-			goto tr605
+			goto tr338
+		case 116:
+			goto tr604
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr605:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st402
-	st402:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof402
-		}
-	st_case_402:
-		// line internal/php8/scanner.go:16301
-		switch lex.data[(lex.p)] {
-		case 79:
-			goto tr606
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 111:
-			goto tr606
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr606:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st403
-	st403:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof403
-		}
-	st_case_403:
-		// line internal/php8/scanner.go:16342
-		switch lex.data[(lex.p)] {
-		case 87:
-			goto tr607
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 119:
-			goto tr607
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr604:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st400
+	st400:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof400
+		}
+	st_case_400:
+		// line internal/php8/scanner.go:16334
+		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr605
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 99:
+			goto tr605
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr605:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st401
+	st401:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof401
+		}
+	st_case_401:
+		// line internal/php8/scanner.go:16375
+		switch lex.data[(lex.p)] {
+		case 72:
+			goto tr606
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 104:
+			goto tr606
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr242:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st402
+	st402:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof402
+		}
+	st_case_402:
+		// line internal/php8/scanner.go:16416
+		switch lex.data[(lex.p)] {
+		case 72:
+			goto tr607
+		case 82:
+			goto tr608
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 104:
+			goto tr607
+		case 114:
+			goto tr608
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr607:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st403
+	st403:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof403
+		}
+	st_case_403:
+		// line internal/php8/scanner.go:16461
+		switch lex.data[(lex.p)] {
+		case 82:
+			goto tr609
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 114:
+			goto tr609
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr609:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st404
 	st404:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof404
 		}
 	st_case_404:
-		// line internal/php8/scanner.go:16383
+		// line internal/php8/scanner.go:16502
 		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr608
-		case 89:
-			goto tr609
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr608
-		case 121:
-			goto tr609
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr608:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st405
-	st405:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof405
-		}
-	st_case_405:
-		// line internal/php8/scanner.go:16428
-		switch lex.data[(lex.p)] {
-		case 73:
+		case 79:
 			goto tr610
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 105:
+			goto tr338
+		case 111:
 			goto tr610
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr610:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st405
+	st405:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof405
+		}
+	st_case_405:
+		// line internal/php8/scanner.go:16543
+		switch lex.data[(lex.p)] {
+		case 87:
+			goto tr611
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 119:
+			goto tr611
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr608:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st406
 	st406:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof406
 		}
 	st_case_406:
-		// line internal/php8/scanner.go:16469
+		// line internal/php8/scanner.go:16584
 		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr611
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 116:
-			goto tr611
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr243:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st407
-	st407:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof407
-		}
-	st_case_407:
-		// line internal/php8/scanner.go:16510
-		switch lex.data[(lex.p)] {
-		case 78:
+		case 65:
 			goto tr612
-		case 83:
+		case 89:
 			goto tr613
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 110:
+			goto tr338
+		case 97:
 			goto tr612
-		case 115:
+		case 121:
 			goto tr613
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr612:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st408
-	st408:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st407
+	st407:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof408
+			goto _test_eof407
 		}
-	st_case_408:
-		// line internal/php8/scanner.go:16555
+	st_case_407:
+		// line internal/php8/scanner.go:16629
 		switch lex.data[(lex.p)] {
-		case 83:
+		case 73:
 			goto tr614
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 115:
+			goto tr338
+		case 105:
 			goto tr614
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr614:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st408
+	st408:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof408
+		}
+	st_case_408:
+		// line internal/php8/scanner.go:16670
+		switch lex.data[(lex.p)] {
+		case 84:
+			goto tr615
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 116:
+			goto tr615
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr243:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st409
 	st409:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof409
 		}
 	st_case_409:
-		// line internal/php8/scanner.go:16596
+		// line internal/php8/scanner.go:16711
 		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr615
+		case 78:
+			goto tr616
+		case 83:
+			goto tr617
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 101:
-			goto tr615
+			goto tr338
+		case 110:
+			goto tr616
+		case 115:
+			goto tr617
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr615:
+	tr616:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st410
 	st410:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof410
 		}
 	st_case_410:
-		// line internal/php8/scanner.go:16637
+		// line internal/php8/scanner.go:16756
 		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr616
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 116:
-			goto tr616
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr613:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st411
-	st411:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof411
-		}
-	st_case_411:
-		// line internal/php8/scanner.go:16678
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr617
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr617
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr244:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st412
-	st412:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof412
-		}
-	st_case_412:
-		// line internal/php8/scanner.go:16719
-		switch lex.data[(lex.p)] {
-		case 65:
+		case 83:
 			goto tr618
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 97:
+			goto tr338
+		case 115:
 			goto tr618
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr618:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st411
+	st411:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof411
+		}
+	st_case_411:
+		// line internal/php8/scanner.go:16797
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr619
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr619
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr619:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st412
+	st412:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof412
+		}
+	st_case_412:
+		// line internal/php8/scanner.go:16838
+		switch lex.data[(lex.p)] {
+		case 84:
+			goto tr620
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 116:
+			goto tr620
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr617:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st413
 	st413:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof413
 		}
 	st_case_413:
-		// line internal/php8/scanner.go:16760
+		// line internal/php8/scanner.go:16879
 		switch lex.data[(lex.p)] {
-		case 82:
-			goto tr619
+		case 69:
+			goto tr621
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 114:
-			goto tr619
+			goto tr338
+		case 101:
+			goto tr621
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr245:
+	tr244:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st414
 	st414:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof414
 		}
 	st_case_414:
-		// line internal/php8/scanner.go:16801
+		// line internal/php8/scanner.go:16920
 		switch lex.data[(lex.p)] {
-		case 72:
-			goto tr620
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 104:
-			goto tr620
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr620:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st415
-	st415:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof415
-		}
-	st_case_415:
-		// line internal/php8/scanner.go:16842
-		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr621
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 105:
-			goto tr621
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr621:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st416
-	st416:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof416
-		}
-	st_case_416:
-		// line internal/php8/scanner.go:16883
-		switch lex.data[(lex.p)] {
-		case 76:
+		case 65:
 			goto tr622
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 108:
+			goto tr338
+		case 97:
 			goto tr622
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr622:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st417
-	st417:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st415
+	st415:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof417
+			goto _test_eof415
 		}
-	st_case_417:
-		// line internal/php8/scanner.go:16924
+	st_case_415:
+		// line internal/php8/scanner.go:16961
 		switch lex.data[(lex.p)] {
-		case 69:
+		case 82:
 			goto tr623
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 101:
+			goto tr338
+		case 114:
 			goto tr623
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr246:
+	tr245:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st418
-	st418:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st416
+	st416:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof418
+			goto _test_eof416
 		}
-	st_case_418:
-		// line internal/php8/scanner.go:16965
+	st_case_416:
+		// line internal/php8/scanner.go:17002
 		switch lex.data[(lex.p)] {
-		case 79:
+		case 72:
 			goto tr624
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 111:
+			goto tr338
+		case 104:
 			goto tr624
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr624:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st419
-	st419:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st417
+	st417:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof419
+			goto _test_eof417
 		}
-	st_case_419:
-		// line internal/php8/scanner.go:17006
+	st_case_417:
+		// line internal/php8/scanner.go:17043
 		switch lex.data[(lex.p)] {
-		case 82:
+		case 73:
 			goto tr625
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 114:
+			goto tr338
+		case 105:
 			goto tr625
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr247:
+	tr625:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st420
-	st420:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st418
+	st418:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof420
+			goto _test_eof418
 		}
-	st_case_420:
-		// line internal/php8/scanner.go:17047
+	st_case_418:
+		// line internal/php8/scanner.go:17084
 		switch lex.data[(lex.p)] {
-		case 73:
+		case 76:
 			goto tr626
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 105:
+			goto tr338
+		case 108:
 			goto tr626
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr626:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st421
-	st421:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st419
+	st419:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof421
+			goto _test_eof419
 		}
-	st_case_421:
-		// line internal/php8/scanner.go:17088
+	st_case_419:
+		// line internal/php8/scanner.go:17125
 		switch lex.data[(lex.p)] {
 		case 69:
 			goto tr627
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 101:
 			goto tr627
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr627:
+	tr246:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st422
-	st422:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st420
+	st420:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof422
+			goto _test_eof420
 		}
-	st_case_422:
-		// line internal/php8/scanner.go:17129
+	st_case_420:
+		// line internal/php8/scanner.go:17166
 		switch lex.data[(lex.p)] {
-		case 76:
+		case 79:
 			goto tr628
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 108:
+			goto tr338
+		case 111:
 			goto tr628
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr628:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st421
+	st421:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof421
+		}
+	st_case_421:
+		// line internal/php8/scanner.go:17207
+		switch lex.data[(lex.p)] {
+		case 82:
+			goto tr629
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 114:
+			goto tr629
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr247:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st422
+	st422:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof422
+		}
+	st_case_422:
+		// line internal/php8/scanner.go:17248
+		switch lex.data[(lex.p)] {
+		case 73:
+			goto tr630
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 105:
+			goto tr630
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr630:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st423
 	st423:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof423
 		}
 	st_case_423:
-		// line internal/php8/scanner.go:17170
+		// line internal/php8/scanner.go:17289
 		switch lex.data[(lex.p)] {
-		case 68:
-			goto tr629
+		case 69:
+			goto tr631
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 100:
-			goto tr629
+			goto tr338
+		case 101:
+			goto tr631
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr629:
+	tr631:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:279
-		lex.act = 80
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st424
 	st424:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof424
 		}
 	st_case_424:
-		// line internal/php8/scanner.go:17211
+		// line internal/php8/scanner.go:17330
+		switch lex.data[(lex.p)] {
+		case 76:
+			goto tr632
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 108:
+			goto tr632
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr632:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st425
+	st425:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof425
+		}
+	st_case_425:
+		// line internal/php8/scanner.go:17371
+		switch lex.data[(lex.p)] {
+		case 68:
+			goto tr633
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 100:
+			goto tr633
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr633:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:279
+		lex.act = 80
+		goto st426
+	st426:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof426
+		}
+	st_case_426:
+		// line internal/php8/scanner.go:17412
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr140
@@ -18519,7 +18720,7 @@ func (lex *Lexer) Lex() *token.Token {
 		case 92:
 			goto st94
 		case 96:
-			goto tr630
+			goto tr634
 		}
 		switch {
 		case lex.data[(lex.p)] < 14:
@@ -18529,23 +18730,23 @@ func (lex *Lexer) Lex() *token.Token {
 					goto st98
 				}
 			default:
-				goto tr630
+				goto tr634
 			}
 		case lex.data[(lex.p)] > 47:
 			switch {
 			case lex.data[(lex.p)] < 91:
 				if 58 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 64 {
-					goto tr630
+					goto tr634
 				}
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr630
+					goto tr634
 				}
 			default:
-				goto tr630
+				goto tr634
 			}
 		default:
-			goto tr630
+			goto tr634
 		}
 		goto tr233
 	tr143:
@@ -18557,7 +18758,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof98
 		}
 	st_case_98:
-		// line internal/php8/scanner.go:17260
+		// line internal/php8/scanner.go:17461
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr140
@@ -18605,7 +18806,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof99
 		}
 	st_case_99:
-		// line internal/php8/scanner.go:17308
+		// line internal/php8/scanner.go:17509
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr144
@@ -18653,7 +18854,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof100
 		}
 	st_case_100:
-		// line internal/php8/scanner.go:17356
+		// line internal/php8/scanner.go:17557
 		if lex.data[(lex.p)] == 10 {
 			goto tr140
 		}
@@ -18667,7 +18868,7 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof101
 		}
 	st_case_101:
-		// line internal/php8/scanner.go:17370
+		// line internal/php8/scanner.go:17571
 		switch lex.data[(lex.p)] {
 		case 82:
 			goto st102
@@ -18699,60 +18900,60 @@ func (lex *Lexer) Lex() *token.Token {
 			goto tr149
 		}
 		goto tr138
-	st425:
+	st427:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof425
+			goto _test_eof427
 		}
-	st_case_425:
+	st_case_427:
 		if lex.data[(lex.p)] == 96 {
-			goto tr631
+			goto tr635
 		}
 		switch {
 		case lex.data[(lex.p)] < 91:
 			if lex.data[(lex.p)] <= 64 {
-				goto tr631
+				goto tr635
 			}
 		case lex.data[(lex.p)] > 94:
 			if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-				goto tr631
+				goto tr635
 			}
 		default:
-			goto tr631
+			goto tr635
 		}
 		goto tr151
 	tr151:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st426
-	st426:
+		goto st428
+	st428:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof426
+			goto _test_eof428
 		}
-	st_case_426:
-		// line internal/php8/scanner.go:17433
+	st_case_428:
+		// line internal/php8/scanner.go:17634
 		switch lex.data[(lex.p)] {
 		case 92:
 			goto st104
 		case 96:
-			goto tr632
+			goto tr636
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr632
+				goto tr636
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr632
+					goto tr636
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr632
+				goto tr636
 			}
 		default:
-			goto tr632
+			goto tr636
 		}
 		goto tr151
 	st104:
@@ -18776,454 +18977,298 @@ func (lex *Lexer) Lex() *token.Token {
 			goto tr150
 		}
 		goto tr151
-	st427:
+	st429:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof427
+			goto _test_eof429
 		}
-	st_case_427:
+	st_case_429:
 		if lex.data[(lex.p)] == 61 {
-			goto tr634
+			goto tr638
 		}
 		goto tr262
 	tr250:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st428
-	st428:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof428
-		}
-	st_case_428:
-		// line internal/php8/scanner.go:17500
-		switch lex.data[(lex.p)] {
-		case 92:
-			goto st94
-		case 95:
-			goto tr635
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 96:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr635:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st429
-	st429:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof429
-		}
-	st_case_429:
-		// line internal/php8/scanner.go:17537
-		switch lex.data[(lex.p)] {
-		case 67:
-			goto tr636
-		case 68:
-			goto tr637
-		case 70:
-			goto tr638
-		case 72:
-			goto tr639
-		case 76:
-			goto tr640
-		case 77:
-			goto tr641
-		case 78:
-			goto tr642
-		case 84:
-			goto tr643
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 99:
-			goto tr636
-		case 100:
-			goto tr637
-		case 102:
-			goto tr638
-		case 104:
-			goto tr639
-		case 108:
-			goto tr640
-		case 109:
-			goto tr641
-		case 110:
-			goto tr642
-		case 116:
-			goto tr643
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr636:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st430
 	st430:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof430
 		}
 	st_case_430:
-		// line internal/php8/scanner.go:17606
+		// line internal/php8/scanner.go:17701
 		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr644
 		case 92:
 			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr644
+		case 95:
+			goto tr639
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
-			case lex.data[(lex.p)] > 94:
+			case lex.data[(lex.p)] > 96:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr644:
+	tr639:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st431
 	st431:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof431
 		}
 	st_case_431:
-		// line internal/php8/scanner.go:17647
+		// line internal/php8/scanner.go:17738
 		switch lex.data[(lex.p)] {
-		case 65:
+		case 67:
+			goto tr640
+		case 68:
+			goto tr641
+		case 70:
+			goto tr642
+		case 72:
+			goto tr643
+		case 76:
+			goto tr644
+		case 77:
 			goto tr645
+		case 78:
+			goto tr646
+		case 84:
+			goto tr647
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 97:
+			goto tr338
+		case 99:
+			goto tr640
+		case 100:
+			goto tr641
+		case 102:
+			goto tr642
+		case 104:
+			goto tr643
+		case 108:
+			goto tr644
+		case 109:
 			goto tr645
+		case 110:
+			goto tr646
+		case 116:
+			goto tr647
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr645:
+	tr640:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st432
 	st432:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof432
 		}
 	st_case_432:
-		// line internal/php8/scanner.go:17688
+		// line internal/php8/scanner.go:17807
 		switch lex.data[(lex.p)] {
-		case 83:
-			goto tr646
+		case 76:
+			goto tr648
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 115:
-			goto tr646
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr646:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st433
-	st433:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof433
-		}
-	st_case_433:
-		// line internal/php8/scanner.go:17729
-		switch lex.data[(lex.p)] {
-		case 83:
-			goto tr647
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 115:
-			goto tr647
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr647:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st434
-	st434:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof434
-		}
-	st_case_434:
-		// line internal/php8/scanner.go:17770
-		switch lex.data[(lex.p)] {
-		case 92:
-			goto st94
-		case 95:
+			goto tr338
+		case 108:
 			goto tr648
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
-			case lex.data[(lex.p)] > 96:
+			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr648:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st435
-	st435:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st433
+	st433:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof435
+			goto _test_eof433
 		}
-	st_case_435:
-		// line internal/php8/scanner.go:17807
+	st_case_433:
+		// line internal/php8/scanner.go:17848
 		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr649
 		case 92:
 			goto st94
-		case 95:
+		case 96:
+			goto tr338
+		case 97:
 			goto tr649
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 96:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr637:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st436
-	st436:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof436
-		}
-	st_case_436:
-		// line internal/php8/scanner.go:17844
-		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr650
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 105:
-			goto tr650
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr649:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st434
+	st434:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof434
+		}
+	st_case_434:
+		// line internal/php8/scanner.go:17889
+		switch lex.data[(lex.p)] {
+		case 83:
+			goto tr650
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 115:
+			goto tr650
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr650:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st437
-	st437:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st435
+	st435:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof437
+			goto _test_eof435
 		}
-	st_case_437:
-		// line internal/php8/scanner.go:17885
+	st_case_435:
+		// line internal/php8/scanner.go:17930
 		switch lex.data[(lex.p)] {
-		case 82:
+		case 83:
 			goto tr651
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 114:
+			goto tr338
+		case 115:
 			goto tr651
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr651:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st438
-	st438:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st436
+	st436:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof438
+			goto _test_eof436
 		}
-	st_case_438:
-		// line internal/php8/scanner.go:17926
+	st_case_436:
+		// line internal/php8/scanner.go:17971
 		switch lex.data[(lex.p)] {
 		case 92:
 			goto st94
@@ -19233,34 +19278,34 @@ func (lex *Lexer) Lex() *token.Token {
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 96:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr652:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st439
-	st439:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st437
+	st437:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof439
+			goto _test_eof437
 		}
-	st_case_439:
-		// line internal/php8/scanner.go:17963
+	st_case_437:
+		// line internal/php8/scanner.go:18008
 		switch lex.data[(lex.p)] {
 		case 92:
 			goto st94
@@ -19270,678 +19315,674 @@ func (lex *Lexer) Lex() *token.Token {
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 96:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr638:
+	tr641:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st440
-	st440:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st438
+	st438:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof440
+			goto _test_eof438
 		}
-	st_case_440:
-		// line internal/php8/scanner.go:18000
+	st_case_438:
+		// line internal/php8/scanner.go:18045
 		switch lex.data[(lex.p)] {
 		case 73:
 			goto tr654
-		case 85:
-			goto tr655
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
+			goto tr338
 		case 105:
 			goto tr654
-		case 117:
-			goto tr655
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr654:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st441
-	st441:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st439
+	st439:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof441
+			goto _test_eof439
 		}
-	st_case_441:
-		// line internal/php8/scanner.go:18045
-		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr656
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr656
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr656:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st442
-	st442:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof442
-		}
-	st_case_442:
+	st_case_439:
 		// line internal/php8/scanner.go:18086
 		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr657
+		case 82:
+			goto tr655
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 101:
-			goto tr657
+			goto tr338
+		case 114:
+			goto tr655
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr657:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st443
-	st443:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof443
-		}
-	st_case_443:
-		// line internal/php8/scanner.go:18127
-		switch lex.data[(lex.p)] {
-		case 92:
-			goto st94
-		case 95:
-			goto tr658
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 96:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr658:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st444
-	st444:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof444
-		}
-	st_case_444:
-		// line internal/php8/scanner.go:18164
-		switch lex.data[(lex.p)] {
-		case 92:
-			goto st94
-		case 95:
-			goto tr659
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 96:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr655:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st445
-	st445:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st440
+	st440:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof445
+			goto _test_eof440
 		}
-	st_case_445:
-		// line internal/php8/scanner.go:18201
+	st_case_440:
+		// line internal/php8/scanner.go:18127
 		switch lex.data[(lex.p)] {
-		case 78:
-			goto tr660
 		case 92:
 			goto st94
-		case 96:
-			goto tr334
-		case 110:
-			goto tr660
+		case 95:
+			goto tr656
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 96:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr656:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st441
+	st441:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof441
+		}
+	st_case_441:
+		// line internal/php8/scanner.go:18164
+		switch lex.data[(lex.p)] {
+		case 92:
+			goto st94
+		case 95:
+			goto tr657
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 96:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr642:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st442
+	st442:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof442
+		}
+	st_case_442:
+		// line internal/php8/scanner.go:18201
+		switch lex.data[(lex.p)] {
+		case 73:
+			goto tr658
+		case 85:
+			goto tr659
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 105:
+			goto tr658
+		case 117:
+			goto tr659
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr658:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st443
+	st443:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof443
+		}
+	st_case_443:
+		// line internal/php8/scanner.go:18246
+		switch lex.data[(lex.p)] {
+		case 76:
+			goto tr660
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 108:
+			goto tr660
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr660:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st446
-	st446:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st444
+	st444:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof446
+			goto _test_eof444
 		}
-	st_case_446:
-		// line internal/php8/scanner.go:18242
+	st_case_444:
+		// line internal/php8/scanner.go:18287
 		switch lex.data[(lex.p)] {
-		case 67:
+		case 69:
 			goto tr661
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 99:
+			goto tr338
+		case 101:
 			goto tr661
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr661:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st447
-	st447:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st445
+	st445:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof447
+			goto _test_eof445
 		}
-	st_case_447:
-		// line internal/php8/scanner.go:18283
+	st_case_445:
+		// line internal/php8/scanner.go:18328
 		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr662
 		case 92:
 			goto st94
-		case 96:
-			goto tr334
-		case 116:
+		case 95:
 			goto tr662
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
-			case lex.data[(lex.p)] > 94:
+			case lex.data[(lex.p)] > 96:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr662:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st448
-	st448:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st446
+	st446:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof448
+			goto _test_eof446
 		}
-	st_case_448:
-		// line internal/php8/scanner.go:18324
+	st_case_446:
+		// line internal/php8/scanner.go:18365
 		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr663
 		case 92:
 			goto st94
-		case 96:
-			goto tr334
-		case 105:
+		case 95:
 			goto tr663
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
-			case lex.data[(lex.p)] > 94:
+			case lex.data[(lex.p)] > 96:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
-	tr663:
+	tr659:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st449
-	st449:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st447
+	st447:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof449
+			goto _test_eof447
 		}
-	st_case_449:
-		// line internal/php8/scanner.go:18365
+	st_case_447:
+		// line internal/php8/scanner.go:18402
 		switch lex.data[(lex.p)] {
-		case 79:
+		case 78:
 			goto tr664
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 111:
+			goto tr338
+		case 110:
 			goto tr664
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr664:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st450
-	st450:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st448
+	st448:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof450
+			goto _test_eof448
 		}
-	st_case_450:
-		// line internal/php8/scanner.go:18406
+	st_case_448:
+		// line internal/php8/scanner.go:18443
 		switch lex.data[(lex.p)] {
-		case 78:
+		case 67:
 			goto tr665
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 110:
+			goto tr338
+		case 99:
 			goto tr665
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr665:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st451
-	st451:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st449
+	st449:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof451
+			goto _test_eof449
 		}
-	st_case_451:
-		// line internal/php8/scanner.go:18447
+	st_case_449:
+		// line internal/php8/scanner.go:18484
 		switch lex.data[(lex.p)] {
+		case 84:
+			goto tr666
 		case 92:
 			goto st94
-		case 95:
+		case 96:
+			goto tr338
+		case 116:
 			goto tr666
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
-			case lex.data[(lex.p)] > 96:
+			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr666:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st452
-	st452:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st450
+	st450:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof452
+			goto _test_eof450
 		}
-	st_case_452:
-		// line internal/php8/scanner.go:18484
+	st_case_450:
+		// line internal/php8/scanner.go:18525
 		switch lex.data[(lex.p)] {
+		case 73:
+			goto tr667
 		case 92:
 			goto st94
-		case 95:
+		case 96:
+			goto tr338
+		case 105:
 			goto tr667
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 96:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr639:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st453
-	st453:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof453
-		}
-	st_case_453:
-		// line internal/php8/scanner.go:18521
-		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr668
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr668
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr667:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st451
+	st451:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof451
+		}
+	st_case_451:
+		// line internal/php8/scanner.go:18566
+		switch lex.data[(lex.p)] {
+		case 79:
+			goto tr668
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 111:
+			goto tr668
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr668:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st454
-	st454:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st452
+	st452:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof454
+			goto _test_eof452
 		}
-	st_case_454:
-		// line internal/php8/scanner.go:18562
+	st_case_452:
+		// line internal/php8/scanner.go:18607
 		switch lex.data[(lex.p)] {
-		case 76:
+		case 78:
 			goto tr669
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 108:
+			goto tr338
+		case 110:
 			goto tr669
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr669:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st455
-	st455:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st453
+	st453:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof455
+			goto _test_eof453
 		}
-	st_case_455:
-		// line internal/php8/scanner.go:18603
+	st_case_453:
+		// line internal/php8/scanner.go:18648
 		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr670
 		case 92:
 			goto st94
-		case 96:
-			goto tr334
-		case 116:
+		case 95:
 			goto tr670
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
-			case lex.data[(lex.p)] > 94:
+			case lex.data[(lex.p)] > 96:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr670:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st456
-	st456:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st454
+	st454:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof456
+			goto _test_eof454
 		}
-	st_case_456:
-		// line internal/php8/scanner.go:18644
+	st_case_454:
+		// line internal/php8/scanner.go:18685
 		switch lex.data[(lex.p)] {
 		case 92:
 			goto st94
@@ -19951,1486 +19992,1646 @@ func (lex *Lexer) Lex() *token.Token {
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 96:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
-		}
-		goto tr233
-	tr671:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st457
-	st457:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof457
-		}
-	st_case_457:
-		// line internal/php8/scanner.go:18681
-		switch lex.data[(lex.p)] {
-		case 67:
-			goto tr672
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 99:
-			goto tr672
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr672:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st458
-	st458:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof458
-		}
-	st_case_458:
-		// line internal/php8/scanner.go:18722
-		switch lex.data[(lex.p)] {
-		case 79:
-			goto tr673
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 111:
-			goto tr673
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr673:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st459
-	st459:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof459
-		}
-	st_case_459:
-		// line internal/php8/scanner.go:18763
-		switch lex.data[(lex.p)] {
-		case 77:
-			goto tr674
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 109:
-			goto tr674
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr674:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st460
-	st460:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof460
-		}
-	st_case_460:
-		// line internal/php8/scanner.go:18804
-		switch lex.data[(lex.p)] {
-		case 80:
-			goto tr675
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 112:
-			goto tr675
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr675:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st461
-	st461:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof461
-		}
-	st_case_461:
-		// line internal/php8/scanner.go:18845
-		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr676
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 105:
-			goto tr676
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr676:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st462
-	st462:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof462
-		}
-	st_case_462:
-		// line internal/php8/scanner.go:18886
-		switch lex.data[(lex.p)] {
-		case 76:
-			goto tr677
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 108:
-			goto tr677
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr677:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st463
-	st463:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof463
-		}
-	st_case_463:
-		// line internal/php8/scanner.go:18927
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr678
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr678
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr678:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st464
-	st464:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof464
-		}
-	st_case_464:
-		// line internal/php8/scanner.go:18968
-		switch lex.data[(lex.p)] {
-		case 82:
-			goto tr679
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 114:
-			goto tr679
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr640:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st465
-	st465:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof465
-		}
-	st_case_465:
-		// line internal/php8/scanner.go:19009
-		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr680
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 105:
-			goto tr680
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr680:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st466
-	st466:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof466
-		}
-	st_case_466:
-		// line internal/php8/scanner.go:19050
-		switch lex.data[(lex.p)] {
-		case 78:
-			goto tr681
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 110:
-			goto tr681
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr681:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st467
-	st467:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof467
-		}
-	st_case_467:
-		// line internal/php8/scanner.go:19091
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr682
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr682
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr682:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st468
-	st468:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof468
-		}
-	st_case_468:
-		// line internal/php8/scanner.go:19132
-		switch lex.data[(lex.p)] {
-		case 92:
-			goto st94
-		case 95:
-			goto tr683
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 96:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr683:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st469
-	st469:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof469
-		}
-	st_case_469:
-		// line internal/php8/scanner.go:19169
-		switch lex.data[(lex.p)] {
-		case 92:
-			goto st94
-		case 95:
-			goto tr684
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 96:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr641:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st470
-	st470:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof470
-		}
-	st_case_470:
-		// line internal/php8/scanner.go:19206
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr685
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr685
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr685:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st471
-	st471:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof471
-		}
-	st_case_471:
-		// line internal/php8/scanner.go:19247
-		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr686
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 116:
-			goto tr686
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr686:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st472
-	st472:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof472
-		}
-	st_case_472:
-		// line internal/php8/scanner.go:19288
-		switch lex.data[(lex.p)] {
-		case 72:
-			goto tr687
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 104:
-			goto tr687
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr687:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st473
-	st473:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof473
-		}
-	st_case_473:
-		// line internal/php8/scanner.go:19329
-		switch lex.data[(lex.p)] {
-		case 79:
-			goto tr688
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 111:
-			goto tr688
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr688:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st474
-	st474:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof474
-		}
-	st_case_474:
-		// line internal/php8/scanner.go:19370
-		switch lex.data[(lex.p)] {
-		case 68:
-			goto tr689
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 100:
-			goto tr689
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr689:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st475
-	st475:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof475
-		}
-	st_case_475:
-		// line internal/php8/scanner.go:19411
-		switch lex.data[(lex.p)] {
-		case 92:
-			goto st94
-		case 95:
-			goto tr690
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 96:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr690:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st476
-	st476:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof476
-		}
-	st_case_476:
-		// line internal/php8/scanner.go:19448
-		switch lex.data[(lex.p)] {
-		case 92:
-			goto st94
-		case 95:
-			goto tr691
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 96:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr642:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st477
-	st477:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof477
-		}
-	st_case_477:
-		// line internal/php8/scanner.go:19485
-		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr692
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr692
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr692:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st478
-	st478:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof478
-		}
-	st_case_478:
-		// line internal/php8/scanner.go:19526
-		switch lex.data[(lex.p)] {
-		case 77:
-			goto tr693
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 109:
-			goto tr693
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr693:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st479
-	st479:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof479
-		}
-	st_case_479:
-		// line internal/php8/scanner.go:19567
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr694
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr694
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr694:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st480
-	st480:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof480
-		}
-	st_case_480:
-		// line internal/php8/scanner.go:19608
-		switch lex.data[(lex.p)] {
-		case 83:
-			goto tr695
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 115:
-			goto tr695
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr695:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st481
-	st481:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof481
-		}
-	st_case_481:
-		// line internal/php8/scanner.go:19649
-		switch lex.data[(lex.p)] {
-		case 80:
-			goto tr696
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 112:
-			goto tr696
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr696:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st482
-	st482:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof482
-		}
-	st_case_482:
-		// line internal/php8/scanner.go:19690
-		switch lex.data[(lex.p)] {
-		case 65:
-			goto tr697
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 97:
-			goto tr697
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr697:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st483
-	st483:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof483
-		}
-	st_case_483:
-		// line internal/php8/scanner.go:19731
-		switch lex.data[(lex.p)] {
-		case 67:
-			goto tr698
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 99:
-			goto tr698
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr698:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st484
-	st484:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof484
-		}
-	st_case_484:
-		// line internal/php8/scanner.go:19772
-		switch lex.data[(lex.p)] {
-		case 69:
-			goto tr699
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 101:
-			goto tr699
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr699:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st485
-	st485:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof485
-		}
-	st_case_485:
-		// line internal/php8/scanner.go:19813
-		switch lex.data[(lex.p)] {
-		case 92:
-			goto st94
-		case 95:
-			goto tr700
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 96:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr700:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st486
-	st486:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof486
-		}
-	st_case_486:
-		// line internal/php8/scanner.go:19850
-		switch lex.data[(lex.p)] {
-		case 92:
-			goto st94
-		case 95:
-			goto tr701
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 96:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr643:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st487
-	st487:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st455
+	st455:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof487
+			goto _test_eof455
 		}
-	st_case_487:
-		// line internal/php8/scanner.go:19887
+	st_case_455:
+		// line internal/php8/scanner.go:18722
 		switch lex.data[(lex.p)] {
-		case 82:
-			goto tr702
+		case 65:
+			goto tr672
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 114:
-			goto tr702
+			goto tr338
+		case 97:
+			goto tr672
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr672:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st456
+	st456:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof456
+		}
+	st_case_456:
+		// line internal/php8/scanner.go:18763
+		switch lex.data[(lex.p)] {
+		case 76:
+			goto tr673
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 108:
+			goto tr673
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr673:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st457
+	st457:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof457
+		}
+	st_case_457:
+		// line internal/php8/scanner.go:18804
+		switch lex.data[(lex.p)] {
+		case 84:
+			goto tr674
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 116:
+			goto tr674
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr674:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st458
+	st458:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof458
+		}
+	st_case_458:
+		// line internal/php8/scanner.go:18845
+		switch lex.data[(lex.p)] {
+		case 92:
+			goto st94
+		case 95:
+			goto tr675
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 96:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr675:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st459
+	st459:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof459
+		}
+	st_case_459:
+		// line internal/php8/scanner.go:18882
+		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr676
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 99:
+			goto tr676
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr676:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st460
+	st460:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof460
+		}
+	st_case_460:
+		// line internal/php8/scanner.go:18923
+		switch lex.data[(lex.p)] {
+		case 79:
+			goto tr677
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 111:
+			goto tr677
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr677:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st461
+	st461:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof461
+		}
+	st_case_461:
+		// line internal/php8/scanner.go:18964
+		switch lex.data[(lex.p)] {
+		case 77:
+			goto tr678
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 109:
+			goto tr678
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr678:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st462
+	st462:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof462
+		}
+	st_case_462:
+		// line internal/php8/scanner.go:19005
+		switch lex.data[(lex.p)] {
+		case 80:
+			goto tr679
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 112:
+			goto tr679
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr679:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st463
+	st463:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof463
+		}
+	st_case_463:
+		// line internal/php8/scanner.go:19046
+		switch lex.data[(lex.p)] {
+		case 73:
+			goto tr680
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 105:
+			goto tr680
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr680:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st464
+	st464:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof464
+		}
+	st_case_464:
+		// line internal/php8/scanner.go:19087
+		switch lex.data[(lex.p)] {
+		case 76:
+			goto tr681
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 108:
+			goto tr681
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr681:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st465
+	st465:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof465
+		}
+	st_case_465:
+		// line internal/php8/scanner.go:19128
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr682
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr682
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr682:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st466
+	st466:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof466
+		}
+	st_case_466:
+		// line internal/php8/scanner.go:19169
+		switch lex.data[(lex.p)] {
+		case 82:
+			goto tr683
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 114:
+			goto tr683
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr644:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st467
+	st467:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof467
+		}
+	st_case_467:
+		// line internal/php8/scanner.go:19210
+		switch lex.data[(lex.p)] {
+		case 73:
+			goto tr684
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 105:
+			goto tr684
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr684:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st468
+	st468:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof468
+		}
+	st_case_468:
+		// line internal/php8/scanner.go:19251
+		switch lex.data[(lex.p)] {
+		case 78:
+			goto tr685
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 110:
+			goto tr685
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr685:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st469
+	st469:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof469
+		}
+	st_case_469:
+		// line internal/php8/scanner.go:19292
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr686
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr686
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr686:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st470
+	st470:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof470
+		}
+	st_case_470:
+		// line internal/php8/scanner.go:19333
+		switch lex.data[(lex.p)] {
+		case 92:
+			goto st94
+		case 95:
+			goto tr687
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 96:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr687:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st471
+	st471:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof471
+		}
+	st_case_471:
+		// line internal/php8/scanner.go:19370
+		switch lex.data[(lex.p)] {
+		case 92:
+			goto st94
+		case 95:
+			goto tr688
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 96:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr645:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st472
+	st472:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof472
+		}
+	st_case_472:
+		// line internal/php8/scanner.go:19407
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr689
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr689
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr689:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st473
+	st473:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof473
+		}
+	st_case_473:
+		// line internal/php8/scanner.go:19448
+		switch lex.data[(lex.p)] {
+		case 84:
+			goto tr690
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 116:
+			goto tr690
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr690:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st474
+	st474:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof474
+		}
+	st_case_474:
+		// line internal/php8/scanner.go:19489
+		switch lex.data[(lex.p)] {
+		case 72:
+			goto tr691
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 104:
+			goto tr691
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr691:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st475
+	st475:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof475
+		}
+	st_case_475:
+		// line internal/php8/scanner.go:19530
+		switch lex.data[(lex.p)] {
+		case 79:
+			goto tr692
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 111:
+			goto tr692
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr692:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st476
+	st476:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof476
+		}
+	st_case_476:
+		// line internal/php8/scanner.go:19571
+		switch lex.data[(lex.p)] {
+		case 68:
+			goto tr693
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 100:
+			goto tr693
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr693:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st477
+	st477:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof477
+		}
+	st_case_477:
+		// line internal/php8/scanner.go:19612
+		switch lex.data[(lex.p)] {
+		case 92:
+			goto st94
+		case 95:
+			goto tr694
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 96:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr694:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st478
+	st478:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof478
+		}
+	st_case_478:
+		// line internal/php8/scanner.go:19649
+		switch lex.data[(lex.p)] {
+		case 92:
+			goto st94
+		case 95:
+			goto tr695
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 96:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr646:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st479
+	st479:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof479
+		}
+	st_case_479:
+		// line internal/php8/scanner.go:19686
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr696
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr696
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr696:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st480
+	st480:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof480
+		}
+	st_case_480:
+		// line internal/php8/scanner.go:19727
+		switch lex.data[(lex.p)] {
+		case 77:
+			goto tr697
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 109:
+			goto tr697
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr697:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st481
+	st481:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof481
+		}
+	st_case_481:
+		// line internal/php8/scanner.go:19768
+		switch lex.data[(lex.p)] {
+		case 69:
+			goto tr698
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 101:
+			goto tr698
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr698:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st482
+	st482:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof482
+		}
+	st_case_482:
+		// line internal/php8/scanner.go:19809
+		switch lex.data[(lex.p)] {
+		case 83:
+			goto tr699
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 115:
+			goto tr699
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr699:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st483
+	st483:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof483
+		}
+	st_case_483:
+		// line internal/php8/scanner.go:19850
+		switch lex.data[(lex.p)] {
+		case 80:
+			goto tr700
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 112:
+			goto tr700
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr700:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st484
+	st484:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof484
+		}
+	st_case_484:
+		// line internal/php8/scanner.go:19891
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr701
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr701
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr701:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st485
+	st485:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof485
+		}
+	st_case_485:
+		// line internal/php8/scanner.go:19932
+		switch lex.data[(lex.p)] {
+		case 67:
+			goto tr702
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 99:
+			goto tr702
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr702:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st488
-	st488:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st486
+	st486:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof488
+			goto _test_eof486
 		}
-	st_case_488:
-		// line internal/php8/scanner.go:19928
+	st_case_486:
+		// line internal/php8/scanner.go:19973
 		switch lex.data[(lex.p)] {
-		case 65:
+		case 69:
 			goto tr703
 		case 92:
 			goto st94
 		case 96:
-			goto tr334
-		case 97:
+			goto tr338
+		case 101:
 			goto tr703
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr703:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st489
-	st489:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st487
+	st487:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof489
+			goto _test_eof487
 		}
-	st_case_489:
-		// line internal/php8/scanner.go:19969
+	st_case_487:
+		// line internal/php8/scanner.go:20014
 		switch lex.data[(lex.p)] {
-		case 73:
-			goto tr704
 		case 92:
 			goto st94
-		case 96:
-			goto tr334
-		case 105:
+		case 95:
 			goto tr704
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
-			case lex.data[(lex.p)] > 94:
+			case lex.data[(lex.p)] > 96:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
 	tr704:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st490
-	st490:
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st488
+	st488:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof490
+			goto _test_eof488
 		}
-	st_case_490:
-		// line internal/php8/scanner.go:20010
-		switch lex.data[(lex.p)] {
-		case 84:
-			goto tr705
-		case 92:
-			goto st94
-		case 96:
-			goto tr334
-		case 116:
-			goto tr705
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr334
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr334
-			}
-		default:
-			goto tr334
-		}
-		goto tr233
-	tr705:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
-		goto st491
-	st491:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof491
-		}
-	st_case_491:
+	st_case_488:
 		// line internal/php8/scanner.go:20051
 		switch lex.data[(lex.p)] {
 		case 92:
 			goto st94
 		case 95:
-			goto tr706
+			goto tr705
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 96:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
+		}
+		goto tr233
+	tr647:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st489
+	st489:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof489
+		}
+	st_case_489:
+		// line internal/php8/scanner.go:20088
+		switch lex.data[(lex.p)] {
+		case 82:
+			goto tr706
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 114:
+			goto tr706
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
 		}
 		goto tr233
 	tr706:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:368
-		lex.act = 145
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st490
+	st490:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof490
+		}
+	st_case_490:
+		// line internal/php8/scanner.go:20129
+		switch lex.data[(lex.p)] {
+		case 65:
+			goto tr707
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 97:
+			goto tr707
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr707:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st491
+	st491:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof491
+		}
+	st_case_491:
+		// line internal/php8/scanner.go:20170
+		switch lex.data[(lex.p)] {
+		case 73:
+			goto tr708
+		case 92:
+			goto st94
+		case 96:
+			goto tr338
+		case 105:
+			goto tr708
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr708:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
 		goto st492
 	st492:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof492
 		}
 	st_case_492:
-		// line internal/php8/scanner.go:20088
+		// line internal/php8/scanner.go:20211
 		switch lex.data[(lex.p)] {
+		case 84:
+			goto tr709
 		case 92:
 			goto st94
-		case 95:
-			goto tr707
+		case 96:
+			goto tr338
+		case 116:
+			goto tr709
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr334
+				goto tr338
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
-			case lex.data[(lex.p)] > 96:
+			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr334
+					goto tr338
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr334
+				goto tr338
 			}
 		default:
-			goto tr334
+			goto tr338
 		}
 		goto tr233
+	tr709:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st493
 	st493:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof493
 		}
 	st_case_493:
+		// line internal/php8/scanner.go:20252
+		switch lex.data[(lex.p)] {
+		case 92:
+			goto st94
+		case 95:
+			goto tr710
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 96:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	tr710:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:375
+		lex.act = 146
+		goto st494
+	st494:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof494
+		}
+	st_case_494:
+		// line internal/php8/scanner.go:20289
+		switch lex.data[(lex.p)] {
+		case 92:
+			goto st94
+		case 95:
+			goto tr711
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr338
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 96:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr338
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr338
+			}
+		default:
+			goto tr338
+		}
+		goto tr233
+	st495:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof495
+		}
+	st_case_495:
 		switch lex.data[(lex.p)] {
 		case 61:
-			goto tr708
+			goto tr712
 		case 124:
-			goto tr709
+			goto tr713
 		}
 		goto tr262
 	tr152:
-		// line internal/php8/scanner.rl:403
+		// line internal/php8/scanner.rl:410
 		(lex.p) = (lex.te) - 1
 		{
 			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
 		}
-		goto st494
+		goto st496
 	tr154:
-		// line internal/php8/scanner.rl:407
+		// line internal/php8/scanner.rl:414
 		(lex.p) = (lex.te) - 1
 		{
 			lex.ungetCnt(1)
@@ -21438,22 +21639,22 @@ func (lex *Lexer) Lex() *token.Token {
 				goto st133
 			}
 		}
-		goto st494
+		goto st496
 	tr155:
-		// line internal/php8/scanner.rl:405
+		// line internal/php8/scanner.rl:412
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
 			tok = token.T_NULLSAFE_OBJECT_OPERATOR
 			{
 				(lex.p)++
-				lex.cs = 494
+				lex.cs = 496
 				goto _out
 			}
 		}
-		goto st494
-	tr710:
-		// line internal/php8/scanner.rl:407
+		goto st496
+	tr714:
+		// line internal/php8/scanner.rl:414
 		lex.te = (lex.p) + 1
 		{
 			lex.ungetCnt(1)
@@ -21461,27 +21662,27 @@ func (lex *Lexer) Lex() *token.Token {
 				goto st133
 			}
 		}
-		goto st494
-	tr716:
-		// line internal/php8/scanner.rl:403
+		goto st496
+	tr720:
+		// line internal/php8/scanner.rl:410
 		lex.te = (lex.p)
 		(lex.p)--
 		{
 			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
 		}
-		goto st494
-	tr718:
+		goto st496
+	tr722:
 		// line internal/php8/scanner.rl:54
 
-		// line internal/php8/scanner.rl:403
+		// line internal/php8/scanner.rl:410
 		lex.te = (lex.p)
 		(lex.p)--
 		{
 			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
 		}
-		goto st494
-	tr722:
-		// line internal/php8/scanner.rl:407
+		goto st496
+	tr726:
+		// line internal/php8/scanner.rl:414
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -21490,23 +21691,23 @@ func (lex *Lexer) Lex() *token.Token {
 				goto st133
 			}
 		}
-		goto st494
-	tr723:
-		// line internal/php8/scanner.rl:404
+		goto st496
+	tr727:
+		// line internal/php8/scanner.rl:411
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
 			tok = token.T_OBJECT_OPERATOR
 			{
 				(lex.p)++
-				lex.cs = 494
+				lex.cs = 496
 				goto _out
 			}
 		}
-		goto st494
-	tr725:
-		lex.cs = 494
-		// line internal/php8/scanner.rl:406
+		goto st496
+	tr729:
+		lex.cs = 496
+		// line internal/php8/scanner.rl:413
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -21519,85 +21720,85 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto _again
-	st494:
+	st496:
 		// line NONE:1
 		lex.ts = 0
 
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof494
+			goto _test_eof496
 		}
-	st_case_494:
+	st_case_496:
 		// line NONE:1
 		lex.ts = (lex.p)
 
-		// line internal/php8/scanner.go:20188
+		// line internal/php8/scanner.go:20389
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr153
 		case 13:
-			goto tr712
+			goto tr716
 		case 32:
-			goto tr711
+			goto tr715
 		case 45:
-			goto st498
+			goto st500
 		case 63:
-			goto tr714
+			goto tr718
 		case 96:
-			goto tr710
+			goto tr714
 		}
 		switch {
 		case lex.data[(lex.p)] < 14:
 			switch {
 			case lex.data[(lex.p)] > 8:
 				if 9 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 12 {
-					goto tr711
+					goto tr715
 				}
 			default:
-				goto tr710
+				goto tr714
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr710
+					goto tr714
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr710
+				goto tr714
 			}
 		default:
-			goto tr710
+			goto tr714
 		}
-		goto st500
-	tr711:
+		goto st502
+	tr715:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st495
-	tr719:
+		goto st497
+	tr723:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:54
 
-		goto st495
-	st495:
+		goto st497
+	st497:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof495
+			goto _test_eof497
 		}
-	st_case_495:
-		// line internal/php8/scanner.go:20243
+	st_case_497:
+		// line internal/php8/scanner.go:20444
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr153
 		case 13:
-			goto tr717
+			goto tr721
 		case 32:
-			goto tr711
+			goto tr715
 		}
 		if 9 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 12 {
-			goto tr711
+			goto tr715
 		}
-		goto tr716
+		goto tr720
 	tr153:
 		// line NONE:1
 		lex.te = (lex.p) + 1
@@ -21612,8 +21813,8 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st496
-	tr720:
+		goto st498
+	tr724:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
@@ -21629,26 +21830,26 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st496
-	st496:
+		goto st498
+	st498:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof496
+			goto _test_eof498
 		}
-	st_case_496:
-		// line internal/php8/scanner.go:20293
+	st_case_498:
+		// line internal/php8/scanner.go:20494
 		switch lex.data[(lex.p)] {
 		case 10:
-			goto tr720
+			goto tr724
 		case 13:
-			goto tr721
+			goto tr725
 		case 32:
-			goto tr719
+			goto tr723
 		}
 		if 9 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 12 {
-			goto tr719
+			goto tr723
 		}
-		goto tr718
-	tr717:
+		goto tr722
+	tr721:
 		// line internal/php8/scanner.rl:38
 
 		if lex.data[lex.p] == '\n' {
@@ -21660,7 +21861,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 
 		goto st105
-	tr721:
+	tr725:
 		// line internal/php8/scanner.rl:54
 
 		// line internal/php8/scanner.rl:38
@@ -21679,12 +21880,12 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof105
 		}
 	st_case_105:
-		// line internal/php8/scanner.go:20337
+		// line internal/php8/scanner.go:20538
 		if lex.data[(lex.p)] == 10 {
 			goto tr153
 		}
 		goto tr152
-	tr712:
+	tr716:
 		// line internal/php8/scanner.rl:38
 
 		if lex.data[lex.p] == '\n' {
@@ -21695,41 +21896,41 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st497
-	st497:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof497
-		}
-	st_case_497:
-		// line internal/php8/scanner.go:20359
-		if lex.data[(lex.p)] == 10 {
-			goto tr153
-		}
-		goto tr722
-	st498:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof498
-		}
-	st_case_498:
-		if lex.data[(lex.p)] == 62 {
-			goto tr723
-		}
-		goto tr722
-	tr714:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
 		goto st499
 	st499:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof499
 		}
 	st_case_499:
-		// line internal/php8/scanner.go:20383
+		// line internal/php8/scanner.go:20560
+		if lex.data[(lex.p)] == 10 {
+			goto tr153
+		}
+		goto tr726
+	st500:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof500
+		}
+	st_case_500:
+		if lex.data[(lex.p)] == 62 {
+			goto tr727
+		}
+		goto tr726
+	tr718:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		goto st501
+	st501:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof501
+		}
+	st_case_501:
+		// line internal/php8/scanner.go:20584
 		if lex.data[(lex.p)] == 45 {
 			goto st106
 		}
-		goto tr722
+		goto tr726
 	st106:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof106
@@ -21739,34 +21940,34 @@ func (lex *Lexer) Lex() *token.Token {
 			goto tr155
 		}
 		goto tr154
-	st500:
+	st502:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof500
+			goto _test_eof502
 		}
-	st_case_500:
+	st_case_502:
 		if lex.data[(lex.p)] == 96 {
-			goto tr725
+			goto tr729
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr725
+				goto tr729
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr725
+					goto tr729
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr725
+				goto tr729
 			}
 		default:
-			goto tr725
+			goto tr729
 		}
-		goto st500
-	tr729:
-		lex.cs = 501
+		goto st502
+	tr733:
+		lex.cs = 503
 		// line NONE:1
 		switch lex.act {
 		case 0:
@@ -21775,13 +21976,13 @@ func (lex *Lexer) Lex() *token.Token {
 					goto st0
 				}
 			}
-		case 158:
+		case 159:
 			{
 				(lex.p) = (lex.te) - 1
 
 				lex.setTokenPosition(tkn)
 				tok = token.T_ENCAPSED_AND_WHITESPACE
-				lex.cs = 524
+				lex.cs = 526
 				{
 					(lex.p)++
 					goto _out
@@ -21790,39 +21991,39 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 
 		goto _again
-	tr730:
-		lex.cs = 501
+	tr734:
+		lex.cs = 503
 		// line internal/php8/scanner.rl:54
 
-		// line internal/php8/scanner.rl:411
+		// line internal/php8/scanner.rl:418
 		lex.te = (lex.p)
 		(lex.p)--
 		{
 			lex.setTokenPosition(tkn)
 			tok = token.T_ENCAPSED_AND_WHITESPACE
-			lex.cs = 524
+			lex.cs = 526
 			{
 				(lex.p)++
 				goto _out
 			}
 		}
 		goto _again
-	tr734:
-		lex.cs = 501
-		// line internal/php8/scanner.rl:411
+	tr738:
+		lex.cs = 503
+		// line internal/php8/scanner.rl:418
 		lex.te = (lex.p)
 		(lex.p)--
 		{
 			lex.setTokenPosition(tkn)
 			tok = token.T_ENCAPSED_AND_WHITESPACE
-			lex.cs = 524
+			lex.cs = 526
 			{
 				(lex.p)++
 				goto _out
 			}
 		}
 		goto _again
-	st501:
+	st503:
 		// line NONE:1
 		lex.ts = 0
 
@@ -21830,13 +22031,13 @@ func (lex *Lexer) Lex() *token.Token {
 		lex.act = 0
 
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof501
+			goto _test_eof503
 		}
-	st_case_501:
+	st_case_503:
 		// line NONE:1
 		lex.ts = (lex.p)
 
-		// line internal/php8/scanner.go:20480
+		// line internal/php8/scanner.go:20681
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -21877,200 +22078,40 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		switch _widec {
 		case 1034:
-			goto tr727
+			goto tr731
 		case 1037:
-			goto tr728
+			goto tr732
 		}
 		if 1024 <= _widec && _widec <= 1279 {
-			goto tr726
+			goto tr730
 		}
 		goto st0
 	st_case_0:
 	st0:
 		lex.cs = 0
 		goto _out
-	tr726:
+	tr730:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:411
-		lex.act = 158
-		goto st502
-	tr731:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:54
-
-		// line internal/php8/scanner.rl:411
-		lex.act = 158
-		goto st502
-	st502:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof502
-		}
-	st_case_502:
-		// line internal/php8/scanner.go:20554
-		_widec = int16(lex.data[(lex.p)])
-		switch {
-		case lex.data[(lex.p)] < 11:
-			switch {
-			case lex.data[(lex.p)] > 9:
-				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
-					_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotHeredocEnd(lex.p) {
-						_widec += 256
-					}
-				}
-			default:
-				_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotHeredocEnd(lex.p) {
-					_widec += 256
-				}
-			}
-		case lex.data[(lex.p)] > 12:
-			switch {
-			case lex.data[(lex.p)] > 13:
-				if 14 <= lex.data[(lex.p)] {
-					_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotHeredocEnd(lex.p) {
-						_widec += 256
-					}
-				}
-			case lex.data[(lex.p)] >= 13:
-				_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotHeredocEnd(lex.p) {
-					_widec += 256
-				}
-			}
-		default:
-			_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
-			if lex.isNotHeredocEnd(lex.p) {
-				_widec += 256
-			}
-		}
-		switch _widec {
-		case 1034:
-			goto tr727
-		case 1037:
-			goto tr728
-		}
-		if 1024 <= _widec && _widec <= 1279 {
-			goto tr726
-		}
-		goto tr729
-	tr727:
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		goto st503
-	tr732:
-		// line internal/php8/scanner.rl:54
-
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		goto st503
-	st503:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof503
-		}
-	st_case_503:
-		// line internal/php8/scanner.go:20634
-		_widec = int16(lex.data[(lex.p)])
-		switch {
-		case lex.data[(lex.p)] < 11:
-			switch {
-			case lex.data[(lex.p)] > 9:
-				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
-					_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotHeredocEnd(lex.p) {
-						_widec += 256
-					}
-				}
-			default:
-				_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotHeredocEnd(lex.p) {
-					_widec += 256
-				}
-			}
-		case lex.data[(lex.p)] > 12:
-			switch {
-			case lex.data[(lex.p)] > 13:
-				if 14 <= lex.data[(lex.p)] {
-					_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotHeredocEnd(lex.p) {
-						_widec += 256
-					}
-				}
-			case lex.data[(lex.p)] >= 13:
-				_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotHeredocEnd(lex.p) {
-					_widec += 256
-				}
-			}
-		default:
-			_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
-			if lex.isNotHeredocEnd(lex.p) {
-				_widec += 256
-			}
-		}
-		switch _widec {
-		case 1034:
-			goto tr732
-		case 1037:
-			goto tr733
-		}
-		if 1024 <= _widec && _widec <= 1279 {
-			goto tr731
-		}
-		goto tr730
-	tr728:
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
+		// line internal/php8/scanner.rl:418
+		lex.act = 159
 		goto st504
-	tr733:
+	tr735:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
 		// line internal/php8/scanner.rl:54
 
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
+		// line internal/php8/scanner.rl:418
+		lex.act = 159
 		goto st504
 	st504:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof504
 		}
 	st_case_504:
-		// line internal/php8/scanner.go:20714
+		// line internal/php8/scanner.go:20755
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -22111,27 +22152,187 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		switch _widec {
 		case 1034:
-			goto tr727
+			goto tr731
 		case 1037:
-			goto tr728
+			goto tr732
 		}
 		if 1024 <= _widec && _widec <= 1279 {
-			goto tr726
+			goto tr730
+		}
+		goto tr733
+	tr731:
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st505
+	tr736:
+		// line internal/php8/scanner.rl:54
+
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st505
+	st505:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof505
+		}
+	st_case_505:
+		// line internal/php8/scanner.go:20835
+		_widec = int16(lex.data[(lex.p)])
+		switch {
+		case lex.data[(lex.p)] < 11:
+			switch {
+			case lex.data[(lex.p)] > 9:
+				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
+					_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotHeredocEnd(lex.p) {
+						_widec += 256
+					}
+				}
+			default:
+				_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotHeredocEnd(lex.p) {
+					_widec += 256
+				}
+			}
+		case lex.data[(lex.p)] > 12:
+			switch {
+			case lex.data[(lex.p)] > 13:
+				if 14 <= lex.data[(lex.p)] {
+					_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotHeredocEnd(lex.p) {
+						_widec += 256
+					}
+				}
+			case lex.data[(lex.p)] >= 13:
+				_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotHeredocEnd(lex.p) {
+					_widec += 256
+				}
+			}
+		default:
+			_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
+			if lex.isNotHeredocEnd(lex.p) {
+				_widec += 256
+			}
+		}
+		switch _widec {
+		case 1034:
+			goto tr736
+		case 1037:
+			goto tr737
+		}
+		if 1024 <= _widec && _widec <= 1279 {
+			goto tr735
 		}
 		goto tr734
+	tr732:
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st506
+	tr737:
+		// line internal/php8/scanner.rl:54
+
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st506
+	st506:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof506
+		}
+	st_case_506:
+		// line internal/php8/scanner.go:20915
+		_widec = int16(lex.data[(lex.p)])
+		switch {
+		case lex.data[(lex.p)] < 11:
+			switch {
+			case lex.data[(lex.p)] > 9:
+				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
+					_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotHeredocEnd(lex.p) {
+						_widec += 256
+					}
+				}
+			default:
+				_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotHeredocEnd(lex.p) {
+					_widec += 256
+				}
+			}
+		case lex.data[(lex.p)] > 12:
+			switch {
+			case lex.data[(lex.p)] > 13:
+				if 14 <= lex.data[(lex.p)] {
+					_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotHeredocEnd(lex.p) {
+						_widec += 256
+					}
+				}
+			case lex.data[(lex.p)] >= 13:
+				_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotHeredocEnd(lex.p) {
+					_widec += 256
+				}
+			}
+		default:
+			_widec = 768 + (int16(lex.data[(lex.p)]) - 0)
+			if lex.isNotHeredocEnd(lex.p) {
+				_widec += 256
+			}
+		}
+		switch _widec {
+		case 1034:
+			goto tr731
+		case 1037:
+			goto tr732
+		}
+		if 1024 <= _widec && _widec <= 1279 {
+			goto tr730
+		}
+		goto tr738
 	tr156:
-		// line internal/php8/scanner.rl:420
+		// line internal/php8/scanner.rl:427
 		lex.te = (lex.p) + 1
 		{
 			lex.ungetCnt(1)
 			lex.setTokenPosition(tkn)
 			tok = token.T_CURLY_OPEN
-			lex.call(505, 133)
+			lex.call(507, 133)
 			goto _out
 		}
-		goto st505
-	tr742:
-		// line internal/php8/scanner.rl:422
+		goto st507
+	tr746:
+		// line internal/php8/scanner.rl:429
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -22139,45 +22340,45 @@ func (lex *Lexer) Lex() *token.Token {
 			{
 				lex.growCallStack()
 				{
-					lex.stack[lex.top] = 505
+					lex.stack[lex.top] = 507
 					lex.top++
-					goto st526
+					goto st528
 				}
 			}
 		}
-		goto st505
-	tr743:
-		// line internal/php8/scanner.rl:421
+		goto st507
+	tr747:
+		// line internal/php8/scanner.rl:428
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
 			tok = token.T_DOLLAR_OPEN_CURLY_BRACES
-			lex.call(505, 543)
+			lex.call(507, 545)
 			goto _out
 		}
-		goto st505
-	tr744:
-		lex.cs = 505
+		goto st507
+	tr748:
+		lex.cs = 507
 		// line NONE:1
 		switch lex.act {
-		case 159:
+		case 160:
 			{
 				(lex.p) = (lex.te) - 1
 				lex.ungetCnt(1)
 				lex.setTokenPosition(tkn)
 				tok = token.T_CURLY_OPEN
-				lex.call(505, 133)
+				lex.call(507, 133)
 				goto _out
 			}
-		case 160:
+		case 161:
 			{
 				(lex.p) = (lex.te) - 1
 				lex.setTokenPosition(tkn)
 				tok = token.T_DOLLAR_OPEN_CURLY_BRACES
-				lex.call(505, 543)
+				lex.call(507, 545)
 				goto _out
 			}
-		case 162:
+		case 163:
 			{
 				(lex.p) = (lex.te) - 1
 
@@ -22185,7 +22386,7 @@ func (lex *Lexer) Lex() *token.Token {
 				tok = token.T_ENCAPSED_AND_WHITESPACE
 
 				if len(lex.data) > lex.p+1 && lex.data[lex.p+1] != '$' && lex.data[lex.p+1] != '{' {
-					lex.cs = 524
+					lex.cs = 526
 				}
 				{
 					(lex.p)++
@@ -22195,11 +22396,11 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 
 		goto _again
-	tr745:
-		lex.cs = 505
+	tr749:
+		lex.cs = 507
 		// line internal/php8/scanner.rl:54
 
-		// line internal/php8/scanner.rl:423
+		// line internal/php8/scanner.rl:430
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -22207,7 +22408,7 @@ func (lex *Lexer) Lex() *token.Token {
 			tok = token.T_ENCAPSED_AND_WHITESPACE
 
 			if len(lex.data) > lex.p+1 && lex.data[lex.p+1] != '$' && lex.data[lex.p+1] != '{' {
-				lex.cs = 524
+				lex.cs = 526
 			}
 			{
 				(lex.p)++
@@ -22215,9 +22416,9 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto _again
-	tr749:
-		lex.cs = 505
-		// line internal/php8/scanner.rl:423
+	tr753:
+		lex.cs = 507
+		// line internal/php8/scanner.rl:430
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -22225,7 +22426,7 @@ func (lex *Lexer) Lex() *token.Token {
 			tok = token.T_ENCAPSED_AND_WHITESPACE
 
 			if len(lex.data) > lex.p+1 && lex.data[lex.p+1] != '$' && lex.data[lex.p+1] != '{' {
-				lex.cs = 524
+				lex.cs = 526
 			}
 			{
 				(lex.p)++
@@ -22233,18 +22434,18 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto _again
-	st505:
+	st507:
 		// line NONE:1
 		lex.ts = 0
 
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof505
+			goto _test_eof507
 		}
-	st_case_505:
+	st_case_507:
 		// line NONE:1
 		lex.ts = (lex.p)
 
-		// line internal/php8/scanner.go:20846
+		// line internal/php8/scanner.go:21047
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -22285,31 +22486,31 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		switch _widec {
 		case 1316:
-			goto st506
+			goto st508
 		case 1403:
 			goto st107
 		case 1546:
-			goto tr738
+			goto tr742
 		case 1549:
-			goto tr739
+			goto tr743
 		case 1572:
-			goto st510
+			goto st512
 		case 1659:
-			goto st511
+			goto st513
 		}
 		if 1536 <= _widec && _widec <= 1791 {
-			goto tr737
+			goto tr741
 		}
 		goto st0
-	st506:
+	st508:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof506
+			goto _test_eof508
 		}
-	st_case_506:
+	st_case_508:
 		if lex.data[(lex.p)] == 123 {
-			goto tr743
+			goto tr747
 		}
-		goto tr742
+		goto tr746
 	st107:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof107
@@ -22319,202 +22520,42 @@ func (lex *Lexer) Lex() *token.Token {
 			goto tr156
 		}
 		goto st0
-	tr737:
+	tr741:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:423
-		lex.act = 162
-		goto st507
-	tr746:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:54
-
-		// line internal/php8/scanner.rl:423
-		lex.act = 162
-		goto st507
+		// line internal/php8/scanner.rl:430
+		lex.act = 163
+		goto st509
 	tr750:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:421
-		lex.act = 160
-		goto st507
-	tr751:
+		// line internal/php8/scanner.rl:54
+
+		// line internal/php8/scanner.rl:430
+		lex.act = 163
+		goto st509
+	tr754:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:420
-		lex.act = 159
-		goto st507
-	st507:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof507
-		}
-	st_case_507:
-		// line internal/php8/scanner.go:20956
-		_widec = int16(lex.data[(lex.p)])
-		switch {
-		case lex.data[(lex.p)] < 11:
-			switch {
-			case lex.data[(lex.p)] > 9:
-				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
-					_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
-						_widec += 256
-					}
-				}
-			default:
-				_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
-					_widec += 256
-				}
-			}
-		case lex.data[(lex.p)] > 12:
-			switch {
-			case lex.data[(lex.p)] > 13:
-				if 14 <= lex.data[(lex.p)] {
-					_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
-						_widec += 256
-					}
-				}
-			case lex.data[(lex.p)] >= 13:
-				_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
-					_widec += 256
-				}
-			}
-		default:
-			_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
-			if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
-				_widec += 256
-			}
-		}
-		switch _widec {
-		case 1546:
-			goto tr738
-		case 1549:
-			goto tr739
-		}
-		if 1536 <= _widec && _widec <= 1791 {
-			goto tr737
-		}
-		goto tr744
-	tr738:
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		goto st508
-	tr747:
-		// line internal/php8/scanner.rl:54
-
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		goto st508
-	st508:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof508
-		}
-	st_case_508:
-		// line internal/php8/scanner.go:21036
-		_widec = int16(lex.data[(lex.p)])
-		switch {
-		case lex.data[(lex.p)] < 11:
-			switch {
-			case lex.data[(lex.p)] > 9:
-				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
-					_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
-						_widec += 256
-					}
-				}
-			default:
-				_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
-					_widec += 256
-				}
-			}
-		case lex.data[(lex.p)] > 12:
-			switch {
-			case lex.data[(lex.p)] > 13:
-				if 14 <= lex.data[(lex.p)] {
-					_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
-						_widec += 256
-					}
-				}
-			case lex.data[(lex.p)] >= 13:
-				_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
-					_widec += 256
-				}
-			}
-		default:
-			_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
-			if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
-				_widec += 256
-			}
-		}
-		switch _widec {
-		case 1546:
-			goto tr747
-		case 1549:
-			goto tr748
-		}
-		if 1536 <= _widec && _widec <= 1791 {
-			goto tr746
-		}
-		goto tr745
-	tr739:
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
+		// line internal/php8/scanner.rl:428
+		lex.act = 161
 		goto st509
-	tr748:
-		// line internal/php8/scanner.rl:54
+	tr755:
+		// line NONE:1
+		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
+		// line internal/php8/scanner.rl:427
+		lex.act = 160
 		goto st509
 	st509:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof509
 		}
 	st_case_509:
-		// line internal/php8/scanner.go:21116
+		// line internal/php8/scanner.go:21157
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -22555,19 +22596,179 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		switch _widec {
 		case 1546:
-			goto tr738
+			goto tr742
 		case 1549:
-			goto tr739
+			goto tr743
 		}
 		if 1536 <= _widec && _widec <= 1791 {
-			goto tr737
+			goto tr741
 		}
-		goto tr749
+		goto tr748
+	tr742:
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st510
+	tr751:
+		// line internal/php8/scanner.rl:54
+
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st510
 	st510:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof510
 		}
 	st_case_510:
+		// line internal/php8/scanner.go:21237
+		_widec = int16(lex.data[(lex.p)])
+		switch {
+		case lex.data[(lex.p)] < 11:
+			switch {
+			case lex.data[(lex.p)] > 9:
+				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
+					_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
+						_widec += 256
+					}
+				}
+			default:
+				_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
+					_widec += 256
+				}
+			}
+		case lex.data[(lex.p)] > 12:
+			switch {
+			case lex.data[(lex.p)] > 13:
+				if 14 <= lex.data[(lex.p)] {
+					_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
+						_widec += 256
+					}
+				}
+			case lex.data[(lex.p)] >= 13:
+				_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
+					_widec += 256
+				}
+			}
+		default:
+			_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
+			if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
+				_widec += 256
+			}
+		}
+		switch _widec {
+		case 1546:
+			goto tr751
+		case 1549:
+			goto tr752
+		}
+		if 1536 <= _widec && _widec <= 1791 {
+			goto tr750
+		}
+		goto tr749
+	tr743:
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st511
+	tr752:
+		// line internal/php8/scanner.rl:54
+
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st511
+	st511:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof511
+		}
+	st_case_511:
+		// line internal/php8/scanner.go:21317
+		_widec = int16(lex.data[(lex.p)])
+		switch {
+		case lex.data[(lex.p)] < 11:
+			switch {
+			case lex.data[(lex.p)] > 9:
+				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
+					_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
+						_widec += 256
+					}
+				}
+			default:
+				_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
+					_widec += 256
+				}
+			}
+		case lex.data[(lex.p)] > 12:
+			switch {
+			case lex.data[(lex.p)] > 13:
+				if 14 <= lex.data[(lex.p)] {
+					_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
+						_widec += 256
+					}
+				}
+			case lex.data[(lex.p)] >= 13:
+				_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
+					_widec += 256
+				}
+			}
+		default:
+			_widec = 1280 + (int16(lex.data[(lex.p)]) - 0)
+			if lex.isNotHeredocEnd(lex.p) && lex.isNotStringVar() {
+				_widec += 256
+			}
+		}
+		switch _widec {
+		case 1546:
+			goto tr742
+		case 1549:
+			goto tr743
+		}
+		if 1536 <= _widec && _widec <= 1791 {
+			goto tr741
+		}
+		goto tr753
+	st512:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof512
+		}
+	st_case_512:
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -22608,23 +22809,23 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		switch _widec {
 		case 1403:
-			goto tr743
+			goto tr747
 		case 1546:
-			goto tr738
+			goto tr742
 		case 1549:
-			goto tr739
+			goto tr743
 		case 1659:
-			goto tr750
+			goto tr754
 		}
 		if 1536 <= _widec && _widec <= 1791 {
-			goto tr737
+			goto tr741
 		}
-		goto tr742
-	st511:
+		goto tr746
+	st513:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof511
+			goto _test_eof513
 		}
-	st_case_511:
+	st_case_513:
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -22667,55 +22868,55 @@ func (lex *Lexer) Lex() *token.Token {
 		case 1316:
 			goto tr156
 		case 1546:
-			goto tr738
+			goto tr742
 		case 1549:
-			goto tr739
+			goto tr743
 		case 1572:
-			goto tr751
+			goto tr755
 		}
 		if 1536 <= _widec && _widec <= 1791 {
-			goto tr737
+			goto tr741
 		}
-		goto tr749
+		goto tr753
 	tr158:
-		// line internal/php8/scanner.rl:437
+		// line internal/php8/scanner.rl:444
 		lex.te = (lex.p) + 1
 		{
 			lex.ungetCnt(2)
 			{
 				lex.growCallStack()
 				{
-					lex.stack[lex.top] = 512
+					lex.stack[lex.top] = 514
 					lex.top++
-					goto st526
+					goto st528
 				}
 			}
 		}
-		goto st512
+		goto st514
 	tr159:
-		// line internal/php8/scanner.rl:436
+		// line internal/php8/scanner.rl:443
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
 			tok = token.T_DOLLAR_OPEN_CURLY_BRACES
-			lex.call(512, 543)
+			lex.call(514, 545)
 			goto _out
 		}
-		goto st512
+		goto st514
 	tr160:
-		// line internal/php8/scanner.rl:435
+		// line internal/php8/scanner.rl:442
 		lex.te = (lex.p) + 1
 		{
 			lex.ungetCnt(1)
 			lex.setTokenPosition(tkn)
 			tok = token.T_CURLY_OPEN
-			lex.call(512, 133)
+			lex.call(514, 133)
 			goto _out
 		}
-		goto st512
-	tr753:
-		lex.cs = 512
-		// line internal/php8/scanner.rl:438
+		goto st514
+	tr757:
+		lex.cs = 514
+		// line internal/php8/scanner.rl:445
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
@@ -22727,41 +22928,41 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto _again
-	tr761:
-		lex.cs = 512
+	tr765:
+		lex.cs = 514
 		// line NONE:1
 		switch lex.act {
-		case 163:
+		case 164:
 			{
 				(lex.p) = (lex.te) - 1
 				lex.ungetCnt(1)
 				lex.setTokenPosition(tkn)
 				tok = token.T_CURLY_OPEN
-				lex.call(512, 133)
+				lex.call(514, 133)
 				goto _out
 			}
-		case 164:
+		case 165:
 			{
 				(lex.p) = (lex.te) - 1
 				lex.setTokenPosition(tkn)
 				tok = token.T_DOLLAR_OPEN_CURLY_BRACES
-				lex.call(512, 543)
+				lex.call(514, 545)
 				goto _out
 			}
-		case 165:
+		case 166:
 			{
 				(lex.p) = (lex.te) - 1
 				lex.ungetCnt(2)
 				{
 					lex.growCallStack()
 					{
-						lex.stack[lex.top] = 512
+						lex.stack[lex.top] = 514
 						lex.top++
-						goto st526
+						goto st528
 					}
 				}
 			}
-		case 166:
+		case 167:
 			{
 				(lex.p) = (lex.te) - 1
 				lex.setTokenPosition(tkn)
@@ -22772,7 +22973,7 @@ func (lex *Lexer) Lex() *token.Token {
 					goto _out
 				}
 			}
-		case 167:
+		case 168:
 			{
 				(lex.p) = (lex.te) - 1
 
@@ -22786,10 +22987,10 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 
 		goto _again
-	tr762:
+	tr766:
 		// line internal/php8/scanner.rl:54
 
-		// line internal/php8/scanner.rl:439
+		// line internal/php8/scanner.rl:446
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -22797,13 +22998,13 @@ func (lex *Lexer) Lex() *token.Token {
 			tok = token.T_ENCAPSED_AND_WHITESPACE
 			{
 				(lex.p)++
-				lex.cs = 512
+				lex.cs = 514
 				goto _out
 			}
 		}
-		goto st512
-	tr766:
-		// line internal/php8/scanner.rl:439
+		goto st514
+	tr770:
+		// line internal/php8/scanner.rl:446
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -22811,23 +23012,23 @@ func (lex *Lexer) Lex() *token.Token {
 			tok = token.T_ENCAPSED_AND_WHITESPACE
 			{
 				(lex.p)++
-				lex.cs = 512
+				lex.cs = 514
 				goto _out
 			}
 		}
-		goto st512
-	st512:
+		goto st514
+	st514:
 		// line NONE:1
 		lex.ts = 0
 
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof512
+			goto _test_eof514
 		}
-	st_case_512:
+	st_case_514:
 		// line NONE:1
 		lex.ts = (lex.p)
 
-		// line internal/php8/scanner.go:21359
+		// line internal/php8/scanner.go:21560
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -22870,22 +23071,22 @@ func (lex *Lexer) Lex() *token.Token {
 		case 1828:
 			goto st108
 		case 1888:
-			goto tr753
+			goto tr757
 		case 1915:
 			goto st109
 		case 2058:
-			goto tr756
+			goto tr760
 		case 2061:
-			goto tr757
+			goto tr761
 		case 2084:
-			goto st516
+			goto st518
 		case 2144:
-			goto tr759
+			goto tr763
 		case 2171:
-			goto st517
+			goto st519
 		}
 		if 2048 <= _widec && _widec <= 2303 {
-			goto tr755
+			goto tr759
 		}
 		goto st0
 	st108:
@@ -22921,216 +23122,56 @@ func (lex *Lexer) Lex() *token.Token {
 			goto tr160
 		}
 		goto st0
-	tr755:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:439
-		lex.act = 167
-		goto st513
 	tr759:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:438
-		lex.act = 166
-		goto st513
+		// line internal/php8/scanner.rl:446
+		lex.act = 168
+		goto st515
 	tr763:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:54
-
-		// line internal/php8/scanner.rl:439
+		// line internal/php8/scanner.rl:445
 		lex.act = 167
-		goto st513
+		goto st515
 	tr767:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:437
-		lex.act = 165
-		goto st513
-	tr768:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:436
-		lex.act = 164
-		goto st513
-	tr769:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:435
-		lex.act = 163
-		goto st513
-	st513:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof513
-		}
-	st_case_513:
-		// line internal/php8/scanner.go:21502
-		_widec = int16(lex.data[(lex.p)])
-		switch {
-		case lex.data[(lex.p)] < 11:
-			switch {
-			case lex.data[(lex.p)] > 9:
-				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
-					_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotStringEnd('`') && lex.isNotStringVar() {
-						_widec += 256
-					}
-				}
-			default:
-				_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotStringEnd('`') && lex.isNotStringVar() {
-					_widec += 256
-				}
-			}
-		case lex.data[(lex.p)] > 12:
-			switch {
-			case lex.data[(lex.p)] > 13:
-				if 14 <= lex.data[(lex.p)] {
-					_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotStringEnd('`') && lex.isNotStringVar() {
-						_widec += 256
-					}
-				}
-			case lex.data[(lex.p)] >= 13:
-				_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotStringEnd('`') && lex.isNotStringVar() {
-					_widec += 256
-				}
-			}
-		default:
-			_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
-			if lex.isNotStringEnd('`') && lex.isNotStringVar() {
-				_widec += 256
-			}
-		}
-		switch _widec {
-		case 2058:
-			goto tr756
-		case 2061:
-			goto tr757
-		}
-		if 2048 <= _widec && _widec <= 2303 {
-			goto tr755
-		}
-		goto tr761
-	tr756:
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		goto st514
-	tr764:
 		// line internal/php8/scanner.rl:54
 
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		goto st514
-	st514:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof514
-		}
-	st_case_514:
-		// line internal/php8/scanner.go:21582
-		_widec = int16(lex.data[(lex.p)])
-		switch {
-		case lex.data[(lex.p)] < 11:
-			switch {
-			case lex.data[(lex.p)] > 9:
-				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
-					_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotStringEnd('`') && lex.isNotStringVar() {
-						_widec += 256
-					}
-				}
-			default:
-				_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotStringEnd('`') && lex.isNotStringVar() {
-					_widec += 256
-				}
-			}
-		case lex.data[(lex.p)] > 12:
-			switch {
-			case lex.data[(lex.p)] > 13:
-				if 14 <= lex.data[(lex.p)] {
-					_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotStringEnd('`') && lex.isNotStringVar() {
-						_widec += 256
-					}
-				}
-			case lex.data[(lex.p)] >= 13:
-				_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotStringEnd('`') && lex.isNotStringVar() {
-					_widec += 256
-				}
-			}
-		default:
-			_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
-			if lex.isNotStringEnd('`') && lex.isNotStringVar() {
-				_widec += 256
-			}
-		}
-		switch _widec {
-		case 2058:
-			goto tr764
-		case 2061:
-			goto tr765
-		}
-		if 2048 <= _widec && _widec <= 2303 {
-			goto tr763
-		}
-		goto tr762
-	tr757:
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
+		// line internal/php8/scanner.rl:446
+		lex.act = 168
 		goto st515
-	tr765:
-		// line internal/php8/scanner.rl:54
+	tr771:
+		// line NONE:1
+		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:38
+		// line internal/php8/scanner.rl:444
+		lex.act = 166
+		goto st515
+	tr772:
+		// line NONE:1
+		lex.te = (lex.p) + 1
 
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
+		// line internal/php8/scanner.rl:443
+		lex.act = 165
+		goto st515
+	tr773:
+		// line NONE:1
+		lex.te = (lex.p) + 1
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
+		// line internal/php8/scanner.rl:442
+		lex.act = 164
 		goto st515
 	st515:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof515
 		}
 	st_case_515:
-		// line internal/php8/scanner.go:21662
+		// line internal/php8/scanner.go:21703
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -23171,19 +23212,179 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		switch _widec {
 		case 2058:
-			goto tr756
+			goto tr760
 		case 2061:
-			goto tr757
+			goto tr761
 		}
 		if 2048 <= _widec && _widec <= 2303 {
-			goto tr755
+			goto tr759
 		}
-		goto tr766
+		goto tr765
+	tr760:
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st516
+	tr768:
+		// line internal/php8/scanner.rl:54
+
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st516
 	st516:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof516
 		}
 	st_case_516:
+		// line internal/php8/scanner.go:21783
+		_widec = int16(lex.data[(lex.p)])
+		switch {
+		case lex.data[(lex.p)] < 11:
+			switch {
+			case lex.data[(lex.p)] > 9:
+				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
+					_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotStringEnd('`') && lex.isNotStringVar() {
+						_widec += 256
+					}
+				}
+			default:
+				_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotStringEnd('`') && lex.isNotStringVar() {
+					_widec += 256
+				}
+			}
+		case lex.data[(lex.p)] > 12:
+			switch {
+			case lex.data[(lex.p)] > 13:
+				if 14 <= lex.data[(lex.p)] {
+					_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotStringEnd('`') && lex.isNotStringVar() {
+						_widec += 256
+					}
+				}
+			case lex.data[(lex.p)] >= 13:
+				_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotStringEnd('`') && lex.isNotStringVar() {
+					_widec += 256
+				}
+			}
+		default:
+			_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
+			if lex.isNotStringEnd('`') && lex.isNotStringVar() {
+				_widec += 256
+			}
+		}
+		switch _widec {
+		case 2058:
+			goto tr768
+		case 2061:
+			goto tr769
+		}
+		if 2048 <= _widec && _widec <= 2303 {
+			goto tr767
+		}
+		goto tr766
+	tr761:
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st517
+	tr769:
+		// line internal/php8/scanner.rl:54
+
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st517
+	st517:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof517
+		}
+	st_case_517:
+		// line internal/php8/scanner.go:21863
+		_widec = int16(lex.data[(lex.p)])
+		switch {
+		case lex.data[(lex.p)] < 11:
+			switch {
+			case lex.data[(lex.p)] > 9:
+				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
+					_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotStringEnd('`') && lex.isNotStringVar() {
+						_widec += 256
+					}
+				}
+			default:
+				_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotStringEnd('`') && lex.isNotStringVar() {
+					_widec += 256
+				}
+			}
+		case lex.data[(lex.p)] > 12:
+			switch {
+			case lex.data[(lex.p)] > 13:
+				if 14 <= lex.data[(lex.p)] {
+					_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotStringEnd('`') && lex.isNotStringVar() {
+						_widec += 256
+					}
+				}
+			case lex.data[(lex.p)] >= 13:
+				_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotStringEnd('`') && lex.isNotStringVar() {
+					_widec += 256
+				}
+			}
+		default:
+			_widec = 1792 + (int16(lex.data[(lex.p)]) - 0)
+			if lex.isNotStringEnd('`') && lex.isNotStringVar() {
+				_widec += 256
+			}
+		}
+		switch _widec {
+		case 2058:
+			goto tr760
+		case 2061:
+			goto tr761
+		}
+		if 2048 <= _widec && _widec <= 2303 {
+			goto tr759
+		}
+		goto tr770
+	st518:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof518
+		}
+	st_case_518:
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -23228,13 +23429,13 @@ func (lex *Lexer) Lex() *token.Token {
 		case 1915:
 			goto tr159
 		case 2058:
-			goto tr756
+			goto tr760
 		case 2061:
-			goto tr757
+			goto tr761
 		case 2143:
-			goto tr767
+			goto tr771
 		case 2171:
-			goto tr768
+			goto tr772
 		}
 		switch {
 		case _widec < 2113:
@@ -23247,7 +23448,7 @@ func (lex *Lexer) Lex() *token.Token {
 				switch {
 				case _widec > 2047:
 					if 2048 <= _widec && _widec <= 2112 {
-						goto tr755
+						goto tr759
 					}
 				case _widec >= 1920:
 					goto tr158
@@ -23259,29 +23460,29 @@ func (lex *Lexer) Lex() *token.Token {
 			switch {
 			case _widec < 2145:
 				if 2139 <= _widec && _widec <= 2144 {
-					goto tr755
+					goto tr759
 				}
 			case _widec > 2170:
 				switch {
 				case _widec > 2175:
 					if 2176 <= _widec && _widec <= 2303 {
-						goto tr767
+						goto tr771
 					}
 				case _widec >= 2172:
-					goto tr755
+					goto tr759
 				}
 			default:
-				goto tr767
+				goto tr771
 			}
 		default:
-			goto tr767
+			goto tr771
 		}
-		goto tr766
-	st517:
+		goto tr770
+	st519:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof517
+			goto _test_eof519
 		}
-	st_case_517:
+	st_case_519:
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -23324,55 +23525,55 @@ func (lex *Lexer) Lex() *token.Token {
 		case 1828:
 			goto tr160
 		case 2058:
-			goto tr756
+			goto tr760
 		case 2061:
-			goto tr757
+			goto tr761
 		case 2084:
-			goto tr769
+			goto tr773
 		}
 		if 2048 <= _widec && _widec <= 2303 {
-			goto tr755
+			goto tr759
 		}
-		goto tr766
+		goto tr770
 	tr161:
-		// line internal/php8/scanner.rl:449
+		// line internal/php8/scanner.rl:456
 		lex.te = (lex.p) + 1
 		{
 			lex.ungetCnt(2)
 			{
 				lex.growCallStack()
 				{
-					lex.stack[lex.top] = 518
+					lex.stack[lex.top] = 520
 					lex.top++
-					goto st526
+					goto st528
 				}
 			}
 		}
-		goto st518
+		goto st520
 	tr162:
-		// line internal/php8/scanner.rl:448
+		// line internal/php8/scanner.rl:455
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
 			tok = token.T_DOLLAR_OPEN_CURLY_BRACES
-			lex.call(518, 543)
+			lex.call(520, 545)
 			goto _out
 		}
-		goto st518
+		goto st520
 	tr163:
-		// line internal/php8/scanner.rl:447
+		// line internal/php8/scanner.rl:454
 		lex.te = (lex.p) + 1
 		{
 			lex.ungetCnt(1)
 			lex.setTokenPosition(tkn)
 			tok = token.T_CURLY_OPEN
-			lex.call(518, 133)
+			lex.call(520, 133)
 			goto _out
 		}
-		goto st518
-	tr770:
-		lex.cs = 518
-		// line internal/php8/scanner.rl:450
+		goto st520
+	tr774:
+		lex.cs = 520
+		// line internal/php8/scanner.rl:457
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
@@ -23384,41 +23585,41 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto _again
-	tr779:
-		lex.cs = 518
+	tr783:
+		lex.cs = 520
 		// line NONE:1
 		switch lex.act {
-		case 168:
+		case 169:
 			{
 				(lex.p) = (lex.te) - 1
 				lex.ungetCnt(1)
 				lex.setTokenPosition(tkn)
 				tok = token.T_CURLY_OPEN
-				lex.call(518, 133)
+				lex.call(520, 133)
 				goto _out
 			}
-		case 169:
+		case 170:
 			{
 				(lex.p) = (lex.te) - 1
 				lex.setTokenPosition(tkn)
 				tok = token.T_DOLLAR_OPEN_CURLY_BRACES
-				lex.call(518, 543)
+				lex.call(520, 545)
 				goto _out
 			}
-		case 170:
+		case 171:
 			{
 				(lex.p) = (lex.te) - 1
 				lex.ungetCnt(2)
 				{
 					lex.growCallStack()
 					{
-						lex.stack[lex.top] = 518
+						lex.stack[lex.top] = 520
 						lex.top++
-						goto st526
+						goto st528
 					}
 				}
 			}
-		case 171:
+		case 172:
 			{
 				(lex.p) = (lex.te) - 1
 				lex.setTokenPosition(tkn)
@@ -23429,7 +23630,7 @@ func (lex *Lexer) Lex() *token.Token {
 					goto _out
 				}
 			}
-		case 172:
+		case 173:
 			{
 				(lex.p) = (lex.te) - 1
 
@@ -23443,10 +23644,10 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 
 		goto _again
-	tr780:
+	tr784:
 		// line internal/php8/scanner.rl:54
 
-		// line internal/php8/scanner.rl:451
+		// line internal/php8/scanner.rl:458
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -23454,13 +23655,13 @@ func (lex *Lexer) Lex() *token.Token {
 			tok = token.T_ENCAPSED_AND_WHITESPACE
 			{
 				(lex.p)++
-				lex.cs = 518
+				lex.cs = 520
 				goto _out
 			}
 		}
-		goto st518
-	tr784:
-		// line internal/php8/scanner.rl:451
+		goto st520
+	tr788:
+		// line internal/php8/scanner.rl:458
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -23468,23 +23669,23 @@ func (lex *Lexer) Lex() *token.Token {
 			tok = token.T_ENCAPSED_AND_WHITESPACE
 			{
 				(lex.p)++
-				lex.cs = 518
+				lex.cs = 520
 				goto _out
 			}
 		}
-		goto st518
-	st518:
+		goto st520
+	st520:
 		// line NONE:1
 		lex.ts = 0
 
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof518
+			goto _test_eof520
 		}
-	st_case_518:
+	st_case_520:
 		// line NONE:1
 		lex.ts = (lex.p)
 
-		// line internal/php8/scanner.go:21946
+		// line internal/php8/scanner.go:22147
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -23525,24 +23726,24 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		switch _widec {
 		case 2338:
-			goto tr770
+			goto tr774
 		case 2340:
 			goto st110
 		case 2427:
 			goto st111
 		case 2570:
-			goto tr774
+			goto tr778
 		case 2573:
-			goto tr775
+			goto tr779
 		case 2594:
-			goto tr776
+			goto tr780
 		case 2596:
-			goto st522
+			goto st524
 		case 2683:
-			goto st523
+			goto st525
 		}
 		if 2560 <= _widec && _widec <= 2815 {
-			goto tr773
+			goto tr777
 		}
 		goto st0
 	st110:
@@ -23578,216 +23779,56 @@ func (lex *Lexer) Lex() *token.Token {
 			goto tr163
 		}
 		goto st0
-	tr773:
+	tr777:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:451
+		// line internal/php8/scanner.rl:458
+		lex.act = 173
+		goto st521
+	tr780:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:457
 		lex.act = 172
-		goto st519
-	tr776:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:450
-		lex.act = 171
-		goto st519
-	tr781:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:54
-
-		// line internal/php8/scanner.rl:451
-		lex.act = 172
-		goto st519
+		goto st521
 	tr785:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:449
-		lex.act = 170
-		goto st519
-	tr786:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:448
-		lex.act = 169
-		goto st519
-	tr787:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:447
-		lex.act = 168
-		goto st519
-	st519:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof519
-		}
-	st_case_519:
-		// line internal/php8/scanner.go:22089
-		_widec = int16(lex.data[(lex.p)])
-		switch {
-		case lex.data[(lex.p)] < 11:
-			switch {
-			case lex.data[(lex.p)] > 9:
-				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
-					_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotStringEnd('"') && lex.isNotStringVar() {
-						_widec += 256
-					}
-				}
-			default:
-				_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotStringEnd('"') && lex.isNotStringVar() {
-					_widec += 256
-				}
-			}
-		case lex.data[(lex.p)] > 12:
-			switch {
-			case lex.data[(lex.p)] > 13:
-				if 14 <= lex.data[(lex.p)] {
-					_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotStringEnd('"') && lex.isNotStringVar() {
-						_widec += 256
-					}
-				}
-			case lex.data[(lex.p)] >= 13:
-				_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotStringEnd('"') && lex.isNotStringVar() {
-					_widec += 256
-				}
-			}
-		default:
-			_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
-			if lex.isNotStringEnd('"') && lex.isNotStringVar() {
-				_widec += 256
-			}
-		}
-		switch _widec {
-		case 2570:
-			goto tr774
-		case 2573:
-			goto tr775
-		}
-		if 2560 <= _widec && _widec <= 2815 {
-			goto tr773
-		}
-		goto tr779
-	tr774:
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		goto st520
-	tr782:
 		// line internal/php8/scanner.rl:54
 
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		goto st520
-	st520:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof520
-		}
-	st_case_520:
-		// line internal/php8/scanner.go:22169
-		_widec = int16(lex.data[(lex.p)])
-		switch {
-		case lex.data[(lex.p)] < 11:
-			switch {
-			case lex.data[(lex.p)] > 9:
-				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
-					_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotStringEnd('"') && lex.isNotStringVar() {
-						_widec += 256
-					}
-				}
-			default:
-				_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotStringEnd('"') && lex.isNotStringVar() {
-					_widec += 256
-				}
-			}
-		case lex.data[(lex.p)] > 12:
-			switch {
-			case lex.data[(lex.p)] > 13:
-				if 14 <= lex.data[(lex.p)] {
-					_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
-					if lex.isNotStringEnd('"') && lex.isNotStringVar() {
-						_widec += 256
-					}
-				}
-			case lex.data[(lex.p)] >= 13:
-				_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
-				if lex.isNotStringEnd('"') && lex.isNotStringVar() {
-					_widec += 256
-				}
-			}
-		default:
-			_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
-			if lex.isNotStringEnd('"') && lex.isNotStringVar() {
-				_widec += 256
-			}
-		}
-		switch _widec {
-		case 2570:
-			goto tr782
-		case 2573:
-			goto tr783
-		}
-		if 2560 <= _widec && _widec <= 2815 {
-			goto tr781
-		}
-		goto tr780
-	tr775:
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
+		// line internal/php8/scanner.rl:458
+		lex.act = 173
 		goto st521
-	tr783:
-		// line internal/php8/scanner.rl:54
+	tr789:
+		// line NONE:1
+		lex.te = (lex.p) + 1
 
-		// line internal/php8/scanner.rl:38
+		// line internal/php8/scanner.rl:456
+		lex.act = 171
+		goto st521
+	tr790:
+		// line NONE:1
+		lex.te = (lex.p) + 1
 
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
+		// line internal/php8/scanner.rl:455
+		lex.act = 170
+		goto st521
+	tr791:
+		// line NONE:1
+		lex.te = (lex.p) + 1
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
+		// line internal/php8/scanner.rl:454
+		lex.act = 169
 		goto st521
 	st521:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof521
 		}
 	st_case_521:
-		// line internal/php8/scanner.go:22249
+		// line internal/php8/scanner.go:22290
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -23828,19 +23869,179 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		switch _widec {
 		case 2570:
-			goto tr774
+			goto tr778
 		case 2573:
-			goto tr775
+			goto tr779
 		}
 		if 2560 <= _widec && _widec <= 2815 {
-			goto tr773
+			goto tr777
 		}
-		goto tr784
+		goto tr783
+	tr778:
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st522
+	tr786:
+		// line internal/php8/scanner.rl:54
+
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st522
 	st522:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof522
 		}
 	st_case_522:
+		// line internal/php8/scanner.go:22370
+		_widec = int16(lex.data[(lex.p)])
+		switch {
+		case lex.data[(lex.p)] < 11:
+			switch {
+			case lex.data[(lex.p)] > 9:
+				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
+					_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotStringEnd('"') && lex.isNotStringVar() {
+						_widec += 256
+					}
+				}
+			default:
+				_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotStringEnd('"') && lex.isNotStringVar() {
+					_widec += 256
+				}
+			}
+		case lex.data[(lex.p)] > 12:
+			switch {
+			case lex.data[(lex.p)] > 13:
+				if 14 <= lex.data[(lex.p)] {
+					_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotStringEnd('"') && lex.isNotStringVar() {
+						_widec += 256
+					}
+				}
+			case lex.data[(lex.p)] >= 13:
+				_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotStringEnd('"') && lex.isNotStringVar() {
+					_widec += 256
+				}
+			}
+		default:
+			_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
+			if lex.isNotStringEnd('"') && lex.isNotStringVar() {
+				_widec += 256
+			}
+		}
+		switch _widec {
+		case 2570:
+			goto tr786
+		case 2573:
+			goto tr787
+		}
+		if 2560 <= _widec && _widec <= 2815 {
+			goto tr785
+		}
+		goto tr784
+	tr779:
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st523
+	tr787:
+		// line internal/php8/scanner.rl:54
+
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st523
+	st523:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof523
+		}
+	st_case_523:
+		// line internal/php8/scanner.go:22450
+		_widec = int16(lex.data[(lex.p)])
+		switch {
+		case lex.data[(lex.p)] < 11:
+			switch {
+			case lex.data[(lex.p)] > 9:
+				if 10 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 10 {
+					_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotStringEnd('"') && lex.isNotStringVar() {
+						_widec += 256
+					}
+				}
+			default:
+				_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotStringEnd('"') && lex.isNotStringVar() {
+					_widec += 256
+				}
+			}
+		case lex.data[(lex.p)] > 12:
+			switch {
+			case lex.data[(lex.p)] > 13:
+				if 14 <= lex.data[(lex.p)] {
+					_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
+					if lex.isNotStringEnd('"') && lex.isNotStringVar() {
+						_widec += 256
+					}
+				}
+			case lex.data[(lex.p)] >= 13:
+				_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
+				if lex.isNotStringEnd('"') && lex.isNotStringVar() {
+					_widec += 256
+				}
+			}
+		default:
+			_widec = 2304 + (int16(lex.data[(lex.p)]) - 0)
+			if lex.isNotStringEnd('"') && lex.isNotStringVar() {
+				_widec += 256
+			}
+		}
+		switch _widec {
+		case 2570:
+			goto tr778
+		case 2573:
+			goto tr779
+		}
+		if 2560 <= _widec && _widec <= 2815 {
+			goto tr777
+		}
+		goto tr788
+	st524:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof524
+		}
+	st_case_524:
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -23885,13 +24086,13 @@ func (lex *Lexer) Lex() *token.Token {
 		case 2427:
 			goto tr162
 		case 2570:
-			goto tr774
+			goto tr778
 		case 2573:
-			goto tr775
+			goto tr779
 		case 2655:
-			goto tr785
+			goto tr789
 		case 2683:
-			goto tr786
+			goto tr790
 		}
 		switch {
 		case _widec < 2625:
@@ -23904,7 +24105,7 @@ func (lex *Lexer) Lex() *token.Token {
 				switch {
 				case _widec > 2559:
 					if 2560 <= _widec && _widec <= 2624 {
-						goto tr773
+						goto tr777
 					}
 				case _widec >= 2432:
 					goto tr161
@@ -23916,29 +24117,29 @@ func (lex *Lexer) Lex() *token.Token {
 			switch {
 			case _widec < 2657:
 				if 2651 <= _widec && _widec <= 2656 {
-					goto tr773
+					goto tr777
 				}
 			case _widec > 2682:
 				switch {
 				case _widec > 2687:
 					if 2688 <= _widec && _widec <= 2815 {
-						goto tr785
+						goto tr789
 					}
 				case _widec >= 2684:
-					goto tr773
+					goto tr777
 				}
 			default:
-				goto tr785
+				goto tr789
 			}
 		default:
-			goto tr785
+			goto tr789
 		}
-		goto tr784
-	st523:
+		goto tr788
+	st525:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof523
+			goto _test_eof525
 		}
-	st_case_523:
+	st_case_525:
 		_widec = int16(lex.data[(lex.p)])
 		switch {
 		case lex.data[(lex.p)] < 11:
@@ -23981,19 +24182,19 @@ func (lex *Lexer) Lex() *token.Token {
 		case 2340:
 			goto tr163
 		case 2570:
-			goto tr774
+			goto tr778
 		case 2573:
-			goto tr775
+			goto tr779
 		case 2596:
-			goto tr787
+			goto tr791
 		}
 		if 2560 <= _widec && _widec <= 2815 {
-			goto tr773
+			goto tr777
 		}
-		goto tr784
-	tr789:
-		lex.cs = 524
-		// line internal/php8/scanner.rl:459
+		goto tr788
+	tr793:
+		lex.cs = 526
+		// line internal/php8/scanner.rl:466
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -24006,163 +24207,6 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto _again
-	st524:
-		// line NONE:1
-		lex.ts = 0
-
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof524
-		}
-	st_case_524:
-		// line NONE:1
-		lex.ts = (lex.p)
-
-		// line internal/php8/scanner.go:22476
-		if lex.data[(lex.p)] == 96 {
-			goto st0
-		}
-		switch {
-		case lex.data[(lex.p)] < 91:
-			if lex.data[(lex.p)] <= 64 {
-				goto st0
-			}
-		case lex.data[(lex.p)] > 94:
-			if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-				goto st0
-			}
-		default:
-			goto st0
-		}
-		goto st525
-	st525:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof525
-		}
-	st_case_525:
-		if lex.data[(lex.p)] == 96 {
-			goto tr789
-		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr789
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr789
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr789
-			}
-		default:
-			goto tr789
-		}
-		goto st525
-	tr164:
-		// line internal/php8/scanner.rl:479
-		(lex.p) = (lex.te) - 1
-		{
-			lex.ungetCnt(1)
-			{
-				lex.top--
-				lex.cs = lex.stack[lex.top]
-				goto _again
-			}
-		}
-		goto st526
-	tr165:
-		// line internal/php8/scanner.rl:475
-		lex.te = (lex.p) + 1
-		{
-			lex.ungetCnt(1)
-			lex.setTokenPosition(tkn)
-			tok = token.T_OBJECT_OPERATOR
-			{
-				(lex.p)++
-				lex.cs = 526
-				goto _out
-			}
-		}
-		goto st526
-	tr167:
-		// line internal/php8/scanner.rl:476
-		lex.te = (lex.p) + 1
-		{
-			lex.ungetCnt(1)
-			lex.setTokenPosition(tkn)
-			tok = token.T_NULLSAFE_OBJECT_OPERATOR
-			{
-				(lex.p)++
-				lex.cs = 526
-				goto _out
-			}
-		}
-		goto st526
-	tr790:
-		// line internal/php8/scanner.rl:479
-		lex.te = (lex.p) + 1
-		{
-			lex.ungetCnt(1)
-			{
-				lex.top--
-				lex.cs = lex.stack[lex.top]
-				goto _again
-			}
-		}
-		goto st526
-	tr795:
-		// line internal/php8/scanner.rl:478
-		lex.te = (lex.p) + 1
-		{
-			lex.setTokenPosition(tkn)
-			tok = token.ID(int('['))
-			lex.call(526, 532)
-			goto _out
-		}
-		goto st526
-	tr796:
-		// line internal/php8/scanner.rl:479
-		lex.te = (lex.p)
-		(lex.p)--
-		{
-			lex.ungetCnt(1)
-			{
-				lex.top--
-				lex.cs = lex.stack[lex.top]
-				goto _again
-			}
-		}
-		goto st526
-	tr798:
-		// line internal/php8/scanner.rl:474
-		lex.te = (lex.p)
-		(lex.p)--
-		{
-			lex.setTokenPosition(tkn)
-			tok = token.T_VARIABLE
-			{
-				(lex.p)++
-				lex.cs = 526
-				goto _out
-			}
-		}
-		goto st526
-	tr801:
-		// line internal/php8/scanner.rl:477
-		lex.te = (lex.p)
-		(lex.p)--
-		{
-			lex.setTokenPosition(tkn)
-			tok = token.T_STRING
-			{
-				(lex.p)++
-				lex.cs = 526
-				goto _out
-			}
-		}
-		goto st526
 	st526:
 		// line NONE:1
 		lex.ts = 0
@@ -24174,94 +24218,251 @@ func (lex *Lexer) Lex() *token.Token {
 		// line NONE:1
 		lex.ts = (lex.p)
 
-		// line internal/php8/scanner.go:22573
-		switch lex.data[(lex.p)] {
-		case 36:
-			goto st527
-		case 45:
-			goto tr792
-		case 63:
-			goto tr793
-		case 91:
-			goto tr795
-		case 96:
-			goto tr790
+		// line internal/php8/scanner.go:22677
+		if lex.data[(lex.p)] == 96 {
+			goto st0
 		}
 		switch {
-		case lex.data[(lex.p)] < 92:
+		case lex.data[(lex.p)] < 91:
 			if lex.data[(lex.p)] <= 64 {
-				goto tr790
+				goto st0
 			}
 		case lex.data[(lex.p)] > 94:
 			if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-				goto tr790
+				goto st0
 			}
 		default:
-			goto tr790
+			goto st0
 		}
-		goto st531
+		goto st527
 	st527:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof527
 		}
 	st_case_527:
 		if lex.data[(lex.p)] == 96 {
-			goto tr796
-		}
-		switch {
-		case lex.data[(lex.p)] < 91:
-			if lex.data[(lex.p)] <= 64 {
-				goto tr796
-			}
-		case lex.data[(lex.p)] > 94:
-			if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-				goto tr796
-			}
-		default:
-			goto tr796
-		}
-		goto st528
-	st528:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof528
-		}
-	st_case_528:
-		if lex.data[(lex.p)] == 96 {
-			goto tr798
+			goto tr793
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr798
+				goto tr793
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr798
+					goto tr793
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr798
+				goto tr793
 			}
 		default:
-			goto tr798
+			goto tr793
+		}
+		goto st527
+	tr164:
+		// line internal/php8/scanner.rl:486
+		(lex.p) = (lex.te) - 1
+		{
+			lex.ungetCnt(1)
+			{
+				lex.top--
+				lex.cs = lex.stack[lex.top]
+				goto _again
+			}
 		}
 		goto st528
-	tr792:
-		// line NONE:1
+	tr165:
+		// line internal/php8/scanner.rl:482
 		lex.te = (lex.p) + 1
+		{
+			lex.ungetCnt(1)
+			lex.setTokenPosition(tkn)
+			tok = token.T_OBJECT_OPERATOR
+			{
+				(lex.p)++
+				lex.cs = 528
+				goto _out
+			}
+		}
+		goto st528
+	tr167:
+		// line internal/php8/scanner.rl:483
+		lex.te = (lex.p) + 1
+		{
+			lex.ungetCnt(1)
+			lex.setTokenPosition(tkn)
+			tok = token.T_NULLSAFE_OBJECT_OPERATOR
+			{
+				(lex.p)++
+				lex.cs = 528
+				goto _out
+			}
+		}
+		goto st528
+	tr794:
+		// line internal/php8/scanner.rl:486
+		lex.te = (lex.p) + 1
+		{
+			lex.ungetCnt(1)
+			{
+				lex.top--
+				lex.cs = lex.stack[lex.top]
+				goto _again
+			}
+		}
+		goto st528
+	tr799:
+		// line internal/php8/scanner.rl:485
+		lex.te = (lex.p) + 1
+		{
+			lex.setTokenPosition(tkn)
+			tok = token.ID(int('['))
+			lex.call(528, 534)
+			goto _out
+		}
+		goto st528
+	tr800:
+		// line internal/php8/scanner.rl:486
+		lex.te = (lex.p)
+		(lex.p)--
+		{
+			lex.ungetCnt(1)
+			{
+				lex.top--
+				lex.cs = lex.stack[lex.top]
+				goto _again
+			}
+		}
+		goto st528
+	tr802:
+		// line internal/php8/scanner.rl:481
+		lex.te = (lex.p)
+		(lex.p)--
+		{
+			lex.setTokenPosition(tkn)
+			tok = token.T_VARIABLE
+			{
+				(lex.p)++
+				lex.cs = 528
+				goto _out
+			}
+		}
+		goto st528
+	tr805:
+		// line internal/php8/scanner.rl:484
+		lex.te = (lex.p)
+		(lex.p)--
+		{
+			lex.setTokenPosition(tkn)
+			tok = token.T_STRING
+			{
+				(lex.p)++
+				lex.cs = 528
+				goto _out
+			}
+		}
+		goto st528
+	st528:
+		// line NONE:1
+		lex.ts = 0
 
-		goto st529
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof528
+		}
+	st_case_528:
+		// line NONE:1
+		lex.ts = (lex.p)
+
+		// line internal/php8/scanner.go:22774
+		switch lex.data[(lex.p)] {
+		case 36:
+			goto st529
+		case 45:
+			goto tr796
+		case 63:
+			goto tr797
+		case 91:
+			goto tr799
+		case 96:
+			goto tr794
+		}
+		switch {
+		case lex.data[(lex.p)] < 92:
+			if lex.data[(lex.p)] <= 64 {
+				goto tr794
+			}
+		case lex.data[(lex.p)] > 94:
+			if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+				goto tr794
+			}
+		default:
+			goto tr794
+		}
+		goto st533
 	st529:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof529
 		}
 	st_case_529:
-		// line internal/php8/scanner.go:22656
+		if lex.data[(lex.p)] == 96 {
+			goto tr800
+		}
+		switch {
+		case lex.data[(lex.p)] < 91:
+			if lex.data[(lex.p)] <= 64 {
+				goto tr800
+			}
+		case lex.data[(lex.p)] > 94:
+			if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+				goto tr800
+			}
+		default:
+			goto tr800
+		}
+		goto st530
+	st530:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof530
+		}
+	st_case_530:
+		if lex.data[(lex.p)] == 96 {
+			goto tr802
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr802
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr802
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr802
+			}
+		default:
+			goto tr802
+		}
+		goto st530
+	tr796:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		goto st531
+	st531:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof531
+		}
+	st_case_531:
+		// line internal/php8/scanner.go:22857
 		if lex.data[(lex.p)] == 62 {
 			goto st112
 		}
-		goto tr796
+		goto tr800
 	st112:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof112
@@ -24283,21 +24484,21 @@ func (lex *Lexer) Lex() *token.Token {
 			goto tr164
 		}
 		goto tr165
-	tr793:
+	tr797:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st530
-	st530:
+		goto st532
+	st532:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof530
+			goto _test_eof532
 		}
-	st_case_530:
-		// line internal/php8/scanner.go:22692
+	st_case_532:
+		// line internal/php8/scanner.go:22893
 		if lex.data[(lex.p)] == 45 {
 			goto st113
 		}
-		goto tr796
+		goto tr800
 	st113:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof113
@@ -24328,55 +24529,55 @@ func (lex *Lexer) Lex() *token.Token {
 			goto tr164
 		}
 		goto tr167
-	st531:
+	st533:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof531
+			goto _test_eof533
 		}
-	st_case_531:
+	st_case_533:
 		if lex.data[(lex.p)] == 96 {
-			goto tr801
+			goto tr805
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr801
+				goto tr805
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr801
+					goto tr805
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr801
+				goto tr805
 			}
 		default:
-			goto tr801
+			goto tr805
 		}
-		goto st531
+		goto st533
 	tr168:
-		// line internal/php8/scanner.rl:483
+		// line internal/php8/scanner.rl:490
 		(lex.p) = (lex.te) - 1
 		{
 			lex.setTokenPosition(tkn)
 			tok = token.T_NUM_STRING
 			{
 				(lex.p)++
-				lex.cs = 532
+				lex.cs = 534
 				goto _out
 			}
 		}
-		goto st532
-	tr802:
-		// line internal/php8/scanner.rl:489
+		goto st534
+	tr806:
+		// line internal/php8/scanner.rl:496
 		lex.te = (lex.p) + 1
 		{
 			c := lex.data[lex.p]
 			lex.error(fmt.Sprintf("WARNING: Unexpected character in input: '%c' (ASCII=%d)", c, c))
 		}
-		goto st532
-	tr803:
-		// line internal/php8/scanner.rl:486
+		goto st534
+	tr807:
+		// line internal/php8/scanner.rl:493
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
@@ -24384,22 +24585,22 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.ret(2)
 			goto _out
 		}
-		goto st532
-	tr806:
-		// line internal/php8/scanner.rl:487
+		goto st534
+	tr810:
+		// line internal/php8/scanner.rl:494
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
 			tok = token.ID(int(lex.data[lex.ts]))
 			{
 				(lex.p)++
-				lex.cs = 532
+				lex.cs = 534
 				goto _out
 			}
 		}
-		goto st532
-	tr810:
-		// line internal/php8/scanner.rl:488
+		goto st534
+	tr814:
+		// line internal/php8/scanner.rl:495
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
@@ -24407,11 +24608,11 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.ret(2)
 			goto _out
 		}
-		goto st532
-	tr811:
+		goto st534
+	tr815:
 		// line internal/php8/scanner.rl:54
 
-		// line internal/php8/scanner.rl:486
+		// line internal/php8/scanner.rl:493
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -24420,18 +24621,18 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.ret(2)
 			goto _out
 		}
-		goto st532
-	tr812:
-		// line internal/php8/scanner.rl:489
+		goto st534
+	tr816:
+		// line internal/php8/scanner.rl:496
 		lex.te = (lex.p)
 		(lex.p)--
 		{
 			c := lex.data[lex.p]
 			lex.error(fmt.Sprintf("WARNING: Unexpected character in input: '%c' (ASCII=%d)", c, c))
 		}
-		goto st532
-	tr813:
-		// line internal/php8/scanner.rl:487
+		goto st534
+	tr817:
+		// line internal/php8/scanner.rl:494
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -24439,13 +24640,13 @@ func (lex *Lexer) Lex() *token.Token {
 			tok = token.ID(int(lex.data[lex.ts]))
 			{
 				(lex.p)++
-				lex.cs = 532
+				lex.cs = 534
 				goto _out
 			}
 		}
-		goto st532
-	tr815:
-		// line internal/php8/scanner.rl:484
+		goto st534
+	tr819:
+		// line internal/php8/scanner.rl:491
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -24453,13 +24654,13 @@ func (lex *Lexer) Lex() *token.Token {
 			tok = token.T_VARIABLE
 			{
 				(lex.p)++
-				lex.cs = 532
+				lex.cs = 534
 				goto _out
 			}
 		}
-		goto st532
-	tr816:
-		// line internal/php8/scanner.rl:483
+		goto st534
+	tr820:
+		// line internal/php8/scanner.rl:490
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -24467,13 +24668,13 @@ func (lex *Lexer) Lex() *token.Token {
 			tok = token.T_NUM_STRING
 			{
 				(lex.p)++
-				lex.cs = 532
+				lex.cs = 534
 				goto _out
 			}
 		}
-		goto st532
-	tr821:
-		// line internal/php8/scanner.rl:485
+		goto st534
+	tr825:
+		// line internal/php8/scanner.rl:492
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -24481,64 +24682,64 @@ func (lex *Lexer) Lex() *token.Token {
 			tok = token.T_STRING
 			{
 				(lex.p)++
-				lex.cs = 532
+				lex.cs = 534
 				goto _out
 			}
 		}
-		goto st532
-	st532:
+		goto st534
+	st534:
 		// line NONE:1
 		lex.ts = 0
 
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof532
+			goto _test_eof534
 		}
-	st_case_532:
+	st_case_534:
 		// line NONE:1
 		lex.ts = (lex.p)
 
-		// line internal/php8/scanner.go:22833
+		// line internal/php8/scanner.go:23034
 		switch lex.data[(lex.p)] {
 		case 10:
-			goto tr804
-		case 13:
-			goto tr805
-		case 32:
-			goto tr803
-		case 33:
-			goto tr806
-		case 35:
-			goto tr803
-		case 36:
-			goto st535
-		case 39:
-			goto tr803
-		case 48:
 			goto tr808
-		case 92:
-			goto tr803
-		case 93:
+		case 13:
+			goto tr809
+		case 32:
+			goto tr807
+		case 33:
 			goto tr810
+		case 35:
+			goto tr807
+		case 36:
+			goto st537
+		case 39:
+			goto tr807
+		case 48:
+			goto tr812
+		case 92:
+			goto tr807
+		case 93:
+			goto tr814
 		case 96:
-			goto tr802
+			goto tr806
 		case 124:
-			goto tr806
+			goto tr810
 		case 126:
-			goto tr806
+			goto tr810
 		}
 		switch {
 		case lex.data[(lex.p)] < 37:
 			switch {
 			case lex.data[(lex.p)] < 9:
 				if lex.data[(lex.p)] <= 8 {
-					goto tr802
+					goto tr806
 				}
 			case lex.data[(lex.p)] > 12:
 				if 14 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 34 {
-					goto tr802
+					goto tr806
 				}
 			default:
-				goto tr803
+				goto tr807
 			}
 		case lex.data[(lex.p)] > 47:
 			switch {
@@ -24550,19 +24751,19 @@ func (lex *Lexer) Lex() *token.Token {
 				switch {
 				case lex.data[(lex.p)] > 94:
 					if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-						goto tr802
+						goto tr806
 					}
 				case lex.data[(lex.p)] >= 91:
-					goto tr806
+					goto tr810
 				}
 			default:
-				goto tr806
+				goto tr810
 			}
 		default:
-			goto tr806
+			goto tr810
 		}
-		goto st542
-	tr804:
+		goto st544
+	tr808:
 		// line internal/php8/scanner.rl:38
 
 		if lex.data[lex.p] == '\n' {
@@ -24573,94 +24774,94 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st533
-	st533:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof533
-		}
-	st_case_533:
-		// line internal/php8/scanner.go:22915
-		goto tr811
-	tr805:
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		goto st534
-	st534:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof534
-		}
-	st_case_534:
-		// line internal/php8/scanner.go:22934
-		if lex.data[(lex.p)] == 10 {
-			goto tr804
-		}
-		goto tr812
+		goto st535
 	st535:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof535
 		}
 	st_case_535:
-		if lex.data[(lex.p)] == 96 {
-			goto tr813
+		// line internal/php8/scanner.go:23116
+		goto tr815
+	tr809:
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
 		}
-		switch {
-		case lex.data[(lex.p)] < 91:
-			if lex.data[(lex.p)] <= 64 {
-				goto tr813
-			}
-		case lex.data[(lex.p)] > 94:
-			if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-				goto tr813
-			}
-		default:
-			goto tr813
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
 		}
+
 		goto st536
 	st536:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof536
 		}
 	st_case_536:
-		if lex.data[(lex.p)] == 96 {
-			goto tr815
+		// line internal/php8/scanner.go:23135
+		if lex.data[(lex.p)] == 10 {
+			goto tr808
 		}
-		switch {
-		case lex.data[(lex.p)] < 58:
-			if lex.data[(lex.p)] <= 47 {
-				goto tr815
-			}
-		case lex.data[(lex.p)] > 64:
-			switch {
-			case lex.data[(lex.p)] > 94:
-				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr815
-				}
-			case lex.data[(lex.p)] >= 91:
-				goto tr815
-			}
-		default:
-			goto tr815
-		}
-		goto st536
-	tr808:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		goto st537
+		goto tr816
 	st537:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof537
 		}
 	st_case_537:
-		// line internal/php8/scanner.go:22996
+		if lex.data[(lex.p)] == 96 {
+			goto tr817
+		}
+		switch {
+		case lex.data[(lex.p)] < 91:
+			if lex.data[(lex.p)] <= 64 {
+				goto tr817
+			}
+		case lex.data[(lex.p)] > 94:
+			if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+				goto tr817
+			}
+		default:
+			goto tr817
+		}
+		goto st538
+	st538:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof538
+		}
+	st_case_538:
+		if lex.data[(lex.p)] == 96 {
+			goto tr819
+		}
+		switch {
+		case lex.data[(lex.p)] < 58:
+			if lex.data[(lex.p)] <= 47 {
+				goto tr819
+			}
+		case lex.data[(lex.p)] > 64:
+			switch {
+			case lex.data[(lex.p)] > 94:
+				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
+					goto tr819
+				}
+			case lex.data[(lex.p)] >= 91:
+				goto tr819
+			}
+		default:
+			goto tr819
+		}
+		goto st538
+	tr812:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		goto st539
+	st539:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof539
+		}
+	st_case_539:
+		// line internal/php8/scanner.go:23197
 		switch lex.data[(lex.p)] {
 		case 66:
 			goto st116
@@ -24680,25 +24881,25 @@ func (lex *Lexer) Lex() *token.Token {
 		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 57 {
 			goto tr169
 		}
-		goto tr816
+		goto tr820
 	tr169:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st538
-	st538:
+		goto st540
+	st540:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof538
+			goto _test_eof540
 		}
-	st_case_538:
-		// line internal/php8/scanner.go:23027
+	st_case_540:
+		// line internal/php8/scanner.go:23228
 		if lex.data[(lex.p)] == 95 {
 			goto st115
 		}
 		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 57 {
 			goto tr169
 		}
-		goto tr816
+		goto tr820
 	st115:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof115
@@ -24721,20 +24922,20 @@ func (lex *Lexer) Lex() *token.Token {
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st539
-	st539:
+		goto st541
+	st541:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof539
+			goto _test_eof541
 		}
-	st_case_539:
-		// line internal/php8/scanner.go:23063
+	st_case_541:
+		// line internal/php8/scanner.go:23264
 		if lex.data[(lex.p)] == 95 {
 			goto st116
 		}
 		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 49 {
 			goto tr170
 		}
-		goto tr816
+		goto tr820
 	st117:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof117
@@ -24748,20 +24949,20 @@ func (lex *Lexer) Lex() *token.Token {
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st540
-	st540:
+		goto st542
+	st542:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof540
+			goto _test_eof542
 		}
-	st_case_540:
-		// line internal/php8/scanner.go:23090
+	st_case_542:
+		// line internal/php8/scanner.go:23291
 		if lex.data[(lex.p)] == 95 {
 			goto st117
 		}
 		if 48 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 55 {
 			goto tr171
 		}
-		goto tr816
+		goto tr820
 	st118:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof118
@@ -24784,13 +24985,13 @@ func (lex *Lexer) Lex() *token.Token {
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st541
-	st541:
+		goto st543
+	st543:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof541
+			goto _test_eof543
 		}
-	st_case_541:
-		// line internal/php8/scanner.go:23126
+	st_case_543:
+		// line internal/php8/scanner.go:23327
 		if lex.data[(lex.p)] == 95 {
 			goto st118
 		}
@@ -24806,36 +25007,36 @@ func (lex *Lexer) Lex() *token.Token {
 		default:
 			goto tr172
 		}
-		goto tr816
-	st542:
+		goto tr820
+	st544:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof542
+			goto _test_eof544
 		}
-	st_case_542:
+	st_case_544:
 		if lex.data[(lex.p)] == 96 {
-			goto tr821
+			goto tr825
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr821
+				goto tr825
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr821
+					goto tr825
 				}
 			case lex.data[(lex.p)] >= 91:
-				goto tr821
+				goto tr825
 			}
 		default:
-			goto tr821
+			goto tr825
 		}
-		goto st542
+		goto st544
 	tr173:
-		lex.cs = 543
-		// line internal/php8/scanner.rl:497
+		lex.cs = 545
+		// line internal/php8/scanner.rl:504
 		(lex.p) = (lex.te) - 1
 		{
 			lex.ungetCnt(1)
@@ -24843,8 +25044,8 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		goto _again
 	tr175:
-		lex.cs = 543
-		// line internal/php8/scanner.rl:496
+		lex.cs = 545
+		// line internal/php8/scanner.rl:503
 		lex.te = (lex.p) + 1
 		{
 			lex.ungetCnt(1)
@@ -24857,18 +25058,18 @@ func (lex *Lexer) Lex() *token.Token {
 			}
 		}
 		goto _again
-	tr822:
-		lex.cs = 543
-		// line internal/php8/scanner.rl:497
+	tr826:
+		lex.cs = 545
+		// line internal/php8/scanner.rl:504
 		lex.te = (lex.p) + 1
 		{
 			lex.ungetCnt(1)
 			lex.cs = 133
 		}
 		goto _again
-	tr824:
-		lex.cs = 543
-		// line internal/php8/scanner.rl:497
+	tr828:
+		lex.cs = 545
+		// line internal/php8/scanner.rl:504
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -24876,69 +25077,69 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.cs = 133
 		}
 		goto _again
-	st543:
+	st545:
 		// line NONE:1
 		lex.ts = 0
 
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof543
+			goto _test_eof545
 		}
-	st_case_543:
+	st_case_545:
 		// line NONE:1
 		lex.ts = (lex.p)
 
-		// line internal/php8/scanner.go:23205
+		// line internal/php8/scanner.go:23406
 		if lex.data[(lex.p)] == 96 {
-			goto tr822
+			goto tr826
 		}
 		switch {
 		case lex.data[(lex.p)] < 91:
 			if lex.data[(lex.p)] <= 64 {
-				goto tr822
+				goto tr826
 			}
 		case lex.data[(lex.p)] > 94:
 			if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-				goto tr822
+				goto tr826
 			}
 		default:
-			goto tr822
+			goto tr826
 		}
-		goto tr823
-	tr823:
+		goto tr827
+	tr827:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st544
-	st544:
+		goto st546
+	st546:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof544
+			goto _test_eof546
 		}
-	st_case_544:
-		// line internal/php8/scanner.go:23232
+	st_case_546:
+		// line internal/php8/scanner.go:23433
 		switch lex.data[(lex.p)] {
 		case 91:
 			goto tr175
 		case 96:
-			goto tr824
+			goto tr828
 		case 125:
 			goto tr175
 		}
 		switch {
 		case lex.data[(lex.p)] < 58:
 			if lex.data[(lex.p)] <= 47 {
-				goto tr824
+				goto tr828
 			}
 		case lex.data[(lex.p)] > 64:
 			switch {
 			case lex.data[(lex.p)] > 94:
 				if 123 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 127 {
-					goto tr824
+					goto tr828
 				}
 			case lex.data[(lex.p)] >= 92:
-				goto tr824
+				goto tr828
 			}
 		default:
-			goto tr824
+			goto tr828
 		}
 		goto st119
 	st119:
@@ -24973,56 +25174,56 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 		goto st119
 	tr176:
-		// line internal/php8/scanner.rl:501
+		// line internal/php8/scanner.rl:508
 		(lex.p) = (lex.te) - 1
 		{
 			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
 		}
-		goto st545
-	tr825:
-		lex.cs = 545
-		// line internal/php8/scanner.rl:503
+		goto st547
+	tr829:
+		lex.cs = 547
+		// line internal/php8/scanner.rl:510
 		lex.te = (lex.p) + 1
 		{
 			lex.ungetCnt(1)
 			lex.cs = 133
 		}
 		goto _again
-	tr828:
-		lex.cs = 545
-		// line internal/php8/scanner.rl:502
+	tr832:
+		lex.cs = 547
+		// line internal/php8/scanner.rl:509
 		lex.te = (lex.p) + 1
 		{
 			lex.setTokenPosition(tkn)
 			tok = token.ID(int('('))
-			lex.cs = 549
+			lex.cs = 551
 			{
 				(lex.p)++
 				goto _out
 			}
 		}
 		goto _again
-	tr829:
-		// line internal/php8/scanner.rl:501
+	tr833:
+		// line internal/php8/scanner.rl:508
 		lex.te = (lex.p)
 		(lex.p)--
 		{
 			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
 		}
-		goto st545
-	tr831:
+		goto st547
+	tr835:
 		// line internal/php8/scanner.rl:54
 
-		// line internal/php8/scanner.rl:501
+		// line internal/php8/scanner.rl:508
 		lex.te = (lex.p)
 		(lex.p)--
 		{
 			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
 		}
-		goto st545
-	tr835:
-		lex.cs = 545
-		// line internal/php8/scanner.rl:503
+		goto st547
+	tr839:
+		lex.cs = 547
+		// line internal/php8/scanner.rl:510
 		lex.te = (lex.p)
 		(lex.p)--
 		{
@@ -25030,62 +25231,62 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.cs = 133
 		}
 		goto _again
-	st545:
+	st547:
 		// line NONE:1
 		lex.ts = 0
 
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof545
+			goto _test_eof547
 		}
-	st_case_545:
+	st_case_547:
 		// line NONE:1
 		lex.ts = (lex.p)
 
-		// line internal/php8/scanner.go:23339
+		// line internal/php8/scanner.go:23540
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr177
 		case 13:
-			goto tr827
+			goto tr831
 		case 32:
-			goto tr826
+			goto tr830
 		case 40:
-			goto tr828
+			goto tr832
 		}
 		if 9 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 12 {
-			goto tr826
+			goto tr830
 		}
-		goto tr825
-	tr826:
+		goto tr829
+	tr830:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
-		goto st546
-	tr832:
+		goto st548
+	tr836:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
 		// line internal/php8/scanner.rl:54
 
-		goto st546
-	st546:
+		goto st548
+	st548:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof546
+			goto _test_eof548
 		}
-	st_case_546:
-		// line internal/php8/scanner.go:23371
+	st_case_548:
+		// line internal/php8/scanner.go:23572
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr177
 		case 13:
-			goto tr830
+			goto tr834
 		case 32:
-			goto tr826
+			goto tr830
 		}
 		if 9 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 12 {
-			goto tr826
+			goto tr830
 		}
-		goto tr829
+		goto tr833
 	tr177:
 		// line NONE:1
 		lex.te = (lex.p) + 1
@@ -25100,8 +25301,8 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st547
-	tr833:
+		goto st549
+	tr837:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
@@ -25117,26 +25318,26 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st547
-	st547:
+		goto st549
+	st549:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof547
+			goto _test_eof549
 		}
-	st_case_547:
-		// line internal/php8/scanner.go:23421
+	st_case_549:
+		// line internal/php8/scanner.go:23622
 		switch lex.data[(lex.p)] {
 		case 10:
-			goto tr833
+			goto tr837
 		case 13:
-			goto tr834
+			goto tr838
 		case 32:
-			goto tr832
+			goto tr836
 		}
 		if 9 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 12 {
-			goto tr832
+			goto tr836
 		}
-		goto tr831
-	tr830:
+		goto tr835
+	tr834:
 		// line internal/php8/scanner.rl:38
 
 		if lex.data[lex.p] == '\n' {
@@ -25148,7 +25349,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 
 		goto st120
-	tr834:
+	tr838:
 		// line internal/php8/scanner.rl:54
 
 		// line internal/php8/scanner.rl:38
@@ -25167,12 +25368,12 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof120
 		}
 	st_case_120:
-		// line internal/php8/scanner.go:23465
+		// line internal/php8/scanner.go:23666
 		if lex.data[(lex.p)] == 10 {
 			goto tr177
 		}
 		goto tr176
-	tr827:
+	tr831:
 		// line internal/php8/scanner.rl:38
 
 		if lex.data[lex.p] == '\n' {
@@ -25183,131 +25384,131 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st548
-	st548:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof548
-		}
-	st_case_548:
-		// line internal/php8/scanner.go:23487
-		if lex.data[(lex.p)] == 10 {
-			goto tr177
-		}
-		goto tr835
-	tr178:
-		// line internal/php8/scanner.rl:507
-		(lex.p) = (lex.te) - 1
-		{
-			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
-		}
-		goto st549
-	tr836:
-		lex.cs = 549
-		// line internal/php8/scanner.rl:509
-		lex.te = (lex.p) + 1
-		{
-			lex.ungetCnt(1)
-			lex.cs = 133
-		}
-		goto _again
-	tr839:
-		lex.cs = 549
-		// line internal/php8/scanner.rl:508
-		lex.te = (lex.p) + 1
-		{
-			lex.setTokenPosition(tkn)
-			tok = token.ID(int(')'))
-			lex.cs = 553
-			{
-				(lex.p)++
-				goto _out
-			}
-		}
-		goto _again
-	tr840:
-		// line internal/php8/scanner.rl:507
-		lex.te = (lex.p)
-		(lex.p)--
-		{
-			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
-		}
-		goto st549
-	tr842:
-		// line internal/php8/scanner.rl:54
-
-		// line internal/php8/scanner.rl:507
-		lex.te = (lex.p)
-		(lex.p)--
-		{
-			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
-		}
-		goto st549
-	tr846:
-		lex.cs = 549
-		// line internal/php8/scanner.rl:509
-		lex.te = (lex.p)
-		(lex.p)--
-		{
-			lex.ungetCnt(1)
-			lex.cs = 133
-		}
-		goto _again
-	st549:
-		// line NONE:1
-		lex.ts = 0
-
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof549
-		}
-	st_case_549:
-		// line NONE:1
-		lex.ts = (lex.p)
-
-		// line internal/php8/scanner.go:23541
-		switch lex.data[(lex.p)] {
-		case 10:
-			goto tr179
-		case 13:
-			goto tr838
-		case 32:
-			goto tr837
-		case 41:
-			goto tr839
-		}
-		if 9 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 12 {
-			goto tr837
-		}
-		goto tr836
-	tr837:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		goto st550
-	tr843:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:54
-
 		goto st550
 	st550:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof550
 		}
 	st_case_550:
-		// line internal/php8/scanner.go:23573
+		// line internal/php8/scanner.go:23688
+		if lex.data[(lex.p)] == 10 {
+			goto tr177
+		}
+		goto tr839
+	tr178:
+		// line internal/php8/scanner.rl:514
+		(lex.p) = (lex.te) - 1
+		{
+			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
+		}
+		goto st551
+	tr840:
+		lex.cs = 551
+		// line internal/php8/scanner.rl:516
+		lex.te = (lex.p) + 1
+		{
+			lex.ungetCnt(1)
+			lex.cs = 133
+		}
+		goto _again
+	tr843:
+		lex.cs = 551
+		// line internal/php8/scanner.rl:515
+		lex.te = (lex.p) + 1
+		{
+			lex.setTokenPosition(tkn)
+			tok = token.ID(int(')'))
+			lex.cs = 555
+			{
+				(lex.p)++
+				goto _out
+			}
+		}
+		goto _again
+	tr844:
+		// line internal/php8/scanner.rl:514
+		lex.te = (lex.p)
+		(lex.p)--
+		{
+			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
+		}
+		goto st551
+	tr846:
+		// line internal/php8/scanner.rl:54
+
+		// line internal/php8/scanner.rl:514
+		lex.te = (lex.p)
+		(lex.p)--
+		{
+			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
+		}
+		goto st551
+	tr850:
+		lex.cs = 551
+		// line internal/php8/scanner.rl:516
+		lex.te = (lex.p)
+		(lex.p)--
+		{
+			lex.ungetCnt(1)
+			lex.cs = 133
+		}
+		goto _again
+	st551:
+		// line NONE:1
+		lex.ts = 0
+
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof551
+		}
+	st_case_551:
+		// line NONE:1
+		lex.ts = (lex.p)
+
+		// line internal/php8/scanner.go:23742
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr179
 		case 13:
-			goto tr841
+			goto tr842
 		case 32:
-			goto tr837
+			goto tr841
+		case 41:
+			goto tr843
 		}
 		if 9 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 12 {
-			goto tr837
+			goto tr841
 		}
 		goto tr840
+	tr841:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		goto st552
+	tr847:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:54
+
+		goto st552
+	st552:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof552
+		}
+	st_case_552:
+		// line internal/php8/scanner.go:23774
+		switch lex.data[(lex.p)] {
+		case 10:
+			goto tr179
+		case 13:
+			goto tr845
+		case 32:
+			goto tr841
+		}
+		if 9 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 12 {
+			goto tr841
+		}
+		goto tr844
 	tr179:
 		// line NONE:1
 		lex.te = (lex.p) + 1
@@ -25322,8 +25523,8 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st551
-	tr844:
+		goto st553
+	tr848:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
@@ -25339,26 +25540,26 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st551
-	st551:
+		goto st553
+	st553:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof551
+			goto _test_eof553
 		}
-	st_case_551:
-		// line internal/php8/scanner.go:23623
+	st_case_553:
+		// line internal/php8/scanner.go:23824
 		switch lex.data[(lex.p)] {
 		case 10:
-			goto tr844
+			goto tr848
 		case 13:
-			goto tr845
+			goto tr849
 		case 32:
-			goto tr843
+			goto tr847
 		}
 		if 9 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 12 {
-			goto tr843
+			goto tr847
 		}
-		goto tr842
-	tr841:
+		goto tr846
+	tr845:
 		// line internal/php8/scanner.rl:38
 
 		if lex.data[lex.p] == '\n' {
@@ -25370,7 +25571,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 
 		goto st121
-	tr845:
+	tr849:
 		// line internal/php8/scanner.rl:54
 
 		// line internal/php8/scanner.rl:38
@@ -25389,12 +25590,12 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof121
 		}
 	st_case_121:
-		// line internal/php8/scanner.go:23667
+		// line internal/php8/scanner.go:23868
 		if lex.data[(lex.p)] == 10 {
 			goto tr179
 		}
 		goto tr178
-	tr838:
+	tr842:
 		// line internal/php8/scanner.rl:38
 
 		if lex.data[lex.p] == '\n' {
@@ -25405,131 +25606,131 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st552
-	st552:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof552
-		}
-	st_case_552:
-		// line internal/php8/scanner.go:23689
-		if lex.data[(lex.p)] == 10 {
-			goto tr179
-		}
-		goto tr846
-	tr180:
-		// line internal/php8/scanner.rl:513
-		(lex.p) = (lex.te) - 1
-		{
-			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
-		}
-		goto st553
-	tr847:
-		lex.cs = 553
-		// line internal/php8/scanner.rl:515
-		lex.te = (lex.p) + 1
-		{
-			lex.ungetCnt(1)
-			lex.cs = 133
-		}
-		goto _again
-	tr850:
-		lex.cs = 553
-		// line internal/php8/scanner.rl:514
-		lex.te = (lex.p) + 1
-		{
-			lex.setTokenPosition(tkn)
-			tok = token.ID(int(';'))
-			lex.cs = 557
-			{
-				(lex.p)++
-				goto _out
-			}
-		}
-		goto _again
-	tr851:
-		// line internal/php8/scanner.rl:513
-		lex.te = (lex.p)
-		(lex.p)--
-		{
-			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
-		}
-		goto st553
-	tr853:
-		// line internal/php8/scanner.rl:54
-
-		// line internal/php8/scanner.rl:513
-		lex.te = (lex.p)
-		(lex.p)--
-		{
-			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
-		}
-		goto st553
-	tr857:
-		lex.cs = 553
-		// line internal/php8/scanner.rl:515
-		lex.te = (lex.p)
-		(lex.p)--
-		{
-			lex.ungetCnt(1)
-			lex.cs = 133
-		}
-		goto _again
-	st553:
-		// line NONE:1
-		lex.ts = 0
-
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof553
-		}
-	st_case_553:
-		// line NONE:1
-		lex.ts = (lex.p)
-
-		// line internal/php8/scanner.go:23743
-		switch lex.data[(lex.p)] {
-		case 10:
-			goto tr181
-		case 13:
-			goto tr849
-		case 32:
-			goto tr848
-		case 59:
-			goto tr850
-		}
-		if 9 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 12 {
-			goto tr848
-		}
-		goto tr847
-	tr848:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		goto st554
-	tr854:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:54
-
 		goto st554
 	st554:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof554
 		}
 	st_case_554:
-		// line internal/php8/scanner.go:23775
+		// line internal/php8/scanner.go:23890
+		if lex.data[(lex.p)] == 10 {
+			goto tr179
+		}
+		goto tr850
+	tr180:
+		// line internal/php8/scanner.rl:520
+		(lex.p) = (lex.te) - 1
+		{
+			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
+		}
+		goto st555
+	tr851:
+		lex.cs = 555
+		// line internal/php8/scanner.rl:522
+		lex.te = (lex.p) + 1
+		{
+			lex.ungetCnt(1)
+			lex.cs = 133
+		}
+		goto _again
+	tr854:
+		lex.cs = 555
+		// line internal/php8/scanner.rl:521
+		lex.te = (lex.p) + 1
+		{
+			lex.setTokenPosition(tkn)
+			tok = token.ID(int(';'))
+			lex.cs = 559
+			{
+				(lex.p)++
+				goto _out
+			}
+		}
+		goto _again
+	tr855:
+		// line internal/php8/scanner.rl:520
+		lex.te = (lex.p)
+		(lex.p)--
+		{
+			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
+		}
+		goto st555
+	tr857:
+		// line internal/php8/scanner.rl:54
+
+		// line internal/php8/scanner.rl:520
+		lex.te = (lex.p)
+		(lex.p)--
+		{
+			lex.addFreeFloatingToken(tkn, token.T_WHITESPACE, lex.ts, lex.te)
+		}
+		goto st555
+	tr861:
+		lex.cs = 555
+		// line internal/php8/scanner.rl:522
+		lex.te = (lex.p)
+		(lex.p)--
+		{
+			lex.ungetCnt(1)
+			lex.cs = 133
+		}
+		goto _again
+	st555:
+		// line NONE:1
+		lex.ts = 0
+
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof555
+		}
+	st_case_555:
+		// line NONE:1
+		lex.ts = (lex.p)
+
+		// line internal/php8/scanner.go:23944
 		switch lex.data[(lex.p)] {
 		case 10:
 			goto tr181
 		case 13:
-			goto tr852
+			goto tr853
 		case 32:
-			goto tr848
+			goto tr852
+		case 59:
+			goto tr854
 		}
 		if 9 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 12 {
-			goto tr848
+			goto tr852
 		}
 		goto tr851
+	tr852:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		goto st556
+	tr858:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
+		// line internal/php8/scanner.rl:54
+
+		goto st556
+	st556:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof556
+		}
+	st_case_556:
+		// line internal/php8/scanner.go:23976
+		switch lex.data[(lex.p)] {
+		case 10:
+			goto tr181
+		case 13:
+			goto tr856
+		case 32:
+			goto tr852
+		}
+		if 9 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 12 {
+			goto tr852
+		}
+		goto tr855
 	tr181:
 		// line NONE:1
 		lex.te = (lex.p) + 1
@@ -25544,8 +25745,8 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st555
-	tr855:
+		goto st557
+	tr859:
 		// line NONE:1
 		lex.te = (lex.p) + 1
 
@@ -25561,26 +25762,26 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st555
-	st555:
+		goto st557
+	st557:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof555
+			goto _test_eof557
 		}
-	st_case_555:
-		// line internal/php8/scanner.go:23825
+	st_case_557:
+		// line internal/php8/scanner.go:24026
 		switch lex.data[(lex.p)] {
 		case 10:
-			goto tr855
+			goto tr859
 		case 13:
-			goto tr856
+			goto tr860
 		case 32:
-			goto tr854
+			goto tr858
 		}
 		if 9 <= lex.data[(lex.p)] && lex.data[(lex.p)] <= 12 {
-			goto tr854
+			goto tr858
 		}
-		goto tr853
-	tr852:
+		goto tr857
+	tr856:
 		// line internal/php8/scanner.rl:38
 
 		if lex.data[lex.p] == '\n' {
@@ -25592,7 +25793,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 
 		goto st122
-	tr856:
+	tr860:
 		// line internal/php8/scanner.rl:54
 
 		// line internal/php8/scanner.rl:38
@@ -25611,12 +25812,12 @@ func (lex *Lexer) Lex() *token.Token {
 			goto _test_eof122
 		}
 	st_case_122:
-		// line internal/php8/scanner.go:23869
+		// line internal/php8/scanner.go:24070
 		if lex.data[(lex.p)] == 10 {
 			goto tr181
 		}
 		goto tr180
-	tr849:
+	tr853:
 		// line internal/php8/scanner.rl:38
 
 		if lex.data[lex.p] == '\n' {
@@ -25627,18 +25828,18 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		goto st556
-	st556:
+		goto st558
+	st558:
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof556
+			goto _test_eof558
 		}
-	st_case_556:
-		// line internal/php8/scanner.go:23891
+	st_case_558:
+		// line internal/php8/scanner.go:24092
 		if lex.data[(lex.p)] == 10 {
 			goto tr181
 		}
-		goto tr857
-	tr861:
+		goto tr861
+	tr865:
 		// line NONE:1
 		switch lex.act {
 		case 0:
@@ -25647,33 +25848,33 @@ func (lex *Lexer) Lex() *token.Token {
 					goto st0
 				}
 			}
-		case 199:
+		case 200:
 			{
 				(lex.p) = (lex.te) - 1
 				lex.addFreeFloatingToken(tkn, token.T_HALT_COMPILER, lex.ts, lex.te)
 			}
 		}
 
-		goto st557
-	tr862:
+		goto st559
+	tr866:
 		// line internal/php8/scanner.rl:54
 
-		// line internal/php8/scanner.rl:519
+		// line internal/php8/scanner.rl:526
 		lex.te = (lex.p)
 		(lex.p)--
 		{
 			lex.addFreeFloatingToken(tkn, token.T_HALT_COMPILER, lex.ts, lex.te)
 		}
-		goto st557
-	tr866:
-		// line internal/php8/scanner.rl:519
+		goto st559
+	tr870:
+		// line internal/php8/scanner.rl:526
 		lex.te = (lex.p)
 		(lex.p)--
 		{
 			lex.addFreeFloatingToken(tkn, token.T_HALT_COMPILER, lex.ts, lex.te)
 		}
-		goto st557
-	st557:
+		goto st559
+	st559:
 		// line NONE:1
 		lex.ts = 0
 
@@ -25681,127 +25882,127 @@ func (lex *Lexer) Lex() *token.Token {
 		lex.act = 0
 
 		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof557
-		}
-	st_case_557:
-		// line NONE:1
-		lex.ts = (lex.p)
-
-		// line internal/php8/scanner.go:23935
-		switch lex.data[(lex.p)] {
-		case 10:
-			goto tr859
-		case 13:
-			goto tr860
-		}
-		goto tr858
-	tr858:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:519
-		lex.act = 199
-		goto st558
-	tr863:
-		// line NONE:1
-		lex.te = (lex.p) + 1
-
-		// line internal/php8/scanner.rl:54
-
-		// line internal/php8/scanner.rl:519
-		lex.act = 199
-		goto st558
-	st558:
-		if (lex.p)++; (lex.p) == (lex.pe) {
-			goto _test_eof558
-		}
-	st_case_558:
-		// line internal/php8/scanner.go:23964
-		switch lex.data[(lex.p)] {
-		case 10:
-			goto tr859
-		case 13:
-			goto tr860
-		}
-		goto tr858
-	tr859:
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		goto st559
-	tr864:
-		// line internal/php8/scanner.rl:54
-
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		goto st559
-	st559:
-		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof559
 		}
 	st_case_559:
-		// line internal/php8/scanner.go:24003
+		// line NONE:1
+		lex.ts = (lex.p)
+
+		// line internal/php8/scanner.go:24136
 		switch lex.data[(lex.p)] {
 		case 10:
-			goto tr864
+			goto tr863
 		case 13:
-			goto tr865
+			goto tr864
 		}
-		goto tr863
-	tr860:
-		// line internal/php8/scanner.rl:38
+		goto tr862
+	tr862:
+		// line NONE:1
+		lex.te = (lex.p) + 1
 
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
+		// line internal/php8/scanner.rl:526
+		lex.act = 200
 		goto st560
-	tr865:
+	tr867:
+		// line NONE:1
+		lex.te = (lex.p) + 1
+
 		// line internal/php8/scanner.rl:54
 
-		// line internal/php8/scanner.rl:38
-
-		if lex.data[lex.p] == '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
-			lex.newLines.Append(lex.p + 1)
-		}
-
+		// line internal/php8/scanner.rl:526
+		lex.act = 200
 		goto st560
 	st560:
 		if (lex.p)++; (lex.p) == (lex.pe) {
 			goto _test_eof560
 		}
 	st_case_560:
-		// line internal/php8/scanner.go:24042
+		// line internal/php8/scanner.go:24165
 		switch lex.data[(lex.p)] {
 		case 10:
-			goto tr859
+			goto tr863
 		case 13:
-			goto tr860
+			goto tr864
 		}
-		goto tr858
+		goto tr862
+	tr863:
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st561
+	tr868:
+		// line internal/php8/scanner.rl:54
+
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st561
+	st561:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof561
+		}
+	st_case_561:
+		// line internal/php8/scanner.go:24204
+		switch lex.data[(lex.p)] {
+		case 10:
+			goto tr868
+		case 13:
+			goto tr869
+		}
+		goto tr867
+	tr864:
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st562
+	tr869:
+		// line internal/php8/scanner.rl:54
+
+		// line internal/php8/scanner.rl:38
+
+		if lex.data[lex.p] == '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+			lex.newLines.Append(lex.p + 1)
+		}
+
+		goto st562
+	st562:
+		if (lex.p)++; (lex.p) == (lex.pe) {
+			goto _test_eof562
+		}
+	st_case_562:
+		// line internal/php8/scanner.go:24243
+		switch lex.data[(lex.p)] {
+		case 10:
+			goto tr863
+		case 13:
+			goto tr864
+		}
+		goto tr862
 	st_out:
 	_test_eof123:
 		lex.cs = 123
@@ -25908,14 +26109,20 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof147:
 		lex.cs = 147
 		goto _test_eof
+	_test_eof148:
+		lex.cs = 148
+		goto _test_eof
+	_test_eof149:
+		lex.cs = 149
+		goto _test_eof
 	_test_eof11:
 		lex.cs = 11
 		goto _test_eof
 	_test_eof12:
 		lex.cs = 12
 		goto _test_eof
-	_test_eof148:
-		lex.cs = 148
+	_test_eof150:
+		lex.cs = 150
 		goto _test_eof
 	_test_eof13:
 		lex.cs = 13
@@ -26082,12 +26289,6 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof67:
 		lex.cs = 67
 		goto _test_eof
-	_test_eof149:
-		lex.cs = 149
-		goto _test_eof
-	_test_eof150:
-		lex.cs = 150
-		goto _test_eof
 	_test_eof151:
 		lex.cs = 151
 		goto _test_eof
@@ -26097,11 +26298,17 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof153:
 		lex.cs = 153
 		goto _test_eof
+	_test_eof154:
+		lex.cs = 154
+		goto _test_eof
+	_test_eof155:
+		lex.cs = 155
+		goto _test_eof
 	_test_eof68:
 		lex.cs = 68
 		goto _test_eof
-	_test_eof154:
-		lex.cs = 154
+	_test_eof156:
+		lex.cs = 156
 		goto _test_eof
 	_test_eof69:
 		lex.cs = 69
@@ -26109,14 +26316,14 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof70:
 		lex.cs = 70
 		goto _test_eof
-	_test_eof155:
-		lex.cs = 155
+	_test_eof157:
+		lex.cs = 157
 		goto _test_eof
 	_test_eof71:
 		lex.cs = 71
 		goto _test_eof
-	_test_eof156:
-		lex.cs = 156
+	_test_eof158:
+		lex.cs = 158
 		goto _test_eof
 	_test_eof72:
 		lex.cs = 72
@@ -26127,14 +26334,14 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof74:
 		lex.cs = 74
 		goto _test_eof
-	_test_eof157:
-		lex.cs = 157
-		goto _test_eof
-	_test_eof158:
-		lex.cs = 158
-		goto _test_eof
 	_test_eof159:
 		lex.cs = 159
+		goto _test_eof
+	_test_eof160:
+		lex.cs = 160
+		goto _test_eof
+	_test_eof161:
+		lex.cs = 161
 		goto _test_eof
 	_test_eof75:
 		lex.cs = 75
@@ -26142,26 +26349,26 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof76:
 		lex.cs = 76
 		goto _test_eof
-	_test_eof160:
-		lex.cs = 160
+	_test_eof162:
+		lex.cs = 162
 		goto _test_eof
 	_test_eof77:
 		lex.cs = 77
 		goto _test_eof
-	_test_eof161:
-		lex.cs = 161
+	_test_eof163:
+		lex.cs = 163
 		goto _test_eof
 	_test_eof78:
 		lex.cs = 78
 		goto _test_eof
-	_test_eof162:
-		lex.cs = 162
-		goto _test_eof
-	_test_eof163:
-		lex.cs = 163
-		goto _test_eof
 	_test_eof164:
 		lex.cs = 164
+		goto _test_eof
+	_test_eof165:
+		lex.cs = 165
+		goto _test_eof
+	_test_eof166:
+		lex.cs = 166
 		goto _test_eof
 	_test_eof79:
 		lex.cs = 79
@@ -26175,20 +26382,20 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof82:
 		lex.cs = 82
 		goto _test_eof
-	_test_eof165:
-		lex.cs = 165
-		goto _test_eof
-	_test_eof166:
-		lex.cs = 166
-		goto _test_eof
-	_test_eof83:
-		lex.cs = 83
-		goto _test_eof
 	_test_eof167:
 		lex.cs = 167
 		goto _test_eof
 	_test_eof168:
 		lex.cs = 168
+		goto _test_eof
+	_test_eof83:
+		lex.cs = 83
+		goto _test_eof
+	_test_eof169:
+		lex.cs = 169
+		goto _test_eof
+	_test_eof170:
+		lex.cs = 170
 		goto _test_eof
 	_test_eof84:
 		lex.cs = 84
@@ -26202,8 +26409,8 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof87:
 		lex.cs = 87
 		goto _test_eof
-	_test_eof169:
-		lex.cs = 169
+	_test_eof171:
+		lex.cs = 171
 		goto _test_eof
 	_test_eof88:
 		lex.cs = 88
@@ -26217,12 +26424,6 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof91:
 		lex.cs = 91
 		goto _test_eof
-	_test_eof170:
-		lex.cs = 170
-		goto _test_eof
-	_test_eof171:
-		lex.cs = 171
-		goto _test_eof
 	_test_eof172:
 		lex.cs = 172
 		goto _test_eof
@@ -26235,17 +26436,14 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof175:
 		lex.cs = 175
 		goto _test_eof
-	_test_eof92:
-		lex.cs = 92
-		goto _test_eof
 	_test_eof176:
 		lex.cs = 176
 		goto _test_eof
 	_test_eof177:
 		lex.cs = 177
 		goto _test_eof
-	_test_eof93:
-		lex.cs = 93
+	_test_eof92:
+		lex.cs = 92
 		goto _test_eof
 	_test_eof178:
 		lex.cs = 178
@@ -26253,17 +26451,20 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof179:
 		lex.cs = 179
 		goto _test_eof
+	_test_eof93:
+		lex.cs = 93
+		goto _test_eof
 	_test_eof180:
 		lex.cs = 180
-		goto _test_eof
-	_test_eof94:
-		lex.cs = 94
 		goto _test_eof
 	_test_eof181:
 		lex.cs = 181
 		goto _test_eof
 	_test_eof182:
 		lex.cs = 182
+		goto _test_eof
+	_test_eof94:
+		lex.cs = 94
 		goto _test_eof
 	_test_eof183:
 		lex.cs = 183
@@ -26295,17 +26496,17 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof192:
 		lex.cs = 192
 		goto _test_eof
-	_test_eof95:
-		lex.cs = 95
-		goto _test_eof
-	_test_eof96:
-		lex.cs = 96
-		goto _test_eof
 	_test_eof193:
 		lex.cs = 193
 		goto _test_eof
 	_test_eof194:
 		lex.cs = 194
+		goto _test_eof
+	_test_eof95:
+		lex.cs = 95
+		goto _test_eof
+	_test_eof96:
+		lex.cs = 96
 		goto _test_eof
 	_test_eof195:
 		lex.cs = 195
@@ -26778,14 +26979,14 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof351:
 		lex.cs = 351
 		goto _test_eof
-	_test_eof97:
-		lex.cs = 97
-		goto _test_eof
 	_test_eof352:
 		lex.cs = 352
 		goto _test_eof
 	_test_eof353:
 		lex.cs = 353
+		goto _test_eof
+	_test_eof97:
+		lex.cs = 97
 		goto _test_eof
 	_test_eof354:
 		lex.cs = 354
@@ -27000,6 +27201,12 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof424:
 		lex.cs = 424
 		goto _test_eof
+	_test_eof425:
+		lex.cs = 425
+		goto _test_eof
+	_test_eof426:
+		lex.cs = 426
+		goto _test_eof
 	_test_eof98:
 		lex.cs = 98
 		goto _test_eof
@@ -27018,20 +27225,14 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof103:
 		lex.cs = 103
 		goto _test_eof
-	_test_eof425:
-		lex.cs = 425
-		goto _test_eof
-	_test_eof426:
-		lex.cs = 426
-		goto _test_eof
-	_test_eof104:
-		lex.cs = 104
-		goto _test_eof
 	_test_eof427:
 		lex.cs = 427
 		goto _test_eof
 	_test_eof428:
 		lex.cs = 428
+		goto _test_eof
+	_test_eof104:
+		lex.cs = 104
 		goto _test_eof
 	_test_eof429:
 		lex.cs = 429
@@ -27237,26 +27438,26 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof496:
 		lex.cs = 496
 		goto _test_eof
-	_test_eof105:
-		lex.cs = 105
-		goto _test_eof
 	_test_eof497:
 		lex.cs = 497
 		goto _test_eof
 	_test_eof498:
 		lex.cs = 498
 		goto _test_eof
+	_test_eof105:
+		lex.cs = 105
+		goto _test_eof
 	_test_eof499:
 		lex.cs = 499
-		goto _test_eof
-	_test_eof106:
-		lex.cs = 106
 		goto _test_eof
 	_test_eof500:
 		lex.cs = 500
 		goto _test_eof
 	_test_eof501:
 		lex.cs = 501
+		goto _test_eof
+	_test_eof106:
+		lex.cs = 106
 		goto _test_eof
 	_test_eof502:
 		lex.cs = 502
@@ -27273,14 +27474,14 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof506:
 		lex.cs = 506
 		goto _test_eof
-	_test_eof107:
-		lex.cs = 107
-		goto _test_eof
 	_test_eof507:
 		lex.cs = 507
 		goto _test_eof
 	_test_eof508:
 		lex.cs = 508
+		goto _test_eof
+	_test_eof107:
+		lex.cs = 107
 		goto _test_eof
 	_test_eof509:
 		lex.cs = 509
@@ -27294,17 +27495,17 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof512:
 		lex.cs = 512
 		goto _test_eof
-	_test_eof108:
-		lex.cs = 108
-		goto _test_eof
-	_test_eof109:
-		lex.cs = 109
-		goto _test_eof
 	_test_eof513:
 		lex.cs = 513
 		goto _test_eof
 	_test_eof514:
 		lex.cs = 514
+		goto _test_eof
+	_test_eof108:
+		lex.cs = 108
+		goto _test_eof
+	_test_eof109:
+		lex.cs = 109
 		goto _test_eof
 	_test_eof515:
 		lex.cs = 515
@@ -27318,17 +27519,17 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof518:
 		lex.cs = 518
 		goto _test_eof
-	_test_eof110:
-		lex.cs = 110
-		goto _test_eof
-	_test_eof111:
-		lex.cs = 111
-		goto _test_eof
 	_test_eof519:
 		lex.cs = 519
 		goto _test_eof
 	_test_eof520:
 		lex.cs = 520
+		goto _test_eof
+	_test_eof110:
+		lex.cs = 110
+		goto _test_eof
+	_test_eof111:
+		lex.cs = 111
 		goto _test_eof
 	_test_eof521:
 		lex.cs = 521
@@ -27357,23 +27558,23 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof529:
 		lex.cs = 529
 		goto _test_eof
+	_test_eof530:
+		lex.cs = 530
+		goto _test_eof
+	_test_eof531:
+		lex.cs = 531
+		goto _test_eof
 	_test_eof112:
 		lex.cs = 112
 		goto _test_eof
-	_test_eof530:
-		lex.cs = 530
+	_test_eof532:
+		lex.cs = 532
 		goto _test_eof
 	_test_eof113:
 		lex.cs = 113
 		goto _test_eof
 	_test_eof114:
 		lex.cs = 114
-		goto _test_eof
-	_test_eof531:
-		lex.cs = 531
-		goto _test_eof
-	_test_eof532:
-		lex.cs = 532
 		goto _test_eof
 	_test_eof533:
 		lex.cs = 533
@@ -27393,29 +27594,29 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof538:
 		lex.cs = 538
 		goto _test_eof
+	_test_eof539:
+		lex.cs = 539
+		goto _test_eof
+	_test_eof540:
+		lex.cs = 540
+		goto _test_eof
 	_test_eof115:
 		lex.cs = 115
 		goto _test_eof
 	_test_eof116:
 		lex.cs = 116
 		goto _test_eof
-	_test_eof539:
-		lex.cs = 539
+	_test_eof541:
+		lex.cs = 541
 		goto _test_eof
 	_test_eof117:
 		lex.cs = 117
 		goto _test_eof
-	_test_eof540:
-		lex.cs = 540
+	_test_eof542:
+		lex.cs = 542
 		goto _test_eof
 	_test_eof118:
 		lex.cs = 118
-		goto _test_eof
-	_test_eof541:
-		lex.cs = 541
-		goto _test_eof
-	_test_eof542:
-		lex.cs = 542
 		goto _test_eof
 	_test_eof543:
 		lex.cs = 543
@@ -27423,20 +27624,17 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof544:
 		lex.cs = 544
 		goto _test_eof
-	_test_eof119:
-		lex.cs = 119
-		goto _test_eof
 	_test_eof545:
 		lex.cs = 545
 		goto _test_eof
 	_test_eof546:
 		lex.cs = 546
 		goto _test_eof
+	_test_eof119:
+		lex.cs = 119
+		goto _test_eof
 	_test_eof547:
 		lex.cs = 547
-		goto _test_eof
-	_test_eof120:
-		lex.cs = 120
 		goto _test_eof
 	_test_eof548:
 		lex.cs = 548
@@ -27444,14 +27642,14 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof549:
 		lex.cs = 549
 		goto _test_eof
+	_test_eof120:
+		lex.cs = 120
+		goto _test_eof
 	_test_eof550:
 		lex.cs = 550
 		goto _test_eof
 	_test_eof551:
 		lex.cs = 551
-		goto _test_eof
-	_test_eof121:
-		lex.cs = 121
 		goto _test_eof
 	_test_eof552:
 		lex.cs = 552
@@ -27459,20 +27657,23 @@ func (lex *Lexer) Lex() *token.Token {
 	_test_eof553:
 		lex.cs = 553
 		goto _test_eof
+	_test_eof121:
+		lex.cs = 121
+		goto _test_eof
 	_test_eof554:
 		lex.cs = 554
 		goto _test_eof
 	_test_eof555:
 		lex.cs = 555
 		goto _test_eof
-	_test_eof122:
-		lex.cs = 122
-		goto _test_eof
 	_test_eof556:
 		lex.cs = 556
 		goto _test_eof
 	_test_eof557:
 		lex.cs = 557
+		goto _test_eof
+	_test_eof122:
+		lex.cs = 122
 		goto _test_eof
 	_test_eof558:
 		lex.cs = 558
@@ -27482,6 +27683,12 @@ func (lex *Lexer) Lex() *token.Token {
 		goto _test_eof
 	_test_eof560:
 		lex.cs = 560
+		goto _test_eof
+	_test_eof561:
+		lex.cs = 561
+		goto _test_eof
+	_test_eof562:
+		lex.cs = 562
 		goto _test_eof
 
 	_test_eof:
@@ -27540,24 +27747,28 @@ func (lex *Lexer) Lex() *token.Token {
 			case 140:
 				goto tr267
 			case 141:
-				goto tr270
+				goto tr272
 			case 142:
-				goto tr273
+				goto tr275
 			case 143:
-				goto tr262
+				goto tr279
 			case 144:
-				goto tr278
+				goto tr272
 			case 145:
 				goto tr262
 			case 146:
-				goto tr262
+				goto tr282
 			case 147:
+				goto tr262
+			case 148:
+				goto tr262
+			case 149:
 				goto tr261
 			case 11:
 				goto tr19
 			case 12:
 				goto tr19
-			case 148:
+			case 150:
 				goto tr262
 			case 13:
 				goto tr23
@@ -27669,29 +27880,29 @@ func (lex *Lexer) Lex() *token.Token {
 				goto tr23
 			case 67:
 				goto tr23
-			case 149:
-				goto tr262
-			case 150:
-				goto tr284
 			case 151:
 				goto tr262
 			case 152:
-				goto tr262
+				goto tr288
 			case 153:
+				goto tr262
+			case 154:
+				goto tr262
+			case 155:
 				goto tr262
 			case 68:
 				goto tr23
-			case 154:
-				goto tr293
+			case 156:
+				goto tr297
 			case 69:
 				goto tr12
 			case 70:
 				goto tr12
-			case 155:
-				goto tr293
+			case 157:
+				goto tr297
 			case 71:
 				goto tr90
-			case 156:
+			case 158:
 				goto tr262
 			case 72:
 				goto tr23
@@ -27699,29 +27910,29 @@ func (lex *Lexer) Lex() *token.Token {
 				goto tr23
 			case 74:
 				goto tr23
-			case 157:
-				goto tr297
-			case 158:
-				goto tr293
 			case 159:
+				goto tr301
+			case 160:
 				goto tr297
+			case 161:
+				goto tr301
 			case 75:
 				goto tr101
 			case 76:
 				goto tr12
-			case 160:
-				goto tr303
+			case 162:
+				goto tr307
 			case 77:
 				goto tr12
-			case 161:
-				goto tr304
+			case 163:
+				goto tr308
 			case 78:
 				goto tr12
-			case 162:
-				goto tr305
-			case 163:
-				goto tr262
 			case 164:
+				goto tr309
+			case 165:
+				goto tr262
+			case 166:
 				goto tr262
 			case 79:
 				goto tr23
@@ -27731,16 +27942,16 @@ func (lex *Lexer) Lex() *token.Token {
 				goto tr23
 			case 82:
 				goto tr23
-			case 165:
-				goto tr307
-			case 166:
-				goto tr309
-			case 83:
-				goto tr115
 			case 167:
-				goto tr262
+				goto tr311
 			case 168:
 				goto tr313
+			case 83:
+				goto tr115
+			case 169:
+				goto tr262
+			case 170:
+				goto tr317
 			case 84:
 				goto tr12
 			case 85:
@@ -27749,8 +27960,8 @@ func (lex *Lexer) Lex() *token.Token {
 				goto tr12
 			case 87:
 				goto tr12
-			case 169:
-				goto tr315
+			case 171:
+				goto tr319
 			case 88:
 				goto tr12
 			case 89:
@@ -27759,10 +27970,6 @@ func (lex *Lexer) Lex() *token.Token {
 				goto tr12
 			case 91:
 				goto tr12
-			case 170:
-				goto tr316
-			case 171:
-				goto tr262
 			case 172:
 				goto tr320
 			case 173:
@@ -27771,516 +27978,520 @@ func (lex *Lexer) Lex() *token.Token {
 				goto tr324
 			case 175:
 				goto tr262
+			case 176:
+				goto tr328
+			case 177:
+				goto tr262
 			case 92:
 				goto tr23
-			case 176:
-				goto tr329
-			case 177:
-				goto tr331
+			case 178:
+				goto tr333
+			case 179:
+				goto tr335
 			case 93:
 				goto tr132
-			case 178:
-				goto tr332
-			case 179:
-				goto tr334
 			case 180:
+				goto tr336
+			case 181:
+				goto tr338
+			case 182:
 				goto tr12
 			case 94:
 				goto tr12
-			case 181:
-				goto tr340
-			case 182:
-				goto tr334
 			case 183:
-				goto tr334
+				goto tr344
 			case 184:
-				goto tr334
+				goto tr338
 			case 185:
-				goto tr334
+				goto tr338
 			case 186:
-				goto tr334
+				goto tr338
 			case 187:
-				goto tr334
+				goto tr338
 			case 188:
-				goto tr334
+				goto tr338
 			case 189:
-				goto tr334
+				goto tr338
 			case 190:
-				goto tr334
+				goto tr338
 			case 191:
-				goto tr334
+				goto tr338
 			case 192:
-				goto tr334
+				goto tr338
+			case 193:
+				goto tr338
+			case 194:
+				goto tr338
 			case 95:
 				goto tr135
 			case 96:
 				goto tr135
-			case 193:
-				goto tr334
-			case 194:
-				goto tr334
 			case 195:
-				goto tr334
+				goto tr338
 			case 196:
-				goto tr334
+				goto tr338
 			case 197:
-				goto tr334
+				goto tr338
 			case 198:
-				goto tr334
+				goto tr338
 			case 199:
-				goto tr334
+				goto tr338
 			case 200:
-				goto tr334
+				goto tr338
 			case 201:
-				goto tr334
+				goto tr338
 			case 202:
-				goto tr334
+				goto tr338
 			case 203:
-				goto tr334
+				goto tr338
 			case 204:
-				goto tr334
+				goto tr338
 			case 205:
-				goto tr334
+				goto tr338
 			case 206:
-				goto tr334
+				goto tr338
 			case 207:
-				goto tr334
+				goto tr338
 			case 208:
-				goto tr334
+				goto tr338
 			case 209:
-				goto tr334
+				goto tr338
 			case 210:
-				goto tr334
+				goto tr338
 			case 211:
-				goto tr334
+				goto tr338
 			case 212:
-				goto tr334
+				goto tr338
 			case 213:
-				goto tr334
+				goto tr338
 			case 214:
-				goto tr334
+				goto tr338
 			case 215:
-				goto tr334
+				goto tr338
 			case 216:
-				goto tr334
+				goto tr338
 			case 217:
-				goto tr334
+				goto tr338
 			case 218:
-				goto tr334
+				goto tr338
 			case 219:
-				goto tr334
+				goto tr338
 			case 220:
-				goto tr334
+				goto tr338
 			case 221:
-				goto tr334
+				goto tr338
 			case 222:
-				goto tr334
+				goto tr338
 			case 223:
-				goto tr334
+				goto tr338
 			case 224:
-				goto tr334
+				goto tr338
 			case 225:
-				goto tr334
+				goto tr338
 			case 226:
-				goto tr334
+				goto tr338
 			case 227:
-				goto tr334
+				goto tr338
 			case 228:
-				goto tr334
+				goto tr338
 			case 229:
-				goto tr334
+				goto tr338
 			case 230:
-				goto tr334
+				goto tr338
 			case 231:
-				goto tr334
+				goto tr338
 			case 232:
-				goto tr334
+				goto tr338
 			case 233:
-				goto tr334
+				goto tr338
 			case 234:
-				goto tr334
+				goto tr338
 			case 235:
-				goto tr334
+				goto tr338
 			case 236:
-				goto tr334
+				goto tr338
 			case 237:
-				goto tr334
+				goto tr338
 			case 238:
-				goto tr334
+				goto tr338
 			case 239:
-				goto tr334
+				goto tr338
 			case 240:
-				goto tr334
+				goto tr338
 			case 241:
-				goto tr416
+				goto tr338
 			case 242:
-				goto tr334
+				goto tr338
 			case 243:
-				goto tr334
+				goto tr420
 			case 244:
-				goto tr334
+				goto tr338
 			case 245:
-				goto tr334
+				goto tr338
 			case 246:
-				goto tr334
+				goto tr338
 			case 247:
-				goto tr334
+				goto tr338
 			case 248:
-				goto tr334
+				goto tr338
 			case 249:
-				goto tr334
+				goto tr338
 			case 250:
-				goto tr334
+				goto tr338
 			case 251:
-				goto tr334
+				goto tr338
 			case 252:
-				goto tr334
+				goto tr338
 			case 253:
-				goto tr334
+				goto tr338
 			case 254:
-				goto tr334
+				goto tr338
 			case 255:
-				goto tr334
+				goto tr338
 			case 256:
-				goto tr437
+				goto tr338
 			case 257:
-				goto tr334
+				goto tr338
 			case 258:
-				goto tr334
+				goto tr441
 			case 259:
-				goto tr334
+				goto tr338
 			case 260:
-				goto tr334
+				goto tr338
 			case 261:
-				goto tr334
+				goto tr338
 			case 262:
-				goto tr334
+				goto tr338
 			case 263:
-				goto tr334
+				goto tr338
 			case 264:
-				goto tr334
+				goto tr338
 			case 265:
-				goto tr334
+				goto tr338
 			case 266:
-				goto tr334
+				goto tr338
 			case 267:
-				goto tr334
+				goto tr338
 			case 268:
-				goto tr334
+				goto tr338
 			case 269:
-				goto tr334
+				goto tr338
 			case 270:
-				goto tr334
+				goto tr338
 			case 271:
-				goto tr334
+				goto tr338
 			case 272:
-				goto tr334
+				goto tr338
 			case 273:
-				goto tr334
+				goto tr338
 			case 274:
-				goto tr334
+				goto tr338
 			case 275:
-				goto tr334
+				goto tr338
 			case 276:
-				goto tr334
+				goto tr338
 			case 277:
-				goto tr334
+				goto tr338
 			case 278:
-				goto tr334
+				goto tr338
 			case 279:
-				goto tr334
+				goto tr338
 			case 280:
-				goto tr334
+				goto tr338
 			case 281:
-				goto tr334
+				goto tr338
 			case 282:
-				goto tr334
+				goto tr338
 			case 283:
-				goto tr467
+				goto tr338
 			case 284:
-				goto tr334
+				goto tr338
 			case 285:
-				goto tr334
-			case 286:
 				goto tr471
+			case 286:
+				goto tr338
 			case 287:
-				goto tr334
+				goto tr338
 			case 288:
-				goto tr334
+				goto tr475
 			case 289:
-				goto tr334
+				goto tr338
 			case 290:
-				goto tr334
+				goto tr338
 			case 291:
-				goto tr334
+				goto tr338
 			case 292:
-				goto tr334
+				goto tr338
 			case 293:
-				goto tr334
+				goto tr338
 			case 294:
-				goto tr334
+				goto tr338
 			case 295:
-				goto tr334
+				goto tr338
 			case 296:
-				goto tr334
+				goto tr338
 			case 297:
-				goto tr334
+				goto tr338
 			case 298:
-				goto tr334
+				goto tr338
 			case 299:
-				goto tr334
+				goto tr338
 			case 300:
-				goto tr334
+				goto tr338
 			case 301:
-				goto tr334
+				goto tr338
 			case 302:
-				goto tr334
+				goto tr338
 			case 303:
-				goto tr334
+				goto tr338
 			case 304:
-				goto tr334
+				goto tr338
 			case 305:
-				goto tr334
+				goto tr338
 			case 306:
-				goto tr334
+				goto tr338
 			case 307:
-				goto tr334
+				goto tr338
 			case 308:
-				goto tr334
+				goto tr338
 			case 309:
-				goto tr334
+				goto tr338
 			case 310:
-				goto tr334
+				goto tr338
 			case 311:
-				goto tr503
+				goto tr338
 			case 312:
-				goto tr334
+				goto tr338
 			case 313:
-				goto tr334
+				goto tr507
 			case 314:
-				goto tr334
+				goto tr338
 			case 315:
-				goto tr334
+				goto tr338
 			case 316:
-				goto tr334
+				goto tr338
 			case 317:
-				goto tr334
+				goto tr338
 			case 318:
-				goto tr334
+				goto tr338
 			case 319:
-				goto tr334
+				goto tr338
 			case 320:
-				goto tr334
+				goto tr338
 			case 321:
-				goto tr334
+				goto tr338
 			case 322:
-				goto tr334
+				goto tr338
 			case 323:
-				goto tr334
+				goto tr338
 			case 324:
-				goto tr334
+				goto tr338
 			case 325:
-				goto tr334
+				goto tr338
 			case 326:
-				goto tr334
+				goto tr338
 			case 327:
-				goto tr334
+				goto tr338
 			case 328:
-				goto tr334
+				goto tr338
 			case 329:
-				goto tr334
+				goto tr338
 			case 330:
-				goto tr334
+				goto tr338
 			case 331:
-				goto tr334
+				goto tr338
 			case 332:
-				goto tr334
+				goto tr338
 			case 333:
-				goto tr334
+				goto tr338
 			case 334:
-				goto tr334
+				goto tr338
 			case 335:
-				goto tr334
+				goto tr338
 			case 336:
-				goto tr334
+				goto tr338
 			case 337:
-				goto tr334
+				goto tr338
 			case 338:
-				goto tr334
+				goto tr338
 			case 339:
-				goto tr334
+				goto tr338
 			case 340:
-				goto tr334
+				goto tr338
 			case 341:
-				goto tr334
+				goto tr338
 			case 342:
-				goto tr334
+				goto tr338
 			case 343:
-				goto tr334
+				goto tr338
 			case 344:
-				goto tr334
+				goto tr338
 			case 345:
-				goto tr334
+				goto tr338
 			case 346:
-				goto tr334
+				goto tr338
 			case 347:
-				goto tr334
+				goto tr338
 			case 348:
-				goto tr334
+				goto tr338
 			case 349:
-				goto tr334
+				goto tr338
 			case 350:
-				goto tr334
+				goto tr338
 			case 351:
-				goto tr546
+				goto tr338
+			case 352:
+				goto tr338
+			case 353:
+				goto tr550
 			case 97:
 				goto tr12
-			case 352:
-				goto tr548
-			case 353:
-				goto tr334
 			case 354:
-				goto tr334
+				goto tr552
 			case 355:
-				goto tr334
+				goto tr338
 			case 356:
-				goto tr334
+				goto tr338
 			case 357:
-				goto tr334
+				goto tr338
 			case 358:
-				goto tr334
+				goto tr338
 			case 359:
-				goto tr334
+				goto tr338
 			case 360:
-				goto tr334
+				goto tr338
 			case 361:
-				goto tr334
+				goto tr338
 			case 362:
-				goto tr334
+				goto tr338
 			case 363:
-				goto tr334
+				goto tr338
 			case 364:
-				goto tr334
+				goto tr338
 			case 365:
-				goto tr334
+				goto tr338
 			case 366:
-				goto tr334
+				goto tr338
 			case 367:
-				goto tr334
+				goto tr338
 			case 368:
-				goto tr334
+				goto tr338
 			case 369:
-				goto tr334
+				goto tr338
 			case 370:
-				goto tr334
+				goto tr338
 			case 371:
-				goto tr334
+				goto tr338
 			case 372:
-				goto tr334
+				goto tr338
 			case 373:
-				goto tr334
+				goto tr338
 			case 374:
-				goto tr334
+				goto tr338
 			case 375:
-				goto tr334
+				goto tr338
 			case 376:
-				goto tr334
+				goto tr338
 			case 377:
-				goto tr334
+				goto tr338
 			case 378:
-				goto tr334
+				goto tr338
 			case 379:
-				goto tr334
+				goto tr338
 			case 380:
-				goto tr334
+				goto tr338
 			case 381:
-				goto tr334
+				goto tr338
 			case 382:
-				goto tr334
+				goto tr338
 			case 383:
-				goto tr584
+				goto tr338
 			case 384:
-				goto tr334
+				goto tr338
 			case 385:
-				goto tr334
+				goto tr588
 			case 386:
-				goto tr334
+				goto tr338
 			case 387:
-				goto tr334
+				goto tr338
 			case 388:
-				goto tr334
+				goto tr338
 			case 389:
-				goto tr334
+				goto tr338
 			case 390:
-				goto tr334
+				goto tr338
 			case 391:
-				goto tr334
+				goto tr338
 			case 392:
-				goto tr334
+				goto tr338
 			case 393:
-				goto tr334
+				goto tr338
 			case 394:
-				goto tr334
+				goto tr338
 			case 395:
-				goto tr334
+				goto tr338
 			case 396:
-				goto tr334
+				goto tr338
 			case 397:
-				goto tr334
+				goto tr338
 			case 398:
-				goto tr334
+				goto tr338
 			case 399:
-				goto tr334
+				goto tr338
 			case 400:
-				goto tr334
+				goto tr338
 			case 401:
-				goto tr334
+				goto tr338
 			case 402:
-				goto tr334
+				goto tr338
 			case 403:
-				goto tr334
+				goto tr338
 			case 404:
-				goto tr334
+				goto tr338
 			case 405:
-				goto tr334
+				goto tr338
 			case 406:
-				goto tr334
+				goto tr338
 			case 407:
-				goto tr334
+				goto tr338
 			case 408:
-				goto tr334
+				goto tr338
 			case 409:
-				goto tr334
+				goto tr338
 			case 410:
-				goto tr334
+				goto tr338
 			case 411:
-				goto tr334
+				goto tr338
 			case 412:
-				goto tr334
+				goto tr338
 			case 413:
-				goto tr334
+				goto tr338
 			case 414:
-				goto tr334
+				goto tr338
 			case 415:
-				goto tr334
+				goto tr338
 			case 416:
-				goto tr334
+				goto tr338
 			case 417:
-				goto tr334
+				goto tr338
 			case 418:
-				goto tr334
+				goto tr338
 			case 419:
-				goto tr334
+				goto tr338
 			case 420:
-				goto tr334
+				goto tr338
 			case 421:
-				goto tr334
+				goto tr338
 			case 422:
-				goto tr334
+				goto tr338
 			case 423:
-				goto tr334
+				goto tr338
 			case 424:
-				goto tr630
+				goto tr338
+			case 425:
+				goto tr338
+			case 426:
+				goto tr634
 			case 98:
 				goto tr138
 			case 99:
@@ -28293,280 +28504,280 @@ func (lex *Lexer) Lex() *token.Token {
 				goto tr138
 			case 103:
 				goto tr138
-			case 425:
-				goto tr631
-			case 426:
-				goto tr632
+			case 427:
+				goto tr635
+			case 428:
+				goto tr636
 			case 104:
 				goto tr150
-			case 427:
-				goto tr262
-			case 428:
-				goto tr334
 			case 429:
-				goto tr334
-			case 430:
-				goto tr334
-			case 431:
-				goto tr334
-			case 432:
-				goto tr334
-			case 433:
-				goto tr334
-			case 434:
-				goto tr334
-			case 435:
-				goto tr334
-			case 436:
-				goto tr334
-			case 437:
-				goto tr334
-			case 438:
-				goto tr334
-			case 439:
-				goto tr334
-			case 440:
-				goto tr334
-			case 441:
-				goto tr334
-			case 442:
-				goto tr334
-			case 443:
-				goto tr334
-			case 444:
-				goto tr334
-			case 445:
-				goto tr334
-			case 446:
-				goto tr334
-			case 447:
-				goto tr334
-			case 448:
-				goto tr334
-			case 449:
-				goto tr334
-			case 450:
-				goto tr334
-			case 451:
-				goto tr334
-			case 452:
-				goto tr334
-			case 453:
-				goto tr334
-			case 454:
-				goto tr334
-			case 455:
-				goto tr334
-			case 456:
-				goto tr334
-			case 457:
-				goto tr334
-			case 458:
-				goto tr334
-			case 459:
-				goto tr334
-			case 460:
-				goto tr334
-			case 461:
-				goto tr334
-			case 462:
-				goto tr334
-			case 463:
-				goto tr334
-			case 464:
-				goto tr334
-			case 465:
-				goto tr334
-			case 466:
-				goto tr334
-			case 467:
-				goto tr334
-			case 468:
-				goto tr334
-			case 469:
-				goto tr334
-			case 470:
-				goto tr334
-			case 471:
-				goto tr334
-			case 472:
-				goto tr334
-			case 473:
-				goto tr334
-			case 474:
-				goto tr334
-			case 475:
-				goto tr334
-			case 476:
-				goto tr334
-			case 477:
-				goto tr334
-			case 478:
-				goto tr334
-			case 479:
-				goto tr334
-			case 480:
-				goto tr334
-			case 481:
-				goto tr334
-			case 482:
-				goto tr334
-			case 483:
-				goto tr334
-			case 484:
-				goto tr334
-			case 485:
-				goto tr334
-			case 486:
-				goto tr334
-			case 487:
-				goto tr334
-			case 488:
-				goto tr334
-			case 489:
-				goto tr334
-			case 490:
-				goto tr334
-			case 491:
-				goto tr334
-			case 492:
-				goto tr334
-			case 493:
 				goto tr262
+			case 430:
+				goto tr338
+			case 431:
+				goto tr338
+			case 432:
+				goto tr338
+			case 433:
+				goto tr338
+			case 434:
+				goto tr338
+			case 435:
+				goto tr338
+			case 436:
+				goto tr338
+			case 437:
+				goto tr338
+			case 438:
+				goto tr338
+			case 439:
+				goto tr338
+			case 440:
+				goto tr338
+			case 441:
+				goto tr338
+			case 442:
+				goto tr338
+			case 443:
+				goto tr338
+			case 444:
+				goto tr338
+			case 445:
+				goto tr338
+			case 446:
+				goto tr338
+			case 447:
+				goto tr338
+			case 448:
+				goto tr338
+			case 449:
+				goto tr338
+			case 450:
+				goto tr338
+			case 451:
+				goto tr338
+			case 452:
+				goto tr338
+			case 453:
+				goto tr338
+			case 454:
+				goto tr338
+			case 455:
+				goto tr338
+			case 456:
+				goto tr338
+			case 457:
+				goto tr338
+			case 458:
+				goto tr338
+			case 459:
+				goto tr338
+			case 460:
+				goto tr338
+			case 461:
+				goto tr338
+			case 462:
+				goto tr338
+			case 463:
+				goto tr338
+			case 464:
+				goto tr338
+			case 465:
+				goto tr338
+			case 466:
+				goto tr338
+			case 467:
+				goto tr338
+			case 468:
+				goto tr338
+			case 469:
+				goto tr338
+			case 470:
+				goto tr338
+			case 471:
+				goto tr338
+			case 472:
+				goto tr338
+			case 473:
+				goto tr338
+			case 474:
+				goto tr338
+			case 475:
+				goto tr338
+			case 476:
+				goto tr338
+			case 477:
+				goto tr338
+			case 478:
+				goto tr338
+			case 479:
+				goto tr338
+			case 480:
+				goto tr338
+			case 481:
+				goto tr338
+			case 482:
+				goto tr338
+			case 483:
+				goto tr338
+			case 484:
+				goto tr338
+			case 485:
+				goto tr338
+			case 486:
+				goto tr338
+			case 487:
+				goto tr338
+			case 488:
+				goto tr338
+			case 489:
+				goto tr338
+			case 490:
+				goto tr338
+			case 491:
+				goto tr338
+			case 492:
+				goto tr338
+			case 493:
+				goto tr338
+			case 494:
+				goto tr338
 			case 495:
-				goto tr716
-			case 496:
-				goto tr718
-			case 105:
-				goto tr152
+				goto tr262
 			case 497:
-				goto tr722
+				goto tr720
 			case 498:
 				goto tr722
+			case 105:
+				goto tr152
 			case 499:
-				goto tr722
+				goto tr726
+			case 500:
+				goto tr726
+			case 501:
+				goto tr726
 			case 106:
 				goto tr154
-			case 500:
-				goto tr725
 			case 502:
 				goto tr729
-			case 503:
-				goto tr730
 			case 504:
+				goto tr733
+			case 505:
 				goto tr734
 			case 506:
-				goto tr742
-			case 507:
-				goto tr744
+				goto tr738
 			case 508:
-				goto tr745
+				goto tr746
 			case 509:
-				goto tr749
+				goto tr748
 			case 510:
-				goto tr742
-			case 511:
 				goto tr749
+			case 511:
+				goto tr753
+			case 512:
+				goto tr746
 			case 513:
-				goto tr761
-			case 514:
-				goto tr762
+				goto tr753
 			case 515:
-				goto tr766
+				goto tr765
 			case 516:
 				goto tr766
 			case 517:
-				goto tr766
+				goto tr770
+			case 518:
+				goto tr770
 			case 519:
-				goto tr779
-			case 520:
-				goto tr780
+				goto tr770
 			case 521:
-				goto tr784
+				goto tr783
 			case 522:
 				goto tr784
 			case 523:
-				goto tr784
+				goto tr788
+			case 524:
+				goto tr788
 			case 525:
-				goto tr789
+				goto tr788
 			case 527:
-				goto tr796
-			case 528:
-				goto tr798
+				goto tr793
 			case 529:
-				goto tr796
+				goto tr800
+			case 530:
+				goto tr802
+			case 531:
+				goto tr800
 			case 112:
 				goto tr164
-			case 530:
-				goto tr796
+			case 532:
+				goto tr800
 			case 113:
 				goto tr164
 			case 114:
 				goto tr164
-			case 531:
-				goto tr801
 			case 533:
-				goto tr811
-			case 534:
-				goto tr812
+				goto tr805
 			case 535:
-				goto tr813
-			case 536:
 				goto tr815
+			case 536:
+				goto tr816
 			case 537:
-				goto tr816
+				goto tr817
 			case 538:
-				goto tr816
+				goto tr819
+			case 539:
+				goto tr820
+			case 540:
+				goto tr820
 			case 115:
 				goto tr168
 			case 116:
 				goto tr168
-			case 539:
-				goto tr816
+			case 541:
+				goto tr820
 			case 117:
 				goto tr168
-			case 540:
-				goto tr816
+			case 542:
+				goto tr820
 			case 118:
 				goto tr168
-			case 541:
-				goto tr816
-			case 542:
-				goto tr821
+			case 543:
+				goto tr820
 			case 544:
-				goto tr824
+				goto tr825
+			case 546:
+				goto tr828
 			case 119:
 				goto tr173
-			case 546:
-				goto tr829
-			case 547:
-				goto tr831
+			case 548:
+				goto tr833
+			case 549:
+				goto tr835
 			case 120:
 				goto tr176
-			case 548:
-				goto tr835
 			case 550:
-				goto tr840
-			case 551:
-				goto tr842
+				goto tr839
+			case 552:
+				goto tr844
+			case 553:
+				goto tr846
 			case 121:
 				goto tr178
-			case 552:
-				goto tr846
 			case 554:
-				goto tr851
-			case 555:
-				goto tr853
+				goto tr850
+			case 556:
+				goto tr855
+			case 557:
+				goto tr857
 			case 122:
 				goto tr180
-			case 556:
-				goto tr857
 			case 558:
 				goto tr861
-			case 559:
-				goto tr862
 			case 560:
+				goto tr865
+			case 561:
 				goto tr866
+			case 562:
+				goto tr870
 			}
 		}
 
@@ -28575,7 +28786,7 @@ func (lex *Lexer) Lex() *token.Token {
 		}
 	}
 
-	// line internal/php8/scanner.rl:523
+	// line internal/php8/scanner.rl:530
 
 	tkn.Value = lex.data[lex.ts:lex.te]
 	tkn.ID = token.ID(tok)

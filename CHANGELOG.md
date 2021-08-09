@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## `Unreleased`
+## `v0.8.1-rc.1` 2021-09-08
 
 Added
 
@@ -16,6 +16,10 @@ Added
 Changed
 
 - [`4cd50d`](https://github.com/VKCOM/php-parser/commit/85b5d3ef36c9b12923404caf1c57497aa84cd50d): `cmd`: added file path output before errors
+
+Fixed
+
+- [#22](https://github.com/VKCOM/php-parser/pull/22): fixed bug with `#` comments
 
 ## `v0.8.0-rc.2` 2021-30-07
 

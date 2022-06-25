@@ -869,6 +869,7 @@ class_modifiers:
 class_modifier:
         T_ABSTRACT                     { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
     |   T_FINAL                        { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
+    |   T_READONLY                     { $$ = yylex.(*Parser).builder.NewIdentifier($1) }
 ;
 
 class_declaration_statement:

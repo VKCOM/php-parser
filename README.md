@@ -98,11 +98,13 @@ php-parser [flags] <path> ...
 ```
 
 | flag       | type     | description                         |
-| ---------- | -------- | ----------------------------------- |
-| `--p`      | `bool`   | Print file paths                    |
-| `--e`      | `bool`   | Print errors                        |
-| `--d`      | `bool`   | Dump AST in Golang format           |
-| `--r`      | `bool`   | Resolve names                       |
+|------------|----------|-------------------------------------|
+| `-p`       | `bool`   | Print file paths                    |
+| `-e`       | `bool`   | Print errors                        |
+| `-d`       | `bool`   | Dump AST in Golang format           |
+| `-r`       | `bool`   | Resolve names                       |
+| `--pb`     | `bool`   | Print AST back into the parsed file |
+| `--time`   | `bool`   | Print execution time                |
 | `--prof`   | `string` | Start profiler: `[cpu, mem, trace]` |
 | `--phpver` | `string` | PHP version (default: 8.0)          |
 

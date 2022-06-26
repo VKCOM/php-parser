@@ -15,6 +15,7 @@ type Visitor interface {
 	Argument(n *Argument)
 	MatchArm(n *MatchArm)
 	Union(n *Union)
+	Intersection(n *Intersection)
 	Attribute(n *Attribute)
 	AttributeGroup(n *AttributeGroup)
 

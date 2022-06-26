@@ -237,6 +237,12 @@ func (f *formatter) Union(n *ast.Union) {
 	}
 }
 
+func (f *formatter) Intersection(n *ast.Intersection) {
+	if len(n.Types) > 0 {
+		n.SeparatorTkns = f.formatList(n.Types, '&')
+	}
+}
+
 func (f *formatter) Attribute(n *ast.Attribute) {
 	n.Name.Accept(f)
 	n.OpenParenthesisTkn = f.newToken('(', []byte("("))

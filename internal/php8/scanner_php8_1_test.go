@@ -180,3 +180,192 @@ func TestEnumTokens(t *testing.T) {
 	}
 	suite.Run()
 }
+
+func TestAmpersandFollowedByEllipsisTokens(t *testing.T) {
+	suite := tester.NewLexerTokenStructTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = "<?php &...;"
+	suite.Expected = []*token.Token{
+		{
+			ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
+			Value: []byte("&"),
+		},
+		{
+			ID:    token.T_ELLIPSIS,
+			Value: []byte("..."),
+		},
+		{
+			ID:    ';',
+			Value: []byte(";"),
+		},
+	}
+	suite.Run()
+}
+
+func TestAmpersandFollowedByEllipsisTokens2(t *testing.T) {
+	suite := tester.NewLexerTokenStructTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = "<?php & ...;"
+	suite.Expected = []*token.Token{
+		{
+			ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
+			Value: []byte("&"),
+		},
+		{
+			ID:    token.T_ELLIPSIS,
+			Value: []byte("..."),
+		},
+		{
+			ID:    ';',
+			Value: []byte(";"),
+		},
+	}
+	suite.Run()
+}
+
+func TestAmpersandFollowedByEllipsisTokens3(t *testing.T) {
+	suite := tester.NewLexerTokenStructTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = "<?php & \n\t     ...;"
+	suite.Expected = []*token.Token{
+		{
+			ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
+			Value: []byte("&"),
+		},
+		{
+			ID:    token.T_ELLIPSIS,
+			Value: []byte("..."),
+		},
+		{
+			ID:    ';',
+			Value: []byte(";"),
+		},
+	}
+	suite.Run()
+}
+
+func TestAmpersandFollowedByVarTokens(t *testing.T) {
+	suite := tester.NewLexerTokenStructTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = "<?php &$a;"
+	suite.Expected = []*token.Token{
+		{
+			ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
+			Value: []byte("&"),
+		},
+		{
+			ID:    token.T_VARIABLE,
+			Value: []byte("$a"),
+		},
+		{
+			ID:    ';',
+			Value: []byte(";"),
+		},
+	}
+	suite.Run()
+}
+
+func TestAmpersandFollowedByVarTokens2(t *testing.T) {
+	suite := tester.NewLexerTokenStructTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = "<?php & $a;"
+	suite.Expected = []*token.Token{
+		{
+			ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
+			Value: []byte("&"),
+		},
+		{
+			ID:    token.T_VARIABLE,
+			Value: []byte("$a"),
+		},
+		{
+			ID:    ';',
+			Value: []byte(";"),
+		},
+	}
+	suite.Run()
+}
+
+func TestAmpersandFollowedByVarTokens3(t *testing.T) {
+	suite := tester.NewLexerTokenStructTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = "<?php & \n\t     $a;"
+	suite.Expected = []*token.Token{
+		{
+			ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
+			Value: []byte("&"),
+		},
+		{
+			ID:    token.T_VARIABLE,
+			Value: []byte("$a"),
+		},
+		{
+			ID:    ';',
+			Value: []byte(";"),
+		},
+	}
+	suite.Run()
+}
+
+func TestAmpersandNotFollowedByVarOrEllipsisTokens(t *testing.T) {
+	suite := tester.NewLexerTokenStructTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = "<?php &A;"
+	suite.Expected = []*token.Token{
+		{
+			ID:    token.T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG,
+			Value: []byte("&"),
+		},
+		{
+			ID:    token.T_STRING,
+			Value: []byte("A"),
+		},
+		{
+			ID:    ';',
+			Value: []byte(";"),
+		},
+	}
+	suite.Run()
+}
+
+func TestAmpersandNotFollowedByVarOrEllipsisTokens2(t *testing.T) {
+	suite := tester.NewLexerTokenStructTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = "<?php & A;"
+	suite.Expected = []*token.Token{
+		{
+			ID:    token.T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG,
+			Value: []byte("&"),
+		},
+		{
+			ID:    token.T_STRING,
+			Value: []byte("A"),
+		},
+		{
+			ID:    ';',
+			Value: []byte(";"),
+		},
+	}
+	suite.Run()
+}
+
+func TestAmpersandNotFollowedByVarOrEllipsisTokens3(t *testing.T) {
+	suite := tester.NewLexerTokenStructTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = "<?php & \n\t     A;"
+	suite.Expected = []*token.Token{
+		{
+			ID:    token.T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG,
+			Value: []byte("&"),
+		},
+		{
+			ID:    token.T_STRING,
+			Value: []byte("A"),
+		},
+		{
+			ID:    ';',
+			Value: []byte(";"),
+		},
+	}
+	suite.Run()
+}

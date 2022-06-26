@@ -78,6 +78,14 @@ func (t *Traverser) Union(n *ast.Union) {
 	}
 }
 
+func (t *Traverser) Intersection(n *ast.Intersection) {
+	n.Accept(t.v)
+
+	for _, nn := range n.Types {
+		nn.Accept(t)
+	}
+}
+
 func (t *Traverser) Attribute(n *ast.Attribute) {
 	n.Accept(t.v)
 

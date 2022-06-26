@@ -162,6 +162,8 @@ import (
 %token <token> T_NAME_FULLY_QUALIFIED
 %token <token> T_READONLY
 %token <token> T_ENUM
+%token <token> T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG
+%token <token> T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG
 %token <token> '"'
 %token <token> '`'
 %token <token> '{'
@@ -209,6 +211,7 @@ import (
 %left '|'
 %left '^'
 %left '&'
+%left T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG
 %nonassoc T_IS_EQUAL T_IS_NOT_EQUAL T_IS_IDENTICAL T_IS_NOT_IDENTICAL T_SPACESHIP
 %nonassoc '<' T_IS_SMALLER_OR_EQUAL '>' T_IS_GREATER_OR_EQUAL
 %left '.'
@@ -227,7 +230,7 @@ import (
 %left T_ENDIF
 %right T_STATIC T_ABSTRACT T_FINAL T_PRIVATE T_PROTECTED T_PUBLIC T_READONLY
 
-%type <token> optional_arg_ref optional_ellipsis returns_ref
+%type <token> optional_ref optional_arg_ref optional_ellipsis
 
 %type <token> reserved_non_modifiers
 %type <token> semi_reserved
@@ -236,6 +239,7 @@ import (
 %type <token> optional_comma
 %type <token> case_separator
 %type <token> use_type
+%type <token> ampersand
 
 %type <node> top_statement name statement function_declaration_statement
 %type <node> class_declaration_statement trait_declaration_statement
@@ -267,6 +271,7 @@ import (
 
 %type <node> type_expr type union_type optional_return_type
 %type <node> type_expr_without_static type_without_static union_type_without_static optional_type_without_static
+%type <node> intersection_type intersection_type_without_static
 
 %type <node> class_modifier
 %type <node> argument_list ctor_arguments
@@ -334,6 +339,11 @@ semi_reserved:
             }
     |   T_STATIC {$$=$1} | T_ABSTRACT {$$=$1} | T_FINAL {$$=$1} | T_PRIVATE {$$=$1}
     |   T_PROTECTED {$$=$1} | T_PUBLIC {$$=$1} | T_READONLY {$$=$1}
+;
+
+ampersand:
+        T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG     { $$ = $1 }
+    |   T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG { $$ = $1 }
 ;
 
 identifier:
@@ -839,16 +849,21 @@ unset_variable:
 ;
 
 function_declaration_statement:
-        T_FUNCTION returns_ref identifier '(' parameter_list ')' optional_return_type '{' inner_statement_list '}'
+        T_FUNCTION optional_ref identifier '(' parameter_list ')' optional_return_type '{' inner_statement_list '}'
             { $$ = yylex.(*Parser).builder.NewFunction(nil, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10) }
     |   attributes
-        T_FUNCTION returns_ref identifier '(' parameter_list ')' optional_return_type '{' inner_statement_list '}'
+        T_FUNCTION optional_ref identifier '(' parameter_list ')' optional_return_type '{' inner_statement_list '}'
             { $$ = yylex.(*Parser).builder.NewFunction($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) }
 ;
 
-optional_arg_ref:
+optional_ref:
         /* empty */                    { $$ = nil }
-    |   '&'                            { $$ = $1 }
+    |   ampersand                      { $$ = $1 }
+;
+
+optional_arg_ref:
+        /* empty */                           { $$ = nil }
+    |   T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG { $$ = $1 }
 ;
 
 optional_ellipsis:
@@ -956,7 +971,7 @@ foreach_variable:
             {
                 $$ = $1
             }
-    |   '&' variable
+    |   ampersand variable
             {
                 $$ = &ast.StmtForeach{
                     Position: yylex.(*Parser).builder.Pos.NewTokenNodePosition($1, $2),
@@ -1299,6 +1314,7 @@ type_expr:
         type                { $$ = $1 }
     |   '?' type            { $$ = yylex.(*Parser).builder.NewNullableType($1, $2) }
     |   union_type          { $$ = yylex.(*Parser).builder.NewUnionType($1) }
+    |   intersection_type   { $$ = yylex.(*Parser).builder.NewIntersectionType($1) }
 ;
 
 type:
@@ -1324,10 +1340,25 @@ union_type_without_static:
             { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
 ;
 
+intersection_type:
+        type T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG type
+            { $$ = yylex.(*Parser).builder.NewSeparatedListWithTwoElements($1, $2, $3) }
+    |   intersection_type T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG type
+            { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
+;
+
+intersection_type_without_static:
+        type_expr_without_static T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG type_expr_without_static
+            { $$ = yylex.(*Parser).builder.NewSeparatedListWithTwoElements($1, $2, $3) }
+    |   intersection_type_without_static T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG type_expr_without_static
+            { $$ = yylex.(*Parser).builder.AppendToSeparatedList($1, $2, $3) }
+;
+
 type_expr_without_static:
-        type_without_static       { $$ = $1 }
-    |   '?' type_without_static   { $$ = yylex.(*Parser).builder.NewNullableType($1, $2) }
-    |   union_type_without_static { $$ = yylex.(*Parser).builder.NewUnionType($1) }
+        type_without_static              { $$ = $1 }
+    |   '?' type_without_static          { $$ = yylex.(*Parser).builder.NewNullableType($1, $2) }
+    |   union_type_without_static        { $$ = yylex.(*Parser).builder.NewUnionType($1) }
+    |   intersection_type_without_static { $$ = yylex.(*Parser).builder.NewIntersectionType($1) }
 ;
 
 optional_type_without_static:
@@ -1438,7 +1469,7 @@ class_statement:
             { $$ = yylex.(*Parser).builder.NewPropertyList($1, $2, $3, $4, $5) }
     |   optional_attributes method_modifiers T_CONST class_const_list ';'
             { $$ = yylex.(*Parser).builder.NewClassConstList($1, $2, $3, $4, $5) }
-    |   optional_attributes method_modifiers T_FUNCTION returns_ref identifier_ex '(' parameter_list ')' optional_return_type method_body
+    |   optional_attributes method_modifiers T_FUNCTION optional_ref identifier_ex '(' parameter_list ')' optional_return_type method_body
             { $$ = yylex.(*Parser).builder.NewClassMethod($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) }
     |   T_USE name_list trait_adaptations
             {
@@ -1889,7 +1920,7 @@ expr_without_variable:
                     Expr:     $3,
                 }
             }
-    |   variable '=' '&' expr
+    |   variable '=' ampersand expr
             {
                 $$ = &ast.ExprAssignReference{
                     Position: yylex.(*Parser).builder.Pos.NewNodesPosition($1, $4),
@@ -2110,7 +2141,7 @@ expr_without_variable:
                     Right: $3,
                 }
             }
-    |   expr '&' expr
+    |   expr T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG expr
             {
                 $$ = &ast.ExprBinaryBitwiseAnd{
                     Position: yylex.(*Parser).builder.Pos.NewNodesPosition($1, $3),
@@ -2119,6 +2150,15 @@ expr_without_variable:
                     Right: $3,
                 }
             }
+    |   expr T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG expr
+	    {
+	        $$ = &ast.ExprBinaryBitwiseAnd{
+	    	     Position: yylex.(*Parser).builder.Pos.NewNodesPosition($1, $3),
+	    	     Left:  $1,
+	    	     OpTkn: $2,
+	    	     Right: $3,
+	        }
+	    }
     |   expr '^' expr
             {
                 $$ = &ast.ExprBinaryBitwiseXor{
@@ -2558,7 +2598,7 @@ attributed_inline_function:
 ;
 
 inline_function:
-        T_FUNCTION returns_ref backup_doc_comment '(' parameter_list ')' lexical_vars optional_return_type '{' inner_statement_list '}'
+        T_FUNCTION optional_ref backup_doc_comment '(' parameter_list ')' lexical_vars optional_return_type '{' inner_statement_list '}'
             {
                 closure := $7.(*ast.ExprClosure)
 
@@ -2577,7 +2617,7 @@ inline_function:
 
                 $$ = closure
             }
-    |   T_FN returns_ref '(' parameter_list ')' optional_return_type backup_doc_comment T_DOUBLE_ARROW expr %prec T_THROW
+    |   T_FN optional_ref '(' parameter_list ')' optional_return_type backup_doc_comment T_DOUBLE_ARROW expr %prec T_THROW
             {
                 $$ = &ast.ExprArrowFunction{
                     Position: yylex.(*Parser).builder.Pos.NewTokenNodePosition($1, $9),
@@ -2597,11 +2637,6 @@ inline_function:
 
 backup_doc_comment:
         /* empty */
-;
-
-returns_ref:
-        /* empty */ { $$ = nil }
-    |   '&'         { $$ = $1 }
 ;
 
 lexical_vars:
@@ -2643,7 +2678,7 @@ lexical_var:
                     },
                 }
             }
-    |   '&' plain_variable
+    |   ampersand plain_variable
             {
                 $$ = &ast.ExprClosureUse{
                     Position: yylex.(*Parser).builder.Pos.NewTokensPosition($1, $2),
@@ -3105,7 +3140,7 @@ array_pair:
                     Val: $1,
                 }
             }
-    |   expr T_DOUBLE_ARROW '&' variable
+    |   expr T_DOUBLE_ARROW T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG variable
             {
                 $$ = &ast.ExprArrayItem{
                     Position:       yylex.(*Parser).builder.Pos.NewNodesPosition($1, $4),
@@ -3115,7 +3150,7 @@ array_pair:
                     Val:            $4,
                 }
             }
-    |   '&' variable
+    |   T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG variable
             {
                 $$ = &ast.ExprArrayItem{
                     Position:     yylex.(*Parser).builder.Pos.NewTokenNodePosition($1, $2),

@@ -180,6 +180,10 @@ func (p *printer) Union(n *ast.Union) {
 	p.printSeparatedList(n.Types, n.SeparatorTkns, []byte("|"))
 }
 
+func (p *printer) Intersection(n *ast.Intersection) {
+	p.printSeparatedList(n.Types, n.SeparatorTkns, []byte("&"))
+}
+
 func (p *printer) Attribute(n *ast.Attribute) {
 	p.printNode(n.Name)
 	p.printToken(n.OpenParenthesisTkn, p.ifNodeList(n.Args, []byte("(")))

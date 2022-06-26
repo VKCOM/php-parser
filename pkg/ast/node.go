@@ -50,6 +50,21 @@ func (n *Union) GetPosition() *position.Position {
 	return n.Position
 }
 
+// Intersection node is Expr&Expr1&...
+type Intersection struct {
+	Position      *position.Position
+	Types         []Vertex
+	SeparatorTkns []*token.Token
+}
+
+func (n *Intersection) Accept(v Visitor) {
+	v.Intersection(n)
+}
+
+func (n *Intersection) GetPosition() *position.Position {
+	return n.Position
+}
+
 // Parameter node
 type Parameter struct {
 	Position     *position.Position

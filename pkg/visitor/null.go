@@ -50,6 +50,10 @@ func (v *Null) Union(_ *ast.Union) {
 	// do nothing
 }
 
+func (v *Null) Intersection(_ *ast.Intersection) {
+	// do nothing
+}
+
 func (v *Null) Attribute(_ *ast.Attribute) {
 	// do nothing
 }

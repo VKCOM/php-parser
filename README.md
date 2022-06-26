@@ -14,7 +14,7 @@ This project uses [goyacc](https://godoc.org/golang.org/x/tools/cmd/goyacc) and 
 Features
 ---------
 
-- Fully support PHP 5, PHP 7 and PHP 8.0 syntax
+- Fully support PHP 5, PHP 7 and PHP 8.0-8.2 syntax
 - Abstract syntax tree (AST) representation
 - Traversing AST
 - Resolving namespace names

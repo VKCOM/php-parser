@@ -67,7 +67,7 @@ func (lex *Lexer) Lex() *token.Token {
         varname_second = varname_first | [0-9];
         varname       = varname_first (varname_second)*;
         heredoc_label = varname >heredoc_lbl_start %heredoc_lbl_end;
-        operators     = ';'|':'|','|'.'|'['|']'|'('|')'|'|'|'/'|'^'|'&'|'+'|'-'|'*'|'='|'%'|'!'|'~'|'$'|'<'|'>'|'?'|'@';
+        operators     = ';'|':'|','|'.'|'['|']'|'('|')'|'|'|'/'|'^'|'+'|'-'|'*'|'='|'%'|'!'|'~'|'$'|'<'|'>'|'?'|'@';
 
         prepush { lex.growCallStack(); }
 
@@ -295,7 +295,6 @@ func (lex *Lexer) Lex() *token.Token {
             'or'i                             => {lex.setTokenPosition(tkn); tok = token.T_LOGICAL_OR; fbreak;};
             'xor'i                            => {lex.setTokenPosition(tkn); tok = token.T_LOGICAL_XOR; fbreak;};
             '#['                              => {lex.setTokenPosition(tkn); tok = token.T_ATTRIBUTE; fbreak;};
-            '...'                             => {lex.setTokenPosition(tkn); tok = token.T_ELLIPSIS; fbreak;};
             '::'                              => {lex.setTokenPosition(tkn); tok = token.T_PAAMAYIM_NEKUDOTAYIM; fbreak;};
             '&&'                              => {lex.setTokenPosition(tkn); tok = token.T_BOOLEAN_AND; fbreak;};
             '||'                              => {lex.setTokenPosition(tkn); tok = token.T_BOOLEAN_OR; fbreak;};
@@ -370,6 +369,12 @@ func (lex *Lexer) Lex() *token.Token {
                 fbreak;
             };
 
+            "&" whitespace_line* '$'    => { lex.ungetWhile('&'); lex.setTokenPosition(tkn); tok = token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG; fbreak; };
+            "&" whitespace_line* '...'  => { lex.ungetWhile('&'); lex.setTokenPosition(tkn); tok = token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG; fbreak; };
+            "&" whitespace_line* ^'$'   => { lex.ungetWhile('&'); lex.setTokenPosition(tkn); tok = token.T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG; fbreak; };
+            "&" whitespace_line* ^'...' => { lex.ungetWhile('&'); lex.setTokenPosition(tkn); tok = token.T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG; fbreak; };
+
+            '...'        => { lex.setTokenPosition(tkn); tok = token.T_ELLIPSIS; fbreak; };
             "{"          => { lex.setTokenPosition(tkn); tok = token.ID(int('{')); lex.call(ftargs, fentry(php)); goto _out; };
             "}"          => { lex.setTokenPosition(tkn); tok = token.ID(int('}')); lex.ret(1); goto _out;};
             "$" varname  => { lex.setTokenPosition(tkn); tok = token.T_VARIABLE; fbreak; };

@@ -789,6 +789,24 @@ func (b *Builder) NewUnionType(
 	}
 }
 
+func (b *Builder) NewIntersectionType(
+	Types ast.Vertex,
+) *ast.Intersection {
+	var types []ast.Vertex
+	var sepTkns []*token.Token
+	if Types != nil {
+		cases := Types.(*ParserSeparatedList)
+		types = cases.Items
+		sepTkns = cases.SeparatorTkns
+	}
+
+	return &ast.Intersection{
+		Position:      b.Pos.NewNodeListPosition(types),
+		Types:         types,
+		SeparatorTkns: sepTkns,
+	}
+}
+
 func (b *Builder) NewReturnType(
 	ColonTkn *token.Token,
 	Type ast.Vertex,

@@ -322,3 +322,114 @@ enum C: int implements Bar {}
 
 	suite.Run()
 }
+
+func TestIntersectionTypes(t *testing.T) {
+	suite := tester.NewParserDumpTestSuite(t)
+	suite.UsePHP8()
+	suite.Code = `<?php
+class Test {
+    public A&B $prop;
+}
+
+function test(A&B $a): A&B {}
+`
+
+	suite.Expected = `&ast.Root{
+	Stmts: []ast.Vertex{
+		&ast.StmtClass{
+			Name: &ast.Identifier{
+				Val: []byte("Test"),
+			},
+			Stmts: []ast.Vertex{
+				&ast.StmtPropertyList{
+					Modifiers: []ast.Vertex{
+						&ast.Identifier{
+							Val: []byte("public"),
+						},
+					},
+					Type: &ast.Intersection{
+						Types: []ast.Vertex{
+							&ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										Val: []byte("A"),
+									},
+								},
+							},
+							&ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										Val: []byte("B"),
+									},
+								},
+							},
+						},
+					},
+					Props: []ast.Vertex{
+						&ast.StmtProperty{
+							Var: &ast.ExprVariable{
+								Name: &ast.Identifier{
+									Val: []byte("$prop"),
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+		&ast.StmtFunction{
+			Name: &ast.Identifier{
+				Val: []byte("test"),
+			},
+			Params: []ast.Vertex{
+				&ast.Parameter{
+					Type: &ast.Intersection{
+						Types: []ast.Vertex{
+							&ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										Val: []byte("A"),
+									},
+								},
+							},
+							&ast.Name{
+								Parts: []ast.Vertex{
+									&ast.NamePart{
+										Val: []byte("B"),
+									},
+								},
+							},
+						},
+					},
+					Var: &ast.ExprVariable{
+						Name: &ast.Identifier{
+							Val: []byte("$a"),
+						},
+					},
+				},
+			},
+			ReturnType: &ast.Intersection{
+				Types: []ast.Vertex{
+					&ast.Name{
+						Parts: []ast.Vertex{
+							&ast.NamePart{
+								Val: []byte("A"),
+							},
+						},
+					},
+					&ast.Name{
+						Parts: []ast.Vertex{
+							&ast.NamePart{
+								Val: []byte("B"),
+							},
+						},
+					},
+				},
+			},
+			Stmts: []ast.Vertex{},
+		},
+	},
+},`
+
+	suite.Run()
+}

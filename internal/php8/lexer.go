@@ -227,6 +227,21 @@ func (lex *Lexer) ungetCnt(n int) {
 	lex.te = lex.te - n
 }
 
+func (lex *Lexer) ungetWhile(s byte) {
+	for i := 0; i < 100; i++ {
+		v := lex.data[lex.te]
+		if v == s {
+			break
+		}
+
+		lex.te--
+		lex.p--
+	}
+
+	lex.te++
+	lex.p++
+}
+
 func (lex *Lexer) error(msg string) {
 	if lex.errHandlerFunc == nil {
 		return

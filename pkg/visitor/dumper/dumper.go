@@ -261,6 +261,17 @@ func (v *Dumper) Union(n *ast.Union) {
 	v.print(v.indent, "},\n")
 }
 
+func (v *Dumper) Intersection(n *ast.Intersection) {
+	v.print(0, "&ast.Intersection{\n")
+	v.indent++
+
+	v.dumpPosition(n.Position)
+	v.dumpVertexList("Types", n.Types)
+	v.dumpTokenList("SeparatorTkns", n.SeparatorTkns)
+
+	v.indent--
+	v.print(v.indent, "},\n")
+}
 func (v *Dumper) Attribute(n *ast.Attribute) {
 	v.print(0, "&ast.Attribute{\n")
 	v.indent++

@@ -1972,7 +1972,7 @@ func TestPhp8ParameterNode(t *testing.T) {
 							},
 						},
 						AmpersandTkn: &token.Token{
-							ID:    token.ID(38),
+							ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
 							Value: []byte("&"),
 							Position: &position.Position{
 								StartLine: 2,
@@ -2453,7 +2453,7 @@ func TestPhp8ParameterNode(t *testing.T) {
 									},
 								},
 								AmpersandTkn: &token.Token{
-									ID:    token.ID(38),
+									ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
 									Value: []byte("&"),
 									Position: &position.Position{
 										StartLine: 3,
@@ -2826,7 +2826,7 @@ func TestPhp8ParameterNode(t *testing.T) {
 								},
 							},
 							AmpersandTkn: &token.Token{
-								ID:    token.ID(38),
+								ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
 								Value: []byte("&"),
 								Position: &position.Position{
 									StartLine: 4,
@@ -3212,7 +3212,7 @@ func TestPhp8ParameterNode(t *testing.T) {
 								},
 							},
 							AmpersandTkn: &token.Token{
-								ID:    token.ID(38),
+								ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
 								Value: []byte("&"),
 								Position: &position.Position{
 									StartLine: 5,
@@ -10102,7 +10102,7 @@ func TestStmtClassMethod_Php8ClassMethod(t *testing.T) {
 							},
 						},
 						AmpersandTkn: &token.Token{
-							ID:    token.ID(38),
+							ID:    token.T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG,
 							Value: []byte("&"),
 							Position: &position.Position{
 								StartLine: 1,
@@ -16870,7 +16870,7 @@ func TestStmtForeach_WithRef(t *testing.T) {
 					},
 				},
 				AmpersandTkn: &token.Token{
-					ID:    token.ID(38),
+					ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
 					Value: []byte("&"),
 					Position: &position.Position{
 						StartLine: 1,
@@ -18087,7 +18087,7 @@ func TestStmtFunction_Ref(t *testing.T) {
 					},
 				},
 				AmpersandTkn: &token.Token{
-					ID:    token.ID(38),
+					ID:    token.T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG,
 					Value: []byte("&"),
 					Position: &position.Position{
 						StartLine: 1,
@@ -18309,7 +18309,7 @@ func TestStmtFunction_ReturnType(t *testing.T) {
 					},
 				},
 				AmpersandTkn: &token.Token{
-					ID:    token.ID(38),
+					ID:    token.T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG,
 					Value: []byte("&"),
 					Position: &position.Position{
 						StartLine: 1,
@@ -35439,7 +35439,7 @@ func TestExprArray_Items(t *testing.T) {
 								EndPos:    18,
 							},
 							AmpersandTkn: &token.Token{
-								ID:    token.ID(38),
+								ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
 								Value: []byte("&"),
 								Position: &position.Position{
 									StartLine: 1,
@@ -35929,7 +35929,7 @@ func TestExprArrowFunction_ReturnType(t *testing.T) {
 						},
 					},
 					AmpersandTkn: &token.Token{
-						ID:    token.ID(38),
+						ID:    token.T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG,
 						Value: []byte("&"),
 						Position: &position.Position{
 							StartLine: 1,
@@ -37273,7 +37273,7 @@ func TestExprClosure_Use(t *testing.T) {
 								EndPos:    32,
 							},
 							AmpersandTkn: &token.Token{
-								ID:    token.ID(38),
+								ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
 								Value: []byte("&"),
 								Position: &position.Position{
 									StartLine: 1,
@@ -37633,7 +37633,7 @@ func TestExprClosure_Use2(t *testing.T) {
 								EndPos:    28,
 							},
 							AmpersandTkn: &token.Token{
-								ID:    token.ID(38),
+								ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
 								Value: []byte("&"),
 								Position: &position.Position{
 									StartLine: 1,
@@ -45056,7 +45056,7 @@ func TestExprShortArray_Items(t *testing.T) {
 								EndPos:    13,
 							},
 							AmpersandTkn: &token.Token{
-								ID:    token.ID(38),
+								ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
 								Value: []byte("&"),
 								Position: &position.Position{
 									StartLine: 1,
@@ -49734,7 +49734,7 @@ func TestExprAssign_Assign(t *testing.T) {
 						},
 					},
 					AmpersandTkn: &token.Token{
-						ID:    token.ID(38),
+						ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
 						Value: []byte("&"),
 						Position: &position.Position{
 							StartLine: 3,
@@ -49870,7 +49870,7 @@ func TestExprAssign_Assign(t *testing.T) {
 						},
 					},
 					AmpersandTkn: &token.Token{
-						ID:    token.ID(38),
+						ID:    token.T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG,
 						Value: []byte("&"),
 						Position: &position.Position{
 							StartLine: 4,
@@ -50038,7 +50038,7 @@ func TestExprAssign_Assign(t *testing.T) {
 						},
 					},
 					AmpersandTkn: &token.Token{
-						ID:    token.ID(38),
+						ID:    token.T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG,
 						Value: []byte("&"),
 						Position: &position.Position{
 							StartLine: 5,
@@ -51946,7 +51946,7 @@ func TestExprBinary_BitwiseAnd(t *testing.T) {
 						},
 					},
 					OpTkn: &token.Token{
-						ID:    token.ID(38),
+						ID:    token.T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG,
 						Value: []byte("&"),
 						Position: &position.Position{
 							StartLine: 2,

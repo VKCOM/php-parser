@@ -104,3 +104,13 @@ $foo = $closure->__invoke(...);
 // new Foo(...); // not working
 `)
 }
+
+func TestIntersectionTypesSyntaxPHP81(t *testing.T) {
+	tester.NewParserPrintTestSuite(t).UsePHP8().Run(`<?php
+class Test {
+    public A&B $prop;
+}
+
+function test(A&B $a): A&B {}
+`)
+}

@@ -317,7 +317,7 @@ func TestTokens(t *testing.T) {
 		token.ID(int('|')).String(),
 		token.ID(int('/')).String(),
 		token.ID(int('^')).String(),
-		token.ID(int('&')).String(),
+		token.ID(T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG).String(),
 		token.ID(int('+')).String(),
 		token.ID(int('-')).String(),
 		token.ID(int('*')).String(),

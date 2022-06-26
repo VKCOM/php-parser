@@ -1,4 +1,4 @@
-> This is a fork of the [z7zmey](https://github.com/z7zmey) [parser](https://github.com/VKCOM/php-parser) that adds PHP 8 support.
+> This is a fork of the [z7zmey](https://github.com/z7zmey) [parser](https://github.com/z7zmey/php-parser) that adds PHP 8 support.
 
 PHP Parser written in Go
 ========================

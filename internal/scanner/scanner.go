@@ -2277,7 +2277,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -2302,7 +2302,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -2430,7 +2430,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -2448,7 +2448,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -2475,7 +2475,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -2489,7 +2489,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -2613,7 +2613,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -2632,7 +2632,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -4832,7 +4832,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -4849,7 +4849,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -4879,7 +4879,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -4893,7 +4893,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -4915,7 +4915,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -4983,7 +4983,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -5078,7 +5078,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -5096,7 +5096,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -5162,7 +5162,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -5176,7 +5176,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -5332,7 +5332,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -6349,7 +6349,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -6367,7 +6367,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -6394,7 +6394,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -6408,7 +6408,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -6680,7 +6680,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -6694,7 +6694,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -6726,7 +6726,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -6740,7 +6740,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -6794,7 +6794,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -6813,7 +6813,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -6971,7 +6971,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -6985,7 +6985,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -7004,7 +7004,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -7018,7 +7018,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -7212,7 +7212,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -7231,7 +7231,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -15195,7 +15195,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -15209,7 +15209,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -15243,7 +15243,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -15257,7 +15257,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -17452,7 +17452,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -17469,7 +17469,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -17499,7 +17499,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -17513,7 +17513,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -17535,7 +17535,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -17786,7 +17786,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -17800,7 +17800,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -17866,7 +17866,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -17880,7 +17880,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -18230,7 +18230,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -18244,7 +18244,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -18310,7 +18310,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -18324,7 +18324,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -18846,7 +18846,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -18860,7 +18860,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -18926,7 +18926,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -18940,7 +18940,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -19503,7 +19503,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -19517,7 +19517,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -19583,7 +19583,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -19597,7 +19597,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -20328,7 +20328,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -20347,7 +20347,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -20820,7 +20820,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -20837,7 +20837,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -20867,7 +20867,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -20881,7 +20881,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -20903,7 +20903,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -21042,7 +21042,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -21059,7 +21059,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -21089,7 +21089,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -21103,7 +21103,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -21125,7 +21125,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -21264,7 +21264,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -21281,7 +21281,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -21311,7 +21311,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -21325,7 +21325,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -21347,7 +21347,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -21455,7 +21455,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -21469,7 +21469,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -21494,7 +21494,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
@@ -21508,7 +21508,7 @@ func (lex *Lexer) Lex() *token.Token {
 			lex.newLines.Append(lex.p + 1)
 		}
 
-		if lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
+		if len(lex.data) > lex.p+1 && lex.data[lex.p] == '\r' && lex.data[lex.p+1] != '\n' {
 			lex.newLines.Append(lex.p + 1)
 		}
 
